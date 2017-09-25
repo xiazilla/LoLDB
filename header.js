@@ -24,8 +24,8 @@
                             '<a href="index.html" >Home</a>'+
                         '</li>'+
                         '<li><a href="champions.html">Champions</a></li>'+
+			'<li><a href="items.html">Items</a></li>'+
                         '<li><a href="matches.html">Matches</a></li>'+
-                        '<li><a href="items.html">Items</a></li>'+
                         '<li class="dropdown">'+
                             '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Game Modes<span class="caret"></span></a>'+
                             '<div class="dropdown-menu">'+
