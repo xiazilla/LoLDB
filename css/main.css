@@ -302,9 +302,6 @@ figure {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.04), 0 2px 10px 0 rgba(0, 0, 0, 0.06);
 }
 
-figure .match_row {
-
-}
 
 .table {
   margin: 0 0 40px 0;
@@ -1257,13 +1254,19 @@ ul.tree li:last-child:before {
   border-left:1px solid rgb(100,100,100);   
 }*/
 table {
-    width:100%;
+    width:64%;
 }
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
+td, th {
+    border: 1px solid #dddddd;
+    text-align: middle;
+    padding: 10px;
 }
-th, td {
-    padding: 2px;
-    text-align: left;
+th {
+    background-color: #ffffff;
 }
+tr {
+    background-color: #dddddd;
+}
+tr:hover {
+  cursor: pointer;
+};
