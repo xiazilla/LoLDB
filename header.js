@@ -24,18 +24,9 @@
                             '<a href="index.html" >Home</a>'+
                         '</li>'+
                         '<li><a href="champions.html">Champions</a></li>'+
-			'<li><a href="items.html">Items</a></li>'+
+			            '<li><a href="items.html">Items</a></li>'+
                         '<li><a href="matches.html">Matches</a></li>'+
-                        '<li class="dropdown">'+
-                            '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Game Modes<span class="caret"></span></a>'+
-                            '<div class="dropdown-menu">'+
-                                '<ul>'+
-                                    '<li><a href="summoners-rift.html">Summoner\'s Rift</a></li>'+
-                                    '<li><a href="twisted-treeline.html">Twisted Treeline</a></li>'+
-                                    '<li><a href="howling-abyss.html">Howling Abyss</a></li>'+
-                                '</ul>'+
-                            '</div>'+
-                        '</li>'+
+                        '<li><a href="game-modes.html">Game Modes</a></li>'+
                         '<li><a href="about.html">About</a></li>'+
                     '</ul>'+
                 '</div>'+
