@@ -1,0 +1,334 @@
+FORMAT: 1A
+HOST: LoLDatabaseAPI
+
+# LoLDatabaseAPI
+
+LoLDatabaseAPI is a simple and friendly to use API allowing the League of Legends developer community to access to all League of Legend game data in the most convenient way possible.
+
+## Get All Champions [/champions]
+
+### /champions [GET]
+
+Fetches info for all champions
+
++ Response 200 (application/json)
+
+        "example": [
+            {
+                "id": "Aatrox",
+                "recommended" : 
+                    "items": [
+                        {
+                            "count": 1,
+                            "id": "Duskbalde"
+                        },
+                        {
+                            "count": 1,
+                            "id": "BoTRK"
+                        },
+                        {
+                            "count": 3,
+                            "id": "Potions"
+                        }
+                    ],
+                "Lore": "..."
+                "GameModes": {
+                    "Normals": true,
+                    "Ranked": true,
+                    "ARAM": true,
+                }
+            },
+            {
+                "id": "4293472123",
+                "recommended" : 
+                    "items": [
+                        {
+                            "count": 1,
+                            "id": "Duskbalde"
+                        },
+                        {
+                            "count": 1,
+                            "id": "BoTRK"
+                        },
+                        {
+                            "count": 3,
+                            "id": "Potions"
+                        }
+                    ],
+                "Lore": "..."
+                "GameModes": [
+                    "Normals": true,
+                    "Ranked": true,
+                    "ARAM": true,
+                ]
+            },
+            {
+                "etc.." : info
+            }
+        ]
+
+## Get Specific Champion [/champions/{champion}]
+
+### /champions/{champion} [GET]
+
+Fetches info for a specific champion
+
++ Parameters
+    + champion - champion name in all lower case no spaces
+
+
++ Response 200 (application/json)
+
+        "example": [
+            {
+                "id": "Aatrox",
+                "recommended" : 
+                    "items": [
+                        {
+                            "count": 1,
+                            "name": "BoTRK"
+                        },
+                        {
+                            "count": 1,
+                            "id": "Duskblade"
+                        },
+                        {
+                            "count": 3,
+                            "id": "Potions"
+                        }
+                    ],
+                "Lore" : "..."
+                "GameModes": {
+                    "Normals": true,
+                    "Ranked": true,
+                    "ARAM": true,
+                    "StarGaurdian": false
+                }
+            }
+        ]
+        
+## Get All Items [/items]
+
+### /items [GET]
+
+Fetches info for items
+
++ Response 200 (application/json)
+
+        "example": [
+            "Morellonomicon": {
+                "frequentlyBuiltOn": [
+                    "Karma",
+                    "Annie
+                ],
+                "Maps": {
+                    "SummonersRift": true,
+                    "HowlingAbyss": true,
+                    "TheDarkStarRises": false
+                },
+                "description": "<stats>+100 Ability Power<br><mana>+400 Mana</mana></stats><br><br><unique>UNIQUE Passive:</unique> +20% Cooldown Reduction<br><unique>UNIQUE Passive:</unique> Dealing magic damage to champions below 35% Health inflicts <a href='GrievousWounds'>Grievous Wounds</a> for 8 seconds.<br><unique>UNIQUE Passive:</unique> Kills and Assists restore 20% of your maximum Mana.",
+                "plaintext": "Greatly increases Ability Power and Cooldown Reduction",
+                "sanitizedDescription": "+100 Ability Power +400 Mana UNIQUE Passive: +20% Cooldown Reduction UNIQUE Passive: Dealing magic damage to champions below 35% Health inflicts Grievous Wounds for 8 seconds. UNIQUE Passive: Kills and Assists restore 20% of your maximum Mana.",
+                "id": 3165,
+                "name": "Morellonomicon"
+            },
+            "Moonflair Spellblade": {
+                "frequentlyBuiltOn": [
+                    "Riven",
+                    "Malphite"
+                ],
+                "Maps": {
+                    "SummonersRift": true,
+                    "HowlingAbyss": true,
+                    "TheDarkStarRises": false
+                },
+                "description": "<stats>+50 Ability Power<br>+50 Armor<br>+50 Magic Resist</stats><br><br><unique>UNIQUE Passive - Tenacity:</unique> Reduces the duration of stuns, slows, taunts, fears, silences, blinds, polymorphs, and immobilizes by 35%.",
+                "sanitizedDescription": "+50 Ability Power +50 Armor +50 Magic Resist UNIQUE Passive - Tenacity: Reduces the duration of stuns, slows, taunts, fears, silences, blinds, polymorphs, and immobilizes by 35%.",
+                "id": 3170,
+                "name": "Moonflair Spellblade"
+            }, {
+                "etc....": "iteminfo"
+            }
+        ]
+ 
+ 
+## Game Mode [/gameModes/{gameMode}]
+    
+### /gameModes/{gameMode} [GET]
+
+Fetches info for a game mode
+
++ Parameter
+    + gameMode - String game mode all lower case, using dashes instead of space
+    
++ Response 200 (applicaton/json)
+    
+        "example": [
+            "The Dark Star Rises": {
+                "Playable Champions": [
+                    "Thresh"
+                ],
+                "Items": [
+                    "None"
+                ],
+                "SummonerSpells": [
+                    "None"
+                ],
+                "Lore": "Thresh spooky"
+            }, 
+            "Summoners Rift": {
+                "Playable Champions": [
+                    "Lux",
+                    "Aatrox",
+                    "Caitlyn",
+                    "etc."
+                ],
+                "Items": [
+                    "Duskblade",
+                    "BoTRK",
+                    "etc."
+                ],
+                "Lore": "will populate with real lore" 
+            }
+        ]
+ 
+ 
+ 
+ 
+        
+## Get a specific item [/items/{item}]
+
+### /items/{item} [GET]
+
+Fetches info for a specific item
+
++ Parameter
+    + item - item name with no spaces and lowercase
+    
++ Response 200 (application/json)
+
+        "example" : [
+            "Morellonomicon": {
+                "frequentlyBuiltOn": [
+                    "ID": "Karma",
+                    "ID": "Annie"
+                ],
+                "Maps": {
+                    "SummonersRift": true,
+                    "HowlingAbyss": true,
+                    "TheDarkStarRises": false
+                },
+                "description": "<stats>+100 Ability Power<br><mana>+400 Mana</mana></stats><br><br><unique>UNIQUE Passive:</unique> +20% Cooldown Reduction<br><unique>UNIQUE Passive:</unique> Dealing magic damage to champions below 35% Health inflicts <a href='GrievousWounds'>Grievous Wounds</a> for 8 seconds.<br><unique>UNIQUE Passive:</unique> Kills and Assists restore 20% of your maximum Mana.",
+                "plaintext": "Greatly increases Ability Power and Cooldown Reduction",
+                "sanitizedDescription": "+100 Ability Power +400 Mana UNIQUE Passive: +20% Cooldown Reduction UNIQUE Passive: Dealing magic damage to champions below 35% Health inflicts Grievous Wounds for 8 seconds. UNIQUE Passive: Kills and Assists restore 20% of your maximum Mana.",
+                "id": 3165,
+                "name": "Morellonomicon"
+            }
+        ]
+        
+## Summoner's Match History [/summoner/matchHistory/{summonerName}]
+
+### /summoner/matchHistory/{summonerName} [GET]
+
+Fetches recent match history for a summoner
+
++ Parameter 
+    + summonerName - fetch match history for this specific summoner
+    
++ Response 200 (application/json)
+    
+        "matches" : [
+            {
+                "lane": "MID",
+                "champion": "Annie",
+                "MatchID": 218533808,
+                "Map": "HowlingAbyss",
+                "GameMode": "ARAM",
+                "Items": [
+                    {
+                        "ID": "Doran's Ring",
+                        "Count": 1
+                    }, 
+                    {
+                        "ID": "Luden's Echo",
+                        "Count": 1
+                    },
+                    {
+                        "ID": "Redemption",
+                        "Count": 1
+                    }
+                ]
+            },
+            {
+                "lane": "JUNGLE",
+                "champion": "Hecarim",
+                "MatchID": 4819434182,
+                "Map": "HowlingAbyss",
+                "GameMode": "ARAM",
+                "Items": [
+                    {
+                        "ID": "Cinderhulk",
+                        "count": 1
+                    },    
+                    {
+                        "ID": "Warmog's Armor",
+                        "count": 1
+                    }, 
+                    {
+                        "ID": "Yap Yap Item",
+                        "count": 1
+                    }
+                ]
+            },
+            {
+                "etc...", 1234
+            }
+        ]
+
+## Match Details [/matches/matchHistory/{matchID}]
+
+### /matches/matchHistory/{matchID} [GET]
+
+Fetches details about a specific match.
+
++ Parameter
+    + matchID - ID of the match you are looking up
+
++ Response 200 (application/json)
+    
+        "example": [
+            "matchDetails": {
+                "MatchID: 4819434182,
+                "Participants": {
+                    "Participant1": {
+                        "champion": "Annie",
+                        "summonerID": 4819434182,
+                        "Items": [
+                            {
+                                "ID": "Doran's Ring",
+                                "count": 1
+                            },
+                            {
+                                "ID": "Manamune",
+                                "count": 1
+                            },
+                            {
+                                "ID": "Zhonya's Hourglass",
+                                "count": 1
+                            }
+                        ]
+                    },
+                    "Participant2": {
+                        "etc....." : "adsfasd"
+                    },
+                    ...
+                },
+                "Map": "Summoner's Rift",
+                "Game Mode": "ARAM",
+                "TimeLength": 30:21,
+                "Winning Team": "Blue",
+                "MatchDetails: [
+                    ...
+                ]
+            }
+        ]
