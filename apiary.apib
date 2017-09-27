@@ -1,0 +1,305 @@
+FORMAT: 1A
+HOST: LoLDatabaseAPI
+
+# LoLDatabaseAPI
+
+LoLDatabaseAPI is a simple and friendly to use API allowing the League of Legends developer community to access to all League of Legend game data in the most convenient way possible.
+
+## Get All Champions [/champions]
+
+### /champions [GET]
+
+Returns info for all champions
+
++ Response 200 (application/json)
+
+        "example": [
+            {
+                "rankedPlayEnabled": true,
+                "botEnabled": false,
+                "botMmEnabled": false,
+                "active": true,
+                "freeToPlay": false,
+                "id": "Champion1",
+                "recommended" : 
+                    "items": [
+                        {
+                            "count": 1,
+                            "id": 3112
+                        },
+                        {
+                            "count": 1,
+                            "id": 1001
+                        },
+                        {
+                            "count": 3,
+                            "id": 2003
+                        }
+                    ],
+                "active": true
+            },
+            {
+                "rankedPlayEnabled": true,
+                "botEnabled": false,
+                "botMmEnabled": false,
+                "active": true,
+                "freeToPlay": false,
+                "id": "Champion2",
+                "recommended" : 
+                    "items": [
+                        {
+                            "count": 1,
+                            "id": 1234
+                        },
+                        {
+                            "count": 1,
+                            "id": 3242
+                        },
+                        {
+                            "count": 3,
+                            "id": 1232
+                        }
+                    ],
+                "active": true
+            },
+            {
+                "etc.." : info
+            }
+        ]
+
+## Get Specific Champion [/champions/{champion}]
+
+### /champions/{champion} [GET]
+
+Returns info for a specific champion
+
++ Parameters
+    + champion - champion name in all lower case no spaces
+
+
++ Response 200 (application/json)
+
+        "example": [
+            {
+                "rankedPlayEnabled": true,
+                "botEnabled": false,
+                "botMmEnabled": false,
+                "active": true,
+                "freeToPlay": false,
+                "id": "Champion1",
+                "recommended" : 
+                    "items": [
+                        {
+                            "count": 1,
+                            "id": 3112
+                        },
+                        {
+                            "count": 1,
+                            "id": 1001
+                        },
+                        {
+                            "count": 3,
+                            "id": 2003
+                        }
+                    ],
+                "active": true
+            }
+        ]
+        
+## Get All Items [/items]
+
+### /items [GET]
+
+Returns info for items
+
++ Response 200 (application/json)
+
+        "example": [
+            "Morellonomicon": {
+                "from": [
+                    "3108",
+                    "1052",
+                    "3802"
+                ],
+                "description": "<stats>+100 Ability Power<br><mana>+400 Mana</mana></stats><br><br><unique>UNIQUE Passive:</unique> +20% Cooldown Reduction<br><unique>UNIQUE Passive:</unique> Dealing magic damage to champions below 35% Health inflicts <a href='GrievousWounds'>Grievous Wounds</a> for 8 seconds.<br><unique>UNIQUE Passive:</unique> Kills and Assists restore 20% of your maximum Mana.",
+                "gold": {
+                    "total": 2900,
+                    "sell": 2030,
+                    "base": 665,
+                    "purchasable": true
+                },
+                "tags": [
+                    "SpellDamage",
+                    "Mana",
+                    "ManaRegen",
+                    "CooldownReduction"
+                ],
+                "plaintext": "Greatly increases Ability Power and Cooldown Reduction",
+                "sanitizedDescription": "+100 Ability Power +400 Mana UNIQUE Passive: +20% Cooldown Reduction UNIQUE Passive: Dealing magic damage to champions below 35% Health inflicts Grievous Wounds for 8 seconds. UNIQUE Passive: Kills and Assists restore 20% of your maximum Mana.",
+                "id": 3165,
+                "name": "Morellonomicon"
+            },
+            "Moonflair Spellblade": {
+                "from": [
+                    "3191",
+                    "1057"
+                ],
+                "description": "<stats>+50 Ability Power<br>+50 Armor<br>+50 Magic Resist</stats><br><br><unique>UNIQUE Passive - Tenacity:</unique> Reduces the duration of stuns, slows, taunts, fears, silences, blinds, polymorphs, and immobilizes by 35%.",
+                "gold": {
+                    "total": 2500,
+                    "sell": 1750,
+                    "base": 580,
+                    "purchasable": true
+                },
+                "tags": [
+                    "Armor",
+                    "SpellBlock",
+                    "SpellDamage",
+                    "Tenacity"
+                ],
+                "plaintext": "Improves defense and reduces duration of disabling effects",
+                "sanitizedDescription": "+50 Ability Power +50 Armor +50 Magic Resist UNIQUE Passive - Tenacity: Reduces the duration of stuns, slows, taunts, fears, silences, blinds, polymorphs, and immobilizes by 35%.",
+                "id": 3170,
+                "name": "Moonflair Spellblade"
+            }, {
+                "etc....": "iteminfo"
+            }
+        ]
+ 
+ 
+## Game Mode [/gameModes/{gameMode}]
+    
+### /gameModes/{gameMode} [GET]
+
+Return info for a game mode
+
++ Parameter
+    + gameMode - String game mode all lower case, using dashes instead of space
+    
++ Response 200 (applicaton/json)
+    
+        "example" : [
+            "The Dark Star Rises": {
+                "FunLevel": "Not Very",
+                "Playable Champions" : "Thresh",
+                "Items": [],
+                "SummonerSpells": []
+            }, 
+            "Summoners Rift": {
+                "etc": "..."
+            }
+        ]
+ 
+ 
+ 
+ 
+        
+## Get a specific item [/items/{item}]
+
+### /items/{item} [GET]
+
+Return info for a specific item
+
++ Parameter
+    + item - item name with no spaces and lowercase
+    
++ Response 200 (application/json)
+
+        "example" : [
+            "Morellonomicon": {
+                "from": [
+                    "3108",
+                    "1052",
+                    "3802"
+                ],
+                "description": "<stats>+100 Ability Power<br><mana>+400 Mana</mana></stats><br><br><unique>UNIQUE Passive:</unique> +20% Cooldown Reduction<br><unique>UNIQUE Passive:</unique> Dealing magic damage to champions below 35% Health inflicts <a href='GrievousWounds'>Grievous Wounds</a> for 8 seconds.<br><unique>UNIQUE Passive:</unique> Kills and Assists restore 20% of your maximum Mana.",
+                "gold": {
+                    "total": 2900,
+                    "sell": 2030,
+                    "base": 665,
+                    "purchasable": true
+                },
+                "tags": [
+                    "SpellDamage",
+                    "Mana",
+                    "ManaRegen",
+                    "CooldownReduction"
+                ],
+                "plaintext": "Greatly increases Ability Power and Cooldown Reduction",
+                "sanitizedDescription": "+100 Ability Power +400 Mana UNIQUE Passive: +20% Cooldown Reduction UNIQUE Passive: Dealing magic damage to champions below 35% Health inflicts Grievous Wounds for 8 seconds. UNIQUE Passive: Kills and Assists restore 20% of your maximum Mana.",
+                "id": 3165,
+                "name": "Morellonomicon"
+            }
+        ]
+        
+## Summoner's Match History [/summoner/matchHistory/{summonerName}]
+
+### /summoner/matchHistory/{summonerName} [GET]
+
+Returns recent match history for a summoner
+
++ Parameter 
+    + summonerName - fetch match history for this specific summoner
+    
++ Response 200 (application/json)
+    
+        "matches" : [
+            {
+                "lane": "MID",
+                "gameId": 2606708491,
+                "champion": 60,
+                "platformId": "NA1",
+                "timestamp": 1506408727763,
+                "queue": 65,
+                "role": "NONE",
+                "season": 9
+            },
+            {
+                "lane": "MID",
+                "gameId": 2606706891,
+                "champion": 1,
+                "platformId": "NA1",
+                "timestamp": 1506406702009,
+                "queue": 2,
+                "role": "SOLO",
+                "season": 9
+            },
+            {
+                "etc...", 1234
+            }
+        ]
+
+## Match Details [/matches/matchHistory/{matchID}]
+
+### /matches/matchHistory/{matchID} [GET]
+
+Fetches details about a specific match.
+
++ Parameter
+    + matchID - ID of the match you are looking up
+
++ Response 200 (application/json)
+    
+        "example": [
+            "timestamp": 33,
+            "participantFrames": {
+                "1": {
+                    "totalGold": 1400,
+                    "teamScore": 0,
+                    "participantId": 1,
+                    "level": 1,
+                    "currentGold": 1400,
+                    "minionsKilled": 0,
+                    "dominionScore": 0,
+                    "position": {
+                        "y": 1180,
+                        "x": 1103
+                    },
+                    "xp": 0,
+                    "jungleMinionsKilled": 0
+                },
+                "2": {
+                    "etc..." : 0
+                }
+            }
+        ]
