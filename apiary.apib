@@ -16,6 +16,12 @@ Fetches info for all champions
         "example": [
             {
                 "id": "Aatrox",
+                "lore": "Tell me again, ...",
+                "championsStats": [
+                    "health": 1234,
+                    "attackDamage": 341,
+                    ...
+                ]
                 "recommended" : 
                     "items": [
                         {
@@ -67,6 +73,12 @@ Fetches info for all champions
             }
         ]
 
++ Response 404 (application/json)
+
+        { 
+            "error": "Resource not found" 
+        }
+
 ## Get Specific Champion [/champions/{champion}]
 
 ### /champions/{champion} [GET]
@@ -74,7 +86,7 @@ Fetches info for all champions
 Fetches info for a specific champion
 
 + Parameters
-    + champion - champion name in all lower case no spaces
+    + champion (string, required)  - champion name in all lower case no spaces
 
 
 + Response 200 (application/json)
@@ -106,6 +118,12 @@ Fetches info for a specific champion
                 }
             }
         ]
+
++ Response 404 (application/json)
+
+        { 
+            "error": "Resource not found" 
+        }
         
 ## Get All Items [/items]
 
@@ -130,6 +148,11 @@ Fetches info for items
                 "plaintext": "Greatly increases Ability Power and Cooldown Reduction",
                 "sanitizedDescription": "+100 Ability Power +400 Mana UNIQUE Passive: +20% Cooldown Reduction UNIQUE Passive: Dealing magic damage to champions below 35% Health inflicts Grievous Wounds for 8 seconds. UNIQUE Passive: Kills and Assists restore 20% of your maximum Mana.",
                 "id": 3165,
+                "itemTree": [
+                    "FiendishCodex",
+                    "AmplifyingTone",
+                    "LostChapter"
+                ]  
                 "name": "Morellonomicon"
             },
             "Moonflair Spellblade": {
@@ -145,58 +168,24 @@ Fetches info for items
                 "description": "<stats>+50 Ability Power<br>+50 Armor<br>+50 Magic Resist</stats><br><br><unique>UNIQUE Passive - Tenacity:</unique> Reduces the duration of stuns, slows, taunts, fears, silences, blinds, polymorphs, and immobilizes by 35%.",
                 "sanitizedDescription": "+50 Ability Power +50 Armor +50 Magic Resist UNIQUE Passive - Tenacity: Reduces the duration of stuns, slows, taunts, fears, silences, blinds, polymorphs, and immobilizes by 35%.",
                 "id": 3170,
+                "itemTree": [
+                    "SeekersArmguard",
+                    "NegatronCloak"
+                ]  
                 "name": "Moonflair Spellblade"
             }, {
                 "etc....": "iteminfo"
             }
         ]
  
- 
-## Game Mode [/gameModes/{gameMode}]
-    
-### /gameModes/{gameMode} [GET]
++ Response 404 (application/json)
 
-Fetches info for a game mode
-
-+ Parameter
-    + gameMode - String game mode all lower case, using dashes instead of space
-    
-+ Response 200 (applicaton/json)
-    
-        "example": [
-            "The Dark Star Rises": {
-                "Playable Champions": [
-                    "Thresh"
-                ],
-                "Items": [
-                    "None"
-                ],
-                "SummonerSpells": [
-                    "None"
-                ],
-                "Lore": "Thresh spooky"
-            }, 
-            "Summoners Rift": {
-                "Playable Champions": [
-                    "Lux",
-                    "Aatrox",
-                    "Caitlyn",
-                    "etc."
-                ],
-                "Items": [
-                    "Duskblade",
-                    "BoTRK",
-                    "etc."
-                ],
-                "Lore": "will populate with real lore" 
-            }
-        ]
- 
- 
- 
+        { 
+            "error": "Resource not found" 
+        }
  
         
-## Get a specific item [/items/{item}]
+## Get a Specific Item [/items/{item}]
 
 ### /items/{item} [GET]
 
@@ -216,15 +205,71 @@ Fetches info for a specific item
                 "Maps": {
                     "SummonersRift": true,
                     "HowlingAbyss": true,
-                    "TheDarkStarRises": false
+                    "TwistedTreeline": true
                 },
                 "description": "<stats>+100 Ability Power<br><mana>+400 Mana</mana></stats><br><br><unique>UNIQUE Passive:</unique> +20% Cooldown Reduction<br><unique>UNIQUE Passive:</unique> Dealing magic damage to champions below 35% Health inflicts <a href='GrievousWounds'>Grievous Wounds</a> for 8 seconds.<br><unique>UNIQUE Passive:</unique> Kills and Assists restore 20% of your maximum Mana.",
                 "plaintext": "Greatly increases Ability Power and Cooldown Reduction",
                 "sanitizedDescription": "+100 Ability Power +400 Mana UNIQUE Passive: +20% Cooldown Reduction UNIQUE Passive: Dealing magic damage to champions below 35% Health inflicts Grievous Wounds for 8 seconds. UNIQUE Passive: Kills and Assists restore 20% of your maximum Mana.",
                 "id": 3165,
+                "itemTree": [
+                    "FiendishCodex",
+                    "AmplifyingTone",
+                    "LostChapter"
+                ] 
                 "name": "Morellonomicon"
             }
         ]
+
+
++ Response 404 (application/json)
+
+        { 
+            "error": "Resource not found" 
+        }
+
+## Get Game Mode [/gameModes/{gameMode}]
+    
+### /gameModes/{gameMode} [GET]
+
+Fetches info for a game mode
+
++ Parameter
+    + gameMode (number, required) - String game mode all lower case, using dashes instead of space
+        1. Summoner's Rift
+        2. Howling Abyss
+        3. Twisted Treeline
+    
++ Response 200 (applicaton/json)
+    
+        "example": [
+            "Summoners Rift": {
+                "MapImg": "http://url.png"
+                "Lore": "will populate with real lore",
+                "InGameDescription": "The newest and most...",
+                "Versions": [
+                    "Summer Version": "It's the first...",
+                    "Winter Version": "A variant of the..."
+                ],
+                "Development": "Summoner Rift evolves...",
+                "Playable Champions": [
+                    "Lux",
+                    "Aatrox",
+                    "Caitlyn",
+                    "etc."
+                ],
+                "Items": [
+                    "Duskblade",
+                    "BoTRK",
+                    "etc."
+                ]
+            }
+        ]
+        
++ Response 404 (application/json)
+
+        { 
+            "error": "Resource not found" 
+        }
         
 ## Summoner's Match History [/summoner/matchHistory/{summonerName}]
 
@@ -285,6 +330,12 @@ Fetches recent match history for a summoner
             }
         ]
 
++ Response 404 (application/json)
+
+        { 
+            "error": "Resource not found" 
+        }
+
 ## Match Details [/matches/matchHistory/{matchID}]
 
 ### /matches/matchHistory/{matchID} [GET]
@@ -292,7 +343,7 @@ Fetches recent match history for a summoner
 Fetches details about a specific match.
 
 + Parameter
-    + matchID - ID of the match you are looking up
+    + matchID (number) - ID of the match you are looking up
 
 + Response 200 (application/json)
     
@@ -332,3 +383,9 @@ Fetches details about a specific match.
                 ]
             }
         ]
+        
++ Response 404 (application/json)
+
+        { 
+            "error": "Resource not found" 
+        }
