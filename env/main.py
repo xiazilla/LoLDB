@@ -122,7 +122,7 @@ def twisted_treeline():
     return render_template('twisted-treeline.html')
 
 @app.route('/howling-abyss.html')
-def howling-abyss():
+def howling_abyss():
     return render_template('howling-abyss.html')    
 
 @app.route('/urgot-single.html')
