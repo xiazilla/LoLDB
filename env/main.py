@@ -121,6 +121,10 @@ def summoners_rift():
 def twisted_treeline():
     return render_template('twisted-treeline.html')
 
+@app.route('/howling-abyss.html')
+def twisted_treeline():
+    return render_template('twisted-treeline.html')    
+
 @app.route('/urgot-single.html')
 def urgot_single():
     return render_template('urgot-single.html')
