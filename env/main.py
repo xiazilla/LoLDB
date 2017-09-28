@@ -28,10 +28,14 @@ app = Flask(__name__)
 
 
 # [START form]
+@app.route('/index.html')
+def index():
+    return render_template('index.html')
+# [END form]
+
 @app.route('/404.html')
 def notFound():
     return render_template('404.html')
-# [END form]
 
 @app.route('/about.html')
 def about():
@@ -64,10 +68,6 @@ def game_modes():
 @app.route('/header.html')
 def header():
     return render_template('header.html')
-
-@app.route('/index.html')
-def index():
-    return render_template('index.html')
 
 @app.route('/items.html')
 def items():
