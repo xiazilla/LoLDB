@@ -5,15 +5,11 @@ HOST: LoLDatabaseAPI
 
 LoLDatabaseAPI is a simple and friendly to use API allowing the League of Legends developer community to access to all League of Legend game data in the most convenient way possible.
 
-## Get All Champions [/champions]
-
-### /champions [GET]
-
-*Description: Fetches a list of Champion DTO's (List[ChampionDTO's])*
+## Champions [/champions]
 
 **Champion DTO:**
 
-*id(long)*: an identifying key for champions (may change to string???)
+*id(long)*: an identifying key for champions
 
 *lore(string)*: background info on that champion
 
@@ -22,7 +18,13 @@ LoLDatabaseAPI is a simple and friendly to use API allowing the League of Legend
 *recommended(List[ItemID])*: provides recommended item build for champion
 
 *gameModes(List[boolean])*: provides a list of gameModes this champion is available on
-    
+ 
+
+
+
+### Get All Champions [GET]
+
+*Description: Fetches a list of Champion DTO's (List[ChampionDTO's])*
 
 + Response 200 (application/json)
 
@@ -96,29 +98,12 @@ LoLDatabaseAPI is a simple and friendly to use API allowing the League of Legend
             "error": "Resource not found" 
         }
 
-## Get Specific Champion [/champions/{champion}]
-
-### /champions/{champion} [GET]
+### Get Specific Champion [GET /champions/{championID}]
 
 *Description: Fetches ChampionDTO for a specific champion.*
 
-**Champion DTO:**
-
-*id(long)*: an identifying key for champions (may change to string???)
-
-*lore(string)*: background info on that champion
-
-*championStats(statDTO)*: provides starting stat info on champion
-
-*recommended(List[ItemID])*: provides recommended item build for champion
-
-*gameModes(List[boolean])*: provides a list of gameModes this champion is available on
- 
-
-
-
 + Parameters
-    + champion (string, required)  - champion name in all lower case no spaces
+    + championID (string, required)  - champion name in all lower case no spaces
 
 
 + Response 200 (application/json)
@@ -162,11 +147,7 @@ LoLDatabaseAPI is a simple and friendly to use API allowing the League of Legend
             "error": "Resource not found" 
         }
         
-## Get All Items [/items]
-
-### /items [GET]
-
-*Description: Fetches info for all items. Returns a List[ItemDTO]*
+## Items [/items]
 
 **Item DTO**
 
@@ -185,6 +166,11 @@ LoLDatabaseAPI is a simple and friendly to use API allowing the League of Legend
 *name(string)*: item name/identifier
 
 *id(long)*: item identifier (might make string???)
+
+### Get All Items [GET]
+
+*Description: Fetches info for all items. Returns a List[ItemDTO]*
+
 
 + Response 200 (application/json)
 
@@ -240,31 +226,11 @@ LoLDatabaseAPI is a simple and friendly to use API allowing the League of Legend
         { 
             "error": "Resource not found" 
         }
- 
-        
-## Get a Specific Item [/items/{item}]
 
-### /items/{item} [GET]
+### Get Specific Item [GET /items/{item}]
 
 *Description: Fetches an ItemDTO for a specific item*
 
-**Item DTO**
-
-*frequentlyBuiltOn(List[string])*: List of champions who frequently build this item
-
-*maps(List[boolean])*: List of maps this item is available on
-
-*description(string)*: Description of item stats
-
-*plainText(string)*: Description of this item
-
-*sanitizedDescription(string)*: Description of stat buff and passive
-
-*itemTree(List[strings])*: List of children items required to build this item
-
-*name(string)*: item name/identifier
-
-*id(long)*: item identifier (might make string???)
 
 
 + Parameter
@@ -304,12 +270,8 @@ LoLDatabaseAPI is a simple and friendly to use API allowing the League of Legend
             "error": "Resource not found" 
         }
 
-## Get Game Mode [/gameModes/{gameMode}]
+## Get Game Mode [/gameModes]
     
-### /gameModes/{gameMode} [GET]
-
-*Description: Fetches list of GameModeDTO's for a game mode*
-
 **GameModeDTO**
 
 *GameModeID(int)*: key for this game mode (unsure if it will remain int or string)
@@ -325,6 +287,11 @@ LoLDatabaseAPI is a simple and friendly to use API allowing the League of Legend
 *PlayableChampions(List[championIDs])*: returns a list of champions you can use on this game mode
 
 *Items(list[ItemID's])*: returns a list of items usable in this game mode
+
+### Get Game Mode Description with Game Mode ID [GET /gameModes/{gameMode}]
+
+*Description: Fetches list of GameModeDTO's for a game mode*
+
 
 + Parameter
     + gameMode (number, required) - String game mode all lower case, using dashes instead of space
@@ -365,11 +332,7 @@ LoLDatabaseAPI is a simple and friendly to use API allowing the League of Legend
             "error": "Resource not found" 
         }
         
-## Summoner's Match History [/summoner/matchHistory/{summonerName}]
-
-### /summoner/matchHistory/{summonerName} [GET]
-
-*Description: Fetches a list of MatchHistoryForSummonerDTO's*
+## Summoner's Match History [/summoner/matchHistory]
 
 **MatcheHistoryForSummonerDTO**
 
@@ -383,6 +346,11 @@ LoLDatabaseAPI is a simple and friendly to use API allowing the League of Legend
 
 *Items(List[itemID])*: returns a list of items this champion bought in this match
 
+
+
+### Get a Summoner's Match History With Summoner ID [GET /summoner/matchHistory/{summonerName}]
+
+*Description: Fetches a list of MatchHistoryForSummonerDTO's*
 
 
 + Parameter 
@@ -444,11 +412,7 @@ LoLDatabaseAPI is a simple and friendly to use API allowing the League of Legend
             "error": "Resource not found" 
         }
 
-## Match Details [/matches/matchHistory/{matchID}]
-
-### /matches/matchHistory/{matchID} [GET]
-
-*Description: Fetches MatchDTO for a specific match.*
+## Match Details [/matches/matchHistory/]
 
 **MatchDTO**
 
@@ -461,6 +425,10 @@ LoLDatabaseAPI is a simple and friendly to use API allowing the League of Legend
 *gameModeID(gameModeID)*: Identifier for the type of game mode
 
 *matchDetails(MatchDetailDTO)*: will include things like match length, winning team, etc.
+
+### Get Match Details With Match ID [GET /matches/matchHistory/{matchID}]
+
+*Description: Fetches MatchDTO for a specific match.*
 
 + Parameter
     + matchID (number) - ID of the match you are looking up
