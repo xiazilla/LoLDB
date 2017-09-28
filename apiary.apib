@@ -9,14 +9,26 @@ LoLDatabaseAPI is a simple and friendly to use API allowing the League of Legend
 
 ### /champions [GET]
 
-Fetches info for all champions
+*Description: Fetches a list of Champion DTO's (List[ChampionDTO's])*
+
+**Champion DTO:**
+
+*id(long)*: an identifying key for champions (may change to string???)
+
+*lore(string)*: background info on that champion
+
+*championStats(statDTO)*: provides starting stat info on champion
+
+*recommended(List[ItemID])*: provides recommended item build for champion
+
+*gameModes(List[boolean])*: provides a list of gameModes this champion is available on
+    
 
 + Response 200 (application/json)
 
-        "example": [
-            {
-                "id": "Aatrox",
-                "lore": "Tell me again, ...",
+        "example": {
+            "Riven": {
+                "id": "1234544321",
                 "championsStats": [
                     "health": 1234,
                     "attackDamage": 341,
@@ -44,8 +56,13 @@ Fetches info for all champions
                     "ARAM": true,
                 }
             },
-            {
+            "Urgot": {
                 "id": "4293472123",
+                "championsStats": [
+                    "health": 1234,
+                    "attackDamage": 341,
+                    ...
+                ]
                 "recommended" : 
                     "items": [
                         {
@@ -71,7 +88,7 @@ Fetches info for all champions
             {
                 "etc.." : info
             }
-        ]
+        }
 
 + Response 404 (application/json)
 
@@ -83,7 +100,22 @@ Fetches info for all champions
 
 ### /champions/{champion} [GET]
 
-Fetches info for a specific champion
+*Description: Fetches ChampionDTO for a specific champion.*
+
+**Champion DTO:**
+
+*id(long)*: an identifying key for champions (may change to string???)
+
+*lore(string)*: background info on that champion
+
+*championStats(statDTO)*: provides starting stat info on champion
+
+*recommended(List[ItemID])*: provides recommended item build for champion
+
+*gameModes(List[boolean])*: provides a list of gameModes this champion is available on
+ 
+
+
 
 + Parameters
     + champion (string, required)  - champion name in all lower case no spaces
@@ -91,9 +123,9 @@ Fetches info for a specific champion
 
 + Response 200 (application/json)
 
-        "example": [
-            {
-                "id": "Aatrox",
+        "example": {
+            "Riven": {
+                "id": "1234452134",
                 "recommended" : 
                     "items": [
                         {
@@ -109,6 +141,11 @@ Fetches info for a specific champion
                             "id": "Potions"
                         }
                     ],
+                "championsStats": [
+                    "health": 1234,
+                    "attackDamage": 341,
+                    ...
+                ]
                 "Lore" : "..."
                 "GameModes": {
                     "Normals": true,
@@ -117,7 +154,7 @@ Fetches info for a specific champion
                     "StarGaurdian": false
                 }
             }
-        ]
+        }
 
 + Response 404 (application/json)
 
@@ -129,7 +166,25 @@ Fetches info for a specific champion
 
 ### /items [GET]
 
-Fetches info for items
+*Description: Fetches info for all items. Returns a List[ItemDTO]*
+
+**Item DTO**
+
+*frequentlyBuiltOn(List[string])*: List of champions who frequently build this item
+
+*maps(List[boolean])*: List of maps this item is available on
+
+*description(string)*: Description of item stats
+
+*plainText(string)*: Description of this item
+
+*sanitizedDescription(string)*: Description of stat buff and passive
+
+*itemTree(List[strings])*: List of children items required to build this item
+
+*name(string)*: item name/identifier
+
+*id(long)*: item identifier (might make string???)
 
 + Response 200 (application/json)
 
@@ -153,7 +208,8 @@ Fetches info for items
                     "AmplifyingTone",
                     "LostChapter"
                 ]  
-                "name": "Morellonomicon"
+                "name": "Morellonomicon",
+                "id": 12345423134
             },
             "Moonflair Spellblade": {
                 "frequentlyBuiltOn": [
@@ -172,7 +228,8 @@ Fetches info for items
                     "SeekersArmguard",
                     "NegatronCloak"
                 ]  
-                "name": "Moonflair Spellblade"
+                "name": "Moonflair Spellblade",
+                "id": 415324124
             }, {
                 "etc....": "iteminfo"
             }
@@ -189,7 +246,26 @@ Fetches info for items
 
 ### /items/{item} [GET]
 
-Fetches info for a specific item
+*Description: Fetches an ItemDTO for a specific item*
+
+**Item DTO**
+
+*frequentlyBuiltOn(List[string])*: List of champions who frequently build this item
+
+*maps(List[boolean])*: List of maps this item is available on
+
+*description(string)*: Description of item stats
+
+*plainText(string)*: Description of this item
+
+*sanitizedDescription(string)*: Description of stat buff and passive
+
+*itemTree(List[strings])*: List of children items required to build this item
+
+*name(string)*: item name/identifier
+
+*id(long)*: item identifier (might make string???)
+
 
 + Parameter
     + item - item name with no spaces and lowercase
@@ -216,7 +292,8 @@ Fetches info for a specific item
                     "AmplifyingTone",
                     "LostChapter"
                 ] 
-                "name": "Morellonomicon"
+                "name": "Morellonomicon",
+                "id": 127431232
             }
         ]
 
@@ -231,7 +308,23 @@ Fetches info for a specific item
     
 ### /gameModes/{gameMode} [GET]
 
-Fetches info for a game mode
+*Description: Fetches list of GameModeDTO's for a game mode*
+
+**GameModeDTO**
+
+*GameModeID(int)*: key for this game mode (unsure if it will remain int or string)
+
+*mapImg(url)*: a url to image of game mode map
+
+*lore(string)*: lore behind the game mode
+
+*InGameDesciprtion(string)*: description of the in game play for this game mode
+
+*Versions(List[string])*: returns the different types of maps
+
+*PlayableChampions(List[championIDs])*: returns a list of champions you can use on this game mode
+
+*Items(list[ItemID's])*: returns a list of items usable in this game mode
 
 + Parameter
     + gameMode (number, required) - String game mode all lower case, using dashes instead of space
@@ -243,6 +336,7 @@ Fetches info for a game mode
     
         "example": [
             "Summoners Rift": {
+                "GameModeID": 1
                 "MapImg": "http://url.png"
                 "Lore": "will populate with real lore",
                 "InGameDescription": "The newest and most...",
@@ -275,7 +369,21 @@ Fetches info for a game mode
 
 ### /summoner/matchHistory/{summonerName} [GET]
 
-Fetches recent match history for a summoner
+*Description: Fetches a list of MatchHistoryForSummonerDTO's*
+
+**MatcheHistoryForSummonerDTO**
+
+*land(string or laneID)*: returns the lane this champion played
+
+*matchID(long)*: unique match id 
+
+*map(mapID)*: mapid of map this match was played on
+
+*gameModeID(gameModeID)*: Game mode identifier
+
+*Items(List[itemID])*: returns a list of items this champion bought in this match
+
+
 
 + Parameter 
     + summonerName - fetch match history for this specific summoner
@@ -340,7 +448,19 @@ Fetches recent match history for a summoner
 
 ### /matches/matchHistory/{matchID} [GET]
 
-Fetches details about a specific match.
+*Description: Fetches MatchDTO for a specific match.*
+
+**MatchDTO**
+
+*MatchID(long)*: unique number for this match
+
+*Participants(List[ParticipantDTO's])*: returns list of participant dto's for this match
+
+*map(mapID)*: Identifier for the map this match was played on
+
+*gameModeID(gameModeID)*: Identifier for the type of game mode
+
+*matchDetails(MatchDetailDTO)*: will include things like match length, winning team, etc.
 
 + Parameter
     + matchID (number) - ID of the match you are looking up
@@ -376,9 +496,9 @@ Fetches details about a specific match.
                 },
                 "Map": "Summoner's Rift",
                 "Game Mode": "ARAM",
-                "TimeLength": 30:21,
-                "Winning Team": "Blue",
                 "MatchDetails: [
+                    "TimeLength": 30:21,
+                    "Winning Team": "Blue",
                     ...
                 ]
             }
