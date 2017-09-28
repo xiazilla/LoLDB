@@ -11,7 +11,7 @@
 
                 '<div class="navbar-brand">'+
                     '<a href="index.html" >'+
-                        '<img src="images/logo.png" alt="">'+
+                        '<img src="../static/images/logo.png" alt="">'+
                     '</a>'+
                 '</div>'+
 
