@@ -3,9 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-scripts": "1.0.14"
+    "babel-standalone": "^6.26.0",
+    "bootstrap": "^4.0.0-beta",
+    "jquery": "^3.0.0",
+    "query": "^0.2.0",
+    "react": "^15.6.2",
+    "react-bootstrap": "^0.31.3",
+    "react-burger-menu": "^2.1.9",
+    "react-dom": "^15.6.2",
+    "react-scripts": "1.0.14",
+    "reactstrap": "^5.0.0-alpha.3"
   },
   "scripts": {
     "start": "react-scripts start",
