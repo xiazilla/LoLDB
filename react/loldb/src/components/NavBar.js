@@ -27,22 +27,22 @@ export default class LoLNav extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-              	<NavLink href="/">Home</NavLink>
+              	<NavLink href="/home">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/">Champions</NavLink>
+                <NavLink href="/champions">Champions</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/">Items</NavLink>
+                <NavLink href="/items">Items</NavLink>
               </NavItem>
               <NavItem>
-              	<NavLink href="/">Matches</NavLink>
+              	<NavLink href="/matches">Matches</NavLink>
               </NavItem>
               <NavItem>
-              	<NavLink href="/">Game Modes</NavLink>
+              	<NavLink href="/gameModes">Game Modes</NavLink>
               </NavItem>
               <NavItem>
-              	<NavLink href="/">About</NavLink>
+              	<NavLink href="/about">About</NavLink>
               </NavItem>
             </Nav>
           </Collapse>

@@ -1,15 +1,39 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import LoLNav from './components/NavBar'
-import DemoCarousel from './components/Home'
+import Home from './components/Home'
+import About from './components/About'
+import Champions from './components/Champions'
+import Items from './components/Items'
+import Matches from './components/Matches'
+import GameModes from './components/GameModes'
+
 import './App.css';
+import { Switch, Route } from 'react-router-dom'
+
+
+
+const Main = () => (
+  <main>
+    <Switch>
+      <Route exact path="/" component={Home}/>
+      <Route exact path="/home" component={Home}/>
+      <Route path="/about" component={About}/>
+      <Route path="/champions" component={Champions}/>
+      <Route path="/items" component={Items}/>
+      <Route path="/matches" component={Matches}/>
+      <Route path="/gameModes" component={GameModes}/>
+    </Switch>
+  </main>
+)
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">
         <LoLNav/>
-        <DemoCarousel/>
+        <Main/>
       </div>
     );
   }
