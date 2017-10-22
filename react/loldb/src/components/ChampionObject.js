@@ -9,9 +9,24 @@ class ChampionObject extends Component {
 
 	render () {
 		return (
-	      <div> {this.props.thisChampion.name}
-	      </div>
-	     )
+	      <div className="col-sm-2 container">
+	       		<figure className="wow">
+		            <a href="\home">
+		                <div class="img-wrapper2">
+		                    <img src={this.props.thisChampion.image} class="img-responsive" alt="portfolio items" />
+		                </div>
+		            </a>
+		            <figcaption>
+		            	<span>
+			                <p><strong> {this.props.thisChampion.name}</strong></p>
+			                
+			                <p> {this.props.thisChampion.title} </p>
+				        </span>
+			        </figcaption>
+		        </figure>
+	    	</div> 
+
+	     );
 
 	}
 
