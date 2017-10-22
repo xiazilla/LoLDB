@@ -1,0 +1,26 @@
+{
+  "name": "loldb",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "babel-standalone": "^6.26.0",
+    "bootstrap": "^4.0.0-beta",
+    "jquery": "^3.0.0",
+    "query": "^0.2.0",
+    "react": "^15.6.2",
+    "react-bootstrap": "^0.31.3",
+    "react-burger-menu": "^2.1.9",
+    "react-dom": "^15.6.2",
+    "react-responsive-carousel": "^3.1.28",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.14",
+    "reactstrap": "^5.0.0-alpha.3",
+    "slick-carousel": "^1.8.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
