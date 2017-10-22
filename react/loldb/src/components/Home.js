@@ -31,8 +31,12 @@ class Home extends Component {
 	render() {
 		return (
 			<div>
-				<DemoCarousel/>
-				<a className="twitter-timeline" href="https://twitter.com/lolesports?ref_src=twsrc%5Etfw">Tweets by lolesports</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+				<div>
+					<DemoCarousel/>
+				</div>
+				<div>
+					<a className="twitter-timeline" href="https://twitter.com/lolesports?ref_src=twsrc%5Etfw">Tweets by lolesports</a> <script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+				</div>
 			</div>
 		)
 	}
