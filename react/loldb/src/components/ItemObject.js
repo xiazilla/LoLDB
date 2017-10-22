@@ -9,7 +9,7 @@ class ItemObject extends Component {
 
 	render () {
 		return (
-	       <div className="col-sm-4 container">
+	       <div className="col-sm-2 container">
 	       		<figure className="wow">
 		            <a href="\home">
 		                <div class="img-wrapper2">
@@ -17,13 +17,13 @@ class ItemObject extends Component {
 		                </div>
 		            </a>
 		            <figcaption>
-			            <div>
-			                <h4> {this.props.thisItem.name}</h4>
-			                <h4>
+		            	<span>
+			                <p><strong> {this.props.thisItem.name}</strong></p>
+			                <p>
 			                    Cost: {this.props.thisItem.gold.total}
-			                </h4>
-			                <h4> {this.props.thisItem.sanitizedDescription} </h4>
-			            </div>
+			                </p>
+			                <p> {this.props.thisItem.sanitizedDescription} </p>
+				        </span>
 			        </figcaption>
 		        </figure>
 	    	</div> );
