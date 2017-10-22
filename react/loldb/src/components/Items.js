@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import myData from './items.json';
-
+import ItemObject from './ItemObject'
 
  
 class Items extends Component {
@@ -11,25 +11,17 @@ class Items extends Component {
 		}
 	}
 
-	// createItem (item) {
-	// 	<div>{item}</div>
-	// }
-
-	// createItems (items) {
-	// 	return items.map((result) => this.createItem());
-	// }
-
-
     render() {
     	let data = myData.data;
     	var items = [];
-    	console.log(data);
-    	Object.keys(myData.data).forEach(function(key) {
+    	Object.keys(data).forEach(function(key) {
       		items.push(myData.data[key]);
     	});
     	console.log(items)
         return (
-        	<div>{items.map(item => <h4>{item.name}</h4>)}</div>
+        	<div className="row">{items.map(item => 
+        		<ItemObject key={item.id} thisItem={item} />)}
+        	</div>
         )
     }
 }

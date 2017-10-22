@@ -21,7 +21,7 @@ export default class LoLNav extends React.Component {
       <div className="NavBar">
         <Navbar color="faded" light expand="md">
           <NavbarBrand href="/">
-          <img src={logo}/>
+          <img src={logo} alt=""/>
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>

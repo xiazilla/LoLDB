@@ -13,13 +13,13 @@ class DemoCarousel extends Component {
         	<div className="sliderContainer">
 	            <Carousel showThumbs={false}>
 	                <div>
-	                    <img src={background} />
+	                    <img src={background} alt=""/>
 	                </div>
 	                <div>
-	                    <img src={background2} />
+	                    <img src={background2} alt=""/>
 	                </div>
 	                <div>
-	                    <img src={background3} />
+	                    <img src={background3} alt=""/>
 	                </div>
 	            </Carousel>
 	        </div>
