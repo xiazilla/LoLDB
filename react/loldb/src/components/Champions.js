@@ -3,6 +3,7 @@ import mydata from './champions.json';
 import ChampionObject from './ChampionObject'
 
 class Champions extends Component {
+
     render() {
     	console.log(mydata);
     	let data = mydata.data;
@@ -12,7 +13,7 @@ class Champions extends Component {
     	});
 
         return (
-        	<div> {champions.map(champion => 
+        	<div className = "row"> {champions.map(champion => 
         		<ChampionObject key={champions.title} thisChampion={champion} />)}
         	</div>
         )
