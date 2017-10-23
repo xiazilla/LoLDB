@@ -12,7 +12,7 @@ class ChampionObject extends Component {
 		return (
 	      <div className="col-sm-3 container">
 	       		<figure className="wow">
-		            <a href="\home">
+		            <a href={`/champions/${this.props.thisChampion.name}`}>
 		                <div className="img-wrapper2">
 		                    <img src={this.props.thisChampion.image} class="img-responsive" alt="portfolio items" />
 		                </div>

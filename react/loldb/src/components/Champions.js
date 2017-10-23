@@ -1,23 +1,13 @@
-import React, { Component } from 'react';
-import mydata from './champions.json';
-import ChampionObject from './ChampionObject'
+import React from 'react';
+import { Switch, Route } from 'react-router-dom'
+import AllChampions from './AllChampions'
+import SingleChampion from './SingleChampion'
 
-class Champions extends Component {
-
-    render() {
-    	console.log(mydata);
-    	let data = mydata.data;
-    	var champions = [];
-    	Object.keys(data).forEach(function(key) {
-      		champions.push(mydata.data[key]);
-    	});
-
-        return (
-        	<div className = "row"> {champions.map(champion => 
-        		<ChampionObject key={champions.title} thisChampion={champion} />)}
-        	</div>
-        )
-    }
-}
+const Champions = () => (
+  <Switch>
+    <Route exact path='/champions' component={AllChampions}/>
+    <Route path ='/champions/:name' component={SingleChampion}/>
+  </Switch>
+)
 
 export default Champions;
