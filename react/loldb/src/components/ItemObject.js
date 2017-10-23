@@ -11,7 +11,7 @@ class ItemObject extends Component {
 		return (
 	       <div className="col-sm-2 container">
 	       		<figure className="wow">
-		            <a href="\home">
+		            <a href="/items/${this.props.thisItem.name}">
 		                <div class="img-wrapper2">
 		                    <img src={this.props.thisItem.image} class="img-responsive" alt="portfolio items" />
 		                </div>

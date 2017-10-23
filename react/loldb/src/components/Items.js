@@ -1,29 +1,14 @@
-import React, { Component } from 'react';
-import myData from './items.json';
-import ItemObject from './ItemObject'
+import React from 'react';
+import { Switch, Route } from 'react-router-dom'
+import AllItems from './AllItems'
+import SingleItem from './SingleItem.js'
 
- 
-class Items extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			items: []
-		}
-	}
 
-    render() {
-    	let data = myData.data;
-    	var items = [];
-    	Object.keys(data).forEach(function(key) {
-      		items.push(myData.data[key]);
-    	});
-    	console.log(items)
-        return (
-        	<div className="row">{items.map(item => 
-        		<ItemObject key={item.id} thisItem={item} />)}
-        	</div>
-        )
-    }
-}
+const Items = () => (
+  <Switch>
+    <Route exact path='/items' component={AllItems}/>
+    <Route path ='/items/:name' component={SingleItem}/>
+  </Switch>
+)
 
 export default Items;
