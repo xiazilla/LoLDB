@@ -83,11 +83,14 @@ class SingleChampion extends Component {
 					</div>					
 				</div>
 
-
 				<h4> Skins </h4>
 		    	<div className = "row"> {skins.map((skin, index) => 
 					<SkinObject key={skin.title} thisSkin={skin} name={itemsChampName} index={index} />)}
 		    	</div>
+
+				<h4>Recommeneded Items</h4>
+				<div>COMING SOON FAM</div>
+
 
 				<h4>Champion Lore</h4>
 				<div className="row">
