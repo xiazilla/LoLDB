@@ -74,6 +74,8 @@ class SingleChampion extends Component {
 						<p><strong>{r.name}</strong></p>
 					</div>					
 				</div>
+				<h4>Recommeneded Items</h4>
+
 				<div className="row">
 					<div className="col-sm-1"></div>
 					<div className="col-sm-10">
