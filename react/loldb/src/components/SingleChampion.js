@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import mydata from './champions.json';
+import SkinObject from './SkinObject'
 import './Champions.css';
 
 class SingleChampion extends Component {
@@ -16,22 +17,28 @@ class SingleChampion extends Component {
 	render() {
 
 		let championData, spellData;
-		let q,w,e,r,p;
+		let q,w,e,r,p, itemsChampName;
 		var champName = this.props.match.params.name;
     	let data = mydata.data;
-    	var champions = [];
+    	var skins = [];
+
+
     	Object.keys(data).forEach(function(key) {
-    		
       		if(data[key].name === champName){
+      			itemsChampName = key;
       			championData = data[key];
       			spellData = championData.spells
-      			console.log(spellData);
-      			q = spellData[0]
+      			// console.log(championData.skins);
+				Object.keys(championData.skins).forEach(function(key) {
+			  		skins.push(championData.skins[key]);
+				});      			
+				q = spellData[0]
       			w = spellData[1]
       			e = spellData[2]
       			r = spellData[3]
       			p = championData.passive
-      			console.log(championData)
+    			console.log(skins)
+      			// console.log(championData)
       		};
     	});
 
@@ -51,6 +58,7 @@ class SingleChampion extends Component {
 	            </div>
 				<h3><strong>{champName}</strong></h3>
 				<h4>{championData.title}</h4> 
+
 				<h4> Champion Abilities</h4>
 				<div className="container1 row">
 					<div className="col-sm-3">
@@ -74,10 +82,17 @@ class SingleChampion extends Component {
 						<p><strong>{r.name}</strong></p>
 					</div>					
 				</div>
+
+
+				<h4> Skins </h4>
+		    	<div className = "row"> {skins.map((skin, index) => 
+					<SkinObject key={skin.title} thisSkin={skin} name={itemsChampName} index={index} />)}
+		    	</div>
+
+				<h4>Champion Lore</h4>
 				<div className="row">
 					<div className="col-sm-1"></div>
 					<div className="col-sm-10">
-						<h4>Champion Lore</h4>
 						<p>{document.write(lore)}</p>
 					</div>
 				</div>

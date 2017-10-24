@@ -18,6 +18,11 @@ figure {
     height: 100px;
 }
 
+
+Image{
+  text-align: center;
+}
+
 .table {
   margin: 0 0 40px 0;
   width: 100%;

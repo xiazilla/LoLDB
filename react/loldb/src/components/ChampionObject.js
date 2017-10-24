@@ -4,9 +4,6 @@ import './Champions.css';
 
 class ChampionObject extends Component {
 
-	// constructor(props) {
-	// 	super(props);
-	// }
 
 	render () {
 		return (
