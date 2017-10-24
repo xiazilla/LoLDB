@@ -9,8 +9,6 @@ class ItemObject extends Component {
 
 
     render () {
-        var name = this.props.thisItem.name
-
         return (
            <div className="col-sm-2 container">
                    <figure className="wow">

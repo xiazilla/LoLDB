@@ -17,7 +17,6 @@ class SingleItem extends Component{
 		var itemName = this.props.match.params.name;
 		console.log(itemName);
 		let data = myItems.data;
-		var items = []
 		Object.keys(data).forEach(function(key) {
 			if(data[key].name === itemName) 
 				itemData = data[key];

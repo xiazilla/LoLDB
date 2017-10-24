@@ -11,7 +11,7 @@ class SkinObject extends Component {
 
 		return (
 			<div className="col-sm-3 ">
-				<img src={url} className="skinImg img-responsive" height={150} width={250}/> 
+				<img src={url} className="skinImg img-responsive" alt="" height={150} width={250}/> 
 				<p><strong>{name}</strong></p>
 			</div>	
 

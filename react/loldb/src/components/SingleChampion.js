@@ -21,7 +21,7 @@ class SingleChampion extends Component {
 		var champName = this.props.match.params.name;
     	let data = mydata.data;
     	var skins = [];
-
+    	let recommendedItems
 
     	Object.keys(data).forEach(function(key) {
       		if(data[key].name === champName){
@@ -37,8 +37,8 @@ class SingleChampion extends Component {
       			e = spellData[2]
       			r = spellData[3]
       			p = championData.passive
-    			console.log(skins)
-      			// console.log(championData)
+    			// console.log(skins)
+      			console.log(championData.recommended[6])
       		};
     	});
 
