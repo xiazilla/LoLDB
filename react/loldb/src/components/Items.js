@@ -7,7 +7,7 @@ import SingleItem from './SingleItem.js'
 const Items = () => (
   <Switch>
     <Route exact path='/items' component={AllItems}/>
-    <Route path ='/items/:name' component={SingleItem}/>
+    <Route path ='/items/:id' component={SingleItem}/>
   </Switch>
 )
 

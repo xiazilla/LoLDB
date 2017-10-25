@@ -9,12 +9,11 @@ class ItemObject extends Component {
 
 
     render () {
-        var name = this.props.thisItem.name
-
+    	// console.log(this.props.thisItem)
         return (
            <div className="col-sm-2 container">
                    <figure className="wow">
-                    <a href={`/items/${this.props.thisItem.name}`}>
+                    <a href={`/items/${this.props.thisItem.id}`}>
                         <div class="img-wrapper2">
                             <img src={this.props.thisItem.image} class="img-responsive" alt="portfolio items" />
                         </div>

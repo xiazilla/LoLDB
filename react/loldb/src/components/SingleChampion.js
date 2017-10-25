@@ -3,6 +3,47 @@ import mydata from './champions.json';
 import SkinObject from './SkinObject'
 import './Champions.css';
 
+
+class EssentialItems extends Component {
+	render() {
+		let url = "http://ddragon.leagueoflegends.com/cdn/7.10.1/img/item/" + this.props.id + ".png"
+		// console.log(this.props.id)
+		return (
+			<div className="col-sm-4">
+				<a href={`/items/${this.props.id}`}>
+					<img src={url} alt="" />
+				</a>	
+			</div>
+		)
+	}
+}
+
+
+
+class ItemGroup extends Component {
+	render() {
+		return(
+			<div>
+				<h5>{this.props.theseItems.mode} - Essential Items</h5>
+				<div className = "row">
+					{this.props.theseItems.blocks[1].items.map((item) => <EssentialItems id={item.id}/>)}
+				</div>
+			</div>
+
+		)
+	}
+}
+
+class AllItems extends Component {
+	render() {
+		return (
+			<div>
+				{this.props.recommended.map((yahhhh) => <ItemGroup theseItems={yahhhh}/>)}
+			</div>
+		)
+	}
+}
+
 class SingleChampion extends Component {
 
 	GetHtml( theJSON ) {
@@ -21,7 +62,7 @@ class SingleChampion extends Component {
 		var champName = this.props.match.params.name;
     	let data = mydata.data;
     	var skins = [];
-
+    	let recommendedItems = []
 
     	Object.keys(data).forEach(function(key) {
       		if(data[key].name === champName){
@@ -37,8 +78,8 @@ class SingleChampion extends Component {
       			e = spellData[2]
       			r = spellData[3]
       			p = championData.passive
-    			console.log(skins)
-      			// console.log(championData)
+    			recommendedItems = championData.recommended
+    			// console.log(recommendedItems)
       		};
     	});
 
@@ -49,6 +90,7 @@ class SingleChampion extends Component {
 
     	let imageURL = "https://ddragon.leagueoflegends.com/cdn/7.20.1/img/spell/";
     	let passiveURL = "https://ddragon.leagueoflegends.com/cdn/7.20.1/img/passive/";
+    	// let itemURL = ""
     	// console.log((imageURL).concat(q.image.full));
 
 		return (
@@ -84,13 +126,15 @@ class SingleChampion extends Component {
 				</div>
 
 				<h4> Skins </h4>
-		    	<div className = "row"> {skins.map((skin, index) => 
-					<SkinObject key={skin.title} thisSkin={skin} name={itemsChampName} index={index} />)}
+		    	<div className = "row"> {skins.map((skin) => 
+					<SkinObject key={skin.title} thisSkin={skin} name={itemsChampName} index={skin.id % 10} />)}
 		    	</div>
 
-				<h4>Recommeneded Items</h4>
-				<div>COMING SOON FAM</div>
+				<h4>Recommended Items</h4>
 
+				<div>
+						<AllItems recommended={recommendedItems}/>
+				</div>
 
 				<h4>Champion Lore</h4>
 				<div className="row">

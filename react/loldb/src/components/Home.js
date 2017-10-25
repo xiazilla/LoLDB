@@ -34,9 +34,9 @@ class Home extends Component {
 				<div>
 					<DemoCarousel/>
 				</div>
-				<div>
-					<a className="twitter-timeline" href="https://twitter.com/lolesports?ref_src=twsrc%5Etfw">Tweets by lolesports</a> <script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
-				</div>
+				<div class="col-md-12 col-sm-12">
+                        <a class="twitter-timeline" data-width="800" href="https://twitter.com/lolesports">Tweets by lolesports</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
 			</div>
 		)
 	}
