@@ -9,6 +9,7 @@ class ItemObject extends Component {
 
 
     render () {
+    	console.log(this.props.thisItem.image)
         return (
            <div className="col-sm-2 container">
                    <figure className="wow">
