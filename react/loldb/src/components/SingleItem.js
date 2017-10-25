@@ -24,6 +24,8 @@ class SingleItem extends Component{
 		});
 
 		
+
+		
 		
 		console.log(itemData);
 		let imageURL = "http://ddragon.leagueoflegends.com/cdn/7.10.1/img/item/3147.png"
