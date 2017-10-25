@@ -10,7 +10,9 @@ class EssentialItems extends Component {
 		// console.log(this.props.id)
 		return (
 			<div className="col-sm-4">
-				<img src={url} alt="" />
+				<a href={`/items/${this.props.id}`}>
+					<img src={url} alt="" />
+				</a>	
 			</div>
 		)
 	}
@@ -20,7 +22,6 @@ class EssentialItems extends Component {
 
 class ItemGroup extends Component {
 	render() {
-		console.log(this.props.theseItems)
 		return(
 			<div>
 				<h5>{this.props.theseItems.mode} - Essential Items</h5>
@@ -35,9 +36,7 @@ class ItemGroup extends Component {
 
 class AllItems extends Component {
 	render() {
-
 		return (
-
 			<div>
 				{this.props.recommended.map((yahhhh) => <ItemGroup theseItems={yahhhh}/>)}
 			</div>

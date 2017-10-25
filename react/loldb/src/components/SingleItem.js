@@ -14,11 +14,11 @@ class SingleItem extends Component{
 	render() {
 		
 		let itemData; 
-		var itemName = this.props.match.params.name;
+		var itemName = Number(this.props.match.params.id);
 		console.log(itemName);
 		let data = myItems.data;
 		Object.keys(data).forEach(function(key) {
-			if(data[key].name === itemName) 
+			if(data[key].id === itemName) 
 				itemData = data[key];
 		});
 
@@ -26,7 +26,7 @@ class SingleItem extends Component{
 
 		return (
 			<div> 
-				<h3><strong>{itemName}</strong></h3>
+				<h3><strong>{itemData.name}</strong></h3>
 				<div className="img-wrapper2>" >
 	                <img src={itemData.image} className="img-responsive" alt="portfolio items" />
 				</div>
