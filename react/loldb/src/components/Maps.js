@@ -8,7 +8,7 @@ class Maps extends Component {
         return (
         	<Switch>
     			<Route exact path='/maps' component={AllMaps}/>
-   				<Route path ='/maps/:id' component={SingleMap}/>
+   				<Route path ='/maps/:id/:abbrev?' component={SingleMap}/>
   			</Switch>
         )
     }

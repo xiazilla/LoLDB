@@ -9,7 +9,7 @@ class MapObject extends Component {
 
 
     render () {
-    	// console.log(this.props.thisMap)
+    	// console.log("asfas" + this.props.thisMap)
         return (
            <div className="col-sm-3 container">
                    <figure className="wow">
@@ -21,7 +21,6 @@ class MapObject extends Component {
                     <figcaption>
                         <span>
                             <p><strong> {this.props.thisMap.mapName}</strong></p>
-                            
                         </span>
                     </figcaption>
                 </figure>
