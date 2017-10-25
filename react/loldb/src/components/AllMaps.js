@@ -17,6 +17,7 @@ class AllMaps extends Component {
         
     
         return (
+            
         	<div className="row">{maps.map(mapjson => 
         		<MapObject key={mapjson.id} thisMap={mapjson} />)}
     

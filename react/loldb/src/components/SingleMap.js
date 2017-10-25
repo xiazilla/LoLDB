@@ -21,12 +21,10 @@ class SingleMap extends Component{
 		Object.keys(data).forEach(function(key) {
 			if(data[key].mapName === mapIdent) 
 				mapData = data[key];
+
 		});
 
 		console.log(mapData);
-		
-
-		
 	
 		return (
 			<div> 
@@ -34,7 +32,7 @@ class SingleMap extends Component{
 				<div className="img-wrapper2>" >
 	                <img src={mapData.image} className="img-responsive" alt="portfolio items" />
 				</div>
-				<p>{mapData.text}</p>
+				<p></p>
 			</div>
 		)
 	}

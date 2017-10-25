@@ -1,525 +1,85 @@
-[
-  {
-    "mapName": "The Crystal Scar",
-    "mapId": "8",
-    "article": {
-      "sections": [
-        {
-          "images": [
-            {
-              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/6/64/LeagueOfLegends_Dominion_Artwork1.jpg/revision/latest/scale-to-width-down/400?cb=20110808212751",
-              "caption": "The Crystal Scar"
-            }
-          ],
-          "title": "Crystal Scar",
-          "level": 1,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Crystal Scar is a Field of Justice in League of Legends designed for the Dominion game mode. The arena is situated on the village once known as Kalamanda."
-            },
-            {
-              "type": "paragraph",
-              "text": "Dominion was disabled on February 22, 2016, but some of the Crystal Scar assets are still used for the Rotating Game Modes Ascension and Definitely Not Dominion."
-            }
-          ]
-        },
-        {
-          "images": [],
-          "title": "Map Description",
-          "level": 2,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "The Crystal Scar is a circular map with 5 capture points."
-            }
-          ]
-        },
-        {
-          "images": [
-            {
-              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/4/45/Crystal_Scar_Map_Preview.jpg/revision/latest/scale-to-width-down/250?cb=20140612032107",
-              "caption": "Crystal Scar Map"
-            }
-          ],
-          "title": "In-Game Description",
-          "level": 2,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "The Crystal Scar was once known as the mining village of Kalamanda, until open war between Demacia and Noxus broke out over control of its vast underground riches. Settle your disputes on this Field of Justice by working with your allies to seize capture points and declare dominion over your enemies!"
-            }
-          ]
-        },
-        {
-          "images": [
-            {
-              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/5/52/Crystal_Scar_Minimap.png/revision/latest/scale-to-width-down/250?cb=20170222210645",
-              "caption": "Crystal Scar Minimap"
-            }
-          ],
-          "title": "Dominion Gameplay",
-          "level": 2,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Unlike other maps which feature laning, the Crystal Scar features a capture-and-hold style of gameplay. This new League of Legends experience is called Dominion. Here two teams of five players battle over a circular map and fight for control over five capture points in an effort to destroy the opposing team’s Nexus, which has a starting health of 500. The team that has captured more points than the other begin to deal damage to the opposing enemy nexus until its health reaches 0. This gameplay is designed to be fluid, with both teams constantly seizing the advantage from one another."
-            }
-          ]
-        },
-        {
-          "images": [],
-          "title": "Features",
-          "level": 2,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "The outer ring of the Crystal Scar is approximately 28,000 units around, taking about 80 seconds for the average champion to run around without any boots."
-            }
-          ]
-        },
-        {
-          "images": [
-            {
-              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/9/9d/The_Quarry.jpg/revision/latest/scale-to-width-down/250?cb=20110813070846",
-              "caption": "attempting to capture the Quarry"
-            }
-          ],
-          "title": "Capture Points",
-          "level": 3,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Capture points represent important strategic locations across the map. Controlling these points and defending them against the opposition is the central focus of Dominion. These locations are:"
-            },
-            {
-              "elements": [
-                {
-                  "elements": [],
-                  "text": "The Windmill, located in the northern part of Kalamanda."
-                },
-                {
-                  "elements": [],
-                  "text": "The Drill, located in Kalamanda’s northeastern section."
-                },
-                {
-                  "elements": [],
-                  "text": "The Boneyard, located in the southeastern section."
-                },
-                {
-                  "elements": [],
-                  "text": "The Quarry, in the southwestern section."
-                },
-                {
-                  "elements": [],
-                  "text": "The Refinery, located in the northwestern section."
-                }
-              ],
-              "type": "list"
-            }
-          ]
-        },
-        {
-          "images": [],
-          "title": "Buffs",
-          "level": 3,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "In the crystal scar there are several fixed position buffs that are placed in strategic locations on the map and come in three different forms:"
-            }
-          ]
-        },
-        {
-          "images": [
-            {
-              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/9/9b/Greater_Relic_Nidalee.png/revision/latest/scale-to-width-down/250?cb=20130324002002",
-              "caption": "obtaining the Greater Relic"
-            }
-          ],
-          "title": "Greater Relic",
-          "level": 4,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "The Greater Relic grants two powerful, short duration combat buffs,  Storm Shield: Shield and  Lightning, granting an absorption shield and a damaging nuke (that attacks and spellcasts proc) to any one teammate. There is one relic for each team and are team-specific. Positioned right next to each other the relics are located at the very center of the Crystal Scar."
-            }
-          ]
-        },
-        {
-          "images": [
-            {
-              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/1/1b/Speed_Shrine_Crystal_Scar.jpg/revision/latest/scale-to-width-down/256?cb=20160516144522",
-              "caption": "Speed Shrine (Crystal Scar)"
-            }
-          ],
-          "title": "Speed Shrines",
-          "level": 4,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "The Speed Shrines are areas on the map that grant a significant, yet short duration, movement speed bonus to any champion that passes through them. These relics are located in a triangle around the seal."
-            },
-            {
-              "type": "paragraph",
-              "text": "In Dominion and Ascension, there are 3 Speed Shrines while in Definitely Not Dominion, there are 4."
-            }
-          ]
-        },
-        {
-          "images": [],
-          "title": "Health Relics",
-          "level": 4,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "The Health Relics are placed in ten areas on the map that grant a replenishment of health and mana for the champion that walks over it. A health relic is located behind every capture point and the rest are positioned around the seal."
-            }
-          ]
-        },
-        {
-          "images": [
-            {
-              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/e/ed/The_Crystal_Scar_Shop.jpg/revision/latest/scale-to-width-down/250?cb=20160516143922",
-              "caption": "Crystal Scar Shop"
-            }
-          ],
-          "title": "Items",
-          "level": 3,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Due to the different pace of the game, Dominion offers new items available only on the Crystal Scar and also prohibits other items to maintain balance. Each champion is also provided with a set of recommended items specially for Dominion mode."
-            }
-          ]
-        },
-        {
-          "images": [],
-          "title": "Replaced items",
-          "level": 4,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Many Summoner's Rift items are replaced with other items to maintain balance. For instance, the Prospector items replace the Doran items with double the stats and cost (excluding  Doran's Shield). They are variations of the original items, and remain beneficial to the fast-paced game style of the Dominion game mode. Many of these items are also used on other maps to maintain balance as well."
-            },
-            {
-              "type": "paragraph",
-              "text": "Replaced items:"
-            }
-          ]
-        },
-        {
-          "images": [],
-          "title": "Notes",
-          "level": 4,
-          "content": [
-            {
-              "elements": [
-                {
-                  "elements": [],
-                  "text": " Doran's Shield did not get a replacement item and can still be purchased from the shop."
-                },
-                {
-                  "elements": [],
-                  "text": " Entropy and  The Lightbringer were items exclusive to this map but they have since been made available on the Howling Abyss."
-                },
-                {
-                  "elements": [
-                    {
-                      "elements": [],
-                      "text": "Dominion:  Soul Anchor."
-                    },
-                    {
-                      "elements": [],
-                      "text": "Ascension:  Golden Transcendence."
-                    },
-                    {
-                      "elements": [],
-                      "text": "Definitely Not Dominion:  Seer Stone."
-                    }
-                  ],
-                  "text": "There is only one trinket available. It is different, base on different modes."
-                }
-              ],
-              "type": "list"
-            }
-          ]
-        },
-        {
-          "images": [
-            {
-              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/2/28/RyzeSquare.png/revision/latest/scale-to-width-down/20?cb=20160630224634"
-            },
-            {
-              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/6/64/JoJKalamandaBoomtown.jpg/revision/latest/scale-to-width-down/350?cb=20100819120816",
-              "caption": "Demacian (left) and Noxian (right) camps outside Kalamanda"
-            },
-            {
-              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/d/d9/Kalamanda%27s_FoJ.jpg/revision/latest/scale-to-width-down/250?cb=20110804233021",
-              "caption": "The reconstruction of Kalamanda to become a Field of Justice"
-            }
-          ],
-          "title": "Lore",
-          "level": 2,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "\"What do you think would have happened if the League hadn't stopped Demacia and Noxus in Kalamanda? I can sum it up in four words: the sixth Rune War.\" -  Ryze, the Rogue Mage"
-            },
-            {
-              "type": "paragraph",
-              "text": "The League of Legends, in its 21 years of existence, never had its mandate of keeping the peace between Valoran's city-states put to a serious test. All of the political disagreements that the city-states could muster had been resolved securely on the Fields of Justice. Never before was the League forced to intervene in any dispute."
-            },
-            {
-              "type": "paragraph",
-              "text": "That is, until Kalamanda."
-            },
-            {
-              "type": "paragraph",
-              "text": "The conflict between Demacia and Noxus in Kalamanda, a village nestled within the Great Barrier’s Odyn Valley, would provoke the League’s first show of force. It all began when a treasure trove of natural resources was discovered there. The city-states flocked in, each hoping to secure the lion’s share of that treasure for itself. Enormous profits were turned from mining the vast crystal deposits, and with the added strikes of enchantable gold and rare gems, the city-states thrived from their newfound riches."
-            },
-            {
-              "type": "paragraph",
-              "text": "This time of prosperity was short-lived, as the temptation to seize full control of the mines proved too difficult for the city-states to resist. In a period of months, Kalamanda was transformed from a sleepy mountain village to a stage for open war between two ancient and powerful foes. Demacia and Noxus came to blows for control of the village, triggered by the assassination of Noxus’ longtime leader, General Boram Darkwill."
-            },
-            {
-              "type": "paragraph",
-              "text": "The battle raged on despite severe warnings, and the League was forced to resort to a terrifying show of power. A temporal stasis field was summoned over the entire village, trapping inhabitants and combatants alike. Time magic on such a scale had not been seen since the Rune Wars. None of Valoran’s city-states had the slightest inkling that the League preserved such secrets, let alone possessed the will to use them."
-            },
-            {
-              "type": "paragraph",
-              "text": "While removing the trapped people from the village, the League found that the use of such powerful magic had rendered Kalamanda completely uninhabitable. After the stasis field was removed, Kalamanda was transformed into the newest Field of Justice, the “Crystal Scar”. It stands as a chilling reminder of the destructive consequences of magic to Runeterra, and the lengths to which the League will go in order to enforce the peace in Valoran."
-            }
-          ]
-        },
-        {
-          "images": [],
-          "title": "Timeline",
-          "level": 3,
-          "content": [
-            {
-              "elements": [
-                {
-                  "elements": [],
-                  "text": "13 July, 20 CLE (Common League Era) – Mayor Anson Ridley reports discovery of precious mineral deposits and two nexuses within the village of Kalamanda. The League and all major city-states send representatives for research and mining purposes."
-                },
-                {
-                  "elements": [],
-                  "text": "25 January, 21 CLE – An earthquake causes the collapse of Demacia’s #1 Loadstone Mining Consortium. The trapped Demacian miners are rescued a month later and the body of a Noxian soldier surrounded by arcano-charges is discovered nearby, suggesting Noxian sabotage."
-                },
-                {
-                  "elements": [],
-                  "text": "24 February, 21 CLE – Before the investigation surrounding Noxian sabotage is complete, the Kalamanda Village Council grants an exclusive mining contract to Demacia, making Kalamanda a province of Demacia. Noxus refuses to vacate the village, claiming that they were falsely accused."
-                },
-                {
-                  "elements": [],
-                  "text": "1 July, 21 CLE – The leader of the Noxian High Command, General Boram Darkwill, is assassinated while on the road to Kalamanda. Open warfare erupts throughout the village between Demacian and Noxian military forces. The League’s Council of Equity demands that all hostilities stop within 24 hours or “face dire and lasting consequences”."
-                },
-                {
-                  "elements": [],
-                  "text": "29 July, 21 CLE – The League summons a temporal field over the village, freezing everyone and everything inside it in time. All fighting instantly ceases. Valoran is in shock, as no one believed the League possessed such might, let alone the will to use it."
-                },
-                {
-                  "elements": [],
-                  "text": "3 August, 21 CLE – The League releases the temporal field that had engulfed the village and claims it permanently as League territory. The village is transformed into the League’s newest Field of Justice, “Crystal Scar”."
-                }
-              ],
-              "type": "list"
-            }
-          ]
-        },
-        {
-          "images": [
-            {
-              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/6/61/Skarner-Teaser2.jpg/revision/latest/scale-to-width-down/300?cb=20110730093127",
-              "caption": "Skarner awakens from his sleep"
-            }
-          ],
-          "title": "Ancient creature awakens",
-          "level": 3,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "For ages, a race commonly known as the Brackern has slept below the grounds near Kalamanda. The brackern were unusual beings blessed with the earth's primal magic, embodied in the form of crystals. Their kind knew of an arcane ritual to bind their life's essence to a crystal, communing with the magic embedded in it."
-            },
-            {
-              "type": "paragraph",
-              "text": "A vicious battle was fought near the Odyn Valley and unleashed a chaotic magic that poisoned the crystals. To avoid extinction, the brackerns only course was to hibernate underground until the wars stopped. The strongest, most intelligent brackern hibernated closer to the surface to awaken first and assess the world's condition for the return of their race. The recent mining operations and violent escalation in Kalamanda were enough to awaken  Skarner the Crystal Vanguard. He lashed out in anger and confusion. Reason eventually won out over his anger when he realized that the agents of the League who found him were simply functionaries. For now, there is a place where Skarner can use his power to change the world into one to which his kind could eventually return: the League of Legends."
-            }
-          ]
-        },
-        {
-          "images": [],
-          "title": "Game Modes",
-          "level": 2,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Crystal Scar map has been used for certain special, limited-time, featured game modes that circulate in and out."
-            },
-            {
-              "elements": [
-                {
-                  "elements": [
-                    {
-                      "elements": [],
-                      "text": "In this mode, it is not possible to leave the fountain on foot. Instead, players must teleport onto one of the ports (originally the capture points in Dominion) via a game mode-exclusive trinket: the Golden Transcendence."
-                    },
-                    {
-                      "elements": [],
-                      "text": "Ascension features a Shuriman-themed user interface, which displays the team scores and the current Ascended."
-                    },
-                    {
-                      "elements": [],
-                      "text": "This mode uses all the items and champion changes of Dominion."
-                    },
-                    {
-                      "elements": [],
-                      "text": "At the center of the map resides  Xerath as an Ancient Ascendant: An immobile neutral monster. Killing him bestows the \"Ascension\" buff. Champions can only ascend by killing the monster and not by killing another Ascended; instead, the Ancient Ascendant will reappear after an Ascended champion is killed. After the ascended is killed, the Ancient Ascendant will respawn ~30 seconds later with a knock back burst."
-                    },
-                    {
-                      "elements": [],
-                      "text": "Several Icons were given for completing certain task in the mode."
-                    }
-                  ],
-                  "text": "Between September 10 and 25, 2014, Riot made Ascension mode."
-                }
-              ],
-              "type": "list"
-            }
-          ]
-        },
-        {
-          "images": [],
-          "title": "References",
-          "level": 2,
-          "content": [
-            {
-              "elements": [
-                {
-                  "elements": [],
-                  "text": "League of Legends: Dominion"
-                },
-                {
-                  "elements": [],
-                  "text": "League of Legends: Dominion - Gameplay Behind The Scenes"
-                },
-                {
-                  "elements": [],
-                  "text": "League of Legends: Dominion - Art and Sound Behind The Scenes"
-                },
-                {
-                  "elements": [],
-                  "text": "Designing Dominance: The Buffs of League of Legends: Dominion"
-                },
-                {
-                  "elements": [],
-                  "text": "Designing Dominance: The Minions of League of Legends: Dominion"
-                },
-                {
-                  "elements": [],
-                  "text": "Designing Dominance: Quests in League of Legends: Dominion"
-                },
-                {
-                  "elements": [],
-                  "text": "Designing Dominance: The Arsenal of League of Legends: Dominion"
-                },
-                {
-                  "elements": [],
-                  "text": "League of Legends: Dominion Game Mode Spotlight"
-                }
-              ],
-              "type": "list"
-            }
-          ]
-        }
-      ]
-    },
-    "image": "http://ddragon.leagueoflegends.com/cdn/7.20.1/img/map/map8.png"
-  },
-  {
-    "mapName": "The Twisted Treeline",
+{
+  "The Twisted Treeline": {
     "mapId": "10",
     "article": {
       "sections": [
         {
+          "title": "Twisted Treeline",
+          "level": 1,
+          "content": [
+            {
+              "text": "The Twisted Treeline is a two-lanes Field of Justice, released shortly before the game officially launched.",
+              "type": "paragraph"
+            },
+            {
+              "text": "October 27, 2009: Released publicly in custom games",
+              "type": "paragraph"
+            },
+            {
+              "text": "March 30, 2010: Released for normal games",
+              "type": "paragraph"
+            },
+            {
+              "text": "The Twisted Treeline map was reworked, and the new version released with patch V1.0.0.150 on October 17, 2012.  It was previously located near Zaun, but was retroactively relocated to the Shadow Isles.",
+              "type": "paragraph"
+            }
+          ],
           "images": [
             {
               "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/5/54/The_Twisted_Treeline.png/revision/latest/scale-to-width-down/400?cb=20140413110023",
               "caption": "The Twisted Treeline"
             }
-          ],
-          "title": "Twisted Treeline",
-          "level": 1,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "The Twisted Treeline is a two-lanes Field of Justice, released shortly before the game officially launched."
-            },
-            {
-              "type": "paragraph",
-              "text": "October 27, 2009: Released publicly in custom games"
-            },
-            {
-              "type": "paragraph",
-              "text": "March 30, 2010: Released for normal games"
-            },
-            {
-              "type": "paragraph",
-              "text": "The Twisted Treeline map was reworked, and the new version released with patch V1.0.0.150 on October 17, 2012.  It was previously located near Zaun, but was retroactively relocated to the Shadow Isles."
-            }
           ]
         },
         {
+          "title": "Lore",
+          "level": 2,
+          "content": [
+            {
+              "text": "The location known as the Twisted Treeline is located in the mysterious Shadow Isles. An eternally thick, unnatural fog blankets the islands from the view of outsiders. It is thought that the islands are home to countless forms of undead, though no one seems eager to perform the exploration necessary to find out the truth.",
+              "type": "paragraph"
+            }
+          ],
           "images": [
             {
               "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/9/9f/Twisted_Treeline_concept_01.jpg/revision/latest/scale-to-width-down/275?cb=20161121163659",
               "caption": "The Twisted Treeline, located on the Shadow Isles"
             }
-          ],
-          "title": "Lore",
-          "level": 2,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "The location known as the Twisted Treeline is located in the mysterious Shadow Isles. An eternally thick, unnatural fog blankets the islands from the view of outsiders. It is thought that the islands are home to countless forms of undead, though no one seems eager to perform the exploration necessary to find out the truth."
-            }
           ]
         },
         {
+          "title": "Gameplay",
+          "level": 2,
+          "content": [
+            {
+              "text": "The Twisted Treeline is a two lanes map where two teams consisting of three players battle in fast-paced action while their ultimate goal is to destroy the enemy team's nexus. Aside from its two, slightly curved lanes, the map also features several neutral monster camps and two altars to be captured as well as a free health pick-up - all situated in the jungle between the lanes - giving plenty of opportunities for team fights. There is also a path over the top lane which leads to  Vilemaw's lair. The team who defeats the horrific creature inside receive the  Crest of Crushing Wrath, which provides a spooky buff: champions become ghosted, ignoring all unit collision for the duration of the buff. Additionally, nearby minions gain aura bonuses, and briefly terrorize nearby enemy minions on first contact.",
+              "type": "paragraph"
+            }
+          ],
           "images": [
             {
               "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/8/82/Twisted_Treeline_Minimap.png/revision/latest/scale-to-width-down/200?cb=20170222210643",
               "caption": "Twisted Treeline Minimap"
             }
-          ],
-          "title": "Gameplay",
-          "level": 2,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "The Twisted Treeline is a two lanes map where two teams consisting of three players battle in fast-paced action while their ultimate goal is to destroy the enemy team's nexus. Aside from its two, slightly curved lanes, the map also features several neutral monster camps and two altars to be captured as well as a free health pick-up - all situated in the jungle between the lanes - giving plenty of opportunities for team fights. There is also a path over the top lane which leads to  Vilemaw's lair. The team who defeats the horrific creature inside receive the  Crest of Crushing Wrath, which provides a spooky buff: champions become ghosted, ignoring all unit collision for the duration of the buff. Additionally, nearby minions gain aura bonuses, and briefly terrorize nearby enemy minions on first contact."
-            }
           ]
         },
         {
+          "title": "In-Game Description",
+          "level": 2,
+          "content": [
+            {
+              "text": "Deep in Shadow Isles lies a ruined city shattered by magical disaster. Those who venture inside the ruins and wander through the Twisted Treeline seldom return, but those who do, tell tales of horrific creatures and the vengeful dead.",
+              "type": "paragraph"
+            }
+          ],
           "images": [
             {
               "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/9/9a/Twisted_Treeline_Map_Preview.jpg/revision/latest/scale-to-width-down/250?cb=20140612032104",
               "caption": "Twisted Treeline Map"
             }
-          ],
-          "title": "In-Game Description",
-          "level": 2,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Deep in Shadow Isles lies a ruined city shattered by magical disaster. Those who venture inside the ruins and wander through the Twisted Treeline seldom return, but those who do, tell tales of horrific creatures and the vengeful dead."
-            }
           ]
         },
         {
-          "images": [],
           "title": "Features",
           "level": 2,
           "content": [
@@ -556,19 +116,10 @@
               ],
               "type": "list"
             }
-          ]
+          ],
+          "images": []
         },
         {
-          "images": [
-            {
-              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/a/aa/TT_jungle.jpg/revision/latest/scale-to-width-down/300?cb=20130320011304",
-              "caption": "Twisted Treeline Jungle"
-            },
-            {
-              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/a/a2/Treeline_Vilemaw.jpg/revision/latest/scale-to-width-down/300?cb=20130321025654",
-              "caption": "Vilemaw"
-            }
-          ],
           "title": "Strategy",
           "level": 3,
           "content": [
@@ -618,15 +169,19 @@
               ],
               "type": "list"
             }
+          ],
+          "images": [
+            {
+              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/a/aa/TT_jungle.jpg/revision/latest/scale-to-width-down/300?cb=20130320011304",
+              "caption": "Twisted Treeline Jungle"
+            },
+            {
+              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/a/a2/Treeline_Vilemaw.jpg/revision/latest/scale-to-width-down/300?cb=20130321025654",
+              "caption": "Vilemaw"
+            }
           ]
         },
         {
-          "images": [
-            {
-              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/1/10/TT_Shopkeeper.jpg/revision/latest/scale-to-width-down/250?cb=20121030235513",
-              "caption": "Twisted Treeline Shopkeeper"
-            }
-          ],
           "title": "Exclusive Items",
           "level": 3,
           "content": [
@@ -661,10 +216,15 @@
               ],
               "type": "list"
             }
+          ],
+          "images": [
+            {
+              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/1/10/TT_Shopkeeper.jpg/revision/latest/scale-to-width-down/250?cb=20121030235513",
+              "caption": "Twisted Treeline Shopkeeper"
+            }
           ]
         },
         {
-          "images": [],
           "title": "Important timers",
           "level": 3,
           "content": [
@@ -701,10 +261,10 @@
               ],
               "type": "list"
             }
-          ]
+          ],
+          "images": []
         },
         {
-          "images": [],
           "title": "Monster Camps",
           "level": 3,
           "content": [
@@ -748,15 +308,10 @@
               ],
               "type": "list"
             }
-          ]
+          ],
+          "images": []
         },
         {
-          "images": [
-            {
-              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/2/26/Treeline_Altar.jpg/revision/latest/scale-to-width-down/250?cb=20130321025721",
-              "caption": "Twisted Treeline Altar"
-            }
-          ],
           "title": "Map Aura, Altar Buffs, Vilemaw",
           "level": 3,
           "content": [
@@ -837,35 +392,40 @@
               ],
               "type": "list"
             }
-          ]
-        },
-        {
-          "images": [],
-          "title": "Development",
-          "level": 2,
-          "content": []
-        },
-        {
-          "images": [],
-          "title": "Interview about the map",
-          "level": 3,
-          "content": [
+          ],
+          "images": [
             {
-              "type": "paragraph",
-              "text": "Marc 'Tryndamere' Merrill in an interview with Zam.com first mention the map:"
-            },
-            {
-              "type": "paragraph",
-              "text": "So in regards to the new map, which is one of the hottest items that we're really excited about, we're about to roll one out. It's going to be going into the beta shortly. I don't know if it's in this release or if it's in the release at the end of the month. It's coming out really soon, it's a two lane map, it's awesome, there's a lot of action, it's really well designed to force action to the middle of the map, and it's designed for a 3 on 3 play experience. So it's very different experience, it will be a lot of fun for users to go bang away on that."
-            },
-            {
-              "type": "paragraph",
-              "text": "The map was first shown to the public on October 19, 2009 on the games' Facebook page."
+              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/2/26/Treeline_Altar.jpg/revision/latest/scale-to-width-down/250?cb=20130321025721",
+              "caption": "Twisted Treeline Altar"
             }
           ]
         },
         {
-          "images": [],
+          "title": "Development",
+          "level": 2,
+          "content": [],
+          "images": []
+        },
+        {
+          "title": "Interview about the map",
+          "level": 3,
+          "content": [
+            {
+              "text": "Marc 'Tryndamere' Merrill in an interview with Zam.com first mention the map:",
+              "type": "paragraph"
+            },
+            {
+              "text": "So in regards to the new map, which is one of the hottest items that we're really excited about, we're about to roll one out. It's going to be going into the beta shortly. I don't know if it's in this release or if it's in the release at the end of the month. It's coming out really soon, it's a two lane map, it's awesome, there's a lot of action, it's really well designed to force action to the middle of the map, and it's designed for a 3 on 3 play experience. So it's very different experience, it will be a lot of fun for users to go bang away on that.",
+              "type": "paragraph"
+            },
+            {
+              "text": "The map was first shown to the public on October 19, 2009 on the games' Facebook page.",
+              "type": "paragraph"
+            }
+          ],
+          "images": []
+        },
+        {
           "title": "Map",
           "level": 2,
           "content": [
@@ -886,16 +446,16 @@
               ],
               "type": "list"
             }
-          ]
+          ],
+          "images": []
         },
         {
-          "images": [],
           "title": "Game modes",
           "level": 2,
           "content": [
             {
-              "type": "paragraph",
-              "text": "Twisted Treeline map has been used for certain special, limited-time, featured game modes that circulate in and out."
+              "text": "Twisted Treeline map has been used for certain special, limited-time, featured game modes that circulate in and out.",
+              "type": "paragraph"
             },
             {
               "elements": [
@@ -924,49 +484,559 @@
               ],
               "type": "list"
             }
-          ]
+          ],
+          "images": []
         },
         {
-          "images": [],
           "title": "Patch History",
           "level": 2,
           "content": [
             {
-              "type": "paragraph",
-              "text": "Note: Global turret changes are found at Turret#Patch History"
+              "text": "Note: Global turret changes are found at Turret#Patch History",
+              "type": "paragraph"
             }
-          ]
+          ],
+          "images": []
         }
       ]
     },
-    "image": "http://ddragon.leagueoflegends.com/cdn/7.20.1/img/map/map10.png"
+    "items": [
+      3104,
+      3090,
+      3170,
+      2047
+    ],
+    "image": "http://ddragon.leagueoflegends.com/cdn/7.20.1/img/map/map10.png",
+    "champs": [
+      "Teemo",
+      "Vi",
+      "Zyra",
+      "Evelynn",
+      "Caitlyn",
+      "Thresh",
+      "Hecarim",
+      "Shaco",
+      "Nidalee",
+      "Maokai",
+      "Karthus",
+      "Yorick",
+      "Heimerdinger",
+      "Tryndamere",
+      "Mordekaiser",
+      "Elise"
+    ],
+    "mapName": "The Twisted Treeline"
   },
-  {
-    "mapName": "Summoner's Rift",
+  "Howling Abyss": {
+    "mapId": "12",
+    "article": {
+      "sections": [
+        {
+          "title": "Howling Abyss",
+          "level": 1,
+          "content": [
+            {
+              "text": "The Howling Abyss bridge is located in the Freljord and serves as a gateway to the  Frostguard citadel. It replaced the Proving Grounds during the Freljord event and later became the first map for the official ARAM game mode.",
+              "type": "paragraph"
+            }
+          ],
+          "images": [
+            {
+              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/b/b5/Howling_Abyss_Landscape.png/revision/latest/scale-to-width-down/425?cb=20170303155408",
+              "caption": "Howling Abyss Landscape"
+            }
+          ]
+        },
+        {
+          "title": "Features",
+          "level": 2,
+          "content": [
+            {
+              "elements": [
+                {
+                  "elements": [],
+                  "text": "There is only a single lane."
+                },
+                {
+                  "elements": [
+                    {
+                      "elements": [],
+                      "text": " Azir is the exception, as he starts with 1 point in  Arise! and has 2 points to spend."
+                    }
+                  ],
+                  "text": "Your champion starts at level 3 - affording them increased base stats and 3 skill points."
+                },
+                {
+                  "elements": [],
+                  "text": "There are only two turrets protecting the inhibitor."
+                },
+                {
+                  "elements": [],
+                  "text": "There is a global aura that reduces all outgoing heals by 50%, gives experience over time, and 0.% of maximum mana per second. The healing reduction does not affect self-heals."
+                },
+                {
+                  "elements": [],
+                  "text": "Each team's shop \"closes\" when the player moves too far away (just beyond the nexus turrets), preventing them from purchasing items indefinitely. The shop will only reopen if the player dies."
+                },
+                {
+                  "elements": [],
+                  "text": "The fountain does not restore Health or Mana."
+                },
+                {
+                  "elements": [],
+                  "text": " Recall is disabled (the recall animation will still play)."
+                },
+                {
+                  "elements": [],
+                  "text": "There are 4 unique Health Relics for this map positioned in the lane."
+                }
+              ],
+              "type": "list"
+            }
+          ],
+          "images": []
+        },
+        {
+          "title": "Exclusive Items",
+          "level": 3,
+          "content": [
+            {
+              "elements": [
+                {
+                  "elements": [],
+                  "text": " Guardian's Hammer: +150 health, +15 attack damage, +10% lifesteal"
+                },
+                {
+                  "elements": [],
+                  "text": " Guardian's Horn: +150 health, +20 flat health regen per 5 seconds. Unique Passive: Blocks 12 damage from all champions sources (3 damage vs. damage over time abilities)"
+                },
+                {
+                  "elements": [],
+                  "text": " Guardian's Orb: +150 health, +30 ability power, +10 flat mana regen per 5 seconds"
+                },
+                {
+                  "elements": [],
+                  "text": " Poro-Snax for feeding the local Poros (automatically occupies your trinket item slot)."
+                }
+              ],
+              "type": "list"
+            }
+          ],
+          "images": []
+        },
+        {
+          "title": "Exclusive Spells",
+          "level": 3,
+          "content": [
+            {
+              "elements": [
+                {
+                  "elements": [],
+                  "text": " Mark /  Dash"
+                }
+              ],
+              "type": "list"
+            }
+          ],
+          "images": []
+        },
+        {
+          "title": "Lore",
+          "level": 2,
+          "content": [
+            {
+              "text": "  \"This is more than just a bridge, you know. Maybe it was once a simple thing of stone and mortar, but now it bears the weight of the entire Freljord on its back.\"",
+              "type": "paragraph"
+            },
+            {
+              "text": "\"The fate of this land was decided here, ages ago, in a long and brutal battle. Just look around and listen, that noise is more than the wind - it is the cry of the vanquished, thrown howling into the abyss!\"",
+              "type": "paragraph"
+            },
+            {
+              "text": "\"Everybody's forgotten  who built this bridge and why. Everybody's forgotten the war that gave this place its scars. Everyone, but me. I was there! I saw the battle! I died here, and I never left this place! I was bound here to stand guard and sound  my war horn if our enemies ever returned.\"",
+              "type": "paragraph"
+            },
+            {
+              "text": "\"And now, now the howling grows louder, and I sense something evil stirring in the abyss, my hand reaches for my war horn. This place will soon see a battle again. One that will shape the Freljord for all time. And if the Freljord falls, so too will the rest of the world.\"",
+              "type": "paragraph"
+            },
+            {
+              "text": "\"Yes, this is more than just a bridge.\" -  Gregor    \"The Howling Abyss. A bottomless crevasse surrounded by an ancient fortress carved into a glacier. No one remembers  who built this place. No one knows its purpose. No one but me.",
+              "type": "paragraph"
+            },
+            {
+              "text": "Long before  Ashe and  Sejuani, before  magic shattered the broken peaks, before  the desert swallowed Shurima, it was the time of The Three Sisters. We were so young back then;  Avarosa,  Serylda, and me,  Lissandra.",
+              "type": "paragraph"
+            },
+            {
+              "text": "Back then the Frozen Watchers lived here. I do not know where they came from, but I know they were powerful. They gave us gifts, shared their magic, made us immortal. They named us 'Iceborn'.",
+              "type": "paragraph"
+            },
+            {
+              "text": "In return, we gave them whatever they desired. This mighty fortress, a vast empire, our loyalty, these were a small price to pay. Avarosa did not see it that way. Like a spoiled child she cried out for freedom. She demanded choice. She sowed the seeds of rebellion and betrayal.",
+              "type": "paragraph"
+            },
+            {
+              "text": "This place is where it happened. On one side, the Frozen Watchers, on the other, Avarosa and her Iceborn horde. Many Iceborn died that day, but in the end, the Watchers fell. Avarosa drove them howling into the abyss.",
+              "type": "paragraph"
+            },
+            {
+              "text": "I never forgave her. I had  my revenge... but that is another story.\" -  Lissandra",
+              "type": "paragraph"
+            }
+          ],
+          "images": [
+            {
+              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/3/31/OrnnSquare.png/revision/latest/scale-to-width-down/20?cb=20170819003104"
+            }
+          ]
+        },
+        {
+          "title": "Shopkeepers",
+          "level": 2,
+          "content": [
+            {
+              "text": "Gregor and Lyte enforce 'limited' shopping, preventing champions from purchasing items after they have left the fountain and only until after they have been slain in combat (the shop becoming inaccessible is indicated by Gregor fading back into his frozen corpse and Lyte waving goodbye before retiring to his tent)",
+              "type": "paragraph"
+            },
+            {
+              "text": "Their dialogue can be found here.",
+              "type": "paragraph"
+            }
+          ],
+          "images": []
+        },
+        {
+          "title": "Development",
+          "level": 2,
+          "content": [],
+          "images": []
+        },
+        {
+          "title": "Howling Abyss now on PBE!",
+          "level": 3,
+          "content": [
+            {
+              "text": "By Richard 'Brackhar' Hough",
+              "type": "paragraph"
+            },
+            {
+              "text": "Hey Gang,",
+              "type": "paragraph"
+            },
+            {
+              "text": "It's been a while since I first talked to you guys about making ARAM an official gameplay mode, and today I've got something awesome to share with you. For the past few months I've been working with an exceptional team of artists to create a space that's an appropriate setting for both the epic battles that occur in ARAM and within the world of Runeterra at large. As a result, we've completely reworked the Proving Grounds and, in effect, created something entirely new.",
+              "type": "paragraph"
+            },
+            {
+              "text": "Now, instead of fighting on a random bridge over a black void, you'll be fighting on the Howling Abyss, an ancient landmark in Freljord where the Iceborn finally overthrew their oppressors and sent them tumbling into the chasm below. As you might have guessed from these mysterious journals, there's more (a lot more!) our story team would love to tell you about Freljord - but for now, you'll have to wait.",
+              "type": "paragraph"
+            },
+            {
+              "text": "Anyway, work is still ongoing on the map, and it's yet a few patches away from release but we just wanted to invite you guys in a bit earlier than normal to get your thoughts as we begin to polish it up. The environment team will be actively reading the forum and looking for your feedback, so please let us know what you think!",
+              "type": "paragraph"
+            },
+            {
+              "text": "Additionally I wanted to let you guys know that we are actively working on an official matchmaking queue for ARAM and plan to launch it with the map when it's ready. The queue isn't currently enabled on PBE as there's still a good bit of tech work that needs to be resolved to handle the number of players on the environment, but we're fully committed to giving you guys the best experience that we can. So with that, check out the map and explore what we've created; who knows, maybe you'll even find some surprises!",
+              "type": "paragraph"
+            }
+          ],
+          "images": []
+        },
+        {
+          "title": "New ARAM Feature: Rerolls",
+          "level": 3,
+          "content": [
+            {
+              "text": "By Richard 'Brackhar' Hough",
+              "type": "paragraph"
+            },
+            {
+              "text": "Hey gang,",
+              "type": "paragraph"
+            },
+            {
+              "text": "A few weeks ago, I let you know we were working on a matchmaking queue for Howling Abyss, but it wasn't quite ready for testing. Well, with today's PBE patch that's changed! Once PBE comes back up you can try out our new queue and help us test out a new ARAM feature we've added especially for this queue: rerolls.",
+              "type": "paragraph"
+            },
+            {
+              "text": "While the random element is a really fun part of Howling Abyss, we also understand there are times you simply don't want to play a particular champion. That's why we created the reroll feature specifically for this queue. When you're really not in the mood to play your particular champion on Murder Bridge, you can reroll and get a different random character instead.",
+              "type": "paragraph"
+            },
+            {
+              "text": "Here's how it works. As you play matchmade games on Howling Abyss, win or lose, you'll earn points you can save up to purchase a reroll in champion select. You'll earn a base number of points every match, along with some bonus points based on the number of champions you own. While there is a cap on the number of points you can store up, you'll be able to reroll multiple times in a single champion select if you've got the points.",
+              "type": "paragraph"
+            },
+            {
+              "text": "And don't worry about wasting your hard-earned points on queue dodgers. If someone leaves your match at champion select, everyone in the game gets a refund except the player who dodged.",
+              "type": "paragraph"
+            }
+          ],
+          "images": []
+        },
+        {
+          "title": "Map",
+          "level": 2,
+          "content": [
+            {
+              "elements": [
+                {
+                  "elements": [],
+                  "text": "The Howling Abyss has hosted the Featured Game Modes 'Showdown', 'One for All: Mirror Mode', and 'Legend of the Poro King' (the dedicated summoner spell  Poro Toss /  Poro Dash eventually led to  Mark /  Dash's creation for regular use)"
+                },
+                {
+                  "elements": [],
+                  "text": "The  Guardian's Horn, the  Guardian's Hammer, and the  Guardian's Orb all used to belong to  Gregor (a spectral horn can be seen strapped to his back)"
+                },
+                {
+                  "elements": [],
+                  "text": "Lyte and his robot Geeves are respectively named after Jeffrey 'Lyte' Lin and Kevin 'Geeves' O'Brien."
+                },
+                {
+                  "elements": [
+                    {
+                      "elements": [],
+                      "text": "If all ten players feed the same Poro their Poro-Snaxs it will 'explode' into 10 new Poros who will then proceed to run around the map as well."
+                    },
+                    {
+                      "elements": [],
+                      "text": "They used to be killed by the Nexus Obelisk and  Static Field's passive lightning bolts (now they simply run away in fear)"
+                    }
+                  ],
+                  "text": "Running around the map are little horned furball creatures called  Poros who can be fed a  Poro-Snax (Howling Abyss' 'trinket's) to make them grow in size."
+                },
+                {
+                  "elements": [
+                    {
+                      "elements": [],
+                      "text": "The gap between the purple nexus and its Obelisk features a silhouette resembling  Lissandra (referencing the purple side being the entrance to the  Frostguard citadel ruled over by the Seeker)"
+                    },
+                    {
+                      "elements": [],
+                      "text": "The 'Watcher turrets' being purple as well as the Watchers themselves appearing to have a single middle eye might be implying they are related to  Vel'Koz's Voidborn species (he himself is not a Watcher, but a Void rift in the Freljord is likely)"
+                    }
+                  ],
+                  "text": "The turrets for each team might be styled after the Iceborn (blue side) and the Frozen Watchers (purple side) with the game mode itself recreating their battle."
+                },
+                {
+                  "elements": [],
+                  "text": "Standing on the fountain does not grant increased health or mana regen."
+                },
+                {
+                  "elements": [
+                    {
+                      "elements": [],
+                      "text": "If a champion is killed near one of the giant statues skirting each side of the bridge the corresponding one will crumble and break."
+                    },
+                    {
+                      "elements": [],
+                      "text": "Another bridge in the far background will crumble and fall immediately after any team scoring First Blood."
+                    },
+                    {
+                      "elements": [],
+                      "text": "Walking past the outermost purple turret will cause a couple of bricks to fall from the crack in the ground nearby."
+                    },
+                    {
+                      "elements": [],
+                      "text": "Walking towards the left wall next to the blue inhibitor turret will cause the giant pillar nearby to crash downwards."
+                    }
+                  ],
+                  "text": "The map features many instances of destructible terrain:"
+                },
+                {
+                  "elements": [],
+                  "text": "Waiting 30 seconds after winning a match will play a monologue by  Lissandra telling the story of the place."
+                }
+              ],
+              "type": "list"
+            }
+          ],
+          "images": []
+        },
+        {
+          "title": "Shopkeepers",
+          "level": 2,
+          "content": [
+            {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "elements": [],
+                      "text": "Gregor and Lyte are hostile to each other."
+                    }
+                  ],
+                  "text": "Their dialogue can be found here."
+                }
+              ],
+              "type": "list"
+            },
+            {
+              "elements": [
+                {
+                  "elements": [],
+                  "text": "Gregor is voiced by Joshua Tomar (who also voices  Trundle)"
+                },
+                {
+                  "elements": [
+                    {
+                      "elements": [],
+                      "text": "Gregor and  Lissandra share the quote \"I am Iceborn\"."
+                    },
+                    {
+                      "elements": [],
+                      "text": "Gregor doesn't know  Lissandra murdered Avarosa nor that she singlehandedly rewrote Freljordian history (he assumes the world is ruled by Iceborn)"
+                    }
+                  ],
+                  "text": "Gregor is the only other person who knows the real history of the Freljord (the other being the  Seeker who worked for centuries to erase it and distort it)"
+                },
+                {
+                  "elements": [],
+                  "text": "\"Sorry, fresh out of  moonstones\" implies Gregor knows of the Marai (or is just making fun of the Tidecaller)"
+                },
+                {
+                  "elements": [],
+                  "text": "\"So you want to hear the story of this place? Of my glorious death? Stay a while and listen, I might tell you that and more\" might be referencing Deckard Cain from Diablo."
+                },
+                {
+                  "elements": [],
+                  "text": "\"You're making me angry! You won't like me when I'm angry\" references Hulk from Marvel Comics."
+                },
+                {
+                  "elements": [],
+                  "text": "\"This! Is! Freljord!\" references 300 by Frank Miller (\"This! Is! Sparta!\")"
+                }
+              ],
+              "type": "list"
+            },
+            {
+              "elements": [
+                {
+                  "elements": [],
+                  "text": "Lyte is trying to decipher the history  Lissandra worked to cover up, and sometimes catches glimpses of the Watchers down below. His senility and his proximity to the  Frostguard citadel might become factors in (not) warning of the Watchers' return."
+                },
+                {
+                  "elements": [],
+                  "text": "\"Are  you the sand witch I have heard so much about? Hmm... now I'm hungry... \" might be referencing  Seth (eventually  Azir) and is a pun on 'sandwich'."
+                },
+                {
+                  "elements": [],
+                  "text": "\"Is it true what I've heard about  you and  Miss Crownguard... hmm?\" implies there's a relationship going on between the Prodigal Explorer and the Lady of Luminosity."
+                },
+                {
+                  "elements": [],
+                  "text": "\" Together, we could make a... a transforming robot!\" might referencing Transformers."
+                },
+                {
+                  "elements": [],
+                  "text": "\"So many people have died here, I should call this place Murder Bridge... no, no, the Howling Abyss is definitely cooler!\" references the announcer sometimes saying \"Welcome to the Murder Bridge!\" rather than \"Welcome to the Howling Abyss!\""
+                },
+                {
+                  "elements": [],
+                  "text": "\"Its dangerous to go alone... take this!\" references Legend of Zelda."
+                },
+                {
+                  "elements": [],
+                  "text": "\"Have fun storming the bridge!\" references The Princess Bride (\"Have fun storming the castle!\")"
+                },
+                {
+                  "elements": [],
+                  "text": "\"What are you buying... what are you selling?\" references the merchant from Resident Evil 4."
+                }
+              ],
+              "type": "list"
+            }
+          ],
+          "images": []
+        },
+        {
+          "title": "See also",
+          "level": 2,
+          "content": [
+            {
+              "elements": [
+                {
+                  "elements": [],
+                  "text": "Murder Bridge"
+                },
+                {
+                  "elements": [],
+                  "text": "Butcher's Bridge"
+                },
+                {
+                  "elements": [],
+                  "text": "Proving Grounds"
+                }
+              ],
+              "type": "list"
+            }
+          ],
+          "images": []
+        }
+      ]
+    },
+    "items": [
+      3184,
+      3112,
+      2051,
+      2052
+    ],
+    "image": "http://ddragon.leagueoflegends.com/cdn/7.20.1/img/map/map12.png",
+    "champs": [
+      "Sejuani",
+      "Ashe",
+      "Lissandra",
+      "Trundle",
+      "Vel'Koz",
+      "Azir"
+    ],
+    "mapName": "Howling Abyss"
+  },
+  "Summoner's Rift": {
     "mapId": "11",
     "article": {
       "sections": [
         {
+          "title": "Summoner's Rift",
+          "level": 1,
+          "content": [
+            {
+              "text": "The Summoner's Rift is the most commonly used Field of Justice.",
+              "type": "paragraph"
+            },
+            {
+              "text": "The map was given a graphical and technical update on May 23rd, 2012 and remade from scratch on November 12th, 2014.",
+              "type": "paragraph"
+            }
+          ],
           "images": [
             {
               "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/d/d3/Summoners_Rift_Summoner_Platforms.jpg/revision/latest/scale-to-width-down/400?cb=20140624075315",
               "caption": "Summoner's Rift"
             }
-          ],
-          "title": "Summoner's Rift",
-          "level": 1,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "The Summoner's Rift is the most commonly used Field of Justice."
-            },
-            {
-              "type": "paragraph",
-              "text": "The map was given a graphical and technical update on May 23rd, 2012 and remade from scratch on November 12th, 2014."
-            }
           ]
         },
         {
+          "title": "Lore",
+          "level": 2,
+          "content": [
+            {
+              "text": "Summoner's Rift is located in a remote forest between Freljord, and the Ironspike Mountains. The Summoner’s Rift is one of a few locations in Valoran where magical energy is at its greatest concentration, making it a highly sought-after locale to pursue magical endeavors.",
+              "type": "paragraph"
+            },
+            {
+              "text": "Historically, the forest where the Rift resides was the site of several battles between two summoner factions symbolized with the Stag and Owl crests, they sought out to use the natural magical energy of the area for their personal use.",
+              "type": "paragraph"
+            },
+            {
+              "text": "The large amount of concentrated magic has mutated the local wildlife. From  giant frogs,  giant birds to  two headed wolves it has also attracted the attention of a powerful  Dragon who currently resides in one of the battle torn ruins.  Sentinels,  Bramblebacks and  Krugs are creatures made from local flora and earth infused to construct a magical being. The Rifts unstable magic has inadvertently cause the reemergence of  Baron Nashor, a large Serpent/Worm largely believed to be dead for centuries. It has his corruption affecting the land around him.",
+              "type": "paragraph"
+            },
+            {
+              "text": "Other known creature that live in this area are species of forest chameleons, ducks, Antlermice, Porowls, crows, dragonflies and butterflies.",
+              "type": "paragraph"
+            }
+          ],
           "images": [
             {
               "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/d/d3/Summoners_rift_platform.png/revision/latest/scale-to-width-down/291?cb=20160216121609",
@@ -976,67 +1046,41 @@
               "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/2/28/Summoners_Rift.jpg/revision/latest/scale-to-width-down/291?cb=20140624075820",
               "caption": "Summoner's Rift Landscape"
             }
-          ],
-          "title": "Lore",
-          "level": 2,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Summoner's Rift is located in a remote forest between Freljord, and the Ironspike Mountains. The Summoner’s Rift is one of a few locations in Valoran where magical energy is at its greatest concentration, making it a highly sought-after locale to pursue magical endeavors."
-            },
-            {
-              "type": "paragraph",
-              "text": "Historically, the forest where the Rift resides was the site of several battles between two summoner factions symbolized with the Stag and Owl crests, they sought out to use the natural magical energy of the area for their personal use."
-            },
-            {
-              "type": "paragraph",
-              "text": "The large amount of concentrated magic has mutated the local wildlife. From  giant frogs,  giant birds to  two headed wolves it has also attracted the attention of a powerful  Dragon who currently resides in one of the battle torn ruins.  Sentinels,  Bramblebacks and  Krugs are creatures made from local flora and earth infused to construct a magical being. The Rifts unstable magic has inadvertently cause the reemergence of  Baron Nashor, a large Serpent/Worm largely believed to be dead for centuries. It has his corruption affecting the land around him."
-            },
-            {
-              "type": "paragraph",
-              "text": "Other known creature that live in this area are species of forest chameleons, ducks, Antlermice, Porowls, crows, dragonflies and butterflies."
-            }
           ]
         },
         {
+          "title": "Gameplay",
+          "level": 2,
+          "content": [
+            {
+              "text": "The objective of Summoner's Rift is simple – destroy the enemy nexus. In order to do this, champions must traverse down one of three different paths (or lanes) in order to attack their enemy at their weakest points they can exploit. Both teams have their lanes defended by numerous turrets; each turret grows in strength the closer it gets to its respective nexus and each turret must be eliminated in order to gain access to the next turret in that lane. Cooperating with fellow summoners is an absolute requirement for success, as it is easy for a champion to find themselves ambushed by enemies in the lanes of the Rift.",
+              "type": "paragraph"
+            }
+          ],
           "images": [
             {
               "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/0/04/Summoner%27s_Rift_Minimap.png/revision/latest/scale-to-width-down/180?cb=20170222210641",
               "caption": "Summoner's Rift Minimap"
             }
-          ],
-          "title": "Gameplay",
-          "level": 2,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "The objective of Summoner's Rift is simple – destroy the enemy nexus. In order to do this, champions must traverse down one of three different paths (or lanes) in order to attack their enemy at their weakest points they can exploit. Both teams have their lanes defended by numerous turrets; each turret grows in strength the closer it gets to its respective nexus and each turret must be eliminated in order to gain access to the next turret in that lane. Cooperating with fellow summoners is an absolute requirement for success, as it is easy for a champion to find themselves ambushed by enemies in the lanes of the Rift."
-            }
           ]
         },
         {
+          "title": "In-Game Description",
+          "level": 2,
+          "content": [
+            {
+              "text": "The newest and most venerated battleground is known as Summoner's Rift. Traverse down on of three different paths in order to attack your enemy at their weakest point. Work with your allies to siege the enemy base and destroy their Nexus!",
+              "type": "paragraph"
+            }
+          ],
           "images": [
             {
               "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/4/41/Summoner%27s_Rift_Map_Preview.jpg/revision/latest/scale-to-width-down/300?cb=20170227032638",
               "caption": "Summoner's Rift Map"
             }
-          ],
-          "title": "In-Game Description",
-          "level": 2,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "The newest and most venerated battleground is known as Summoner's Rift. Traverse down on of three different paths in order to attack your enemy at their weakest point. Work with your allies to siege the enemy base and destroy their Nexus!"
-            }
           ]
         },
         {
-          "images": [
-            {
-              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/b/bb/Baron_Nashor_Vs._Team.jpg/revision/latest/scale-to-width-down/324?cb=20140624080526",
-              "caption": "Fight Against Baron Nashor"
-            }
-          ],
           "title": "Features",
           "level": 2,
           "content": [
@@ -1069,16 +1113,21 @@
               ],
               "type": "list"
             }
+          ],
+          "images": [
+            {
+              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/b/bb/Baron_Nashor_Vs._Team.jpg/revision/latest/scale-to-width-down/324?cb=20140624080526",
+              "caption": "Fight Against Baron Nashor"
+            }
           ]
         },
         {
-          "images": [],
           "title": "Unique Shopkeepers",
           "level": 3,
           "content": [
             {
-              "type": "paragraph",
-              "text": "Summoner's Rift during its history had a total of four shopkeepers."
+              "text": "Summoner's Rift during its history had a total of four shopkeepers.",
+              "type": "paragraph"
             },
             {
               "elements": [
@@ -1097,38 +1146,33 @@
               ],
               "type": "list"
             }
-          ]
+          ],
+          "images": []
         },
         {
-          "images": [],
           "title": "Versions",
           "level": 2,
-          "content": []
+          "content": [],
+          "images": []
         },
         {
-          "images": [],
           "title": "Summer Version",
           "level": 3,
           "content": [
             {
-              "type": "paragraph",
-              "text": "It is the default and first version released of the map."
-            }
-          ]
-        },
-        {
-          "images": [
-            {
-              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/c/c7/Summoner%27s_Rift_Snowdown_Showdown.png/revision/latest/scale-to-width-down/225?cb=20111223060544",
-              "caption": "Snowdown Showdown Summoner's Rift"
+              "text": "It is the default and first version released of the map.",
+              "type": "paragraph"
             }
           ],
+          "images": []
+        },
+        {
           "title": "Winter Version",
           "level": 3,
           "content": [
             {
-              "type": "paragraph",
-              "text": "A variant of the regular Summoner's Rift with a winter seasonal variants, designed for the 2009 Snowdown Showdown event. This version was a permanent option before it was replaced with the Autumn Version on November 2010. It was also available during the 2010 Snowdown Showdown, replacing the Autumn version temporarily and made a return for the 2011 Snowdown Showdown in December 2011. An updated version was released for the 2016 Snowdown Showdown. The Winter Version of Summoner's Rift has a few differences:"
+              "text": "A variant of the regular Summoner's Rift with a winter seasonal variants, designed for the 2009 Snowdown Showdown event. This version was a permanent option before it was replaced with the Autumn Version on November 2010. It was also available during the 2010 Snowdown Showdown, replacing the Autumn version temporarily and made a return for the 2011 Snowdown Showdown in December 2011. An updated version was released for the 2016 Snowdown Showdown. The Winter Version of Summoner's Rift has a few differences:",
+              "type": "paragraph"
             },
             {
               "elements": [
@@ -1155,21 +1199,21 @@
               ],
               "type": "list"
             }
+          ],
+          "images": [
+            {
+              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/c/c7/Summoner%27s_Rift_Snowdown_Showdown.png/revision/latest/scale-to-width-down/225?cb=20111223060544",
+              "caption": "Snowdown Showdown Summoner's Rift"
+            }
           ]
         },
         {
-          "images": [
-            {
-              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/b/b1/HarrowingThemedSummoner%27sRift.jpg/revision/latest/scale-to-width-down/200?cb=20101021040456",
-              "caption": "Harrowing Summoner's Rift"
-            }
-          ],
           "title": "Autumn Version",
           "level": 3,
           "content": [
             {
-              "type": "paragraph",
-              "text": "The Autumn Version of Summoner's Rift was a special variant designed for the 2010 Harrowing Seasonal Event. It replaced the Winter Version as the secondary version available and renamed Autumn Version after a poll on November 2010. It was temporarily replaced again with the Winter Version for the 2010 Snowdown Showdown. The Autumn Version uses music from the Twisted Treeline."
+              "text": "The Autumn Version of Summoner's Rift was a special variant designed for the 2010 Harrowing Seasonal Event. It replaced the Winter Version as the secondary version available and renamed Autumn Version after a poll on November 2010. It was temporarily replaced again with the Winter Version for the 2010 Snowdown Showdown. The Autumn Version uses music from the Twisted Treeline.",
+              "type": "paragraph"
             },
             {
               "elements": [
@@ -1180,49 +1224,49 @@
               ],
               "type": "list"
             }
+          ],
+          "images": [
+            {
+              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/b/b1/HarrowingThemedSummoner%27sRift.jpg/revision/latest/scale-to-width-down/200?cb=20101021040456",
+              "caption": "Harrowing Summoner's Rift"
+            }
           ]
         },
         {
-          "images": [],
           "title": "Blood Moon Version",
           "level": 3,
           "content": [
             {
-              "type": "paragraph",
-              "text": "The Blood Moon Version of Summoner's Rift was a special variant designed for the 2017 Blood Moon Event."
+              "text": "The Blood Moon Version of Summoner's Rift was a special variant designed for the 2017 Blood Moon Event.",
+              "type": "paragraph"
             }
-          ]
+          ],
+          "images": []
         },
         {
-          "images": [],
           "title": "Arcade Version",
           "level": 3,
           "content": [
             {
-              "type": "paragraph",
-              "text": "The Arcade Version of Summoner's Rift was a special variant designed for the August 2017 release of three Battle Boss skins."
-            }
-          ]
-        },
-        {
-          "images": [],
-          "title": "Development",
-          "level": 2,
-          "content": []
-        },
-        {
-          "images": [
-            {
-              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/0/0a/Retextured_VS_Original_SR.png/revision/latest/scale-to-width-down/300?cb=20141124154223",
-              "caption": "Retextured (left) and Original (right) Summoner's Rift"
+              "text": "The Arcade Version of Summoner's Rift was a special variant designed for the August 2017 release of three Battle Boss skins.",
+              "type": "paragraph"
             }
           ],
+          "images": []
+        },
+        {
+          "title": "Development",
+          "level": 2,
+          "content": [],
+          "images": []
+        },
+        {
           "title": "Summoner’s Rift Update",
           "level": 3,
           "content": [
             {
-              "type": "paragraph",
-              "text": "May 23, 2012 brought graphical and technical updates to Summoner’s Rift. The updates brought players better aesthetics as well as improved overall graphical performance for players on lower settings. Some of the enhancements included:"
+              "text": "May 23, 2012 brought graphical and technical updates to Summoner’s Rift. The updates brought players better aesthetics as well as improved overall graphical performance for players on lower settings. Some of the enhancements included:",
+              "type": "paragraph"
             },
             {
               "elements": [
@@ -1245,16 +1289,21 @@
               ],
               "type": "list"
             }
+          ],
+          "images": [
+            {
+              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/0/0a/Retextured_VS_Original_SR.png/revision/latest/scale-to-width-down/300?cb=20141124154223",
+              "caption": "Retextured (left) and Original (right) Summoner's Rift"
+            }
           ]
         },
         {
-          "images": [],
           "title": "Summoner's Rift Evolves",
           "level": 3,
           "content": [
             {
-              "type": "paragraph",
-              "text": "On November 12, 2014 a new update to Summoner's Rift went live for use on the Team Builder queue and all bot modes. Then in November 19 the updated Summoner’s Rift was released for all queues, replacing the old one entirely. This time the update has been more heavier than the previous one, and the map was remade from scratch, changing the overall art style. From the minions, to the monsters, the structures, the decorations, the vegetation and even the music it was all completely remade. The new Summoner's Rift is in all respects a new map, made preserving the spirit and gameplay of the older Summoner’s Rift. The new elements are:"
+              "text": "On November 12, 2014 a new update to Summoner's Rift went live for use on the Team Builder queue and all bot modes. Then in November 19 the updated Summoner’s Rift was released for all queues, replacing the old one entirely. This time the update has been more heavier than the previous one, and the map was remade from scratch, changing the overall art style. From the minions, to the monsters, the structures, the decorations, the vegetation and even the music it was all completely remade. The new Summoner's Rift is in all respects a new map, made preserving the spirit and gameplay of the older Summoner’s Rift. The new elements are:",
+              "type": "paragraph"
             },
             {
               "elements": [
@@ -1385,29 +1434,29 @@
               ],
               "type": "list"
             }
-          ]
+          ],
+          "images": []
         },
         {
-          "images": [],
           "title": "Check out some Summoner's Rift concept art!",
           "level": 3,
           "content": [
             {
-              "type": "paragraph",
-              "text": "By Riot ForScience"
+              "text": "By Riot ForScience",
+              "type": "paragraph"
             },
             {
-              "type": "paragraph",
-              "text": "Summoner's Rift has come a long way since League's launch in 2009, but our latest update to ol' trusty was the biggest change in the map's history."
+              "text": "Summoner's Rift has come a long way since League's launch in 2009, but our latest update to ol' trusty was the biggest change in the map's history.",
+              "type": "paragraph"
             },
             {
-              "type": "paragraph",
-              "text": "While all updates go through iterations and testing, Summoner's Rift required a huge team of artists to concept and sketch out art for months before we started working in 3D. To celebrate the end of SR's beta run, we're releasing a few of the concept art pieces the environment team created, complete with notes and insights from the artists themselves."
+              "text": "While all updates go through iterations and testing, Summoner's Rift required a huge team of artists to concept and sketch out art for months before we started working in 3D. To celebrate the end of SR's beta run, we're releasing a few of the concept art pieces the environment team created, complete with notes and insights from the artists themselves.",
+              "type": "paragraph"
             }
-          ]
+          ],
+          "images": []
         },
         {
-          "images": [],
           "title": "Map",
           "level": 2,
           "content": [
@@ -1544,16 +1593,16 @@
               ],
               "type": "list"
             }
-          ]
+          ],
+          "images": []
         },
         {
-          "images": [],
           "title": "Game Modes",
           "level": 2,
           "content": [
             {
-              "type": "paragraph",
-              "text": "Summoner's Rift map has been used for certain special, limited-time, featured game modes that circulate in and out."
+              "text": "Summoner's Rift map has been used for certain special, limited-time, featured game modes that circulate in and out.",
+              "type": "paragraph"
             },
             {
               "elements": [
@@ -1620,10 +1669,10 @@
               ],
               "type": "list"
             }
-          ]
+          ],
+          "images": []
         },
         {
-          "images": [],
           "title": "Other",
           "level": 2,
           "content": [
@@ -1656,461 +1705,482 @@
               ],
               "type": "list"
             }
-          ]
+          ],
+          "images": []
         }
       ]
     },
-    "image": "http://ddragon.leagueoflegends.com/cdn/7.20.1/img/map/map11.png"
+    "items": [
+      1056,
+      3105,
+      1054,
+      3102,
+      1055
+    ],
+    "image": "http://ddragon.leagueoflegends.com/cdn/7.20.1/img/map/map11.png",
+    "champs": [
+      "Warwick",
+      "Braum",
+      "Singed",
+      "Tahm Kench",
+      "Vi",
+      "Kindred",
+      "Caitlyn",
+      "Bard",
+      "Kog'Maw",
+      "Rumble",
+      "Garen",
+      "Aatrox"
+    ],
+    "mapName": "Summoner's Rift"
   },
-  {
-    "mapName": "Howling Abyss",
-    "mapId": "12",
+  "The Crystal Scar": {
+    "mapId": "8",
     "article": {
       "sections": [
         {
-          "images": [
-            {
-              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/b/b5/Howling_Abyss_Landscape.png/revision/latest/scale-to-width-down/425?cb=20170303155408",
-              "caption": "Howling Abyss Landscape"
-            }
-          ],
-          "title": "Howling Abyss",
+          "title": "Crystal Scar",
           "level": 1,
           "content": [
             {
-              "type": "paragraph",
-              "text": "The Howling Abyss bridge is located in the Freljord and serves as a gateway to the  Frostguard citadel. It replaced the Proving Grounds during the Freljord event and later became the first map for the official ARAM game mode."
+              "text": "Crystal Scar is a Field of Justice in League of Legends designed for the Dominion game mode. The arena is situated on the village once known as Kalamanda.",
+              "type": "paragraph"
+            },
+            {
+              "text": "Dominion was disabled on February 22, 2016, but some of the Crystal Scar assets are still used for the Rotating Game Modes Ascension and Definitely Not Dominion.",
+              "type": "paragraph"
+            }
+          ],
+          "images": [
+            {
+              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/6/64/LeagueOfLegends_Dominion_Artwork1.jpg/revision/latest/scale-to-width-down/400?cb=20110808212751",
+              "caption": "The Crystal Scar"
             }
           ]
         },
         {
-          "images": [],
+          "title": "Map Description",
+          "level": 2,
+          "content": [
+            {
+              "text": "The Crystal Scar is a circular map with 5 capture points.",
+              "type": "paragraph"
+            }
+          ],
+          "images": []
+        },
+        {
+          "title": "In-Game Description",
+          "level": 2,
+          "content": [
+            {
+              "text": "The Crystal Scar was once known as the mining village of Kalamanda, until open war between Demacia and Noxus broke out over control of its vast underground riches. Settle your disputes on this Field of Justice by working with your allies to seize capture points and declare dominion over your enemies!",
+              "type": "paragraph"
+            }
+          ],
+          "images": [
+            {
+              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/4/45/Crystal_Scar_Map_Preview.jpg/revision/latest/scale-to-width-down/250?cb=20140612032107",
+              "caption": "Crystal Scar Map"
+            }
+          ]
+        },
+        {
+          "title": "Dominion Gameplay",
+          "level": 2,
+          "content": [
+            {
+              "text": "Unlike other maps which feature laning, the Crystal Scar features a capture-and-hold style of gameplay. This new League of Legends experience is called Dominion. Here two teams of five players battle over a circular map and fight for control over five capture points in an effort to destroy the opposing team’s Nexus, which has a starting health of 500. The team that has captured more points than the other begin to deal damage to the opposing enemy nexus until its health reaches 0. This gameplay is designed to be fluid, with both teams constantly seizing the advantage from one another.",
+              "type": "paragraph"
+            }
+          ],
+          "images": [
+            {
+              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/5/52/Crystal_Scar_Minimap.png/revision/latest/scale-to-width-down/250?cb=20170222210645",
+              "caption": "Crystal Scar Minimap"
+            }
+          ]
+        },
+        {
           "title": "Features",
           "level": 2,
           "content": [
             {
+              "text": "The outer ring of the Crystal Scar is approximately 28,000 units around, taking about 80 seconds for the average champion to run around without any boots.",
+              "type": "paragraph"
+            }
+          ],
+          "images": []
+        },
+        {
+          "title": "Capture Points",
+          "level": 3,
+          "content": [
+            {
+              "text": "Capture points represent important strategic locations across the map. Controlling these points and defending them against the opposition is the central focus of Dominion. These locations are:",
+              "type": "paragraph"
+            },
+            {
               "elements": [
                 {
                   "elements": [],
-                  "text": "There is only a single lane."
+                  "text": "The Windmill, located in the northern part of Kalamanda."
+                },
+                {
+                  "elements": [],
+                  "text": "The Drill, located in Kalamanda’s northeastern section."
+                },
+                {
+                  "elements": [],
+                  "text": "The Boneyard, located in the southeastern section."
+                },
+                {
+                  "elements": [],
+                  "text": "The Quarry, in the southwestern section."
+                },
+                {
+                  "elements": [],
+                  "text": "The Refinery, located in the northwestern section."
+                }
+              ],
+              "type": "list"
+            }
+          ],
+          "images": [
+            {
+              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/9/9d/The_Quarry.jpg/revision/latest/scale-to-width-down/250?cb=20110813070846",
+              "caption": "attempting to capture the Quarry"
+            }
+          ]
+        },
+        {
+          "title": "Buffs",
+          "level": 3,
+          "content": [
+            {
+              "text": "In the crystal scar there are several fixed position buffs that are placed in strategic locations on the map and come in three different forms:",
+              "type": "paragraph"
+            }
+          ],
+          "images": []
+        },
+        {
+          "title": "Greater Relic",
+          "level": 4,
+          "content": [
+            {
+              "text": "The Greater Relic grants two powerful, short duration combat buffs,  Storm Shield: Shield and  Lightning, granting an absorption shield and a damaging nuke (that attacks and spellcasts proc) to any one teammate. There is one relic for each team and are team-specific. Positioned right next to each other the relics are located at the very center of the Crystal Scar.",
+              "type": "paragraph"
+            }
+          ],
+          "images": [
+            {
+              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/9/9b/Greater_Relic_Nidalee.png/revision/latest/scale-to-width-down/250?cb=20130324002002",
+              "caption": "obtaining the Greater Relic"
+            }
+          ]
+        },
+        {
+          "title": "Speed Shrines",
+          "level": 4,
+          "content": [
+            {
+              "text": "The Speed Shrines are areas on the map that grant a significant, yet short duration, movement speed bonus to any champion that passes through them. These relics are located in a triangle around the seal.",
+              "type": "paragraph"
+            },
+            {
+              "text": "In Dominion and Ascension, there are 3 Speed Shrines while in Definitely Not Dominion, there are 4.",
+              "type": "paragraph"
+            }
+          ],
+          "images": [
+            {
+              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/1/1b/Speed_Shrine_Crystal_Scar.jpg/revision/latest/scale-to-width-down/256?cb=20160516144522",
+              "caption": "Speed Shrine (Crystal Scar)"
+            }
+          ]
+        },
+        {
+          "title": "Health Relics",
+          "level": 4,
+          "content": [
+            {
+              "text": "The Health Relics are placed in ten areas on the map that grant a replenishment of health and mana for the champion that walks over it. A health relic is located behind every capture point and the rest are positioned around the seal.",
+              "type": "paragraph"
+            }
+          ],
+          "images": []
+        },
+        {
+          "title": "Items",
+          "level": 3,
+          "content": [
+            {
+              "text": "Due to the different pace of the game, Dominion offers new items available only on the Crystal Scar and also prohibits other items to maintain balance. Each champion is also provided with a set of recommended items specially for Dominion mode.",
+              "type": "paragraph"
+            }
+          ],
+          "images": [
+            {
+              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/e/ed/The_Crystal_Scar_Shop.jpg/revision/latest/scale-to-width-down/250?cb=20160516143922",
+              "caption": "Crystal Scar Shop"
+            }
+          ]
+        },
+        {
+          "title": "Replaced items",
+          "level": 4,
+          "content": [
+            {
+              "text": "Many Summoner's Rift items are replaced with other items to maintain balance. For instance, the Prospector items replace the Doran items with double the stats and cost (excluding  Doran's Shield). They are variations of the original items, and remain beneficial to the fast-paced game style of the Dominion game mode. Many of these items are also used on other maps to maintain balance as well.",
+              "type": "paragraph"
+            },
+            {
+              "text": "Replaced items:",
+              "type": "paragraph"
+            }
+          ],
+          "images": []
+        },
+        {
+          "title": "Notes",
+          "level": 4,
+          "content": [
+            {
+              "elements": [
+                {
+                  "elements": [],
+                  "text": " Doran's Shield did not get a replacement item and can still be purchased from the shop."
+                },
+                {
+                  "elements": [],
+                  "text": " Entropy and  The Lightbringer were items exclusive to this map but they have since been made available on the Howling Abyss."
                 },
                 {
                   "elements": [
                     {
                       "elements": [],
-                      "text": " Azir is the exception, as he starts with 1 point in  Arise! and has 2 points to spend."
+                      "text": "Dominion:  Soul Anchor."
+                    },
+                    {
+                      "elements": [],
+                      "text": "Ascension:  Golden Transcendence."
+                    },
+                    {
+                      "elements": [],
+                      "text": "Definitely Not Dominion:  Seer Stone."
                     }
                   ],
-                  "text": "Your champion starts at level 3 - affording them increased base stats and 3 skill points."
-                },
-                {
-                  "elements": [],
-                  "text": "There are only two turrets protecting the inhibitor."
-                },
-                {
-                  "elements": [],
-                  "text": "There is a global aura that reduces all outgoing heals by 50%, gives experience over time, and 0.% of maximum mana per second. The healing reduction does not affect self-heals."
-                },
-                {
-                  "elements": [],
-                  "text": "Each team's shop \"closes\" when the player moves too far away (just beyond the nexus turrets), preventing them from purchasing items indefinitely. The shop will only reopen if the player dies."
-                },
-                {
-                  "elements": [],
-                  "text": "The fountain does not restore Health or Mana."
-                },
-                {
-                  "elements": [],
-                  "text": " Recall is disabled (the recall animation will still play)."
-                },
-                {
-                  "elements": [],
-                  "text": "There are 4 unique Health Relics for this map positioned in the lane."
+                  "text": "There is only one trinket available. It is different, base on different modes."
                 }
               ],
               "type": "list"
-            }
-          ]
-        },
-        {
-          "images": [],
-          "title": "Exclusive Items",
-          "level": 3,
-          "content": [
-            {
-              "elements": [
-                {
-                  "elements": [],
-                  "text": " Guardian's Hammer: +150 health, +15 attack damage, +10% lifesteal"
-                },
-                {
-                  "elements": [],
-                  "text": " Guardian's Horn: +150 health, +20 flat health regen per 5 seconds. Unique Passive: Blocks 12 damage from all champions sources (3 damage vs. damage over time abilities)"
-                },
-                {
-                  "elements": [],
-                  "text": " Guardian's Orb: +150 health, +30 ability power, +10 flat mana regen per 5 seconds"
-                },
-                {
-                  "elements": [],
-                  "text": " Poro-Snax for feeding the local Poros (automatically occupies your trinket item slot)."
-                }
-              ],
-              "type": "list"
-            }
-          ]
-        },
-        {
-          "images": [],
-          "title": "Exclusive Spells",
-          "level": 3,
-          "content": [
-            {
-              "elements": [
-                {
-                  "elements": [],
-                  "text": " Mark /  Dash"
-                }
-              ],
-              "type": "list"
-            }
-          ]
-        },
-        {
-          "images": [
-            {
-              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/3/31/OrnnSquare.png/revision/latest/scale-to-width-down/20?cb=20170819003104"
             }
           ],
+          "images": []
+        },
+        {
           "title": "Lore",
           "level": 2,
           "content": [
             {
-              "type": "paragraph",
-              "text": "  \"This is more than just a bridge, you know. Maybe it was once a simple thing of stone and mortar, but now it bears the weight of the entire Freljord on its back.\""
+              "text": "\"What do you think would have happened if the League hadn't stopped Demacia and Noxus in Kalamanda? I can sum it up in four words: the sixth Rune War.\" -  Ryze, the Rogue Mage",
+              "type": "paragraph"
             },
             {
-              "type": "paragraph",
-              "text": "\"The fate of this land was decided here, ages ago, in a long and brutal battle. Just look around and listen, that noise is more than the wind - it is the cry of the vanquished, thrown howling into the abyss!\""
+              "text": "The League of Legends, in its 21 years of existence, never had its mandate of keeping the peace between Valoran's city-states put to a serious test. All of the political disagreements that the city-states could muster had been resolved securely on the Fields of Justice. Never before was the League forced to intervene in any dispute.",
+              "type": "paragraph"
             },
             {
-              "type": "paragraph",
-              "text": "\"Everybody's forgotten  who built this bridge and why. Everybody's forgotten the war that gave this place its scars. Everyone, but me. I was there! I saw the battle! I died here, and I never left this place! I was bound here to stand guard and sound  my war horn if our enemies ever returned.\""
+              "text": "That is, until Kalamanda.",
+              "type": "paragraph"
             },
             {
-              "type": "paragraph",
-              "text": "\"And now, now the howling grows louder, and I sense something evil stirring in the abyss, my hand reaches for my war horn. This place will soon see a battle again. One that will shape the Freljord for all time. And if the Freljord falls, so too will the rest of the world.\""
+              "text": "The conflict between Demacia and Noxus in Kalamanda, a village nestled within the Great Barrier’s Odyn Valley, would provoke the League’s first show of force. It all began when a treasure trove of natural resources was discovered there. The city-states flocked in, each hoping to secure the lion’s share of that treasure for itself. Enormous profits were turned from mining the vast crystal deposits, and with the added strikes of enchantable gold and rare gems, the city-states thrived from their newfound riches.",
+              "type": "paragraph"
             },
             {
-              "type": "paragraph",
-              "text": "\"Yes, this is more than just a bridge.\" -  Gregor    \"The Howling Abyss. A bottomless crevasse surrounded by an ancient fortress carved into a glacier. No one remembers  who built this place. No one knows its purpose. No one but me."
+              "text": "This time of prosperity was short-lived, as the temptation to seize full control of the mines proved too difficult for the city-states to resist. In a period of months, Kalamanda was transformed from a sleepy mountain village to a stage for open war between two ancient and powerful foes. Demacia and Noxus came to blows for control of the village, triggered by the assassination of Noxus’ longtime leader, General Boram Darkwill.",
+              "type": "paragraph"
             },
             {
-              "type": "paragraph",
-              "text": "Long before  Ashe and  Sejuani, before  magic shattered the broken peaks, before  the desert swallowed Shurima, it was the time of The Three Sisters. We were so young back then;  Avarosa,  Serylda, and me,  Lissandra."
+              "text": "The battle raged on despite severe warnings, and the League was forced to resort to a terrifying show of power. A temporal stasis field was summoned over the entire village, trapping inhabitants and combatants alike. Time magic on such a scale had not been seen since the Rune Wars. None of Valoran’s city-states had the slightest inkling that the League preserved such secrets, let alone possessed the will to use them.",
+              "type": "paragraph"
             },
             {
-              "type": "paragraph",
-              "text": "Back then the Frozen Watchers lived here. I do not know where they came from, but I know they were powerful. They gave us gifts, shared their magic, made us immortal. They named us 'Iceborn'."
+              "text": "While removing the trapped people from the village, the League found that the use of such powerful magic had rendered Kalamanda completely uninhabitable. After the stasis field was removed, Kalamanda was transformed into the newest Field of Justice, the “Crystal Scar”. It stands as a chilling reminder of the destructive consequences of magic to Runeterra, and the lengths to which the League will go in order to enforce the peace in Valoran.",
+              "type": "paragraph"
+            }
+          ],
+          "images": [
+            {
+              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/2/28/RyzeSquare.png/revision/latest/scale-to-width-down/20?cb=20160630224634"
             },
             {
-              "type": "paragraph",
-              "text": "In return, we gave them whatever they desired. This mighty fortress, a vast empire, our loyalty, these were a small price to pay. Avarosa did not see it that way. Like a spoiled child she cried out for freedom. She demanded choice. She sowed the seeds of rebellion and betrayal."
+              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/6/64/JoJKalamandaBoomtown.jpg/revision/latest/scale-to-width-down/350?cb=20100819120816",
+              "caption": "Demacian (left) and Noxian (right) camps outside Kalamanda"
             },
             {
-              "type": "paragraph",
-              "text": "This place is where it happened. On one side, the Frozen Watchers, on the other, Avarosa and her Iceborn horde. Many Iceborn died that day, but in the end, the Watchers fell. Avarosa drove them howling into the abyss."
-            },
-            {
-              "type": "paragraph",
-              "text": "I never forgave her. I had  my revenge... but that is another story.\" -  Lissandra"
+              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/d/d9/Kalamanda%27s_FoJ.jpg/revision/latest/scale-to-width-down/250?cb=20110804233021",
+              "caption": "The reconstruction of Kalamanda to become a Field of Justice"
             }
           ]
         },
         {
-          "images": [],
-          "title": "Shopkeepers",
-          "level": 2,
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Gregor and Lyte enforce 'limited' shopping, preventing champions from purchasing items after they have left the fountain and only until after they have been slain in combat (the shop becoming inaccessible is indicated by Gregor fading back into his frozen corpse and Lyte waving goodbye before retiring to his tent)"
-            },
-            {
-              "type": "paragraph",
-              "text": "Their dialogue can be found here."
-            }
-          ]
-        },
-        {
-          "images": [],
-          "title": "Development",
-          "level": 2,
-          "content": []
-        },
-        {
-          "images": [],
-          "title": "Howling Abyss now on PBE!",
+          "title": "Timeline",
           "level": 3,
           "content": [
             {
-              "type": "paragraph",
-              "text": "By Richard 'Brackhar' Hough"
-            },
-            {
-              "type": "paragraph",
-              "text": "Hey Gang,"
-            },
-            {
-              "type": "paragraph",
-              "text": "It's been a while since I first talked to you guys about making ARAM an official gameplay mode, and today I've got something awesome to share with you. For the past few months I've been working with an exceptional team of artists to create a space that's an appropriate setting for both the epic battles that occur in ARAM and within the world of Runeterra at large. As a result, we've completely reworked the Proving Grounds and, in effect, created something entirely new."
-            },
-            {
-              "type": "paragraph",
-              "text": "Now, instead of fighting on a random bridge over a black void, you'll be fighting on the Howling Abyss, an ancient landmark in Freljord where the Iceborn finally overthrew their oppressors and sent them tumbling into the chasm below. As you might have guessed from these mysterious journals, there's more (a lot more!) our story team would love to tell you about Freljord - but for now, you'll have to wait."
-            },
-            {
-              "type": "paragraph",
-              "text": "Anyway, work is still ongoing on the map, and it's yet a few patches away from release but we just wanted to invite you guys in a bit earlier than normal to get your thoughts as we begin to polish it up. The environment team will be actively reading the forum and looking for your feedback, so please let us know what you think!"
-            },
-            {
-              "type": "paragraph",
-              "text": "Additionally I wanted to let you guys know that we are actively working on an official matchmaking queue for ARAM and plan to launch it with the map when it's ready. The queue isn't currently enabled on PBE as there's still a good bit of tech work that needs to be resolved to handle the number of players on the environment, but we're fully committed to giving you guys the best experience that we can. So with that, check out the map and explore what we've created; who knows, maybe you'll even find some surprises!"
+              "elements": [
+                {
+                  "elements": [],
+                  "text": "13 July, 20 CLE (Common League Era) – Mayor Anson Ridley reports discovery of precious mineral deposits and two nexuses within the village of Kalamanda. The League and all major city-states send representatives for research and mining purposes."
+                },
+                {
+                  "elements": [],
+                  "text": "25 January, 21 CLE – An earthquake causes the collapse of Demacia’s #1 Loadstone Mining Consortium. The trapped Demacian miners are rescued a month later and the body of a Noxian soldier surrounded by arcano-charges is discovered nearby, suggesting Noxian sabotage."
+                },
+                {
+                  "elements": [],
+                  "text": "24 February, 21 CLE – Before the investigation surrounding Noxian sabotage is complete, the Kalamanda Village Council grants an exclusive mining contract to Demacia, making Kalamanda a province of Demacia. Noxus refuses to vacate the village, claiming that they were falsely accused."
+                },
+                {
+                  "elements": [],
+                  "text": "1 July, 21 CLE – The leader of the Noxian High Command, General Boram Darkwill, is assassinated while on the road to Kalamanda. Open warfare erupts throughout the village between Demacian and Noxian military forces. The League’s Council of Equity demands that all hostilities stop within 24 hours or “face dire and lasting consequences”."
+                },
+                {
+                  "elements": [],
+                  "text": "29 July, 21 CLE – The League summons a temporal field over the village, freezing everyone and everything inside it in time. All fighting instantly ceases. Valoran is in shock, as no one believed the League possessed such might, let alone the will to use it."
+                },
+                {
+                  "elements": [],
+                  "text": "3 August, 21 CLE – The League releases the temporal field that had engulfed the village and claims it permanently as League territory. The village is transformed into the League’s newest Field of Justice, “Crystal Scar”."
+                }
+              ],
+              "type": "list"
             }
-          ]
+          ],
+          "images": []
         },
         {
-          "images": [],
-          "title": "New ARAM Feature: Rerolls",
+          "title": "Ancient creature awakens",
           "level": 3,
           "content": [
             {
-              "type": "paragraph",
-              "text": "By Richard 'Brackhar' Hough"
+              "text": "For ages, a race commonly known as the Brackern has slept below the grounds near Kalamanda. The brackern were unusual beings blessed with the earth's primal magic, embodied in the form of crystals. Their kind knew of an arcane ritual to bind their life's essence to a crystal, communing with the magic embedded in it.",
+              "type": "paragraph"
             },
             {
-              "type": "paragraph",
-              "text": "Hey gang,"
-            },
+              "text": "A vicious battle was fought near the Odyn Valley and unleashed a chaotic magic that poisoned the crystals. To avoid extinction, the brackerns only course was to hibernate underground until the wars stopped. The strongest, most intelligent brackern hibernated closer to the surface to awaken first and assess the world's condition for the return of their race. The recent mining operations and violent escalation in Kalamanda were enough to awaken  Skarner the Crystal Vanguard. He lashed out in anger and confusion. Reason eventually won out over his anger when he realized that the agents of the League who found him were simply functionaries. For now, there is a place where Skarner can use his power to change the world into one to which his kind could eventually return: the League of Legends.",
+              "type": "paragraph"
+            }
+          ],
+          "images": [
             {
-              "type": "paragraph",
-              "text": "A few weeks ago, I let you know we were working on a matchmaking queue for Howling Abyss, but it wasn't quite ready for testing. Well, with today's PBE patch that's changed! Once PBE comes back up you can try out our new queue and help us test out a new ARAM feature we've added especially for this queue: rerolls."
-            },
-            {
-              "type": "paragraph",
-              "text": "While the random element is a really fun part of Howling Abyss, we also understand there are times you simply don't want to play a particular champion. That's why we created the reroll feature specifically for this queue. When you're really not in the mood to play your particular champion on Murder Bridge, you can reroll and get a different random character instead."
-            },
-            {
-              "type": "paragraph",
-              "text": "Here's how it works. As you play matchmade games on Howling Abyss, win or lose, you'll earn points you can save up to purchase a reroll in champion select. You'll earn a base number of points every match, along with some bonus points based on the number of champions you own. While there is a cap on the number of points you can store up, you'll be able to reroll multiple times in a single champion select if you've got the points."
-            },
-            {
-              "type": "paragraph",
-              "text": "And don't worry about wasting your hard-earned points on queue dodgers. If someone leaves your match at champion select, everyone in the game gets a refund except the player who dodged."
+              "src": "https://vignette.wikia.nocookie.net/leagueoflegends/images/6/61/Skarner-Teaser2.jpg/revision/latest/scale-to-width-down/300?cb=20110730093127",
+              "caption": "Skarner awakens from his sleep"
             }
           ]
         },
         {
-          "images": [],
-          "title": "Map",
+          "title": "Game Modes",
+          "level": 2,
+          "content": [
+            {
+              "text": "Crystal Scar map has been used for certain special, limited-time, featured game modes that circulate in and out.",
+              "type": "paragraph"
+            },
+            {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "elements": [],
+                      "text": "In this mode, it is not possible to leave the fountain on foot. Instead, players must teleport onto one of the ports (originally the capture points in Dominion) via a game mode-exclusive trinket: the Golden Transcendence."
+                    },
+                    {
+                      "elements": [],
+                      "text": "Ascension features a Shuriman-themed user interface, which displays the team scores and the current Ascended."
+                    },
+                    {
+                      "elements": [],
+                      "text": "This mode uses all the items and champion changes of Dominion."
+                    },
+                    {
+                      "elements": [],
+                      "text": "At the center of the map resides  Xerath as an Ancient Ascendant: An immobile neutral monster. Killing him bestows the \"Ascension\" buff. Champions can only ascend by killing the monster and not by killing another Ascended; instead, the Ancient Ascendant will reappear after an Ascended champion is killed. After the ascended is killed, the Ancient Ascendant will respawn ~30 seconds later with a knock back burst."
+                    },
+                    {
+                      "elements": [],
+                      "text": "Several Icons were given for completing certain task in the mode."
+                    }
+                  ],
+                  "text": "Between September 10 and 25, 2014, Riot made Ascension mode."
+                }
+              ],
+              "type": "list"
+            }
+          ],
+          "images": []
+        },
+        {
+          "title": "References",
           "level": 2,
           "content": [
             {
               "elements": [
                 {
                   "elements": [],
-                  "text": "The Howling Abyss has hosted the Featured Game Modes 'Showdown', 'One for All: Mirror Mode', and 'Legend of the Poro King' (the dedicated summoner spell  Poro Toss /  Poro Dash eventually led to  Mark /  Dash's creation for regular use)"
+                  "text": "League of Legends: Dominion"
                 },
                 {
                   "elements": [],
-                  "text": "The  Guardian's Horn, the  Guardian's Hammer, and the  Guardian's Orb all used to belong to  Gregor (a spectral horn can be seen strapped to his back)"
+                  "text": "League of Legends: Dominion - Gameplay Behind The Scenes"
                 },
                 {
                   "elements": [],
-                  "text": "Lyte and his robot Geeves are respectively named after Jeffrey 'Lyte' Lin and Kevin 'Geeves' O'Brien."
-                },
-                {
-                  "elements": [
-                    {
-                      "elements": [],
-                      "text": "If all ten players feed the same Poro their Poro-Snaxs it will 'explode' into 10 new Poros who will then proceed to run around the map as well."
-                    },
-                    {
-                      "elements": [],
-                      "text": "They used to be killed by the Nexus Obelisk and  Static Field's passive lightning bolts (now they simply run away in fear)"
-                    }
-                  ],
-                  "text": "Running around the map are little horned furball creatures called  Poros who can be fed a  Poro-Snax (Howling Abyss' 'trinket's) to make them grow in size."
-                },
-                {
-                  "elements": [
-                    {
-                      "elements": [],
-                      "text": "The gap between the purple nexus and its Obelisk features a silhouette resembling  Lissandra (referencing the purple side being the entrance to the  Frostguard citadel ruled over by the Seeker)"
-                    },
-                    {
-                      "elements": [],
-                      "text": "The 'Watcher turrets' being purple as well as the Watchers themselves appearing to have a single middle eye might be implying they are related to  Vel'Koz's Voidborn species (he himself is not a Watcher, but a Void rift in the Freljord is likely)"
-                    }
-                  ],
-                  "text": "The turrets for each team might be styled after the Iceborn (blue side) and the Frozen Watchers (purple side) with the game mode itself recreating their battle."
+                  "text": "League of Legends: Dominion - Art and Sound Behind The Scenes"
                 },
                 {
                   "elements": [],
-                  "text": "Standing on the fountain does not grant increased health or mana regen."
-                },
-                {
-                  "elements": [
-                    {
-                      "elements": [],
-                      "text": "If a champion is killed near one of the giant statues skirting each side of the bridge the corresponding one will crumble and break."
-                    },
-                    {
-                      "elements": [],
-                      "text": "Another bridge in the far background will crumble and fall immediately after any team scoring First Blood."
-                    },
-                    {
-                      "elements": [],
-                      "text": "Walking past the outermost purple turret will cause a couple of bricks to fall from the crack in the ground nearby."
-                    },
-                    {
-                      "elements": [],
-                      "text": "Walking towards the left wall next to the blue inhibitor turret will cause the giant pillar nearby to crash downwards."
-                    }
-                  ],
-                  "text": "The map features many instances of destructible terrain:"
+                  "text": "Designing Dominance: The Buffs of League of Legends: Dominion"
                 },
                 {
                   "elements": [],
-                  "text": "Waiting 30 seconds after winning a match will play a monologue by  Lissandra telling the story of the place."
+                  "text": "Designing Dominance: The Minions of League of Legends: Dominion"
+                },
+                {
+                  "elements": [],
+                  "text": "Designing Dominance: Quests in League of Legends: Dominion"
+                },
+                {
+                  "elements": [],
+                  "text": "Designing Dominance: The Arsenal of League of Legends: Dominion"
+                },
+                {
+                  "elements": [],
+                  "text": "League of Legends: Dominion Game Mode Spotlight"
                 }
               ],
               "type": "list"
             }
-          ]
-        },
-        {
-          "images": [],
-          "title": "Shopkeepers",
-          "level": 2,
-          "content": [
-            {
-              "elements": [
-                {
-                  "elements": [
-                    {
-                      "elements": [],
-                      "text": "Gregor and Lyte are hostile to each other."
-                    }
-                  ],
-                  "text": "Their dialogue can be found here."
-                }
-              ],
-              "type": "list"
-            },
-            {
-              "elements": [
-                {
-                  "elements": [],
-                  "text": "Gregor is voiced by Joshua Tomar (who also voices  Trundle)"
-                },
-                {
-                  "elements": [
-                    {
-                      "elements": [],
-                      "text": "Gregor and  Lissandra share the quote \"I am Iceborn\"."
-                    },
-                    {
-                      "elements": [],
-                      "text": "Gregor doesn't know  Lissandra murdered Avarosa nor that she singlehandedly rewrote Freljordian history (he assumes the world is ruled by Iceborn)"
-                    }
-                  ],
-                  "text": "Gregor is the only other person who knows the real history of the Freljord (the other being the  Seeker who worked for centuries to erase it and distort it)"
-                },
-                {
-                  "elements": [],
-                  "text": "\"Sorry, fresh out of  moonstones\" implies Gregor knows of the Marai (or is just making fun of the Tidecaller)"
-                },
-                {
-                  "elements": [],
-                  "text": "\"So you want to hear the story of this place? Of my glorious death? Stay a while and listen, I might tell you that and more\" might be referencing Deckard Cain from Diablo."
-                },
-                {
-                  "elements": [],
-                  "text": "\"You're making me angry! You won't like me when I'm angry\" references Hulk from Marvel Comics."
-                },
-                {
-                  "elements": [],
-                  "text": "\"This! Is! Freljord!\" references 300 by Frank Miller (\"This! Is! Sparta!\")"
-                }
-              ],
-              "type": "list"
-            },
-            {
-              "elements": [
-                {
-                  "elements": [],
-                  "text": "Lyte is trying to decipher the history  Lissandra worked to cover up, and sometimes catches glimpses of the Watchers down below. His senility and his proximity to the  Frostguard citadel might become factors in (not) warning of the Watchers' return."
-                },
-                {
-                  "elements": [],
-                  "text": "\"Are  you the sand witch I have heard so much about? Hmm... now I'm hungry... \" might be referencing  Seth (eventually  Azir) and is a pun on 'sandwich'."
-                },
-                {
-                  "elements": [],
-                  "text": "\"Is it true what I've heard about  you and  Miss Crownguard... hmm?\" implies there's a relationship going on between the Prodigal Explorer and the Lady of Luminosity."
-                },
-                {
-                  "elements": [],
-                  "text": "\" Together, we could make a... a transforming robot!\" might referencing Transformers."
-                },
-                {
-                  "elements": [],
-                  "text": "\"So many people have died here, I should call this place Murder Bridge... no, no, the Howling Abyss is definitely cooler!\" references the announcer sometimes saying \"Welcome to the Murder Bridge!\" rather than \"Welcome to the Howling Abyss!\""
-                },
-                {
-                  "elements": [],
-                  "text": "\"Its dangerous to go alone... take this!\" references Legend of Zelda."
-                },
-                {
-                  "elements": [],
-                  "text": "\"Have fun storming the bridge!\" references The Princess Bride (\"Have fun storming the castle!\")"
-                },
-                {
-                  "elements": [],
-                  "text": "\"What are you buying... what are you selling?\" references the merchant from Resident Evil 4."
-                }
-              ],
-              "type": "list"
-            }
-          ]
-        },
-        {
-          "images": [],
-          "title": "See also",
-          "level": 2,
-          "content": [
-            {
-              "elements": [
-                {
-                  "elements": [],
-                  "text": "Murder Bridge"
-                },
-                {
-                  "elements": [],
-                  "text": "Butcher's Bridge"
-                },
-                {
-                  "elements": [],
-                  "text": "Proving Grounds"
-                }
-              ],
-              "type": "list"
-            }
-          ]
+          ],
+          "images": []
         }
       ]
     },
-    "image": "http://ddragon.leagueoflegends.com/cdn/7.20.1/img/map/map12.png"
+    "items": [
+      3185,
+      3460,
+      1054
+    ],
+    "image": "http://ddragon.leagueoflegends.com/cdn/7.20.1/img/map/map8.png",
+    "champs": [
+      "Xerath",
+      "Ryze",
+      "Vi",
+      "Skarner"
+    ],
+    "mapName": "The Crystal Scar"
   }
-]
+}
