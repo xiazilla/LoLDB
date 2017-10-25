@@ -14,25 +14,44 @@ class SingleMap extends Component{
 	
 	render() {
 	
+
 		let mapData; 
-		var mapIdent = this.props.match.params.id;
-		console.log(mapIdent);
+		let mapIdent;
+		if(this.props.match.params.id === "0") {
+			switch(this.props.match.params.abbrev) {
+				case "HA":
+					mapIdent = "Howling Abyss";
+					break;
+				case "SR":
+					mapIdent = "Summoner's Rift";
+					break;
+				case "TT":
+					mapIdent = "The Twisted Treeline";
+					break;
+				case "CS":
+					mapIdent = "The Crystal Scar";
+					break;
+			}
+		} else {
+		 	mapIdent = this.props.match.params.id;
+		}
+		console.log(myMaps);
+		console.log(mapIdent)
 		let data = myMaps;
-		Object.keys(data).forEach(function(key) {
-			if(data[key].mapName === mapIdent) 
-				mapData = data[key];
-
-		});
-
-		console.log(mapData);
+		Object.keys(data).forEach(function(key, index) {
+			if(data[index].mapName === mapIdent) 
+				mapData = data[index];
+		});		
 	
 		return (
 			<div> 
-				<h3><strong>{mapIdent}</strong></h3>
+				<h3><strong>{mapData.mapName}</strong></h3>
 				<div className="img-wrapper2>" >
 	                <img src={mapData.image} className="img-responsive" alt="portfolio items" />
 				</div>
-				<p></p>
+				<section>
+
+				</section>
 			</div>
 		)
 	}

@@ -7,13 +7,11 @@ class AllMaps extends Component {
 
     render() {
         let data = myMap;
-        console.log(data);
+        // console.log(data);
         var maps = [];
         Object.keys(myMap).forEach(function(key) {
             maps.push(myMap[key]);
         });
-
-        console.log(maps);
         
     
         return (

@@ -24,12 +24,11 @@ class ItemGroup extends Component {
 	render() {
 		return(
 			<div>
-				<h5>{this.props.theseItems.mode} - Essential Items</h5>
+				<h5>{this.props.theseItems.mode} - Essential Items - <a href={`/maps/0/${this.props.theseItems.map}`}>Map</a></h5>
 				<div className = "row">
 					{this.props.theseItems.blocks[1].items.map((item) => <EssentialItems id={item.id}/>)}
 				</div>
 			</div>
-
 		)
 	}
 }
@@ -55,11 +54,23 @@ class SingleChampion extends Component {
 	}
 
 
+	// constructor(props) {
+	// 	super(props);
+	// 	this.state = {
+	// 		champName: this.props.match.params.name
+	// 	}
+
+	// }
+	// setChampName((name ) => {
+	// 	this.setState({champName: name})
+	// })
+
 	render() {
 
 		let championData, spellData;
 		let q,w,e,r,p, itemsChampName;
 		var champName = this.props.match.params.name;
+		console.log(champName)
     	let data = mydata.data;
     	var skins = [];
     	let recommendedItems = []
@@ -84,14 +95,13 @@ class SingleChampion extends Component {
     	});
 
 
-
-
     	let lore = championData.lore;
 
     	let imageURL = "https://ddragon.leagueoflegends.com/cdn/7.20.1/img/spell/";
     	let passiveURL = "https://ddragon.leagueoflegends.com/cdn/7.20.1/img/passive/";
     	// let itemURL = ""
     	// console.log((imageURL).concat(q.image.full));
+    	console.log(recommendedItems)
 
 		return (
 			<div>
