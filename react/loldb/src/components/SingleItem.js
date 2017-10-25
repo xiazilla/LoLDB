@@ -16,7 +16,7 @@ class ItemTreeObj extends Component {
 			return (
 				<li>
 					<a href={`/items/${id}/${myItems.data[id].name}`}>
-                        <img src={myItems.data[id].image}/>
+                        <img src={myItems.data[id].image} alt=""/>
                         {myItems.data[id].name}
                     </a>
                     <ul>
@@ -29,7 +29,7 @@ class ItemTreeObj extends Component {
 			return (
 					<li>
 						<a href={`/items/${id}/${myItems.data[id].name}`}>
-                            <img src={myItems.data[id].image}/>
+                            <img src={myItems.data[id].image} alt=""/>
                             {myItems.data[id].name}
                         </a>
 					</li>
@@ -68,7 +68,7 @@ class SingleItem extends Component{
 		
 		
 		// console.log(itemData);
-		let imageURL = "http://ddragon.leagueoflegends.com/cdn/7.10.1/img/item/3147.png"
+		// let imageURL = "http://ddragon.leagueoflegends.com/cdn/7.10.1/img/item/3147.png"
 
 		return (
 			<div> 
