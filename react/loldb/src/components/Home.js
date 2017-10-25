@@ -38,6 +38,7 @@ class Home extends Component {
                         <a class="twitter-timeline" data-width="800" href="https://twitter.com/lolesports">Tweets by lolesports</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </div>
 			</div>
+
 		)
 	}
 }

@@ -6,7 +6,7 @@ import About from './components/About'
 import Champions from './components/Champions'
 import Items from './components/Items'
 import Matches from './components/Matches'
-import GameModes from './components/GameModes'
+import Maps from './components/Maps.js'
 
 import './App.css';
 import { Switch, Route } from 'react-router-dom'
@@ -22,7 +22,7 @@ const Main = () => (
       <Route path="/champions" component={Champions}/>
       <Route path="/items" component={Items}/>
       <Route exact path="/matches" component={Matches}/>
-      <Route exact path="/gameModes" component={GameModes}/>
+      <Route path="/maps" component={Maps}/>
     </Switch>
   </main>
 )

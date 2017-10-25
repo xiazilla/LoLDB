@@ -39,7 +39,7 @@ export default class LoLNav extends React.Component {
               	<NavLink href="/matches">Matches</NavLink>
               </NavItem>
               <NavItem>
-              	<NavLink href="/gameModes">Game Modes</NavLink>
+              	<NavLink href="/maps">Maps</NavLink>
               </NavItem>
               <NavItem>
               	<NavLink href="/about">About</NavLink>
