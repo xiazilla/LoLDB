@@ -11,7 +11,7 @@ class AllItems extends Component {
     	Object.keys(data).forEach(function(key) {
       		items.push(myData.data[key]);
     	});
-    	console.log(items)
+    	// console.log(items)
         return (
         	<div className="row">{items.map(item => 
         		<ItemObject key={item.id} thisItem={item} />)}
