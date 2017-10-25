@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import myItems from './items.json'; 
+import myMaps from './maps.json';
 
 class SingleItem extends Component{
 
@@ -12,25 +13,35 @@ class SingleItem extends Component{
 	}
 	
 	render() {
-		
+	
 		let itemData; 
 		var itemName = this.props.match.params.name;
 		console.log(itemName);
 		let data = myItems.data;
 		var items = []
+
+		let mapData;
+		var mapName = this.props.match.params.mapId;
+		console.log(mapName)
+		let mData = myMaps.mData;
+		var maps = []
+
 		Object.keys(data).forEach(function(key) {
 			if(data[key].name === itemName) 
 				itemData = data[key];
 		});
 
+		
+		
+		console.log(itemData);
 		let imageURL = "http://ddragon.leagueoflegends.com/cdn/7.10.1/img/item/3147.png"
 
 		return (
 			<div> 
 				<h3><strong>{itemName}</strong></h3>
-				<div className="img-wrapper2>" >
-	                <img src={itemData.image} className="img-responsive" alt="portfolio items" />
-				</div>
+					<div className="img-wrapper2>">
+	                	<img src={itemData.image} className="img-responsive" alt="portfolio items" />
+					</div>
 				<h4>Cost</h4>
 					<p>{itemData.gold.total}</p>
 				<h4>Description</h4>
@@ -38,6 +49,9 @@ class SingleItem extends Component{
 				<h4>Recipe</h4>
 				<h4>Most Frequently Built On</h4>
 				<h4>Available On</h4>
+					<div className="img-wrapper2">
+						<img src={itemData.images} className="img-responsive" alt="portfolio items" />
+					</div>
 			</div>
 		)
 	}
