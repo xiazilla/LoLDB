@@ -15,13 +15,26 @@ class SingleItem extends Component{
 	render() {
 	
 		let itemData; 
+		var recipe = []
 		var itemName = Number(this.props.match.params.id);
 		console.log(itemName);
 		let data = myItems.data;
 		Object.keys(data).forEach(function(key) {
-			if(data[key].id === itemName) 
+			if(data[key].id === itemName) {
 				itemData = data[key];
+		
+				var name = data[key].from;
+
+
+				var i;
+				for (i in name) {
+					console.log(i);
+				}
+			}
+			
 		});
+
+
 
 		
 
@@ -41,6 +54,7 @@ class SingleItem extends Component{
 				<h4>Description</h4>
 					<p>{itemData.sanitizedDescription}</p>
 				<h4>Recipe</h4>
+					<p>{recipe}</p>
 				<h4>Most Frequently Built On</h4>
 				<h4>Available On</h4>
 					<div className="img-wrapper2">

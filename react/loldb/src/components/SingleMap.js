@@ -15,25 +15,26 @@ class SingleMap extends Component{
 	render() {
 	
 		let mapData; 
-		var mapIdent = this.props.match.params;
+		var mapIdent = this.props.match.params.id;
 		console.log(mapIdent);
 		let data = myMaps;
 		Object.keys(data).forEach(function(key) {
-			if(data[key].id === mapIdent) 
+			if(data[key].mapName === mapIdent) 
 				mapData = data[key];
 		});
 
-		console.log(mapData)
+		console.log(mapData);
 		
 
 		
 	
 		return (
 			<div> 
-				<h3><strong>{mapIdent.mapName}</strong></h3>
+				<h3><strong>{mapIdent}</strong></h3>
 				<div className="img-wrapper2>" >
-	                <img src={mapIdent.images} className="img-responsive" alt="portfolio items" />
+	                <img src={mapData.image} className="img-responsive" alt="portfolio items" />
 				</div>
+				<p>{mapData.text}</p>
 			</div>
 		)
 	}
