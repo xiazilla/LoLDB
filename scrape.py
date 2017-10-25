@@ -4,6 +4,7 @@ from pymongo import *
 
 # IMPORTANT: Remember to check to this key or update before turnin
 API_KEY = "RGAPI-392de077-2157-49e7-8e3b-b764ac34dcc7"
+# API_KEY = "RGAPI-5083696d-fbb6-4fa0-a228-99f9b3283b9b";
 
 # Set up mongo connection
 client = MongoClient("mongodb://root:root@localhost:27017")
@@ -13,18 +14,40 @@ db = client.loldb
 champion_names = {}
 # Dictionary of item names and IDs
 item_names = {}
+# Dictionary of recommended items
+rec_items = {}
 
+
+####################################################################
+# add_rec_items
+#
+# Maps items used by champs by adding this champ to the set of users
+#
+# rec the recommended builds
+# champ_id the id of the champion
+####################################################################
+def add_rec_items(champ_id, rec):
+    for obj in rec:
+        for blocks in obj["blocks"]:
+            for b in blocks["items"]:
+                try:
+                    # Add champ to set
+                    rec_items[str(b["id"])].add(champ_id)
+                except KeyError:
+                    # Make a set if it doesn't exist
+                    rec_items[str(b["id"])] = {champ_id}
 
 ##################################################
-# createChampJSON
+# create_champ_json
 #
 # Creates a JSON for champs and add it to database
 #
 # json_path the JSON file path name
 # KEY the API Key
 ##################################################
-def createChampJSON(json_path, KEY) :
+def create_champ_json(json_path, KEY) :
     global champion_names
+    global rec_items
     # url to get champions and tags for query
     base_url = "https://na1.api.riotgames.com/lol/static-data/v3"
     tags = ["lore", "skins", "passive", "recommended", "spells", "stats"]
@@ -36,8 +59,7 @@ def createChampJSON(json_path, KEY) :
     # Iterate through the items
     minimized = {"data" : {} }
     for champ in champ_list["data"] :
-        minimized["data"][champ] = {}
-        min_champ_data = minimized["data"][champ]
+        min_champ_data = {}
         champ_data = champ_list["data"][champ]
 
         min_champ_data["id"] = champ_data["id"]
@@ -51,26 +73,29 @@ def createChampJSON(json_path, KEY) :
         min_champ_data["image"] = image_url
         min_champ_data["passive"] = champ_data["passive"]
         min_champ_data["recommended"] = champ_data["recommended"]
+        # Populate recommended items
+        add_rec_items(champ_data["id"], champ_data["recommended"])
         min_champ_data["lore"] = champ_data["lore"]
         min_champ_data["spells"] = champ_data["spells"]
         min_champ_data["stats"] = champ_data["stats"]
     	# Add the champion to mongo
+        minimized["data"][champ] = min_champ_data
         db.champion.insert_one(min_champ_data)
     
-    #with open(json_path, "w") as json_file :
+    # with open(json_path, "w") as json_file :
     #    json.dump(minimized, json_file)
-    #print ("Wrote json to: " + json_path)
+    # print ("Wrote json to: " + json_path)
 
 
 #################################################
-# createItemJSON
+# create_item_json
 #
 # Creates a JSON for items and add it to database
 #
 # json_path the JSON file path name
 # KEY the API Key
 #################################################
-def createItemJSON(json_path, KEY) :
+def create_item_json(json_path, KEY) :
     global item_names
     # URL to get items and tags for query
     base_url = "https://na1.api.riotgames.com/lol/static-data/v3/items?locale=en_US"
@@ -84,8 +109,7 @@ def createItemJSON(json_path, KEY) :
     # if statements needed because not all items have all attributes
     minimized = {"data" : {} }
     for item in item_list["data"] :
-        minimized["data"][item] = {}
-        min_item_data = minimized["data"][item]
+        min_item_data = {}
         item_data = item_list["data"][item]
 
         min_item_data["id"] = item_data["id"]
@@ -104,23 +128,29 @@ def createItemJSON(json_path, KEY) :
         # Get the item URL
         image_url = dragon_url + item + ".png"
         min_item_data["image"] = image_url
+        # Add frequently built on
+        try:
+            min_item_data["builtOn"] = list(rec_items[item])
+        except KeyError:
+            pass
         # Add the item to mongo
+        minimized["data"][item] = min_item_data
         db.item.insert_one(min_item_data)
 
-    #with open(json_path, "w") as json_file :
+    # with open(json_path, "w") as json_file :
     #    json.dump(minimized, json_file)
-    #print ("Wrote json to: " + json_path)
+    # print ("Wrote json to: " + json_path)
 
 
 ###################################################
-# createMatchJSON
+# create_match_json
 #
 # Creates a JSON for matches and add it to database
 #
 # json_path the JSON file path name
 # KEY the API Key
 ###################################################
-def createMatchJSON(json_path, KEY) :
+def create_match_json(json_path, KEY) :
     # URL to get Challenger Players
     challenger_url = "https://na1.api.riotgames.com/lol/league/v3/challengerleagues/by-queue/RANKED_SOLO_5x5?api_key="
     # Append the API Key to Challenger URL
@@ -154,11 +184,18 @@ def createMatchJSON(json_path, KEY) :
         gameID_list.append(requests.get(request_mhistory_url).json()["matches"][0]["gameId"])
     
     # Get match info about the player's most recent match
+    minimized = {}
     match_url = "https://na1.api.riotgames.com/lol/match/v3/matches/"
     for game_id in gameID_list:
         request_match_url = match_url + str(game_id) + "?api_key=" + KEY
         # Add the match to mongo
-        db.match.insert_one(requests.get(request_match_url).json())        
+        json = requests.get(request_match_url).json()
+        minimized[game_id] = json
+        db.match.insert_one(json)
+    
+    #with open(json_path, "w") as json_file :
+    #    json.dump(minimized, json_file)
+    #print ("Wrote json to: " + json_path)
 
 
 ###################################
@@ -195,10 +232,7 @@ def find_champs_and_items(content):
             except KeyError:
                 pass
             # Check if there are other elements to check
-            try:
-                result += recursive_find(i)
-            except KeyError:
-                pass
+            result += recursive_find(i)
     return result
 
 ########################################
@@ -229,14 +263,14 @@ def parse_article(article):
     return list(champs), list(items)
 
 ################################################
-# createMapJSON
+# create_map_json
 #
 # Creates a JSON for maps and add it to database
 #
 # json_path the JSON file path name
 # KEY the API Key
 ################################################
-def createMapJSON(json_path, KEY) :
+def create_map_json(json_path, KEY) :
     # URL to get Maps
     map_url = "https://na1.api.riotgames.com/lol/static-data/v3/maps?locale=en_US&api_key=" + KEY
     maps = requests.get(map_url).json()["data"]
@@ -273,7 +307,6 @@ def createMapJSON(json_path, KEY) :
         block = parse_article(article)
         # Champs is by names; items is by IDs
         data["champs"], data["items"] = parse_article(article)
-        print (data)
         minimized[map_name] = data
         db.map.insert_one(d)
         count += 1
@@ -284,10 +317,14 @@ def createMapJSON(json_path, KEY) :
 
 
 if __name__ == "__main__" :
-    # TODO
-    # Remove documents from mongo before adding new ones OR
-    # Update/Replace rows if they already exist instead of inserting
-    createChampJSON("champions.json", API_KEY)
-    createItemJSON("items.json", API_KEY)
-    createMatchJSON("matches.json", API_KEY)
-    createMapJSON("maps.json", API_KEY)
+    # Drop tables before insert
+    db.champion.delete_many({})
+    db.item.delete_many({})
+    db.match.delete_many({})
+    db.map.delete_many({})
+
+    # Create JSON and insert    
+    create_champ_json("champions.json", API_KEY)
+    create_item_json("items.json", API_KEY)
+    create_match_json("matches.json", API_KEY)
+    create_map_json("maps.json", API_KEY)
