@@ -9,18 +9,18 @@ class MapObject extends Component {
 
 
     render () {
-    	// console.log(this.props.thisItem)
+    	// console.log(this.props.thisMap)
         return (
-           <div className="col-sm-2 container">
+           <div className="col-sm-3 container">
                    <figure className="wow">
-                    <a href={`/items/${this.props.thisMap.id}`}>
+                    <a href={`/maps/${this.props.thisMap.mapName}`}>
                         <div class="img-wrapper2">
                             <img src={this.props.thisMap.image} class="img-responsive" alt="portfolio items" height={200} />
                         </div>
                     </a>
                     <figcaption>
                         <span>
-                            <p><strong> {this.props.thisMap.name}</strong></p>
+                            <p><strong> {this.props.thisMap.mapName}</strong></p>
                             
                         </span>
                     </figcaption>

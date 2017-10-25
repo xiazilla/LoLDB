@@ -3,6 +3,7 @@ import myMaps from './maps.json';
 
 class SingleMap extends Component{
 
+
 	GetHtml( theJSON ) {
 		var html = theJSON.description;
     	var div = document.createElement("div");
@@ -13,11 +14,26 @@ class SingleMap extends Component{
 	
 	render() {
 	
+		let mapData; 
+		var mapIdent = this.props.match.params;
+		console.log(mapIdent);
+		let data = myMaps;
+		Object.keys(data).forEach(function(key) {
+			if(data[key].id === mapIdent) 
+				mapData = data[key];
+		});
 
+		console.log(mapData)
+		
+
+		
+	
 		return (
 			<div> 
-				<p>Single </p>
-				
+				<h3><strong>{mapIdent.mapName}</strong></h3>
+				<div className="img-wrapper2>" >
+	                <img src={mapIdent.images} className="img-responsive" alt="portfolio items" />
+				</div>
 			</div>
 		)
 	}
