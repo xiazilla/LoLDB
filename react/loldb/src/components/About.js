@@ -41,7 +41,7 @@ class About extends Component {
                             <p> Senior Computer Science student attending the University of Texas at Austin. Enjoys 
                             video games, music, racquetball, and being a better LoL player than Viet Tran.</p>
                             <h4>Responsibilities:</h4>
-                                <li>insert here</li>
+                                <p>Backend</p>
                                 
                             <h4>Number of Commits: 11</h4>
                             <h4>Number of Issues: 5</h4>
@@ -57,7 +57,7 @@ class About extends Component {
                             <p> Senior at the University of Texas at Austin, majoring in Computer Science. Enjoys playing video games
                             in his free time. He is also the best League player on this team.</p>
                             <h4>Responsibilities:</h4>
-                                <li>insert here</li>
+                                <p>Frontend and Backend</p>
 
                             <h4>Number of Commits: 11</h4>
                             <h4>Number of Issues: 5</h4>
@@ -73,7 +73,7 @@ class About extends Component {
                             <p> Senior in Computer Science who enjoys playing mobile games and listening to music. 
                             Doesn't actually play League.</p>
                             <h4>Responsibilities:</h4>
-                                <li>insert here</li>
+                                <p>Backend</p>
                             <h4>Number of Commits: 11</h4>
                             <h4>Number of Issues: 5</h4>
                             <h4>Number of Unit Tests: 0</h4>
@@ -87,7 +87,7 @@ class About extends Component {
                             <h3>Jamie Xia</h3>
                             <p> Senior in Computer Science. Allergic to weakness. And Bronzies.</p>
                             <h4>Responsibilities:</h4>
-                                <li>insert here</li>
+                                <p>Frontend</p>
                             <h4>Number of Commits: 11</h4>
                             <h4>Number of Issues: 5</h4>
                             <h4>Number of Unit Tests: 0</h4>
@@ -102,14 +102,49 @@ class About extends Component {
                             <p> Senior studying Computer Science who is soon to be addicted to
                             League of Legends because of this project.</p>
                             <h4>Responsibilities:</h4>
-                                <li>insert here</li>
+                                <p>Frontend</p>
                             <h4>Number of Commits: 11</h4>
                             <h4>Number of Issues: 5</h4>
                             <h4>Number of Unit Tests: 0</h4>
                         </div>
                     </div>
                 </div>
-            
+            <div id="call-to-action">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="block">
+                            <h2 class="title wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">Tools </h2>
+                            <h5> <b>Apiary:</b> A useful web app that provides framework to easily document your endpoint’s API calls. </h5>
+                            <h5> <b>Bootstrap:</b> A front-end development framework made up of HTML, CSS, and Javascript that allows the build of fully responsive websites. </h4>
+                            <h5> <b>Flask:</b> A Python framework used to create our back-end API </h5>
+                            <h5> <b>Github:</b> Our source control application of choice. </h5>
+                            <h5> <b>Google Cloud Platform:</b> To host our static website on the Google Cloud Storage. </h5>
+                            <h5> <b>PlanIT Poker:</b> To estimate the time of tasks as a team. </h5>
+                            <h5> <b>React:</b> A Javascript library to build user interfaces for websites. </h5>
+                            <h5> <b>Slack:</b> For team communication. </h5>
+                            <h5> <b>Trello:</b> For issue tracking. </h5>
+
+                            <h2 class="title wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">Data </h2>
+                            <h4><a href="https://developer.riotgames.com/">Riot Games API:</a> the best place for any GET requests about League of Legends information.</h4>
+                            <h4><a href="http://leagueoflegends.wikia.com/api/v1">League of Legends Fandom Wiki API:</a> the only other place for any GET requests about League of Legends.</h4>
+
+
+                            <h2 class="title wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">Stats </h2>
+                            <h4> total no. of commits: 93</h4>
+                            <h4>total no. of issues: 18</h4>
+                            <a href="https://github.com/xiazilla/idb" class="btn btn-default btn-contact wow fadeInDown" data-wow-delay=".7s" data-wow-duration="500ms">Github Repo  </a>
+
+                            <a href="http://docs.xiazilla.apiary.io/#" class="btn btn-default btn-contact wow fadeInDown" data-wow-delay=".7s" data-wow-duration="500ms">Apiary API  </a>
+
+                            <a href="https://trello.com/b/XNiqgNfd/static-webpage" class="btn btn-default btn-contact wow fadeInDown" data-wow-delay=".7s" data-wow-duration="500ms">Trello  </a>
+
+                            <a href="https://utexas.box.com/s/tn6eq1ub4py0zc6mfgnezvhw7u1mgse8" class="btn btn-default btn-contact wow fadeInDown" data-wow-delay=".7s" data-wow-duration="500ms">Technical Report</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
     
             </div>
             </div>
