@@ -4,7 +4,7 @@ from pymongo import *
 
 # IMPORTANT: Remember to check to this key or update before turnin
 API_KEY = "RGAPI-392de077-2157-49e7-8e3b-b764ac34dcc7"
-# API_KEY = "RGAPI-5083696d-fbb6-4fa0-a228-99f9b3283b9b";
+#API_KEY = "RGAPI-5083696d-fbb6-4fa0-a228-99f9b3283b9b";
 
 # Set up mongo connection
 client = MongoClient("mongodb://root:root@localhost:27017")
@@ -189,13 +189,13 @@ def create_match_json(json_path, KEY) :
     for game_id in gameID_list:
         request_match_url = match_url + str(game_id) + "?api_key=" + KEY
         # Add the match to mongo
-        json = requests.get(request_match_url).json()
-        minimized[game_id] = json
+        j = requests.get(request_match_url).json()
+        minimized[game_id] = j
         db.match.insert_one(json)
     
-    #with open(json_path, "w") as json_file :
-    #    json.dump(minimized, json_file)
-    #print ("Wrote json to: " + json_path)
+    with open(json_path, "w") as json_file :
+       json.dump(minimized, json_file)
+    print ("Wrote json to: " + json_path)
 
 
 ###################################
@@ -318,10 +318,10 @@ def create_map_json(json_path, KEY) :
 
 if __name__ == "__main__" :
     # Drop tables before insert
-    db.champion.delete_many({})
-    db.item.delete_many({})
-    db.match.delete_many({})
-    db.map.delete_many({})
+    # db.champion.delete_many({})
+    # db.item.delete_many({})
+    # db.match.delete_many({})
+    # db.map.delete_many({})
 
     # Create JSON and insert    
     create_champ_json("champions.json", API_KEY)
