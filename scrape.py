@@ -82,9 +82,9 @@ def create_champ_json(json_path, KEY) :
         minimized["data"][champ] = min_champ_data
         db.champion.insert_one(min_champ_data)
     
-    with open(json_path, "w") as json_file :
-       json.dump(minimized, json_file)
-    print ("Wrote json to: " + json_path)
+    #with open(json_path, "w") as json_file :
+    #   json.dump(minimized, json_file)
+    #print ("Wrote json to: " + json_path)
 
 
 #################################################
@@ -137,9 +137,9 @@ def create_item_json(json_path, KEY) :
         minimized["data"][item] = min_item_data
         db.item.insert_one(min_item_data)
 
-    with open(json_path, "w") as json_file :
-       json.dump(minimized, json_file)
-    print ("Wrote json to: " + json_path)
+    #with open(json_path, "w") as json_file :
+    #   json.dump(minimized, json_file)
+    #print ("Wrote json to: " + json_path)
 
 
 ###################################################
@@ -193,9 +193,9 @@ def create_match_json(json_path, KEY) :
         minimized[game_id] = j
         db.match.insert_one(j)
     
-    with open(json_path, "w") as json_file :
-       json.dump(minimized, json_file)
-    print ("Wrote json to: " + json_path)
+    #with open(json_path, "w") as json_file :
+    #   json.dump(minimized, json_file)
+    #print ("Wrote json to: " + json_path)
 
 
 ###################################
@@ -232,7 +232,10 @@ def find_champs_and_items(content):
             except KeyError:
                 pass
             # Check if there are other elements to check
-            result += recursive_find(i)
+            try:
+                result += recursive_find(i)
+            except KeyError:
+                pass
     return result
 
 ########################################
@@ -254,7 +257,7 @@ def parse_article(article):
         block += find_champs_and_items(s["content"])
     # Find champions in this article and add his or her name
     for c in champion_names:
-        if block.find(c) != -1:
+        if c in block:
             champs.add(c)
     # Find items in this article and add the item's id
     for i in item_names:
@@ -285,7 +288,7 @@ def create_map_json(json_path, KEY) :
     count = 0
     minimized = {}
     for map_id in mapID_list:
-        data = {}
+        map_data = {}
         # Only 4 of the maps have sufficient data to be turned into models
         if count == 4:
             break
@@ -300,28 +303,27 @@ def create_map_json(json_path, KEY) :
         # Get the map image URL
         map_image_url = dragon_url + instance["image"]["full"]
         # Add the map to mongo
-        data["mapId"] = map_id
-        data["mapName"] = map_name
-        data["image"] = map_image_url
-        data["article"] = article
-        block = parse_article(article)
+        map_data["mapId"] = map_id
+        map_data["mapName"] = map_name
+        map_data["image"] = map_image_url
+        map_data["article"] = article
         # Champs is by names; items is by IDs
-        data["champs"], data["items"] = parse_article(article)
-        minimized[map_name] = data
-        db.map.insert_one(d)
+        map_data["champs"], map_data["items"] = parse_article(article)
+        minimized[map_name] = map_data
+        db.map.insert_one(map_data)
         count += 1
     
-    with open(json_path, "w") as json_file :
-       json.dump(minimized, json_file)
-    print ("Wrote json to: " + json_path)
+    #with open(json_path, "w") as json_file :
+    #   json.dump(minimized, json_file)
+    #print ("Wrote json to: " + json_path)
 
 
 if __name__ == "__main__" :
     # Drop tables before insert
-    # db.champion.delete_many({})
-    # db.item.delete_many({})
-    # db.match.delete_many({})
-    # db.map.delete_many({})
+    db.champion.delete_many({})
+    db.item.delete_many({})
+    db.match.delete_many({})
+    db.map.delete_many({})
 
     # Create JSON and insert    
     create_champ_json("champions.json", API_KEY)
