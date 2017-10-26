@@ -5,475 +5,477 @@ HOST: LoLDatabaseAPI
 
 LoLDatabaseAPI is a simple and friendly to use API allowing the League of Legends developer community to access to all League of Legend game data in the most convenient way possible.
 
-## Champions [/champions]
 
-**Champion DTO:**
+## Champions [/api/champs]
 
-*id(long)*: an identifying key for champions
+*id (integer PK)* : the primary key for identifying the champion
 
-*lore(string)*: background info on that champion
+*image (string)* : the link to the icon of the champion
 
-*championStats(statDTO)*: provides starting stat info on champion
+*lore (string)* : the background story of the champion
 
-*recommended(List[ItemID])*: provides recommended item build for champion
+*name (string)* : the name of the champion
 
-*gameModes(List[boolean])*: provides a list of gameModes this champion is available on
- 
+*passive (dict[dict])* : the passive ability of the champion
 
+*recommended (List[ItemID])* : provides recommended item builds for the champion based on map
 
+*skins (List[dict])* : the list of skins of the champion
 
-### Get All Champions [GET]
+*spells (List[dict])* : the list of abilities of the champion
 
-*Description: Fetches a list of Champion DTO's (List[ChampionDTO's])*
+*stats (dict)* : provides information about base stats and stat scaling on the champion
+
+*title (string)* : the title of the champion
+
+### Get All Champions [GET /api/champs]
+
+*Description: Fetches a list of JSON for all champions. (List[dict])*
 
 + Response 200 (application/json)
 
-        "example": {
-            "Riven": {
-                "id": "1234544321",
-                "championsStats": [
-                    "health": 1234,
-                    "attackDamage": 341,
+        {
+            "result": [
+                {
+                    "id": "1234544321",
+                    "stats": [
+                        "health": 1234,
+                        "attackDamage": 341,
+                        ...
+                    ]
+                    "recommended" : 
+                        "items": [
+                            {
+                                "count": 1,
+                                "id": "Duskbalde"
+                            },
+                            {
+                                "count": 1,
+                                "id": "BoTRK"
+                            },
+                            {
+                                "count": 3,
+                                "id": "Potions"
+                            }
+                        ],
+                    "lore": "..."
                     ...
-                ]
-                "recommended" : 
-                    "items": [
-                        {
-                            "count": 1,
-                            "id": "Duskbalde"
-                        },
-                        {
-                            "count": 1,
-                            "id": "BoTRK"
-                        },
-                        {
-                            "count": 3,
-                            "id": "Potions"
-                        }
-                    ],
-                "Lore": "..."
-                "GameModes": {
-                    "Normals": true,
-                    "Ranked": true,
-                    "ARAM": true,
+                },
+                {
+                    "id": "4293472123",
+                    "stats": [
+                        "health": 1234,
+                        "attackDamage": 341,
+                        ...
+                    ]
+                    "recommended" : 
+                        "items": [
+                            {
+                                "count": 1,
+                                "id": "Duskbalde"
+                            },
+                            {
+                                "count": 1,
+                                "id": "BoTRK"
+                            },
+                            {
+                                "count": 3,
+                                "id": "Potions"
+                            }
+                        ],
+                    "lore": "..."
+                    ...
+                },
+                {
+                    "etc.." : info
                 }
-            },
-            "Urgot": {
-                "id": "4293472123",
-                "championsStats": [
-                    "health": 1234,
-                    "attackDamage": 341,
-                    ...
-                ]
-                "recommended" : 
-                    "items": [
-                        {
-                            "count": 1,
-                            "id": "Duskbalde"
-                        },
-                        {
-                            "count": 1,
-                            "id": "BoTRK"
-                        },
-                        {
-                            "count": 3,
-                            "id": "Potions"
-                        }
-                    ],
-                "Lore": "..."
-                "GameModes": [
-                    "Normals": true,
-                    "Ranked": true,
-                    "ARAM": true,
-                ]
-            },
-            {
-                "etc.." : info
-            }
+            ]
         }
 
 + Response 404 (application/json)
 
         { 
-            "error": "Resource not found" 
+            "error": "Resource not found"
         }
 
-### Get Specific Champion [GET /champions/{championID}]
+### Get Specific Champion [GET /api/champs/{championName}]
 
-*Description: Fetches ChampionDTO for a specific champion.*
+*Description: Fetches a JSON for a specific champion. (dict)*
 
 + Parameters
-    + championID (string, required)  - champion name in all lower case no spaces
-
+    + championName (string, required)  - champion name separated by %20 with key capitalization for the first letter of each word
 
 + Response 200 (application/json)
 
-        "example": {
-            "Riven": {
-                "id": "1234452134",
-                "recommended" : 
-                    "items": [
-                        {
-                            "count": 1,
-                            "name": "BoTRK"
-                        },
-                        {
-                            "count": 1,
-                            "id": "Duskblade"
-                        },
-                        {
-                            "count": 3,
-                            "id": "Potions"
-                        }
-                    ],
-                "championsStats": [
-                    "health": 1234,
-                    "attackDamage": 341,
+        {
+            "result": [
+                {
+                    "id": "1234452134",
+                    "recommended" : 
+                        "items": [
+                            {
+                                "count": 1,
+                                "name": "BoTRK"
+                            },
+                            {
+                                "count": 1,
+                                "id": "Duskblade"
+                            },
+                            {
+                                "count": 3,
+                                "id": "Potions"
+                            }
+                        ],
+                    "stats": [
+                        "health": 1234,
+                        "attackDamage": 341,
+                        ...
+                    ]
+                    "lore" : "...",
                     ...
-                ]
-                "Lore" : "..."
-                "GameModes": {
-                    "Normals": true,
-                    "Ranked": true,
-                    "ARAM": true,
-                    "StarGaurdian": false
                 }
-            }
+            ]
         }
 
 + Response 404 (application/json)
 
         { 
-            "error": "Resource not found" 
+            "result": "no champion with that name"
         }
-        
-## Items [/items]
 
-**Item DTO**
 
-*frequentlyBuiltOn(List[string])*: List of champions who frequently build this item
+## Items [/api/items]
 
-*maps(List[boolean])*: List of maps this item is available on
+*builtOn (list)* : the list of champions that build the item
 
-*description(string)*: Description of item stats
+*gold (dict)* : the cost of the item and its components
 
-*plainText(string)*: Description of this item
+*id (integer PK)* : the primary key for identifying the item
 
-*sanitizedDescription(string)*: Description of stat buff and passive
+*image (string)* : the link to the icon of the item
 
-*itemTree(List[strings])*: List of children items required to build this item
+*into (List)* : the list of items the item can build into
 
-*name(string)*: item name/identifier
+*maps (dict)* : the maps the item can be purchased on
 
-*id(long)*: item identifier (might make string???)
+*name (string)* : the name of the item
+
+*sanitizedDescription (string)* : the in-game description of the item
 
 ### Get All Items [GET]
 
-*Description: Fetches info for all items. Returns a List[ItemDTO]*
-
+*Description: Fetches a list of JSON for all items. (List[dict])*
 
 + Response 200 (application/json)
 
-        "example": [
-            "Morellonomicon": {
-                "frequentlyBuiltOn": [
-                    "Karma",
-                    "Annie
-                ],
-                "Maps": {
-                    "SummonersRift": true,
-                    "HowlingAbyss": true,
-                    "TheDarkStarRises": false
+        {
+            "result": [
+                {
+                    "builtOn": [
+                        "Karma",
+                        "Annie
+                    ],
+                    "maps": {
+                        "11": true,
+                        "12": true,
+                        "10": false
+                    },
+                    "sanitizedDescription": "+100 Ability Power +400 Mana UNIQUE Passive: +20% Cooldown Reduction UNIQUE Passive: Dealing magic damage to champions below 35% Health inflicts Grievous Wounds for 8 seconds. UNIQUE Passive: Kills and Assists restore 20% of your maximum Mana.",
+                    "id": 3165,
+                    "name": "Morellonomicon",
+                    ...
                 },
-                "description": "<stats>+100 Ability Power<br><mana>+400 Mana</mana></stats><br><br><unique>UNIQUE Passive:</unique> +20% Cooldown Reduction<br><unique>UNIQUE Passive:</unique> Dealing magic damage to champions below 35% Health inflicts <a href='GrievousWounds'>Grievous Wounds</a> for 8 seconds.<br><unique>UNIQUE Passive:</unique> Kills and Assists restore 20% of your maximum Mana.",
-                "plaintext": "Greatly increases Ability Power and Cooldown Reduction",
-                "sanitizedDescription": "+100 Ability Power +400 Mana UNIQUE Passive: +20% Cooldown Reduction UNIQUE Passive: Dealing magic damage to champions below 35% Health inflicts Grievous Wounds for 8 seconds. UNIQUE Passive: Kills and Assists restore 20% of your maximum Mana.",
-                "id": 3165,
-                "itemTree": [
-                    "FiendishCodex",
-                    "AmplifyingTone",
-                    "LostChapter"
-                ]  
-                "name": "Morellonomicon",
-                "id": 12345423134
-            },
-            "Moonflair Spellblade": {
-                "frequentlyBuiltOn": [
-                    "Riven",
-                    "Malphite"
-                ],
-                "Maps": {
-                    "SummonersRift": true,
-                    "HowlingAbyss": true,
-                    "TheDarkStarRises": false
-                },
-                "description": "<stats>+50 Ability Power<br>+50 Armor<br>+50 Magic Resist</stats><br><br><unique>UNIQUE Passive - Tenacity:</unique> Reduces the duration of stuns, slows, taunts, fears, silences, blinds, polymorphs, and immobilizes by 35%.",
-                "sanitizedDescription": "+50 Ability Power +50 Armor +50 Magic Resist UNIQUE Passive - Tenacity: Reduces the duration of stuns, slows, taunts, fears, silences, blinds, polymorphs, and immobilizes by 35%.",
-                "id": 3170,
-                "itemTree": [
-                    "SeekersArmguard",
-                    "NegatronCloak"
-                ]  
-                "name": "Moonflair Spellblade",
-                "id": 415324124
-            }, {
-                "etc....": "iteminfo"
-            }
-        ]
+                {
+                    "builtOn": [
+                        "Riven",
+                        "Malphite"
+                    ],
+                    "maps": {
+                        "11": true,
+                        "12": true,
+                        "10": false
+                    },
+                    "sanitizedDescription": "+50 Ability Power +50 Armor +50 Magic Resist UNIQUE Passive - Tenacity: Reduces the duration of stuns, slows, taunts, fears, silences, blinds, polymorphs, and immobilizes by 35%.",
+                    "id": 3170,
+                    "name": "Moonflair Spellblade",
+                    ...
+                }, {
+                    "etc....": "iteminfo"
+                }
+            ]
+        }
  
 + Response 404 (application/json)
 
         { 
-            "error": "Resource not found" 
+            "error": "Resource not found"
         }
 
-### Get Specific Item [GET /items/{item}]
+### Get Specific Item [GET /api/items/{itemName}]
 
-*Description: Fetches an ItemDTO for a specific item*
-
-
+*Description: Fetches a JSON for a specific item. (dict)*
 
 + Parameter
-    + item - item name with no spaces and lowercase
-    
+    + itemName (string, required) - item name separated by %20 with key capitalization for the first letter of each word
+
 + Response 200 (application/json)
 
-        "example" : [
-            "Morellonomicon": {
-                "frequentlyBuiltOn": [
-                    "ID": "Karma",
-                    "ID": "Annie"
-                ],
-                "Maps": {
-                    "SummonersRift": true,
-                    "HowlingAbyss": true,
-                    "TwistedTreeline": true
-                },
-                "description": "<stats>+100 Ability Power<br><mana>+400 Mana</mana></stats><br><br><unique>UNIQUE Passive:</unique> +20% Cooldown Reduction<br><unique>UNIQUE Passive:</unique> Dealing magic damage to champions below 35% Health inflicts <a href='GrievousWounds'>Grievous Wounds</a> for 8 seconds.<br><unique>UNIQUE Passive:</unique> Kills and Assists restore 20% of your maximum Mana.",
-                "plaintext": "Greatly increases Ability Power and Cooldown Reduction",
-                "sanitizedDescription": "+100 Ability Power +400 Mana UNIQUE Passive: +20% Cooldown Reduction UNIQUE Passive: Dealing magic damage to champions below 35% Health inflicts Grievous Wounds for 8 seconds. UNIQUE Passive: Kills and Assists restore 20% of your maximum Mana.",
-                "id": 3165,
-                "itemTree": [
-                    "FiendishCodex",
-                    "AmplifyingTone",
-                    "LostChapter"
-                ] 
-                "name": "Morellonomicon",
-                "id": 127431232
+        {
+            "result" : [
+                {
+                    "builtOn": [
+                        "ID": "Karma",
+                        "ID": "Annie"
+                    ],
+                    "maps": {
+                        "11": true,
+                        "12": true,
+                        "10": false
+                    },
+                    "sanitizedDescription": "+100 Ability Power +400 Mana UNIQUE Passive: +20% Cooldown Reduction UNIQUE Passive: Dealing magic damage to champions below 35% Health inflicts Grievous Wounds for 8 seconds. UNIQUE Passive: Kills and Assists restore 20% of your maximum Mana.",
+                    "id": 3165,
+                    "name": "Morellonomicon",
+                    ...
+                }
             }
         ]
-
 
 + Response 404 (application/json)
 
         { 
-            "error": "Resource not found" 
+            "result": "no item with that name"
         }
 
-## Get Game Mode [/gameModes]
+
+## Get All Maps [/api/maps]
     
-**GameModeDTO**
+*article (dict[dict])* : the article pertaining to the map
 
-*GameModeID(int)*: key for this game mode (unsure if it will remain int or string)
+*champs (List)* : the champions related to the map
 
-*mapImg(url)*: a url to image of game mode map
+*image (string)* : the URL to the image of the map
 
-*lore(string)*: lore behind the game mode
+*items (List)* : the items related to the map
 
-*InGameDesciprtion(string)*: description of the in game play for this game mode
+*mapId (integer PK)* : the primary key for identifying the map
 
-*Versions(List[string])*: returns the different types of maps
+*mapName (string)* : the name of the map
 
-*PlayableChampions(List[championIDs])*: returns a list of champions you can use on this game mode
+### Get All Maps [GET /api/maps]
 
-*Items(list[ItemID's])*: returns a list of items usable in this game mode
+*Description: Fetches a list of JSON for all maps. (List[dict])*
 
-### Get Game Mode Description with Game Mode ID [GET /gameModes/{gameMode}]
++ Response 200 (applicaton/json)
 
-*Description: Fetches list of GameModeDTO's for a game mode*
+        {
+            "result": [
+                {
+                    "champs": [
+                        "Ryze",
+                        "Xerath",
+                        "Vi",
+                        "Skarner"
+                    ],
+                    "items": [
+                        3185,
+                        3460,
+                        1054
+                    ],
+                    "image": "http:\/\/ddragon.leagueoflegends.com\/cdn\/7.20.1\/img\/map\/map8.png",
+                    "mapId": 8,
+                    "mapName": "The Crystal Scar",
+                    "article": {
+                        ...
+                    },
+                    ...
+                },
+                {
+                    "champs": [
+                        ...
+                    ],
+                    "items": [
+                        ...
+                    ],
+                    ...
+                },
+                ...
+            ]
+        }
 
++ Response 404 (application/json)
+
+        { 
+            "error": "Resource not found"
+        }
+
+### Get Specific Map [GET /api/maps/{mapName}]
+
+*Description: Fetches a JSON for a specific map. (dict)*
 
 + Parameter
-    + gameMode (number, required) - String game mode all lower case, using dashes instead of space
-        1. Summoner's Rift
-        2. Howling Abyss
-        3. Twisted Treeline
+    + mapName (string, required) - map name separated by %20 with key capitalization for the first letter of each word
     
 + Response 200 (applicaton/json)
-    
-        "example": [
-            "Summoners Rift": {
-                "GameModeID": 1
-                "MapImg": "http://url.png"
-                "Lore": "will populate with real lore",
-                "InGameDescription": "The newest and most...",
-                "Versions": [
-                    "Summer Version": "It's the first...",
-                    "Winter Version": "A variant of the..."
-                ],
-                "Development": "Summoner Rift evolves...",
-                "Playable Champions": [
-                    "Lux",
-                    "Aatrox",
-                    "Caitlyn",
-                    "etc."
-                ],
-                "Items": [
-                    "Duskblade",
-                    "BoTRK",
-                    "etc."
-                ]
-            }
-        ]
-        
+
+        {
+            "result": [
+                {
+                    "champs": [
+                        "Ryze",
+                        "Xerath",
+                        "Vi",
+                        "Skarner"
+                    ],
+                    "items": [
+                        3185,
+                        3460,
+                        1054
+                    ],
+                    "image": "http:\/\/ddragon.leagueoflegends.com\/cdn\/7.20.1\/img\/map\/map8.png",
+                    "mapId": 8,
+                    "mapName": "The Crystal Scar",
+                    "article": {
+                        ...
+                    },
+                    ...
+                }
+            ]
+        }
+                    
 + Response 404 (application/json)
 
         { 
-            "error": "Resource not found" 
-        }
-        
-## Summoner's Match History [/summoner/matchHistory]
-
-**MatcheHistoryForSummonerDTO**
-
-*land(string or laneID)*: returns the lane this champion played
-
-*matchID(long)*: unique match id 
-
-*map(mapID)*: mapid of map this match was played on
-
-*gameModeID(gameModeID)*: Game mode identifier
-
-*Items(List[itemID])*: returns a list of items this champion bought in this match
-
-
-
-### Get a Summoner's Match History With Summoner ID [GET /summoner/matchHistory/{summonerName}]
-
-*Description: Fetches a list of MatchHistoryForSummonerDTO's*
-
-
-+ Parameter 
-    + summonerName - fetch match history for this specific summoner
-    
-+ Response 200 (application/json)
-    
-        "matches" : [
-            {
-                "lane": "MID",
-                "champion": "Annie",
-                "MatchID": 218533808,
-                "Map": "HowlingAbyss",
-                "GameMode": "ARAM",
-                "Items": [
-                    {
-                        "ID": "Doran's Ring",
-                        "Count": 1
-                    }, 
-                    {
-                        "ID": "Luden's Echo",
-                        "Count": 1
-                    },
-                    {
-                        "ID": "Redemption",
-                        "Count": 1
-                    }
-                ]
-            },
-            {
-                "lane": "JUNGLE",
-                "champion": "Hecarim",
-                "MatchID": 4819434182,
-                "Map": "HowlingAbyss",
-                "GameMode": "ARAM",
-                "Items": [
-                    {
-                        "ID": "Cinderhulk",
-                        "count": 1
-                    },    
-                    {
-                        "ID": "Warmog's Armor",
-                        "count": 1
-                    }, 
-                    {
-                        "ID": "Yap Yap Item",
-                        "count": 1
-                    }
-                ]
-            },
-            {
-                "etc...", 1234
-            }
-        ]
-
-+ Response 404 (application/json)
-
-        { 
-            "error": "Resource not found" 
+            "result": "no map with that name" 
         }
 
-## Match Details [/matches/matchHistory/]
 
-**MatchDTO**
+## Match Details [/api/matches/]
 
-*MatchID(long)*: unique number for this match
+*gameCreation (long)* : the time at creation of this match
 
-*Participants(List[ParticipantDTO's])*: returns list of participant dto's for this match
+*gameDuration (integer)* : the duration of the match in seconds
 
-*map(mapID)*: Identifier for the map this match was played on
+*gameId (long PK)* : the primary key for identifying the match
 
-*gameModeID(gameModeID)*: Identifier for the type of game mode
+*gameMode (string)* : the game mode of the match
 
-*matchDetails(MatchDetailDTO)*: will include things like match length, winning team, etc.
+*gameType (string)* : the type of queue for the match
 
-### Get Match Details With Match ID [GET /matches/matchHistory/{matchID}]
+*gameVersion (string)*: the version the match was played on
 
-*Description: Fetches MatchDTO for a specific match.*
+*participantIdentities (List[dict])* : the participants in the game
 
-+ Parameter
-    + matchID (number) - ID of the match you are looking up
+*platformId (string)* : the region this match was played on
+
+*queueId (integer)* : the queue the match was in
+
+*mapId (integer)* : the map this match was played on
+
+*seasonId (integer)* :
+
+*teams (List[dict])* :
+
+### Get All Matches [GET /api/matches]
+
+*Description: Fetches a list of JSON for all matches. (List[dict])*
 
 + Response 200 (application/json)
-    
-        "example": [
-            "matchDetails": {
-                "MatchID: 4819434182,
-                "Participants": {
-                    "Participant1": {
-                        "champion": "Annie",
-                        "summonerID": 4819434182,
-                        "Items": [
-                            {
-                                "ID": "Doran's Ring",
-                                "count": 1
+
+        {
+            "example": [
+                {
+                    "seasonId": 9,
+                    "gameVersion": "7.20.204.9809",
+                    "gameId": 4819434182,
+                    "participantIdentities": [
+                        {
+                            "player": {
+                                "currentPlatformId": "NA1",
+                                "summonerName": "SevenAster",
+                                "matchHistoryUri": "\/v1\/stats\/player_history\/NA1\/230916943",
+                                "platformId": "NA1",
+                                "currentAccountId": 230916943,
+                                "profileIcon": 3010,
+                                "summonerId": 71402604,
+                                "accountId": 230916943
                             },
-                            {
-                                "ID": "Manamune",
-                                "count": 1
+                        }
+                        {
+                            "player": {
+                                "etc....." : "adsfasd"
                             },
-                            {
-                                "ID": "Zhonya's Hourglass",
-                                "count": 1
-                            }
-                        ]
-                    },
-                    "Participant2": {
-                        "etc....." : "adsfasd"
-                    },
+                            ...
+                        }
+                    ],
+                    "mapId": 11,
                     ...
                 },
-                "Map": "Summoner's Rift",
-                "Game Mode": "ARAM",
-                "MatchDetails: [
-                    "TimeLength": 30:21,
-                    "Winning Team": "Blue",
+                {
+                    "seasonId": 9,
+                    "gameVersion": "7.20.204.9809",
+                    "gameId": 4873134859,
+                    "participantIdentities": [
+                        {
+                            ...
+                        },
+                        ...
+                    },
+                    "mapId": 11,
                     ...
-                ]
-            }
-        ]
+                },
+                ...
+            ]
+        }
         
 + Response 404 (application/json)
 
         { 
-            "error": "Resource not found" 
+            "error": "Resource not found"
+        }
+
+### Get Specific Match [GET /api/matches/{matchID}]
+
+*Description: Fetches a JSON for a specific match. (dict)*
+
++ Parameter
+    + matchID (integer, required) - ID of the match you are looking up
+
++ Response 200 (application/json)
+
+        {
+            "example": [
+                {
+                    "seasonId": 9,
+                    "gameVersion": "7.20.204.9809",
+                    "gameId": 4819434182,
+                    "participantIdentities": [
+                        {
+                            "player": {
+                                "currentPlatformId": "NA1",
+                                "summonerName": "SevenAster",
+                                "matchHistoryUri": "\/v1\/stats\/player_history\/NA1\/230916943",
+                                "platformId": "NA1",
+                                "currentAccountId": 230916943,
+                                "profileIcon": 3010,
+                                "summonerId": 71402604,
+                                "accountId": 230916943
+                            },
+                        }
+                        {
+                            "player": {
+                                "etc....." : "adsfasd"
+                            },
+                            ...
+                        }
+                    ],
+                    "mapId": 11,
+                    ...
+                }
+            ]
+        }
+        
++ Response 404 (application/json)
+
+        { 
+            "result": "no matching match for match ID"
         }
