@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import myMaps from './maps.json';
 import myItems from './items.json';
 import myChamps from './champions.json'
-
+import './map.css'
 
 
 
@@ -28,7 +28,7 @@ class ShowImages extends Component
 
 class UnderUnderSection2 extends Component {
 	render() {
-		return (<li>{this.props.element.text}</li>)
+		return (<li className="text">{this.props.element.text}</li>)
 	}
 }
 
@@ -62,7 +62,7 @@ class TitleComponent extends Component {
 		}
 		return (
 			<div>
-				<h4>{this.props.sections.title}</h4>
+				<h4 className="text">{this.props.sections.title}</h4>
 
 
 				{this.props.sections.content.map(underSections => <UnderSection1 sections={underSections}/>)} 
@@ -175,10 +175,11 @@ class SingleMap extends Component{
 	                <img src={mapData.image} className="img-responsive" alt="portfolio items" />
 				</div>
 			
-
-
-				<div>	
-					{sections.map(section => <TitleComponent sections={section}/>)} 
+				<div className="row-md-10">
+					<div className="col-md-2"></div>
+					<div className="text col-md-10">	
+						{sections.map(section => <TitleComponent sections={section}/>)} 
+					</div>
 				</div>
 
 					<h4>Champions on this Map</h4>
