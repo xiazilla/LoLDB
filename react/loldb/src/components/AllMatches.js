@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import data from './matches.json'
 import MatchObject from './MatchObject.js'
  
 class AllMatches extends Component {
@@ -30,8 +29,8 @@ class AllMatches extends Component {
 
 
     render() {
-	    	var matches = [];
-	    if(this.state.dataLoaded === 0) {
+	    var matches = [];
+	    if(!this.state.dataLoaded) {
 	    	return (<div>Loading...</div>)
 	    } else {
 	  		matches = this.state.data.result
@@ -50,7 +49,7 @@ class AllMatches extends Component {
 			                        <th>Summoner Spells</th>
 			                    </tr>
 		            			{matches.map((match) => {
-		            				return (<MatchObject key={match.id} thisMatch={match} />)
+		            				return (<MatchObject key={match.id} thisMatch={match} index={"0"} linkToMatch={1}/>)
 		            			})}
 		            			
 			                </table>

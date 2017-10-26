@@ -1,15 +1,12 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom'
 import AllMatches from './AllMatches'
-import MatchSingle from './MatchSingle'
-//import SingleItem from './SingleItem.js'
-
-
+import SingleMatch from './SingleMatch'
 
 const Matches = () => (
   <Switch>
     <Route exact path='/matches' component={AllMatches}/>
-    <Route path='/matches/:matchId' component={MatchSingle}/>
+    <Route path='/matches/:matchId' component={SingleMatch}/>
   </Switch>
 )
 
