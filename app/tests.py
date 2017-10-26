@@ -85,6 +85,12 @@ class TestAPI(unittest.TestCase):
         self.assertEqual(len(result["participants"]), 10)
 
 
+    def test_bad_match(self):
+        url = self.base_url + "/matches/252"
+        response = requests.get(url).json()["result"]
+        self.assertEqual(response, "no matching match for match ID")
+
+
     def test_all_maps(self):
         url = self.base_url + "/maps"
         response = requests.get(url).json()
@@ -100,6 +106,12 @@ class TestAPI(unittest.TestCase):
         self.assertEqual(result["mapId"], 8)
         self.assertEqual(len(result["champs"]), 4)
         self.assertEqual(len(result["items"]), 3)
+
+
+    def test_bad_match(self):
+        url = self.base_url + "/maps/cat"
+        response = requests.get(url).json()["result"]
+        self.assertEqual(response, "no map with that name")
 
 
 if __name__ == '__main__':
