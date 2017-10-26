@@ -1236,7 +1236,7 @@ ul.tree li:last-child:before {
   border-left:1px solid rgb(100,100,100);   
 }*/
 table {
-    width:64%;
+    width:75%;
 }
 td, th {
     border: 1px solid #dddddd;
@@ -1247,8 +1247,5 @@ th {
     background-color: #ffffff;
 }
 tr {
-    background-color: #dddddd;
-}
-tr:hover {
-  cursor: pointer;
+    border: 1 px solid #000000;
 };
