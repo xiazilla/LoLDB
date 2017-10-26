@@ -40,6 +40,17 @@ class ItemTreeObj extends Component {
 }
 
 
+// class AvailableOn extends Component {
+
+// 	render () {
+// 		return(
+// 			{Object.keys(this.props.maps).forEach(function(key) {
+// 			    <div> {key} </div>
+// 			})})
+
+// 	}
+// }
+
 
 class SingleItem extends Component{
 
@@ -51,6 +62,22 @@ class SingleItem extends Component{
 		div.innerHTML = html;
 		var text = div.textContent || div.innerText || "";
 		return text;
+	}
+
+	getMaps(map, id) {
+		console.log(map)
+		if(map) {
+			switch (id) {
+				case 8:
+					return (<a href={`/maps/The%20Crystal%20Scar`}>The Crystal Scar</a>);
+				case 10:
+					return (<a href={`/maps/The%20Twisted%20Treeline`}>The Twisted Treeline</a>);
+				case 11:
+					return (<a href={`/maps/Summoner's%20Rift`}>Summoner's Rift</a>)
+				case 12:
+					return (<a href={`/maps/Howling%20Abyss`}>Howling Abyss</a>)
+			}
+		}
 	}
 	
 	render() {
@@ -67,7 +94,7 @@ class SingleItem extends Component{
 
 		
 		
-		// console.log(itemData);
+		console.log(itemData);
 		// let imageURL = "http://ddragon.leagueoflegends.com/cdn/7.10.1/img/item/3147.png"
 
 		return (
@@ -88,9 +115,13 @@ class SingleItem extends Component{
 	            </div>
 				<h4>Most Frequently Built On</h4>
 				<h4>Available On</h4>
-					<div className="img-wrapper2">
-						<img src={itemData.images} className="img-responsive" alt="portfolio items" />
-					</div>
+				<p>{this.getMaps(itemData.maps["8"], 8)}</p>
+				<p>{this.getMaps(itemData.maps["10"], 10)}</p>
+				<p>{this.getMaps(itemData.maps["11"], 11)}</p>
+				<p>{this.getMaps(itemData.maps["12"], 12)}</p>
+					
+
+
 			</div>
 		)
 	}

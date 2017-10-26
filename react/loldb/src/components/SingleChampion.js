@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import mydata from './champions.json';
 import SkinObject from './SkinObject'
 import './Champions.css';
+import axios from 'axios';
 
 
 class EssentialItems extends Component {
@@ -54,16 +55,23 @@ class SingleChampion extends Component {
 	}
 
 
-	// constructor(props) {
-	// 	super(props);
-	// 	this.state = {
-	// 		champName: this.props.match.params.name
-	// 	}
+	constructor(props) {
+		super(props);
+		this.state = {
+			champName: props.match.params.name,
+			champData: []
+		}
+	}
 
-	// }
-	// setChampName((name ) => {
-	// 	this.setState({champName: name})
-	// })
+	componentDidMount() {
+		// console.log(this.state.champName)    
+	  var url = `https://loldbapi.appspot.com/api/champs/${this.state.champName}`
+
+    axios.get(url)
+      .then(res => {
+        console.log(res)
+      });
+	}
 
 	render() {
 
