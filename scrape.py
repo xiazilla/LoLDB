@@ -55,7 +55,7 @@ def create_champ_json(json_path, KEY) :
     request_url = base_url + "/champions?api_key=" + KEY + "".join("&tags="+t for t in tags)
     champ_list = requests.get(request_url).json()
     # Dragon URL
-    dragon_url = "http://ddragon.leagueoflegends.com/cdn/img"
+    dragon_url = "http://ddragon.leagueoflegends.com/cdn/7.20.1/img"
     # Iterate through the items
     minimized = {"data" : {} }
     for champ in champ_list["data"] :
@@ -69,7 +69,7 @@ def create_champ_json(json_path, KEY) :
         min_champ_data["title"] = champ_data["title"]
         min_champ_data["skins"] = champ_data["skins"]
         # Get the champion URL
-        image_url = dragon_url + "/champion/loading/" + champ + "_0.jpg"
+        image_url = dragon_url + "/champion/" + champ + ".png"
         min_champ_data["image"] = image_url
         min_champ_data["passive"] = champ_data["passive"]
         min_champ_data["recommended"] = champ_data["recommended"]
@@ -82,9 +82,9 @@ def create_champ_json(json_path, KEY) :
         minimized["data"][champ] = min_champ_data
         db.champion.insert_one(min_champ_data)
     
-    with open(json_path, "w") as json_file :
-       json.dump(minimized, json_file)
-    print ("Wrote json to: " + json_path)
+    #with open(json_path, "w") as json_file :
+    #   json.dump(minimized, json_file)
+    #print ("Wrote json to: " + json_path)
 
 
 #################################################
@@ -137,9 +137,9 @@ def create_item_json(json_path, KEY) :
         minimized["data"][item] = min_item_data
         db.item.insert_one(min_item_data)
 
-    with open(json_path, "w") as json_file :
-       json.dump(minimized, json_file)
-    print ("Wrote json to: " + json_path)
+    #with open(json_path, "w") as json_file :
+    #   json.dump(minimized, json_file)
+    #print ("Wrote json to: " + json_path)
 
 
 ###################################################
@@ -175,6 +175,7 @@ def create_match_json(json_path, KEY) :
         request_summoner = base_url + player + "?api_key=" + KEY
         accoundID = requests.get(request_summoner).json()["accountId"]
         accountID_list.append(accoundID)
+
     # Get match history of that Player
     mhistory_url = "https://na1.api.riotgames.com/lol/match/v3/matchlists/by-account/"
     gameID_list = []
@@ -183,19 +184,34 @@ def create_match_json(json_path, KEY) :
         # Get this player's most recent match
         gameID_list.append(requests.get(request_mhistory_url).json()["matches"][0]["gameId"])
     
+    # Get info about summoner spells
+    sum_spells = {}
+    request_sum_url = "https://na1.api.riotgames.com/lol/static-data/v3/summoner-spells?locale=en_US&dataById=true&api_key=" + KEY
+    sum_spell_data = requests.get(request_sum_url).json()["data"]
+    for i in sum_spell_data:
+        sum_spells[i] = sum_spell_data[i]["key"]
+
     # Get match info about the player's most recent match
     minimized = {}
     match_url = "https://na1.api.riotgames.com/lol/match/v3/matches/"
     for game_id in gameID_list:
         request_match_url = match_url + str(game_id) + "?api_key=" + KEY
+        match_data = requests.get(request_match_url).json()
+        # Invert champion dictionary to map IDs to names
+        champion_ids = dict([v,k] for k,v in champion_names.items())
+        # Replace champion IDs with names and summoner spell IDs with keys for easier parsing
+        participants = match_data["participants"]
+        for p in participants:
+            p["championName"] = champion_ids[p["championId"]]
+            p["spell1Id"] = sum_spells[str(p["spell1Id"])]
+            p["spell2Id"] = sum_spells[str(p["spell2Id"])]
         # Add the match to mongo
-        j = requests.get(request_match_url).json()
-        minimized[game_id] = j
-        db.match.insert_one(j)
+        minimized[game_id] = match_data
+        db.match.insert_one(match_data)
     
-    with open(json_path, "w") as json_file :
-       json.dump(minimized, json_file)
-    print ("Wrote json to: " + json_path)
+    #with open(json_path, "w") as json_file :
+    #   json.dump(minimized, json_file)
+    #print ("Wrote json to: " + json_path)
 
 
 ###################################
@@ -232,7 +248,10 @@ def find_champs_and_items(content):
             except KeyError:
                 pass
             # Check if there are other elements to check
-            result += recursive_find(i)
+            try:
+                result += recursive_find(i)
+            except KeyError:
+                pass
     return result
 
 ########################################
@@ -254,7 +273,7 @@ def parse_article(article):
         block += find_champs_and_items(s["content"])
     # Find champions in this article and add his or her name
     for c in champion_names:
-        if block.find(c) != -1:
+        if c in block:
             champs.add(c)
     # Find items in this article and add the item's id
     for i in item_names:
@@ -285,7 +304,7 @@ def create_map_json(json_path, KEY) :
     count = 0
     minimized = {}
     for map_id in mapID_list:
-        data = {}
+        map_data = {}
         # Only 4 of the maps have sufficient data to be turned into models
         if count == 4:
             break
@@ -300,28 +319,27 @@ def create_map_json(json_path, KEY) :
         # Get the map image URL
         map_image_url = dragon_url + instance["image"]["full"]
         # Add the map to mongo
-        data["mapId"] = map_id
-        data["mapName"] = map_name
-        data["image"] = map_image_url
-        data["article"] = article
-        block = parse_article(article)
+        map_data["mapId"] = int(map_id)
+        map_data["mapName"] = map_name
+        map_data["image"] = map_image_url
+        map_data["article"] = article
         # Champs is by names; items is by IDs
-        data["champs"], data["items"] = parse_article(article)
-        minimized[map_name] = data
-        db.map.insert_one(d)
+        map_data["champs"], map_data["items"] = parse_article(article)
+        minimized[map_name] = map_data
+        db.map.insert_one(map_data)
         count += 1
     
-    with open(json_path, "w") as json_file :
-       json.dump(minimized, json_file)
-    print ("Wrote json to: " + json_path)
+    #with open(json_path, "w") as json_file :
+    #   json.dump(minimized, json_file)
+    #print ("Wrote json to: " + json_path)
 
 
 if __name__ == "__main__" :
     # Drop tables before insert
-    # db.champion.delete_many({})
-    # db.item.delete_many({})
-    # db.match.delete_many({})
-    # db.map.delete_many({})
+    db.champion.delete_many({})
+    db.item.delete_many({})
+    db.match.delete_many({})
+    db.map.delete_many({})
 
     # Create JSON and insert    
     create_champ_json("champions.json", API_KEY)
