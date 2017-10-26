@@ -26,16 +26,16 @@ rec_items = {}
 # rec the recommended builds
 # champ_id the id of the champion
 ####################################################################
-def add_rec_items(champ_id, rec):
+def add_rec_items(champ_name, rec):
     for obj in rec:
         for blocks in obj["blocks"]:
             for b in blocks["items"]:
                 try:
                     # Add champ to set
-                    rec_items[str(b["id"])].add(champ_id)
+                    rec_items[str(b["id"])].add(champ_name)
                 except KeyError:
                     # Make a set if it doesn't exist
-                    rec_items[str(b["id"])] = {champ_id}
+                    rec_items[str(b["id"])] = {champ_name}
 
 ##################################################
 # create_champ_json
@@ -74,7 +74,7 @@ def create_champ_json(json_path, KEY) :
         min_champ_data["passive"] = champ_data["passive"]
         min_champ_data["recommended"] = champ_data["recommended"]
         # Populate recommended items
-        add_rec_items(champ_data["id"], champ_data["recommended"])
+        add_rec_items(champ_data["name"], champ_data["recommended"])
         min_champ_data["lore"] = champ_data["lore"]
         min_champ_data["spells"] = champ_data["spells"]
         min_champ_data["stats"] = champ_data["stats"]
