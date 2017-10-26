@@ -39,13 +39,13 @@ class SingleMap extends Component{
 		console.log(mapIdent)
 		let data = myMaps;
 		Object.keys(data).forEach(function(key, index) {
-			if(data[index].mapName === mapIdent) 
-				mapData = data[index];
+			if(data[key].mapName === mapIdent) 
+				mapData = data[key];
 		});		
 	
 		return (
 			<div> 
-				<h3><strong>{mapData.mapName}</strong></h3>
+				<h3><strong>{mapIdent}</strong></h3>
 				<div className="img-wrapper2>" >
 	                <img src={mapData.image} className="img-responsive" alt="portfolio items" />
 				</div>
