@@ -35,7 +35,7 @@ class About extends Component {
                     <div className="col-md-4">
                         <div>
                             <div>
-                                <img src={profile1} alt=""/>
+                                <img src={profile1} alt="" width="325" height="325"/>
                             </div>
                             <h3>Wesley Chung</h3>
                             <p> Senior Computer Science student attending the University of Texas at Austin. Enjoys 
@@ -51,7 +51,7 @@ class About extends Component {
                     <div className="col-md-4">
                         <div>
                             <div>
-                                <img src={profile2} alt=""/>
+                                <img src={profile2} alt="" width="325" height="325"/>
                             </div>
                             <h3>Viet Tran</h3>
                             <p> Senior at the University of Texas at Austin, majoring in Computer Science. Enjoys playing video games
@@ -67,7 +67,7 @@ class About extends Component {
                     <div className="col-md-4">
                         <div>
                             <div>
-                                <img src={profile3} alt=""/>
+                                <img src={profile3} alt="" width="325" height="325"/>
                             </div>
                             <h3>Hiep Vu</h3>
                             <p> Senior in Computer Science who enjoys playing mobile games and listening to music. 
@@ -82,7 +82,7 @@ class About extends Component {
                     <div className="col-md-4">
                         <div>
                             <div>
-                                <img src={profile4} alt=""/>
+                                <img src={profile4} alt="" width="325" height="325"/>
                             </div>
                             <h3>Jamie Xia</h3>
                             <p> Senior in Computer Science. Allergic to weakness. And Bronzies.</p>
@@ -96,7 +96,7 @@ class About extends Component {
                     <div className="col-md-4">
                         <div>
                             <div>
-                                <img src={profile5} alt=""/>
+                                <img src={profile5} alt="" width="325" height="325"/>
                             </div>
                             <h3>Anjiya Nayani</h3>
                             <p> Senior studying Computer Science who is soon to be addicted to
