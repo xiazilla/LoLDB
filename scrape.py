@@ -82,9 +82,9 @@ def create_champ_json(json_path, KEY) :
         minimized["data"][champ] = min_champ_data
         db.champion.insert_one(min_champ_data)
     
-    # with open(json_path, "w") as json_file :
-    #    json.dump(minimized, json_file)
-    # print ("Wrote json to: " + json_path)
+    with open(json_path, "w") as json_file :
+       json.dump(minimized, json_file)
+    print ("Wrote json to: " + json_path)
 
 
 #################################################
@@ -137,9 +137,9 @@ def create_item_json(json_path, KEY) :
         minimized["data"][item] = min_item_data
         db.item.insert_one(min_item_data)
 
-    # with open(json_path, "w") as json_file :
-    #    json.dump(minimized, json_file)
-    # print ("Wrote json to: " + json_path)
+    with open(json_path, "w") as json_file :
+       json.dump(minimized, json_file)
+    print ("Wrote json to: " + json_path)
 
 
 ###################################################
@@ -191,7 +191,7 @@ def create_match_json(json_path, KEY) :
         # Add the match to mongo
         j = requests.get(request_match_url).json()
         minimized[game_id] = j
-        db.match.insert_one(json)
+        db.match.insert_one(j)
     
     with open(json_path, "w") as json_file :
        json.dump(minimized, json_file)
@@ -311,9 +311,9 @@ def create_map_json(json_path, KEY) :
         db.map.insert_one(d)
         count += 1
     
-    #with open(json_path, "w") as json_file :
-    #    json.dump(minimized, json_file)
-    #print ("Wrote json to: " + json_path)
+    with open(json_path, "w") as json_file :
+       json.dump(minimized, json_file)
+    print ("Wrote json to: " + json_path)
 
 
 if __name__ == "__main__" :
