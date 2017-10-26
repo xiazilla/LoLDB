@@ -13,9 +13,11 @@ class AllItems extends Component {
     	});
     	// console.log(items)
         return (
-        	<div className="row">{items.map(item => 
-        		<ItemObject key={item.id} thisItem={item} />)}
-        	</div>
+            <div>
+            	<div className="row">{items.map(item => 
+            		<ItemObject key={item.id} thisItem={item} />)}
+            	</div>
+            </div>
         )
     }
 }

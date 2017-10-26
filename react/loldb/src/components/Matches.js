@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Switch, Route } from 'react-router-dom'
+import AllMatches from './AllMatches'
+import MatchSingle from './MatchSingle'
+//import SingleItem from './SingleItem.js'
 
 
- 
-class Matches extends Component {
-    render() {
-        return (
-        	<div>
-	         	Matches
-	        </div>
-        )
-    }
-}
+const Matches = () => (
+  <Switch>
+    <Route exact path='/matches' component={AllMatches}/>
+    <Route path='/matches/:matchId' component={MatchSingle}/>
+  </Switch>
+)
 
 export default Matches;
