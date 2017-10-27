@@ -6,6 +6,7 @@ class ChampionObject extends Component {
 
 
 	render () {
+		// console.log(this.props.thisChampion)
 		return (
 	      <div className="col-sm-3 container">
 	       		<figure className="wow">
@@ -19,6 +20,10 @@ class ChampionObject extends Component {
 			                <h4><strong> {this.props.thisChampion.name}</strong></h4>
 			                
 			                <p> {this.props.thisChampion.title} </p>
+			                <div className="text">
+			                	<p><strong>Lore: </strong>{this.props.thisChampion.lore}</p>
+			                	<p><strong>Passive: </strong>{this.props.thisChampion.passive.description}</p>
+			                </div>
 				        </span>
 			        </figcaption>
 		        </figure>

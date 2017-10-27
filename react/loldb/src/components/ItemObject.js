@@ -21,10 +21,12 @@ class ItemObject extends Component {
                     <figcaption>
                         <span>
                             <p><strong> {this.props.thisItem.name}</strong></p>
-                            <p>
-                                Cost: {this.props.thisItem.gold.total}
-                            </p>
-                            <p> {this.props.thisItem.sanitizedDescription} </p>
+                    
+                            <div className="text">
+                            	<p> <strong>Cost:</strong> {this.props.thisItem.gold.total}</p>
+                            	<p> <strong>Desc:</strong>{this.props.thisItem.sanitizedDescription} </p>
+                            	<p><strong> Sell: </strong> {this.props.thisItem.gold.sell} </p>
+                            </div>
                         </span>
                     </figcaption>
                 </figure>
