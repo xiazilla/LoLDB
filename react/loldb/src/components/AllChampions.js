@@ -26,9 +26,11 @@ class AllChampions extends Component {
                 </div>
             </div>
         </section>
-        <div className = "row"> {champions.map(champion => 
+        <section>
+            <div className = "row"> {champions.map(champion => 
                 <ChampionObject key={champions.title} thisChampion={champion} />)}
             </div>
+            </section>
         </div>
 
         )

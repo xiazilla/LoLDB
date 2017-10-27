@@ -36,6 +36,19 @@ class AllMatches extends Component {
 	  		matches = this.state.data.result
 	  		console.log(matches)
 	        return (
+	        <div>
+	        <section className="global-page-header">
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="block">
+                            <h2>Matches</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
 	        	<section className="works service-page">
 		            <div className="container">
 		                <div className="row">
@@ -56,6 +69,7 @@ class AllMatches extends Component {
 			            </div>
 			        </div>
 		        </section>
+		 </div>
 	        )
 	    }
     }

@@ -104,7 +104,7 @@ class About extends Component {
                             League of Legends because of this project.</p>
                             <h4>Responsibilities:</h4>
                                 <p>Frontend</p>
-                            <h5>Number of Commits: 31</h5>
+                            <h5>Number of Commits: 32</h5>
                             <h5>Number of Issues: 5</h5>
                             <h5>Number of Unit Tests: 0</h5>
                         </div>
