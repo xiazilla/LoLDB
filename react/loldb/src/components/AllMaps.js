@@ -30,7 +30,7 @@ class AllMaps extends Component {
 
         	<div className="row">{maps.map(mapjson => 
         		<MapObject key={mapjson.id} thisMap={mapjson} />)}
-    
+                
         	</div>
             
         </div>

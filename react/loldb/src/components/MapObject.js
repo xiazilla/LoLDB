@@ -25,7 +25,7 @@ class MapObject extends Component {
                     <figcaption>
                         <span>
                             <p><strong> {this.props.thisMap.mapName}</strong></p>
-
+                            
                         </span>
                     </figcaption>
                 </figure>
