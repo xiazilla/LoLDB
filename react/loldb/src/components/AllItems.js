@@ -6,10 +6,11 @@ import ItemObject from './ItemObject'
 class AllItems extends Component {
 
     render() {
-    	let data = myData.data;
+    	let data = myData.result;
     	var items = [];
+        // console.log(data)
     	Object.keys(data).forEach(function(key) {
-      		items.push(myData.data[key]);
+      		items.push(myData.result[key]);
     	});
     	// console.log(items)
         return (
