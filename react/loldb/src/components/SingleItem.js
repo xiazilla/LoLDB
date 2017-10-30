@@ -10,14 +10,17 @@ class ItemTreeObj extends Component {
 
 		// console.log(this.props.id)
 		let id = Number(this.props.id)
-		var i; 
-		var item = {}
-		for (i in myItems.result) {
-			if (id === myItems.result[i].id) {
-				item = myItems.result[i];
+		var i, item; 
+		var data = this.props.item
+
+		for (i in data) {
+			if (id === data[i].id) {
+				item = data[i];
 			}
 		}
-		// console.log(item)
+
+
+
 
 
 		if(item.hasOwnProperty("from")) {
@@ -28,7 +31,7 @@ class ItemTreeObj extends Component {
                         {item.name}
                     </a>
                     <ul>
-                    	{item.from.map((fromID) => <ItemTreeObj id={fromID}/>)}
+                    	{item.from.map((fromID) => <ItemTreeObj id={fromID} item={this.props.item}/>)}
                     </ul>
 
 				</li>
@@ -48,20 +51,28 @@ class ItemTreeObj extends Component {
 }
 
 
-// class AvailableOn extends Component {
-
-// 	render () {
-// 		return(
-// 			{Object.keys(this.props.maps).forEach(function(key) {
-// 			    <div> {key} </div>
-// 			})})
-
-// 	}
-// }
-
-
 class SingleItem extends Component{
 
+	constructor( props ) {
+		super(props);
+		this.state = {
+			itemsRendered: false,
+			items: []
+		}
+	}
+
+    componentWillMount() {
+
+        let url = 'https://loldbapi.appspot.com/api/items';
+        fetch(url)
+        .then(response => {
+            return response.json()
+        }).then(results => {
+            this.setState({items: results})
+            this.setState({itemsRendered: true})
+        })
+
+    }
 
 
 	GetHtml( theJSON ) {
@@ -87,32 +98,44 @@ class SingleItem extends Component{
 			}
 		}
 	}
+
+
+	renderFreqBuiltOn(item) {
+		let imagechampionUrl = "https://ddragon.leagueoflegends.com/cdn/7.20.1/img/champion/";
+
+
+		return (
+			<div>
+				<h4>Most Frequently Built On</h4>
+				<div className = "row-md-10"> {item.builtOn.map(champion => 
+    				<a href={`/Champions/${champion}`} >  <img src={(imagechampionUrl).concat(champion + ".png") } alt="" />   </a>)}
+    			</div>
+			</div>)
+
+
+
+
+	}
 	
 	render() {
 	
-		let itemData; 
-		var itemName = Number(this.props.match.params.id);
-		let data = myItems.result;
-		Object.keys(data).forEach(function(key) {
-			if(data[key].id === itemName) 
-				itemData = data[key];
-		});
-		let id = this.props.match.params.id
-		var item = {}
-		var i
-		for (i in myItems.result) {
-			if (itemName === myItems.result[i].id) {
-				item = myItems.result[i];
+		if (this.state.itemsRendered) {
+			let itemData; 
+			var itemName = Number(this.props.match.params.id);
+			let data = this.state.items.result;
+			Object.keys(data).forEach(function(key) {
+				if(data[key].id === itemName) 
+					itemData = data[key];
+			});
+			let id = this.props.match.params.id
+			var item = {}
+			var i
+			for (i in myItems.result) {
+				if (itemName === myItems.result[i].id) {
+					item = myItems.result[i];
+				}
 			}
-		}
 
-		
-		// console.log("item", item)
-		let imagechampionUrl = "https://ddragon.leagueoflegends.com/cdn/7.20.1/img/champion/";
-
-				// let imageURL = "http://ddragon.leagueoflegends.com/cdn/7.10.1/img/item/3147.png"
-		// console.log(myItems.result)
-		if(item.hasOwnProperty("builtOn")){
 			return (
 				<div> 
 					<h3><strong>{itemData.name}</strong></h3>
@@ -126,51 +149,19 @@ class SingleItem extends Component{
 					<h4>Recipe</h4>
 					<div className="tree">
 						<ul>
-							<ItemTreeObj id={this.props.match.params.id}/>
+							<ItemTreeObj id={this.props.match.params.id} item={data}/>
 						</ul>
 		            </div>
-					<h4>Most Frequently Built On</h4>
-
-					<div className = "row-md-10"> {item.builtOn.map(champion => 
-	    				<a href={`/Champions/${champion}`} >  <img src={(imagechampionUrl).concat(champion + ".png") } alt="" />   </a>)}
-	    			</div>
+		            {item.hasOwnProperty("builtOn") ? this.renderFreqBuiltOn(item) : false}
 					<h4>Available On</h4>
 					<p>{this.getMaps(itemData.maps["8"], 8)}</p>
 					<p>{this.getMaps(itemData.maps["10"], 10)}</p>
 					<p>{this.getMaps(itemData.maps["11"], 11)}</p>
 					<p>{this.getMaps(itemData.maps["12"], 12)}</p>
-						
+				</div>)
 
-
-				</div>
-			)
 		} else {
-			return (
-				<div> 
-					<h3><strong>{itemData.name}</strong></h3>
-					<div className="img-wrapper2>" >
-		                <img src={itemData.image} className="img-responsive" alt="portfolio items" />
-					</div>
-					<h4>Cost</h4>
-						<p>{itemData.gold.total}</p>
-					<h4>Description</h4>
-						<p>{itemData.sanitizedDescription}</p>
-					<h4>Recipe</h4>
-					<div className="tree">
-						<ul>
-							<ItemTreeObj id={this.props.match.params.id}/>
-						</ul>
-		            </div>
-					<h4>Available On</h4>
-					<p>{this.getMaps(itemData.maps["8"], 8)}</p>
-					<p>{this.getMaps(itemData.maps["10"], 10)}</p>
-					<p>{this.getMaps(itemData.maps["11"], 11)}</p>
-					<p>{this.getMaps(itemData.maps["12"], 12)}</p>
-						
-
-
-				</div>
-			)
+			return <div>loading...</div>
 		}
 	}
 

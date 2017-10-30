@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import myMaps from './maps.json';
-import myItems from './items.json';
-import myChamps from './champions.json'
 import './map.css'
 
 
@@ -14,8 +12,8 @@ class ShowImages extends Component
  		if(this.props.doOrNah) {
  	  		return (
  	  			<div>
- 	  				<img src={this.props.images[0].src} alt="" />
- 	  				<p>{this.props.images[0].caption}</p>
+ 	  				<img src={images[0].src} alt="" />
+ 	  				<p>{images[0].caption}</p>
  	  			</div>
 	 			)
  		} else {
@@ -46,8 +44,6 @@ class UnderSection1 extends Component {
 				</div>
 			)
 		}
-
-
 	}
 }
 
@@ -63,12 +59,7 @@ class TitleComponent extends Component {
 		return (
 			<div>
 				<h4 className="text">{this.props.sections.title}</h4>
-
-
 				{this.props.sections.content.map(underSections => <UnderSection1 sections={underSections}/>)} 
-
-
-
 				{<ShowImages images={this.props.sections.images} doOrNah={haveImages}/>}
 			</div>
 			)
@@ -109,6 +100,8 @@ class SingleMap extends Component{
 				case "CS":
 					mapIdent = "The Crystal Scar";
 					break;
+				default:
+					mapIdent = "Summoner's Rift";
 			}
 		} else {
 		 	mapIdent = this.props.match.params.id;

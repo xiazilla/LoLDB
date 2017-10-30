@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../index.css';
-import champData from './champions.json'
 
 class MatchObject extends Component {
 
@@ -34,14 +33,13 @@ class MatchObject extends Component {
 
         // console.log(champImage)
         // console.log(this.props.thisMatch)
-        console.log(this.props.index)
+        // console.log(this.props.index)
         let idx = this.props.index
-        let name = this.props.thisMatch.participants[idx].championName == "Cho'Gath" ? "Chogath" : this.props.thisMatch.participants[idx].championName
+        let name = this.props.thisMatch.participants[idx].championName === "Cho'Gath" ? "Chogath" : this.props.thisMatch.participants[idx].championName
         let imageURL = `http://ddragon.leagueoflegends.com/cdn/7.20.1/img/champion/${name}.png`
         imageURL = imageURL.replace(/\s/g, '');
         imageURL = imageURL.replace(/'/g, '');
         let kda = `${this.props.thisMatch.participants[idx].stats.kills}/${this.props.thisMatch.participants[idx].stats.deaths}/${this.props.thisMatch.participants[idx].stats.assists}`
-        let click = `window.document.location=$'/matches/{this.props.thisMatch.gameId}';`
         if (this.props.linkToMatch) {
             return (
                     <tr onClick={(e) => this.champion(e, this.props.thisMatch.gameId)} style={{cursor: 'pointer'}} href={`/champions`}>
@@ -87,7 +85,6 @@ class MatchObject extends Component {
 
             )
         }
-        ;
     }
 
 }

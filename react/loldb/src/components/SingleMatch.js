@@ -54,9 +54,9 @@ class MatchSingle extends Component {
 			for (i in allMatches) {
 				if (allMatches[i].gameId.toString() === this.props.match.params.matchId) {
 					actualMatch = allMatches[i]
-					console.log(allMatches[i])
-					var winningTeam = actualMatch.teams["0"].win == "Win" ? "Blue Team" : "Red Team";
-					var fontColor = actualMatch.teams["0"].win == "Win" ? "blue" : "red";
+					// console.log(allMatches[i])
+					var winningTeam = actualMatch.teams["0"].win === "Win" ? "Blue Team" : "Red Team";
+					var fontColor = actualMatch.teams["0"].win === "Win" ? "blue" : "red";
 				return (
 				                    
 					<div>
