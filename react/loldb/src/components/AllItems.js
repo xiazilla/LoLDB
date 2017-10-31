@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ItemObject from './ItemObject'
-
+import ReactPaginate from 'react-paginate';
  
 class AllItems extends Component {
 
@@ -9,8 +9,11 @@ class AllItems extends Component {
         super(props);
         this.state = {
             itemsRendered: false,
-            items: []
+            items: [],
+            activePage: 1,
+            itemsPerPage: 24
         }
+        this.handlePageChange = this.handlePageChange.bind(this)
     }
 
     componentWillMount() {
@@ -28,6 +31,11 @@ class AllItems extends Component {
 
     }
 
+    handlePageChange(pageNumber) {
+        // console.log(`active page is ${pageNumber}`);
+        this.setState({activePage: pageNumber});
+    }
+
     render() {
         if ( this.state.itemsRendered ) {
         	// let data = myData.result;
@@ -38,24 +46,44 @@ class AllItems extends Component {
           		items.push(data[key]);
         	});
         	// console.log(items)
+
+            let lastItemOnPage = this.state.itemsPerPage * this.state.activePage;
+            let firstItemOnPage = this.state.itemsPerPage * (this.state.activePage - 1);
+            const currentItemsOnPage = items.slice(firstItemOnPage, lastItemOnPage);
+
             return (
                 <div>
-
-                <section className="global-page-header">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="block">
-                                <h2>Items</h2>
+                    <section className="global-page-header">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <div className="block">
+                                        <h2>Items</h2>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </section>
+                    <div className="row">{currentItemsOnPage.map(item => 
+                        <ItemObject key={item.id} thisItem={item} />)}
                     </div>
-                </div>
-            </section>
-            	<div className="row">{items.map(item => 
-            		<ItemObject key={item.id} thisItem={item} />)}
-            	</div>
-
+                    <section className="global-page-header">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <div className="block">
+                                        <Pagination
+                                          hideDisabled
+                                          activePage={this.state.activePage}
+                                          itemsCountPerPage={24}
+                                          totalItemsCount={items.length}
+                                          onChange={this.handlePageChange}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>   
+                    </section>                     
                 </div>
             )
         } else {
