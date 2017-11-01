@@ -50,7 +50,7 @@ def create_champ_json(json_path, KEY) :
     global rec_items
     # url to get champions and tags for query
     base_url = "https://na1.api.riotgames.com/lol/static-data/v3"
-    tags = ["lore", "skins", "passive", "recommended", "spells", "stats"]
+    tags = ["lore", "skins", "passive", "recommended", "spells", "stats", "tags"]
     # Append API Key and tags to URL
     request_url = base_url + "/champions?api_key=" + KEY + "".join("&tags="+t for t in tags)
     champ_list = requests.get(request_url).json()
@@ -76,8 +76,18 @@ def create_champ_json(json_path, KEY) :
         # Populate recommended items
         add_rec_items(champ_data["name"], champ_data["recommended"])
         min_champ_data["lore"] = champ_data["lore"]
-        min_champ_data["spells"] = champ_data["spells"]
+        # Populate spells
+        spells = champ_data["spells"]
+        min_champ_data["spells"] = []
+        for s in spells:
+            spell = {}
+            spell["name"] = s["name"]
+            spell["sanitizedDescription"] = s["sanitizedDescription"]
+            spell["image"] = s["image"]["full"]
+            spell["key"] = s["key"]
+            min_champ_data["spells"].append(spell) 
         min_champ_data["stats"] = champ_data["stats"]
+        min_champ_data["roles"] = champ_data["tags"]
     	# Add the champion to mongo
         minimized["data"][champ] = min_champ_data
         db.champion.insert_one(min_champ_data)
@@ -99,7 +109,7 @@ def create_item_json(json_path, KEY) :
     global item_names
     # URL to get items and tags for query
     base_url = "https://na1.api.riotgames.com/lol/static-data/v3/items?locale=en_US"
-    tags = ["all", "sanitizedDescription", "from", "into"]
+    tags = ["all", "sanitizedDescription", "from", "into", "tags"]
     # Append API Key and tags to URL
     request_url = base_url + "".join("&tags="+t for t in tags) + "&api_key=" + KEY
     item_list = requests.get(request_url).json()
@@ -125,6 +135,8 @@ def create_item_json(json_path, KEY) :
         min_item_data["maps"] = item_data["maps"]
         if("into" in item_data):
             min_item_data["into"] = item_data["into"]
+        if("tags" in item_data):
+            min_item_data["categories"] = item_data["tags"]
         # Get the item URL
         image_url = dragon_url + item + ".png"
         min_item_data["image"] = image_url
