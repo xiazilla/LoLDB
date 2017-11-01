@@ -72,13 +72,7 @@ class AllItems extends Component {
                             <div className="row">
                                 <div className="col-md-12">
                                     <div className="block">
-                                        <Pagination
-                                          hideDisabled
-                                          activePage={this.state.activePage}
-                                          itemsCountPerPage={24}
-                                          totalItemsCount={items.length}
-                                          onChange={this.handlePageChange}
-                                        />
+                                        <div>PAGER</div>
                                     </div>
                                 </div>
                             </div>
