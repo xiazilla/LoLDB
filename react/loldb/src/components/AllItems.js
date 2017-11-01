@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ItemObject from './ItemObject'
 import ReactPaginate from 'react-paginate';
+import Pagination from 'react-js-pagination';
  
 class AllItems extends Component {
 
@@ -72,7 +73,13 @@ class AllItems extends Component {
                             <div className="row">
                                 <div className="col-md-12">
                                     <div className="block">
-                                        <div>PAGER</div>
+                                        <Pagination
+                                          hideDisabled
+                                          activePage={this.state.activePage}
+                                          itemsCountPerPage={24}
+                                          totalItemsCount={items.length}
+                                          onChange={this.handlePageChange}
+                                        />
                                     </div>
                                 </div>
                             </div>
