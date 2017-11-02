@@ -19,10 +19,6 @@ class ItemTreeObj extends Component {
 			}
 		}
 
-
-
-
-
 		if(item.hasOwnProperty("from")) {
 			return (
 				<li>

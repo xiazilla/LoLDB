@@ -62,7 +62,7 @@ class TitleComponent extends Component {
 				{this.props.sections.content.map(underSections => <UnderSection1 sections={underSections}/>)} 
 				{<ShowImages images={this.props.sections.images} doOrNah={haveImages}/>}
 			</div>
-			)
+		)
 	}
 
 
