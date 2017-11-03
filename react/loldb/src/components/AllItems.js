@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ItemObject from './ItemObject'
+import './dropdown.css'
  
 class AllItems extends Component {
 
@@ -13,7 +14,8 @@ class AllItems extends Component {
             itemsPerPage: 24,
             itemsLength: 100,
             pages: 1,
-            search: ''
+            search: '',
+            category: ''
         }
         this.handlePageChange = this.handlePageChange.bind(this)
         this.increasePage = this.increasePage.bind(this)
@@ -41,6 +43,10 @@ class AllItems extends Component {
 
     updateSearch(event) {
         this.setState({search: event.target.value.substr(0,20)});
+    }
+
+    updateSelect(event) {
+        this.setState({category: event.target.value.substr(0,20)});
     }
 
     handlePageChange(pageNumber) {
@@ -91,6 +97,7 @@ class AllItems extends Component {
         	Object.keys(data).forEach(function(key) {
           		items.push(data[key]);
         	});
+            console.log(this.state.items)
         	// console.log(items)
             items = items.filter(
             (item) => {
@@ -98,6 +105,18 @@ class AllItems extends Component {
                     return item.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
                 }
             });
+            items = items.filter(
+            (item) => {
+                //console.log(this.state.role)
+                if (this.state.category === '') {
+                    return true;
+                }
+                else {
+                    if(item.hasOwnProperty('categories')) {
+                        return item.categories.indexOf(this.state.category) !== -1;
+                    }
+                }
+            }); 
             let lastItemOnPage = this.state.itemsPerPage * this.state.activePage;
             let firstItemOnPage = this.state.itemsPerPage * (this.state.activePage - 1);
             const currentItemsOnPage = items.slice(firstItemOnPage, lastItemOnPage);
@@ -119,6 +138,23 @@ class AllItems extends Component {
                                         <input type="text" placeholder="Search by name..."
                                         value={this.state.search} 
                                         onChange={this.updateSearch.bind(this)}/>
+                                        <select onChange={this.updateSelect.bind(this)}> 
+                                            <option value=''>All</option>
+                                            <option>Health</option>
+                                            <option value='SpellBlock'>MagicResist</option>
+                                            <option>HealthRegen</option>
+                                            <option>Armor</option>
+                                            <option>Damage</option>
+                                            <option>CriticalStrike</option>
+                                            <option>AttackSpeed</option>
+                                            <option>LifeSteal</option>
+                                            <option value='SpellDamage'>AbilityPower</option>
+                                            <option>CooldownReduction</option>
+                                            <option>Mana</option>
+                                            <option>ManaRegen</option>
+                                            <option value='Boots'>Movement</option>
+                                            <option>Consumable</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
