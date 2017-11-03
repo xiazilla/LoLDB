@@ -12,7 +12,8 @@ class AllItems extends Component {
             activePage: 1,
             itemsPerPage: 24,
             itemsLength: 100,
-            pages: 1
+            pages: 1,
+            search: ''
         }
         this.handlePageChange = this.handlePageChange.bind(this)
         this.increasePage = this.increasePage.bind(this)
@@ -36,6 +37,10 @@ class AllItems extends Component {
                 // console.log("state", this.state.data)
             })
 
+    }
+
+    updateSearch(event) {
+        this.setState({search: event.target.value.substr(0,20)});
     }
 
     handlePageChange(pageNumber) {
@@ -87,7 +92,12 @@ class AllItems extends Component {
           		items.push(data[key]);
         	});
         	// console.log(items)
-
+            items = items.filter(
+            (item) => {
+                if(item.hasOwnProperty('name')) {
+                    return item.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+                }
+            });
             let lastItemOnPage = this.state.itemsPerPage * this.state.activePage;
             let firstItemOnPage = this.state.itemsPerPage * (this.state.activePage - 1);
             const currentItemsOnPage = items.slice(firstItemOnPage, lastItemOnPage);
@@ -106,6 +116,9 @@ class AllItems extends Component {
                                 <div className="col-md-12">
                                     <div className="block">
                                         <h2>Items</h2>
+                                        <input type="text" placeholder="Search by name..."
+                                        value={this.state.search} 
+                                        onChange={this.updateSearch.bind(this)}/>
                                     </div>
                                 </div>
                             </div>
