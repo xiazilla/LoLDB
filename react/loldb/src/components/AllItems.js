@@ -28,6 +28,7 @@ class AllItems extends Component {
         .then(response => {
             return response.json()
             }).then(results => {
+                console.log(results)
                 let items = parseInt(results.result.length, 10);
                 let perPage = parseInt(this.state.itemsPerPage, 10);
 ;
