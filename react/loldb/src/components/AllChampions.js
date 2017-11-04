@@ -42,7 +42,7 @@ class AllChampions extends Component {
                 else {
                     return champion.roles.indexOf(this.state.role) !== -1;
                 }
-            });
+            }); 
         return (
         <div>
         <section className="global-page-header">

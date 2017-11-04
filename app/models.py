@@ -166,6 +166,29 @@ class MapsOne(Resource):
         return resp
 api.add_resource(MapsOne, '/api/maps/<name>')
 
+class search(Resource):
+    def searchHelper(self, output, collection, value):
+        #Search the indexes for value
+        cursor = collection.find({"$text": {"$search": value}})
+        for v in cursor:
+            output.append(v['page'])
+
+    def get(self, value):
+        client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
+        db = client.loldb
+
+        output = []
+        self.searchHelper(output, db.champion, value)
+        self.searchHelper(output, db.item, value)
+        self.searchHelper(output, db.match, value)
+        self.searchHelper(output, db.map, value)
+
+        js = json.dumps({'result' : output})
+        resp = Response(js,status=200,mimetype='application/json')
+        resp.headers['Access-Control-Allow-Origin'] = '*'
+        return resp
+api.add_resource(search, '/search/<value>')
+
 if __name__ == '__main__' :
     app.run(host='0.0.0.0',debug=True,port=5000)
 
