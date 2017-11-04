@@ -207,7 +207,7 @@ class SingleMap extends Component{
 
 						<h4>Champions on this Map</h4>
 					
-						<div className = ""> {mapData.champs.map(champion => 
+						<div className = ""> {mapData.champs.slice(0,6).map(champion => 
 	        				<a href={`/Champions/${champion}`} >  <img src={(imagechampionUrl).concat(champion + ".png") } alt="" />   </a>)}
 	        			</div>
 	        		

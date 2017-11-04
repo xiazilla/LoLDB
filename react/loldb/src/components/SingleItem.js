@@ -103,7 +103,7 @@ class SingleItem extends Component{
 		return (
 			<div>
 				<h4>Most Frequently Built On</h4>
-				<div className = "row-md-10"> {item.builtOn.map(champion => 
+				<div className = "row-md-10"> {item.builtOn.slice(0,6).map(champion => 
     				<a href={`/Champions/${champion}`} >  <img src={(imagechampionUrl).concat(champion + ".png") } alt="" />   </a>)}
     			</div>
 			</div>)
