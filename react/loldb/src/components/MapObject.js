@@ -18,9 +18,7 @@ class MapObject extends Component {
            <div className="col-sm-3 container">
                    <figure className="wow">
                     <a href={`/maps/${this.props.thisMap.mapName}`}>
-                        <div class="img-wrapper2">
-                            <img src={this.props.thisMap.image} class="img-responsive" alt="portfolio items" height={200} />
-                        </div>
+                        <img src={this.props.thisMap.image} class="img-responsive" alt="portfolio items" height={200} />
                     </a>
                     <figcaption>
                         <span>
