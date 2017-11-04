@@ -44,10 +44,12 @@ class AllItems extends Component {
 
     updateSearch(event) {
         this.setState({search: event.target.value.substr(0,20)});
+        this.setState({activePage: 1});
     }
 
     updateSelect(event) {
         this.setState({category: event.target.value.substr(0,20)});
+        this.setState({activePage: 1});
     }
 
     handlePageChange(pageNumber) {
@@ -121,9 +123,9 @@ class AllItems extends Component {
             let lastItemOnPage = this.state.itemsPerPage * this.state.activePage;
             let firstItemOnPage = this.state.itemsPerPage * (this.state.activePage - 1);
             const currentItemsOnPage = items.slice(firstItemOnPage, lastItemOnPage);
-
-            let pages = new Array(this.state.pages)
-            for(let i = 0; i < this.state.pages; ++i) {
+            let numPages = Math.ceil(parseInt(items.length, 10)/parseInt(this.state.itemsPerPage, 10))
+            let pages = new Array(numPages)
+            for(let i = 0; i < numPages; ++i) {
                 pages[i] = i + 1
             }
 
@@ -161,24 +163,26 @@ class AllItems extends Component {
                             </div>
                         </div>
                     </section>
-                    <div className="row">{currentItemsOnPage.map(item => 
-                        <ItemObject key={item.id} thisItem={item} />)}
-                    </div>
-                    <section className="global-page-header">
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-md-12">
-                                    <div className="block">
-                                            <div className="pager in-line"> 
-                                                <button onClick={() => this.decreasePage}>&laquo;</button>
-                                                {pages.map(page => (<button className={this.state.activePage === page ? "active" : false} onClick={() => this.handlePageChange(page)}>{"" + page}</button>))}
-                                                <button onClick={() => this.increasePage}>&raquo;</button>
-                                            </div>
+                    {numPages === 0 ? false : 
+                        <div className="row">{currentItemsOnPage.map(item => 
+                            <ItemObject key={item.id} thisItem={item} />)}
+                        </div> }
+                    {numPages === 0 ? <div> No Items Match Your Search </div> :
+                        <section className="global-page-header">
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <div className="block">
+                                                <div className="pager in-line"> 
+                                                    <button onClick={() => this.decreasePage}>&laquo;</button>
+                                                    {pages.map(page => (<button className={this.state.activePage === page ? "active" : false} key={page} onClick={() => this.handlePageChange(page)}>{"" + page}</button>))}
+                                                    <button onClick={() => this.increasePage}>&raquo;</button>
+                                                </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>   
-                    </section>                     
+                            </div>   
+                        </section>}                    
                 </div>
             )
         } else {
