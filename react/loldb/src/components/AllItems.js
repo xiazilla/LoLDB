@@ -30,7 +30,7 @@ class AllItems extends Component {
         .then(response => {
             return response.json()
             }).then(results => {
-                console.log(results)
+                // console.log(results)
                 let items = parseInt(results.result.length, 10);
                 let perPage = parseInt(this.state.itemsPerPage, 10);
 ;
@@ -100,7 +100,7 @@ class AllItems extends Component {
         	Object.keys(data).forEach(function(key) {
           		items.push(data[key]);
         	});
-            console.log(this.state.items)
+            // console.log(this.state.items)
         	// console.log(items)
             items = items.filter(
             (item) => {

@@ -19,7 +19,7 @@ class ChampionObject extends Component {
 	       		<figure className="wow">
 		            <a href={`/champions/${this.props.thisChampion.name}`}>
 		                <div className="img-wrapper2">
-		                    <img src={this.props.thisChampion.image} class="img-responsive" alt="portfolio items" />
+		                    <img src={this.props.thisChampion.image} alt="portfolio items" />
 		                </div>
 		            </a>
 		            <figcaption>
