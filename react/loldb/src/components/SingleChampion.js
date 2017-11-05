@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import mydata from './champions.json';
 import SkinObject from './SkinObject'
 import './Champions.css';
-import axios from 'axios';
 
 
 class EssentialItems extends Component {
