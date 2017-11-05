@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
 import mydata from './champions.json';
 import SkinObject from './SkinObject';
 import './Champions.css';
 import axios from 'axios';
 import { Carousel } from 'react-responsive-carousel';
 import '../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css';
-=======
-import SkinObject from './SkinObject'
-import './Champions.css';
 
->>>>>>> 129dc0bcf06722651683ca74a4920e19dde5244d
+
 
 class EssentialItems extends Component {
 	render() {
