@@ -1213,3 +1213,7 @@ th {
 tr {
     border: 1 px solid #000000;
 };
+
+.pull-right {
+  float: right;
+}

@@ -94,8 +94,8 @@ class SingleChampion extends Component {
 	    	var skins = [];
 	    	let recommendedItems = []
 
-  			itemsChampName = this.state.champName;
   			championData = this.state.champData;
+  			itemsChampName = championData.riotName
   			spellData = championData.spells
   			console.log(spellData)
 			Object.keys(championData.skins).forEach(function(key) {

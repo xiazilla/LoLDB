@@ -54,7 +54,7 @@ class AllChampions extends Component {
                             <input type="text" placeholder="Search by name..."
                                 value={this.state.search} 
                                 onChange={this.updateSearch.bind(this)}/>
-                            Filter By:
+                            &nbsp; Filter By:
                             <select onChange={this.updateSelect.bind(this)}> 
                                 <option value=''>All</option>
                                 <option>Assassin</option>
