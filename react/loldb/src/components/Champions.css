@@ -170,4 +170,24 @@ figure figcaption p {
   text-align: center;
 }
 
+.text{
+  text-align: left;
+  margin-left: 30px;
+}
+
+.text2{
+  text-align: left;
+  margin-left: 50px;
+}
+
+.sliderContainer{
+    position: relative;
+    vertical-align: center;
+    height: 717px;
+    width: 1215px;
+    margin-left: 300px;
+    margin-bottom: 50px;
+}
+
+
 

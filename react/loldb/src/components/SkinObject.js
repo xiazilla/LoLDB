@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import { Carousel } from 'react-responsive-carousel';
+import '../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css';
 
 class SkinObject extends Component {
 
@@ -11,9 +12,9 @@ class SkinObject extends Component {
 		console.log(this.props.thisSkin)
 		console.log(this.props.index)
 		return (
-			<div className="col-sm-3 ">
-					<img src={url} className="skinImg img-responsive" alt="" height={150} width={250}/> 
-					<h4><strong>{name}</strong></h4>
+			<div>
+					<h4><font color="white"><strong>{name}</strong></font></h4>
+					<img src={url} className="skinImg img-responsive" alt=""  height={717} width={1215}/> 
 			</div>	
 
 	     );

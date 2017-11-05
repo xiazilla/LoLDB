@@ -10,7 +10,7 @@ import '../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css
 class DemoCarousel extends Component {
     render() {
         return (
-        	<div className="sliderContainer">
+        	<div className="sliderContainer2">
 	            <Carousel showThumbs={false}>
 	                <div>
 	                    <img src={background} alt=""/>

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import mydata from './champions.json';
-import SkinObject from './SkinObject'
+import SkinObject from './SkinObject';
 import './Champions.css';
 import axios from 'axios';
-
+import { Carousel } from 'react-responsive-carousel';
+import '../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css';
 
 class EssentialItems extends Component {
 	render() {
@@ -127,45 +128,57 @@ class SingleChampion extends Component {
 					<h3><strong>{this.state.champName}</strong></h3>
 					<h4>{championData.title}</h4> 
 
-					<h4> Champion Abilities</h4>
-					<div className="container1 row">
-						<div className="col-sm-3">
-							<img src={(passiveURL).concat(p.image.full)} className="img-responsive" alt="portfolio items" title = {this.GetHtml(p)}/> 
-							<p><strong>{p.name}</strong></p>
-						</div>
-						<div className="col-sm-2">
-							<img src={(imageURL).concat(q.image)} className="img-responsive" alt="" title={this.GetHtml(q.description)}/> 
-							<p><strong>{q.name}</strong></p>
-						</div>
-						<div className="col-sm-2">
-							<img src={(imageURL).concat(w.image)} className="img-responsive" alt="" title={this.GetHtml(w.description)}/> 
-							<p><strong>{w.name}</strong></p>
-						</div>
-						<div className="col-sm-2">
-							<img src={(imageURL).concat(e.image)} className="img-responsive" alt="" title={this.GetHtml(e.description)}/> 
-							<p><strong>{e.name}</strong></p>
-						</div>
-						<div className="col-sm-2">
-							<img src={(imageURL).concat(r.image)} className="img-responsive" alt="" title={this.GetHtml(r.description)}/> 
-							<p><strong>{r.name}</strong></p>
-						</div>					
-					</div>
+					<div className="text"><h3> Champion Abilities</h3></div>
+					<div className="container">
+		                <div className="row">
+			                <table bordercolor="black">
+			                    <tr>
+			                        <th width="50">Ability</th>
+			                        <th width="100">Description</th>
 
-					<h4> Skins </h4>
-			    	<div className = "row"> {skins.map((skin) => 
-						<SkinObject key={skin.title} thisSkin={skin} name={itemsChampName} index={skin.id % 10} />)}
-			    	</div>
+			                    </tr>
+			                    <tr>
+			                    	<td><img src={(passiveURL).concat(p.image.full)} className="img-responsive" alt="" title={this.GetHtml(p.sanitizedDescription)}/> <p>{p.name}</p></td>
+			                    	<td>{this.GetHtml(p.sanitizedDescription)}</td>
+			                    </tr>
+			                    <tr>
+			                    	<td><img src={(imageURL).concat(q.image)} className="img-responsive" alt="" title={this.GetHtml(q.sanitizedDescription)}/> <p>{q.name}</p></td>
+			                    	<td>{this.GetHtml(q.sanitizedDescription)}</td>
+			                    </tr>
+			                    <tr>
+			                    	<td><img src={(imageURL).concat(w.image)} className="img-responsive" alt="" title={this.GetHtml(w.sanitizedDescription)}/> <p>{w.name}</p></td>
+			                    	<td>{this.GetHtml(w.sanitizedDescription)}</td>
+			                    </tr>
+			                    <tr>
+			                    	<td><img src={(imageURL).concat(e.image)} className="img-responsive" alt="" title={this.GetHtml(e.sanitizedDescription)}/> <p>{e.name}</p></td>
+			                    	<td>{this.GetHtml(e.sanitizedDescription)}</td>
+			                    </tr>
+			                    <tr>
+			                    	<td><img src={(imageURL).concat(r.image)} className="img-responsive" alt="" title={this.GetHtml(r.sanitizedDescription)}/> <p>{r.name}</p></td>
+			                    	<td>{this.GetHtml(r.sanitizedDescription)}</td>
+			                    </tr>			                    
+			                </table>
+			            </div>
+		        	</div>					
 
-					<h4>Recommended Items</h4>
+					<div className="text"><h3> Skins </h3></div>
+					<div className="sliderContainer">
+			            <Carousel showThumbs={false}>
+					    	{skins.map((skin) => 
+								<SkinObject key={skin.title} thisSkin={skin} name={itemsChampName} index={skin.id % 10} />)}
+					    	
+			            </Carousel>
+	        		</div>
+
+					<div className="text"><h3>Recommended Items</h3></div>
 
 					<div>
 							<AllItems recommended={recommendedItems}/>
 					</div>
 
-					<h4>Champion Lore</h4>
+					<div className="text"><h3>Champion Lore</h3></div>
 					<div className="row">
-						<div className="col-sm-1"></div>
-						<div className="col-sm-10">
+						<div className="text2">
 							<p>{this.GetHtml(lore)}</p>
 						</div>
 					</div>

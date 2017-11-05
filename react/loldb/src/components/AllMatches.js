@@ -25,9 +25,6 @@ class AllMatches extends Component {
 
 	}
 
-
-
-
     render() {
 	    var matches = [];
 	    if(!this.state.dataLoaded) {
