@@ -102,7 +102,7 @@ def create_champ_json(json_path, KEY) :
         minimized["data"][champ] = min_champ_data
         db.champion.insert_one(min_champ_data)
 
-    db.champion.create_index([("$**", TEXT)])
+    db.champion.create_index([("$**", TEXT)], weights={"name":5, "title":3, "skins":2, "recommended":2, "passive":2, "spells":2})
     #with open(json_path, "w") as json_file :
     #   json.dump(minimized, json_file)
     #print ("Wrote json to: " + json_path)
@@ -162,7 +162,7 @@ def create_item_json(json_path, KEY) :
         minimized["data"][item] = min_item_data
         db.item.insert_one(min_item_data)
 
-    db.item.create_index([("$**", TEXT)])
+    db.item.create_index([("$**", TEXT)], weights={"name":5})
     #with open(json_path, "w") as json_file :
     #   json.dump(minimized, json_file)
     #print ("Wrote json to: " + json_path)
@@ -366,7 +366,7 @@ def create_map_json(json_path, KEY) :
         db.map.insert_one(map_data)
         count += 1
 
-    db.map.create_index([("$**", TEXT)]) 
+    db.map.create_index([("$**", TEXT)], weights={"mapName":5}) 
     #with open(json_path, "w") as json_file :
     #   json.dump(minimized, json_file)
     #print ("Wrote json to: " + json_path)
@@ -379,10 +379,17 @@ def create_map_json(json_path, KEY) :
 #
 ###########################################
 def drop_tables() :
+    # drop rows in tables
     db.champion.delete_many({})
     db.item.delete_many({})
     db.match.delete_many({})
     db.map.delete_many({})
+
+    # drop indices
+    db.champion.drop_indexes()
+    db.item.drop_indexes()
+    db.match.drop_indexes()
+    db.map.drop_indexes()
 
 ###############################################################
 # create_json
@@ -395,6 +402,7 @@ def create_json() :
     create_item_json("items.json", API_KEY)
     create_match_json("matches.json", API_KEY)
     create_map_json("maps.json", API_KEY)
+
 
 if __name__ == "__main__" :
     # Drop tables before insert
