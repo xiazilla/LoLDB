@@ -58,7 +58,6 @@ class AllItems extends Component {
     }
 
     increasePage() {
-
         if (this.state.activePage === this.state.pages) {
             return false;
         } else {
@@ -69,7 +68,7 @@ class AllItems extends Component {
     }
 
     decreasePage() {
-
+        console.log("decreasePage")
         if (this.state.activePage === 1) {
             return false;
         } else {
@@ -107,6 +106,7 @@ class AllItems extends Component {
                 if(item.hasOwnProperty('name')) {
                     return item.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
                 }
+                return false;
             });
             items = items.filter(
             (item) => {
@@ -119,6 +119,7 @@ class AllItems extends Component {
                         return item.categories.indexOf(this.state.category) !== -1;
                     }
                 }
+                return false
             }); 
             let lastItemOnPage = this.state.itemsPerPage * this.state.activePage;
             let firstItemOnPage = this.state.itemsPerPage * (this.state.activePage - 1);
@@ -174,9 +175,9 @@ class AllItems extends Component {
                                     <div className="col-md-12">
                                         <div className="block">
                                                 <div className="pager in-line"> 
-                                                    <button onClick={() => this.decreasePage}>&laquo;</button>
+                                                    {this.state.activePage === 1 ? false: <button onClick={this.decreasePage}>&laquo;</button>}
                                                     {pages.map(page => (<button className={this.state.activePage === page ? "active" : false} key={page} onClick={() => this.handlePageChange(page)}>{"" + page}</button>))}
-                                                    <button onClick={() => this.increasePage}>&raquo;</button>
+                                                    {this.state.activePage === numPages ? false : <button onClick={this.increasePage}>&raquo;</button>}
                                                 </div>
                                         </div>
                                     </div>
