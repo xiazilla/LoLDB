@@ -1,6 +1,7 @@
 import React from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import logo from "../images/logo.png";
+import './Search.css'
 
 export default class LoLNav extends React.Component {
   constructor(props) {
@@ -8,7 +9,8 @@ export default class LoLNav extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      searchValue: ''
     };
   }
   toggle() {
@@ -16,6 +18,11 @@ export default class LoLNav extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
+
+  updateSearch(event) {
+    this.setState({searchValue: event.target.value});
+  }
+
   render() {
     return (
       <div className="NavBar">
@@ -23,6 +30,13 @@ export default class LoLNav extends React.Component {
           <NavbarBrand href="/">
           <img src={logo} alt=""/>
           </NavbarBrand>
+          <div className="wrapper">
+            <form action={`/searchResult=${this.state.searchValue}`}>
+              <input type="text" placeholder="Search..." value={this.state.searchValue} 
+                onChange={this.updateSearch.bind(this)}/>
+              <button>GO</button>
+              </form>
+          </div>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>

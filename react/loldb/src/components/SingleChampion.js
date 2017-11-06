@@ -5,7 +5,7 @@ import './Champions.css';
 import axios from 'axios';
 import { Carousel } from 'react-responsive-carousel';
 import '../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css';
-
+	
 
 
 class EssentialItems extends Component {
