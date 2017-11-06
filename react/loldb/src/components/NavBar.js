@@ -32,9 +32,9 @@ export default class LoLNav extends React.Component {
           </NavbarBrand>
           <div className="wrapper">
             <form action={`/searchResult=${this.state.searchValue}`}>
-              <input type="text" placeholder="Search..." value={this.state.searchValue} 
+              <input type="text" className="input1" placeholder="Search..." value={this.state.searchValue} 
                 onChange={this.updateSearch.bind(this)}/>
-              <button>GO</button>
+              <button className="btn1">GO</button>
               </form>
           </div>
           <NavbarToggler onClick={this.toggle} />
