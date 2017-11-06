@@ -3,6 +3,7 @@ import mydata from './champions.json';
 import ChampionObject from './ChampionObject'
 import './page.css'
 import './dropdown.css'
+import './Champions.css'
 
 class AllChampions extends Component {
 
