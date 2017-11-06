@@ -130,7 +130,6 @@ class AllItems extends Component {
                 pages[i] = i + 1
             }
 
-            const self = this;
             return (
                 <div>
                     <section className="global-page-header">

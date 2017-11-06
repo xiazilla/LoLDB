@@ -25,7 +25,7 @@ class ShowImages extends Component
 
 class UnderUnderSection2 extends Component {
 	render() {
-		if (this.props.element.hasOwnProperty("elements") && this.props.element.elements.length != 0) {
+		if (this.props.element.hasOwnProperty("elements") && this.props.element.elements.length !== 0) {
 			return (
 				<div>
 					<div className="text">{this.props.element.text}</div>
@@ -149,7 +149,6 @@ class SingleMap extends Component{
 
 			// console.log(mapData); 
 			
-			let article = mapData.article;
 			// console.log(article);
 			//get into sections array
 			let sections;
@@ -165,27 +164,6 @@ class SingleMap extends Component{
 	        Object.keys(sections).forEach(function(key) {
 	        	temp.push(sections[key])
 	        });
-	        // console.log(temp[0])
-	        //displaying section titles
-			var i = 1;
-			var j = 0;
-			var titles = "";
-			var stuff = "";
-
-			for (;sections[i];) {
-	   	 		titles += sections[i].title;
-	   	 		titles += "\n"
-	   	 			for(;sections[j];) {
-	   	 				stuff += sections[j].content;
-	   	 				j++
-	   	 			}
-
-	    		i++;
-			}
-			// console.log(titles);
-			// console.log(sections[1].content);
-			// console.log(stuff);
-			
 
 			//displaying item and champ images 
 			let imageitemUrl ="https://ddragon.leagueoflegends.com/cdn/7.10.1/img/item/";
