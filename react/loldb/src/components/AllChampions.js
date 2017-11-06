@@ -28,9 +28,9 @@ class AllChampions extends Component {
         this.setState({activePage: pageNumber})
     }
 
-    increasePage() {
+    increasePage(numPages) {
 
-        if (this.state.activePage === this.state.pages) {
+        if (this.state.activePage === numPages) {
             return false;
         } else {
             let newPage = this.state.activePage + 1;
@@ -135,9 +135,9 @@ class AllChampions extends Component {
                             <div className="col-md-12">
                                 <div className="block">
                                         <div className="pager in-line"> 
-                                            <button onClick={() => this.decreasePage}>&laquo;</button>
+                                            {this.state.activePage === 1 ? false: <button onClick={this.decreasePage}>&laquo;</button>}
                                             {pages.map(page => (<button className={this.state.activePage === page ? "active" : false} key={page} onClick={() => this.handlePageChange(page)}>{"" + page}</button>))}
-                                            <button onClick={() => this.increasePage}>&raquo;</button>
+                                            {this.state.activePage === numPages ? false: <button onClick={this.increasePage}>&laquo;</button>}
                                         </div>
                                 </div>
                             </div>

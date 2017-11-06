@@ -168,20 +168,25 @@ api.add_resource(MapsOne, '/api/maps/<name>')
 
 class search(Resource):
     def searchHelper(self, output, collection, value):
-        #Search the indexes for value
-        cursor = collection.find({"$text": {"$search": value}})
+        #cursor = collection.find({"$text": {"$search": value}})
+        #Search the indexes for value. Sort by relevancy
+        cursor = collection.find({"$text": {"$search": value}}, {"score": {"$meta": "textScore"}})
+        cursor.sort([("score", {"$meta":"textScore"})])
+        temp = []
         for v in cursor:
-            output.append(v['page'])
+            temp.append(v['page'])
+        output.append(temp)
 
     def get(self, value):
         client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
         db = client.loldb
-
+        value = '"' + value + '"'
         output = []
+
         self.searchHelper(output, db.champion, value)
         self.searchHelper(output, db.item, value)
-        self.searchHelper(output, db.match, value)
         self.searchHelper(output, db.map, value)
+        self.searchHelper(output, db.match, value)
 
         js = json.dumps({'result' : output})
         resp = Response(js,status=200,mimetype='application/json')

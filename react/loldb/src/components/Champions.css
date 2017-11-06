@@ -8,9 +8,8 @@ figure {
   background: #fff;
   margin-bottom: 0px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.04), 0 2px 10px 0 rgba(0, 0, 0, 0.06);
-  height: 300px;
+  height: 250px;
 }
-
 
 
 .containter1 {
@@ -169,25 +168,5 @@ figure figcaption p {
   z-index: 99;
   text-align: center;
 }
-
-.text{
-  text-align: left;
-  margin-left: 30px;
-}
-
-.text2{
-  text-align: left;
-  margin-left: 50px;
-}
-
-.sliderContainer{
-    position: relative;
-    vertical-align: center;
-    height: 717px;
-    width: 1215px;
-    margin-left: 300px;
-    margin-bottom: 50px;
-}
-
 
 

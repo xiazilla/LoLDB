@@ -91,6 +91,8 @@ class SingleItem extends Component{
 					return (<a href={`/maps/Summoner's%20Rift`}>Summoner's Rift</a>)
 				case 12:
 					return (<a href={`/maps/Howling%20Abyss`}>Howling Abyss</a>)
+				default:
+					return false
 			}
 		}
 	}
@@ -145,7 +147,7 @@ class SingleItem extends Component{
 					<h4>Recipe</h4>
 					<div className="tree">
 						<ul>
-							<ItemTreeObj id={this.props.match.params.id} item={data}/>
+							<ItemTreeObj id={id} item={data}/>
 						</ul>
 		            </div>
 		            {item.hasOwnProperty("builtOn") ? this.renderFreqBuiltOn(item) : false}
