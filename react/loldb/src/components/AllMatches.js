@@ -9,7 +9,8 @@ class AllMatches extends Component {
 			dataLoaded: 0,
 			data: [],
 			activePage: 1,
-			matchesPerPage: 8
+			matchesPerPage: 8,
+			category: ''
 
 		}
 	}
@@ -44,6 +45,12 @@ class AllMatches extends Component {
 	    } else {
 	  		matches = this.state.data.result
 	  		// console.log(matches)
+
+
+
+	  		console.log(matches)
+
+
 		  	let lastMatchOnPage = this.state.matchesPerPage * this.state.activePage;
 	        let firstMatchOnPage = this.state.matchesPerPage * (this.state.activePage - 1);
 	        let numPages = Math.ceil(parseInt(matches.length, 10)/parseInt(this.state.matchesPerPage, 10))
@@ -99,7 +106,7 @@ class AllMatches extends Component {
                                         <div className="pager in-line"> 
                                             {this.state.activePage === 1 ? false: <button onClick={this.decreasePage}>&laquo;</button>}
                                             {pages.map(page => (<button className={this.state.activePage === page ? "active" : false} key={page} onClick={() => this.handlePageChange(page)}>{"" + page}</button>))}
-                                            {this.state.activePage === numPages ? false: <button onClick={this.increasePage}>&laquo;</button>}
+                                            {this.state.activePage === numPages ? false: <button onClick={this.increasePage}>&raquo;</button>}
                                         </div>
                                 </div>
                             </div>
