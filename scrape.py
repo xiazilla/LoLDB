@@ -102,7 +102,7 @@ def create_champ_json(json_path, KEY) :
         minimized["data"][champ] = min_champ_data
         db.champion.insert_one(min_champ_data)
 
-    db.champion.create_index([("$**", TEXT)], weights={"name":5, "title":3, "skins":2, "recommended":2, "passive":2, "spells":2})
+    db.champion.create_index([("$**", TEXT)], weights={"name":100, "title":50, "skins":10, "recommended":2, "passive":5, "spells":5})
     #with open(json_path, "w") as json_file :
     #   json.dump(minimized, json_file)
     #print ("Wrote json to: " + json_path)
@@ -162,7 +162,7 @@ def create_item_json(json_path, KEY) :
         minimized["data"][item] = min_item_data
         db.item.insert_one(min_item_data)
 
-    db.item.create_index([("$**", TEXT)], weights={"name":5})
+    db.item.create_index([("$**", TEXT)], weights={"name":100, "id":50, "into":5, "categories":5})
     #with open(json_path, "w") as json_file :
     #   json.dump(minimized, json_file)
     #print ("Wrote json to: " + json_path)
@@ -242,7 +242,7 @@ def create_match_json(json_path, KEY) :
         match_data["page"] = site_base_URL + "/matches/" + str(game_id)
         db.match.insert_one(match_data)
 
-    db.match.create_index([("$**", TEXT)])
+    db.match.create_index([("$**", TEXT)], weights={"gameId":100, "participantId":5})
     #with open(json_path, "w") as json_file :
     #   json.dump(minimized, json_file)
     #print ("Wrote json to: " + json_path)
@@ -366,7 +366,7 @@ def create_map_json(json_path, KEY) :
         db.map.insert_one(map_data)
         count += 1
 
-    db.map.create_index([("$**", TEXT)], weights={"mapName":5}) 
+    db.map.create_index([("$**", TEXT)], weights={"mapName":100, "mapId":20}) 
     #with open(json_path, "w") as json_file :
     #   json.dump(minimized, json_file)
     #print ("Wrote json to: " + json_path)
