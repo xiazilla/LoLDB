@@ -44,8 +44,8 @@ def index():
 
 class ChampsAll(Resource):
     def get(self):
-	client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
-	db = client.loldb
+        client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
+        db = client.loldb
         output = []
         for c in db.champion.find():
             d = json.loads(dumps(c))
@@ -68,7 +68,7 @@ class ChampsOne(Resource):
             output.append(d)
         else:
             output = "no champion with that name"
-	js = json.dumps({'result' : output})
+        js = json.dumps({'result' : output})
         resp = Response(js,status=200,mimetype='application/json')
         resp.headers['Access-Control-Allow-Origin'] = '*'
         return resp
