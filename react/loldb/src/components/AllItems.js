@@ -141,6 +141,7 @@ class AllItems extends Component {
                                         <input type="text" placeholder="Search by name..."
                                         value={this.state.search} 
                                         onChange={this.updateSearch.bind(this)}/>
+                                        &nbsp; Filter By:
                                         <select onChange={this.updateSelect.bind(this)}> 
                                             <option value=''>All</option>
                                             <option>Health</option>
@@ -167,7 +168,7 @@ class AllItems extends Component {
                         <div className="row">{currentItemsOnPage.map(item => 
                             <ItemObject key={item.id} thisItem={item} />)}
                         </div> }
-                    {numPages === 0 ? <div> No Items Match Your Search </div> :
+                        {numPages === 0 ? <div> No Items Match Your Search </div> :
                         <section className="global-page-header">
                             <div className="container">
                                 <div className="row">

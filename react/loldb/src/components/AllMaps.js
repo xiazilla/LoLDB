@@ -53,10 +53,24 @@ class AllMaps extends Component {
                 </div>
             </section>
 
-            	<div className="row">{maps.map(mapjson => 
-            		<MapObject key={mapjson.mapId} thisMap={mapjson} />)}
-                    
-            	</div>
+        	<div className="row">{maps.map(mapjson => 
+        		<MapObject key={mapjson.mapId} thisMap={mapjson} />)}
+        	</div>
+
+            {maps.length === 0 ? <div> No Items Match Your Search </div> :
+            <section className="global-page-header">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="block">
+                                    <div className="pager in-line"> 
+                                        <button className="active">1</button>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+            </section>}  
                 
             </div>
         )

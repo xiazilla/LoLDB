@@ -14,7 +14,7 @@ class MatchSingle extends Component {
 	}
 
 	componentWillMount() {
-		let url = 'https://loldbapi.appspot.com/api/matches';
+		let url = `https://loldbapi.appspot.com/api/matches/${this.props.match.params.matchId}`;
 		fetch(url)
 		.then(response => {
 			return response.json()
@@ -48,13 +48,10 @@ class MatchSingle extends Component {
 
 	render () {
 		if (this.state.dataLoaded) {
-			var allMatches = this.state.data.result
-			var i;
 			var actualMatch;
-			for (i in allMatches) {
-				if (allMatches[i].gameId.toString() === this.props.match.params.matchId) {
-					actualMatch = allMatches[i]
-					// console.log(allMatches[i])
+
+					actualMatch = this.state.data.result[0]
+					console.log(this.state.data)
 					var winningTeam = actualMatch.teams["0"].win === "Win" ? "Blue Team" : "Red Team";
 					var fontColor = actualMatch.teams["0"].win === "Win" ? "blue" : "red";
 				return (
@@ -69,7 +66,7 @@ class MatchSingle extends Component {
 
 				                    <tr>
 				                        <th width="50">Champion</th>
-				                        <th width="100">Player</th>
+				                        <th width="150">Player</th>
 				                        <th width="60">KDA</th>
 				                        <th width="350">Items</th>
 				                        <th>Summoner Spells</th>
@@ -86,7 +83,7 @@ class MatchSingle extends Component {
 				            	<table bordercolor="white" align="left">
 				                	<tr>
 				                        <th width="50">Champion</th>
-				                        <th width="100">Player</th>
+				                        <th width="150">Player</th>
 				                        <th width="60">KDA</th>
 				                        <th width="350">Items</th>
 				                        <th>Summoner Spells</th>
@@ -100,8 +97,8 @@ class MatchSingle extends Component {
 		                	</div>
 		                </div>
 	            	</div>);					
-				}
-			}
+				
+			
 		}
 		else {
 			return(<div> Loading... </div>)

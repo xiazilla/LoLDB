@@ -164,6 +164,9 @@ class SingleMap extends Component{
 	        Object.keys(sections).forEach(function(key) {
 	        	temp.push(sections[key])
 	        });
+	        // console.log(temp[0])
+	        //displaying section titles
+			
 
 			//displaying item and champ images 
 			let imageitemUrl ="https://ddragon.leagueoflegends.com/cdn/7.10.1/img/item/";
