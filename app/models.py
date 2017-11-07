@@ -56,6 +56,7 @@ class ChampsAll(Resource):
         return resp
 api.add_resource(ChampsAll, '/api/champs')
 
+
 class ChampsOne(Resource):
     def get(self, name):
         client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
@@ -73,6 +74,7 @@ class ChampsOne(Resource):
         return resp
 api.add_resource(ChampsOne, '/api/champs/<name>')
 
+
 class ItemsAll(Resource):
     def get(self):
         client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
@@ -86,6 +88,7 @@ class ItemsAll(Resource):
         resp.headers['Access-Control-Allow-Origin'] = '*'
         return resp
 api.add_resource(ItemsAll, '/api/items')
+
 
 class ItemsOne(Resource):
     def get(self, name):
@@ -104,6 +107,7 @@ class ItemsOne(Resource):
         return resp
 api.add_resource(ItemsOne, '/api/items/<name>')
 
+
 class MatchesAll(Resource):
     def get(self):
         client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
@@ -117,6 +121,7 @@ class MatchesAll(Resource):
         resp.headers['Access-Control-Allow-Origin'] = '*'
         return resp
 api.add_resource(MatchesAll, '/api/matches') 
+
 
 class MatchesOne(Resource):
     def get(self, id):
@@ -135,6 +140,7 @@ class MatchesOne(Resource):
         return resp
 api.add_resource(MatchesOne, '/api/matches/<id>')
 
+
 class MapsAll(Resource):
     def get(self):
         client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
@@ -148,6 +154,7 @@ class MapsAll(Resource):
         resp.headers['Access-Control-Allow-Origin'] = '*'
         return resp
 api.add_resource(MapsAll, '/api/maps')
+
 
 class MapsOne(Resource):
     def get(self, name):
@@ -166,15 +173,47 @@ class MapsOne(Resource):
         return resp
 api.add_resource(MapsOne, '/api/maps/<name>')
 
+
 class search(Resource):
+    # Search through a list for blurbs
+    def createBlurbFromList(self, doc, value):
+        blurb = ""
+        for i in doc:
+            blurb += createBlurb(i, value)
+        return blurb
+
+   # Create blurb from the search value
+    def createBlurb(self, elem, value):
+        blurb = ""
+        if type(elem, dict):
+            # nested dictionary, need to recursively parse
+            blurb += createBlurbFromDict(elem, value)
+        elif type(elem, list):
+            # nested list, need to recursively parse
+            blurb += createBlurbFromList(elem, value)
+        else:
+            # all that's left are strings and numerical values
+            if value in str(elem):
+                blurb += str(elem)
+        return blurb
+
+    # Search through a dictionary for blurbs
+    def createBlurbFromDict(self, doc, value):
+        blurb = ""
+        for key in doc.keys():
+            blurb += createBlurb(doc[key], value)
+        return blurb
+
+    # Search our database for the specified value
     def searchHelper(self, output, collection, value):
         #cursor = collection.find({"$text": {"$search": value}})
-        #Search the indexes for value. Sort by relevancy
+        # Search the indexes for value; sort by relevancy
         cursor = collection.find({"$text": {"$search": value}}, {"score": {"$meta": "textScore"}})
         cursor.sort([("score", {"$meta":"textScore"})])
         temp = []
         for v in cursor:
             temp.append(v['page'])
+            print (createBlurbFromDict(v, value))
         output.append(temp)
 
     def get(self, value):
@@ -193,6 +232,7 @@ class search(Resource):
         resp.headers['Access-Control-Allow-Origin'] = '*'
         return resp
 api.add_resource(search, '/search/<value>')
+
 
 if __name__ == '__main__' :
     app.run(host='0.0.0.0',debug=True,port=5000)
