@@ -23,6 +23,7 @@ import json
 from flask_restful import Resource, Api
 from bson.json_util import dumps
 from flask import Response
+import re
 # [END imports]
 
 # [START create_app]
@@ -175,52 +176,170 @@ api.add_resource(MapsOne, '/api/maps/<name>')
 
 
 class search(Resource):
+    client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
+    db = client.loldb
+
     champNames = {"velkoz":"vel'koz", "khazix":"kha'zix", "kogmaw":"kog'maw", 
                     "reksai":"rek'sai", "chogath":"cho'gath"}
 
+    #Lower and upper limits for the number of characters in a blurb
+    LOWER_LIMIT = 100
+    UPPER_LIMIT = 150
+
     # Search through a list for blurbs
-    def createBlurbFromList(self, doc, value):
+    def create_blurb_from_list(self, doc, value):
         blurb = ""
         for i in doc:
-            blurb += self.createBlurb(i, value)
+            blurb += self.create_blurb(i, value)
         return blurb
 
    # Create blurb from the search value
-    def createBlurb(self, elem, value):
+    def create_blurb(self, elem, value):
         blurb = ""
         if type(elem) == dict:
             # nested dictionary, need to recursively parse
-            blurb += self.createBlurbFromDict(elem, value)
+            blurb += self.create_blurb_from_dict(elem, value)
         elif type(elem) == list:
             # nested list, need to recursively parse
-            blurb += self.createBlurbFromList(elem, value)
+            blurb += self.create_blurb_from_list(elem, value)
         else:
             # all that's left are strings and numerical values
             try:
-                if value.lower() in str(elem).lower():
+                if value in str(elem).lower():
                     blurb += str(elem) + "\n"
             except:
+                # In case we get some words with strange characters
                 pass
         return blurb
 
     # Search through a dictionary for blurbs
-    def createBlurbFromDict(self, doc, value):
+    def create_blurb_from_dict(self, doc, value):
         blurb = ""
         for key in doc.keys():
-            blurb += self.createBlurb(doc[key], value)
+            blurb += self.create_blurb(doc[key], value)
         return blurb
 
-    def selectBlurb(self, blurbs, value):
-        blurbs_list = blurbs.split("\n")
-        top_blurb = ""
-        for b in blurbs_list:
-            if value in b:
-                if len(b) > len(top_blurb):
-                    top_blurb = b
-        return top_blurb
+
+    # Choose the blurb for champions
+    def champion_blurb(self, topBlurb, doc):
+        # Gets champion name
+        result = doc["name"]
+        # Gets champion title
+        result += ", " + doc["title"] + "."
+        # Check if we still need to append more
+        if len(result) < self.LOWER_LIMIT:
+            # Iterate to get part of the lore
+            lore = iter(doc["lore"].split(" "))
+            try:
+                while len(result) < self.LOWER_LIMIT:
+                    result += " " + lore.next()
+            except StopIteration:
+                # We should never run out of lore, but just in case
+                pass
+        # Check if we already added the top blurb
+        if (topBlurb != doc["name"] and (topBlurb != doc["title"])
+            and (topBlurb != doc["lore"])):
+            result += "... " + topBlurb
+        return result
+
+    # Choose the blurb for items
+    def item_blurb(self, topBlurb, doc):
+        # Gets item name
+        result = doc["name"]
+        # Iterate to get part of the sanitized description
+        sanitizedDescription = iter(doc["sanitizedDescription"].split())
+        try:
+            while len(result) < self.UPPER_LIMIT:
+                result += " " + sanitizedDescription.next()
+        except StopIteration:
+            # In case the description is too short
+            pass
+        # Check if we already added the top blurb
+        if (topBlurb != doc["name"] and (topBlurb != doc["sanitizedDescription"])):
+            result += "... " + topBlurb
+        return result
+
+    # Choose the blurb for matches
+    def match_blurb(self, topBlurb, doc):
+        # Gets game mode
+        result = doc["gameMode"]
+        # Gets the player names
+        topBlurbAdded = False
+        for i in doc["participantIdentities"]:
+            summonerName = i["player"]["summonerName"]
+            result += " " + summonerName + ","
+            if topBlurb in summonerName.lower():
+                topBlurbAdded = True
+        # Check if we already added the top blurb
+        if (topBlurb != doc["gameMode"] and not topBlurbAdded):
+            result += "... " + topBlurb
+        return result
+
+    # Choose the blurb for matches
+    def map_blurb(self, topBlurb, doc, value):
+        # Gets map name
+        result = doc["mapName"]
+        paragraphIter = iter(doc["article"]["sections"][0]["content"]["text"].split())
+        try:
+            while len(result) < self.UPPER_LIMIT:
+                result += " " + paragraphIter.next()
+        except StopIteration:
+            pass
+        if value not in result:
+            result += "... " + topBlurb
+        return result
+
+    #def trim_helper(self, blurbList, index):
+
+
+    def trim_blurb(self, topBlurb, value):
+        blurbList = re.split("\.+|\?+|\!+", topBlurb)
+        tempList = []
+
+        index = 0
+        valueIndex = -1
+        for v in blurbList:
+            tempList.append(v.lower())
+            if value in tempList[index] and valueIndex < 0:
+                valueIndex = index
+            index += 1
+
+        result = blurbList[valueIndex] + "."
+        if len(result) < self.LOWER_LIMIT and valueIndex != 0:
+            result = blurbList[valueIndex-1] + "." + result
+        if len(result) < self.LOWER_LIMIT and valueIndex < len(blurbList)-1:
+            result += blurbList[valueIndex+1] + "."
+        return result
+
+    # Choose the blurbs to be displayed as search results
+    def select_blurb(self, blurbs, value, collection, doc):
+        blurbsList = blurbs.split("\n")
+        topBlurb = ""
+        # Find the longest blurb
+        for b in blurbsList:
+            if value in b.lower():
+                if len(b) > len(topBlurb):
+                    topBlurb = b
+        blurbLen = len(topBlurb)
+        # If longest blurb is still too short, we need to make it longer
+        if blurbLen < self.LOWER_LIMIT:
+            if collection == self.db.champion:
+                topBlurb = self.champion_blurb(topBlurb, doc)
+            elif collection == self.db.item:
+                topBlurb = self.item_blurb(topBlurb, doc)
+            elif collection == self.db.match:
+                topBlurb = self.match_blurb(topBlurb, doc)
+            else:
+                topBlurb = self.map_blurb(topBlurb, doc, value)
+
+        elif blurbLen > self.UPPER_LIMIT:
+            topBlurb = self.trim_blurb(topBlurb, value)
+
+        print (topBlurb)
+        return topBlurb
 
     # Search our database for the specified value
-    def searchHelper(self, output, collection, value):
+    def search_helper(self, output, collection, value):
         #cursor = collection.find({"$text": {"$search": value}})
         # Search the indexes for value; sort by relevancy
         #Cursor contains all search results for value from collection
@@ -228,24 +347,25 @@ class search(Resource):
         cursor.sort([("score", {"$meta":"textScore"})])
         temp = []
         #v is the json corresponding to the search
-        for v in cursor:
-            temp.append(v['page'])
-            blurbs = self.createBlurbFromDict(v, value)
-            top_blurb = self.selectBlurb(blurbs, value)
+        for doc in cursor:
+            d = {}
+            d["page"] = doc['page']
+            blurbs = self.create_blurb_from_dict(doc, value)
+            d["blurb"] = self.select_blurb(blurbs, value, collection, doc)
+            temp.append(d)
         output.append(temp)
 
     def get(self, value):
-        client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
-        db = client.loldb
         output = []
 
+        value = value.lower()
         if value in self.champNames:
             value = self.champNames[value]
 
-        self.searchHelper(output, db.champion, value)
-        self.searchHelper(output, db.item, value)
-        self.searchHelper(output, db.map, value)
-        self.searchHelper(output, db.match, value)
+        self.search_helper(output, self.db.champion, value)
+        self.search_helper(output, self.db.item, value)
+        self.search_helper(output, self.db.map, value)
+        self.search_helper(output, self.db.match, value)
 
         js = json.dumps({'result' : output})
         resp = Response(js,status=200,mimetype='application/json')
