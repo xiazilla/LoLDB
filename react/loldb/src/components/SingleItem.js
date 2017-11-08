@@ -159,7 +159,7 @@ class SingleItem extends Component{
 				</div>)
 
 		} else {
-			return <div>loading...</div>
+			return <h2>loading...</h2>
 		}
 	}
 

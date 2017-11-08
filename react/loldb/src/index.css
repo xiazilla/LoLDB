@@ -11,6 +11,10 @@ figure {
   height: 100px;
 }
 
+.right {
+  text-align: right;
+}
+
 
 .table {
   margin: 0 0 40px 0;

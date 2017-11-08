@@ -29,7 +29,7 @@ class AllMaps extends Component {
 
     render() {
         if(this.state.dataLoaded === 0) {
-            return <div> Loading... </div>
+            return <h2> Loading... </h2>
         } else {
             let data = this.state.maps;
             // console.log(data);

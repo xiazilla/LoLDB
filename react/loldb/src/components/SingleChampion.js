@@ -84,7 +84,7 @@ class SingleChampion extends Component {
 
 	render() {
 		if(this.state.champDataLoaded === 0) {
-			return (<div>loading...</div>)
+			return (<h2>loading...</h2>)
 		} else {
 
 

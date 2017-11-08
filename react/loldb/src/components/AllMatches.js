@@ -41,7 +41,7 @@ class AllMatches extends Component {
 
 
 	    if(!this.state.dataLoaded) {
-	    	return (<div>Loading...</div>)
+	    	return (<h2>Loading...</h2>)
 	    } else {
 	  		matches = this.state.data.result
 	  		// console.log(matches)

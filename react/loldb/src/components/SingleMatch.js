@@ -101,7 +101,7 @@ class MatchSingle extends Component {
 			
 		}
 		else {
-			return(<div> Loading... </div>)
+			return(<h2> Loading... </h2>)
 		}
 
 	}

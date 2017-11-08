@@ -11,9 +11,15 @@ class Search extends Component {
 		  champResult: [],
 		  itemResult: [],
 		  mapResult: [],
-		  matchResult: []
+		  matchResult: [],
+		  filter: 'all'
 		};
 	}
+
+
+	updateSelect(event) {
+        this.setState({filter: event.target.value.substr(0,20)});
+    }
 
 	componentWillMount(){
 		this.setState({champResult: mockData.result[0]})
@@ -29,15 +35,66 @@ class Search extends Component {
 		let mapResult = this.state.mapResult
 		let matchResult = this.state.matchResult
 		return(
-			<div>
-				<h1 className="text"> Champion Results </h1>
-				{champResult.map(r => <p className="text"><a href={r}>{r}</a></p>)}
-				<h1 className="text"> Item Results </h1>
-				{itemResult.map(r => <p className="text"><a href={r}>{r}</a></p>)}
-				<h1 className="text"> Maps Results </h1>
-				{mapResult.map(r => <p className="text"><a href={r}>{r}</a></p>)}
-				<h1 className="text"> Match Results </h1>
-				{matchResult.map(r => <p className="text"><a href={r}>{r}</a></p>)}
+			<div >
+				<div className="row">
+					<div className="col-md-10"></div>
+				</div>
+				<div className="row">
+					<div className="col-md-9"></div>
+			        <div className="col-md-1">
+						<h5 className="right">Filter: </h5>
+			        </div>
+					<div className="col-md-1">
+			            <select onChange={this.updateSelect.bind(this)}> 
+			                <option value='all'>All</option>
+			                <option value='champs'>Champion</option>
+			                <option value='items'>Items</option>
+			                <option value='maps'>Maps</option>
+			                <option value='matches'>Matches</option>
+			            </select>
+			        </div>			        
+		        </div>
+				{this.state.filter === 'all' || this.state.filter === 'champs' ? 
+					<div>
+						<h1 className="text"> Champion Results </h1>
+						<div className="row">
+							<div className="col-md-1"> </div>
+							<div>
+								{champResult.map(r => <p className="text "><a href={r}>{r}</a></p>)} 
+							</div>
+						</div>
+					</div>: false }
+				{this.state.filter === 'all' || this.state.filter === 'items' ? 
+					<div>
+						<h1 className="text"> Item Results </h1>
+						<div className="row">
+							<div className="col-md-1"> </div>
+							<div>
+							{itemResult.map(r => <p className="text"><a href={r}>{r}</a></p>)}
+							</div>
+						</div>
+					</div> : false }
+				{this.state.filter === 'all' || this.state.filter === 'maps' ?
+					<div>
+						<h1 className="text"> Maps Results </h1>
+						<div className="row">
+							<div className="col-md-1"> </div>
+							<div>
+							{mapResult.map(r => <p className="text"><a href={r}>{r}</a></p>)}
+							</div>
+						</div>
+					</div> : false }
+
+				{this.state.filter === 'all' || this.state.filter === 'matches' ? 
+					<div>
+						<h1 className="text"> Match Results </h1>
+						<div className="row">
+							<div className="col-md-1"> </div>
+							<div>
+								{matchResult.map(r => <p className="text"><a href={r}>{r}</a></p>)}
+							</div>
+						</div>
+					</div> : false }
 			</div>
 		);
 	}
