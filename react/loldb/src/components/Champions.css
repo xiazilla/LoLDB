@@ -184,7 +184,7 @@ figure figcaption p {
     vertical-align: center;
     height: 717px;
     width: 1215px;
-    margin-left: 300px;
-    margin-bottom: 50px;
+    margin: 0 auto;
+    margin-bottom: 40px;
 }
 
