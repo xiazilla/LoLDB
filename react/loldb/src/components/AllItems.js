@@ -15,7 +15,8 @@ class AllItems extends Component {
             itemsLength: 100,
             pages: 1,
             search: '',
-            category: ''
+            category: '',
+            sort: ''
         }
         this.handlePageChange = this.handlePageChange.bind(this)
         this.increasePage = this.increasePage.bind(this)
@@ -50,6 +51,11 @@ class AllItems extends Component {
     updateSelect(event) {
         this.setState({category: event.target.value.substr(0,20)});
         this.setState({activePage: 1});
+    }
+
+    updateSort(event) {
+        this.setState({sort: event.target.value});
+        this.setState({activePage: 1})
     }
 
     handlePageChange(pageNumber) {
@@ -121,6 +127,22 @@ class AllItems extends Component {
                     }
                     return false
             }); 
+
+            if (this.state.sort === 'Ascending') {
+                items.sort(function(a, b) {
+                    if(a.name < b.name) return -1;
+                    if(a.name > b.name) return 1;
+                return 0;
+                });
+            }
+            else if(this.state.sort === 'Descending') {
+                items.sort(function(a, b) {
+                    if(a.name < b.name) return 1;
+                    if(a.name > b.name) return -1;
+                return 0;
+                });
+            } 
+
             let lastItemOnPage = this.state.itemsPerPage * this.state.activePage;
             let firstItemOnPage = this.state.itemsPerPage * (this.state.activePage - 1);
             const currentItemsOnPage = items.slice(firstItemOnPage, lastItemOnPage);
@@ -159,6 +181,9 @@ class AllItems extends Component {
                                             <option value='Boots'>Movement</option>
                                             <option>Consumable</option>
                                         </select>
+                                        &nbsp; Sort By: &nbsp;
+                                        <button value='Ascending' onClick={this.updateSort.bind(this)}>Ascending</button>
+                                        <button value='Descending' onClick={this.updateSort.bind(this)}>Descending</button>
                                     </div>
                                 </div>
                             </div>
