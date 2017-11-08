@@ -8,17 +8,46 @@ class Search extends Component {
 		super(props);
 
 		this.state = {
-		  champResult: [],
-		  itemResult: [],
-		  mapResult: [],
-		  matchResult: [],
-		  filter: 'all'
+			champResult: [],
+			itemResult: [],
+			mapResult: [],
+			matchResult: [],
+			filter: 'All',
+			activePage: 1,
+			resultsPerPage: 10,
+			pages: 6
 		};
+
+		this.increasePage = this.increasePage.bind(this);
+		this.decreasePage = this.decreasePage.bind(this);
 	}
 
+    increasePage() {
+        if (this.state.activePage === this.state.pages) {
+            return false;
+        } else {
+            let newPage = this.state.activePage + 1;
+            this.setState({activePage: newPage})
+        }
+
+    }
+
+    decreasePage() {
+        console.log("decreasePage")
+        if (this.state.activePage === 1) {
+            return false;
+        } else {
+            let newPage = this.state.activePage - 1;
+            this.setState({
+                activePage: newPage
+            })
+        }
+
+    }
 
 	updateSelect(event) {
         this.setState({filter: event.target.value.substr(0,20)});
+        this.setState({activePage: 1})
     }
 
 	componentWillMount(){
@@ -28,12 +57,70 @@ class Search extends Component {
 		this.setState({matchResult: mockData.result[3]})
 	}
 
+	handlePageChange(pageNumber) {
+        // console.log(`active page is ${pageNumber}`);
+        this.setState({activePage: pageNumber})
+    }
+
 	render() {
 		console.log(this.props.match.params.searchFor);
 		let champResult = this.state.champResult
 		let itemResult = this.state.itemResult
 		let mapResult = this.state.mapResult
 		let matchResult = this.state.matchResult
+
+		let results = [];
+
+
+		switch(this.state.filter) {
+
+			case 'Champions' :
+				Object.keys(champResult).forEach(function(key) {
+		      		results.push(champResult[key]);
+		    	});
+		    	break;
+		    case 'Items' :
+				Object.keys(itemResult).forEach(function(key) {
+		      		results.push(itemResult[key]);
+		    	});
+		    	break;
+		    case 'Maps' :
+				Object.keys(mapResult).forEach(function(key) {
+		      		results.push(mapResult[key]);
+		    	});
+		    	break;
+		    case 'Matches' :
+				Object.keys(matchResult).forEach(function(key) {
+		      		results.push(matchResult[key]);
+		    	});
+		    	break;
+			default: 
+				Object.keys(champResult).forEach(function(key) {
+		      		results.push(champResult[key]);
+		    	});
+				Object.keys(itemResult).forEach(function(key) {
+		      		results.push(itemResult[key]);
+		    	});
+				Object.keys(mapResult).forEach(function(key) {
+		      		results.push(mapResult[key]);
+		    	});
+				Object.keys(matchResult).forEach(function(key) {
+		      		results.push(matchResult[key]);
+		    	});
+		}
+
+		  	let lastResultOnPage = this.state.resultsPerPage * this.state.activePage;
+	        let firstResultOnPage = this.state.resultsPerPage * (this.state.activePage - 1);
+	        let numPages = Math.ceil(parseInt(results.length, 10)/parseInt(this.state.resultsPerPage, 10))
+	        results = results.slice(firstResultOnPage, lastResultOnPage);
+
+	        let pages = new Array(numPages)
+	        for(let i = 0; i < numPages; ++i) {
+	            pages[i] = i + 1
+	        }
+
+
+
 		return(
 			<div >
 				<div className="row">
@@ -46,56 +133,39 @@ class Search extends Component {
 			        </div>
 					<div className="col-md-1">
 			            <select onChange={this.updateSelect.bind(this)}> 
-			                <option value='all'>All</option>
-			                <option value='champs'>Champion</option>
-			                <option value='items'>Items</option>
-			                <option value='maps'>Maps</option>
-			                <option value='matches'>Matches</option>
+			                <option value='All'>All</option>
+			                <option value='Champions'>Champion</option>
+			                <option value='Items'>Items</option>
+			                <option value='Maps'>Maps</option>
+			                <option value='Matches'>Matches</option>
 			            </select>
 			        </div>			        
 		        </div>
-				{this.state.filter === 'all' || this.state.filter === 'champs' ? 
-					<div>
-						<h1 className="text"> Champion Results </h1>
-						<div className="row">
-							<div className="col-md-1"> </div>
-							<div>
-								{champResult.map(r => <p className="text "><a href={r}>{r}</a></p>)} 
-							</div>
-						</div>
-					</div>: false }
-				{this.state.filter === 'all' || this.state.filter === 'items' ? 
-					<div>
-						<h1 className="text"> Item Results </h1>
-						<div className="row">
-							<div className="col-md-1"> </div>
-							<div>
-							{itemResult.map(r => <p className="text"><a href={r}>{r}</a></p>)}
-							</div>
-						</div>
-					</div> : false }
-				{this.state.filter === 'all' || this.state.filter === 'maps' ?
-					<div>
-						<h1 className="text"> Maps Results </h1>
-						<div className="row">
-							<div className="col-md-1"> </div>
-							<div>
-							{mapResult.map(r => <p className="text"><a href={r}>{r}</a></p>)}
-							</div>
-						</div>
-					</div> : false }
+				<h3> {this.state.filter} Results </h3>
 
-				{this.state.filter === 'all' || this.state.filter === 'matches' ? 
+				<div className="row">
+					<div className="col-md-1"> </div>
 					<div>
-						<h1 className="text"> Match Results </h1>
-						<div className="row">
-							<div className="col-md-1"> </div>
-							<div>
-								{matchResult.map(r => <p className="text"><a href={r}>{r}</a></p>)}
-							</div>
-						</div>
-					</div> : false }
-			</div>
+						{results.map(r => <p className="text"><a href={r}>{r}</a></p>)}
+					</div>
+				</div>
+		        {numPages === 0 ? <div> No Matches Match Your Search </div> :
+                <section className="global-page-header">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="block">
+                                        <div className="pager in-line"> 
+                                            {this.state.activePage === 1 ? false: <button onClick={this.decreasePage}>&laquo;</button>}
+                                            {pages.map(page => (<button className={this.state.activePage === page ? "active" : false} key={page} onClick={() => this.handlePageChange(page)}>{"" + page}</button>))}
+                                            {this.state.activePage === numPages ? false: <button onClick={this.increasePage}>&raquo;</button>}
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>   
+                </section>}
+   			</div>
 		);
 	}
 }

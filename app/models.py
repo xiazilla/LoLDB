@@ -175,6 +175,9 @@ api.add_resource(MapsOne, '/api/maps/<name>')
 
 
 class search(Resource):
+    champNames = {"velkoz":"vel'koz", "khazix":"kha'zix", "kogmaw":"kog'maw", 
+                    "reksai":"rek'sai", "chogath":"cho'gath"}
+
     # Search through a list for blurbs
     def createBlurbFromList(self, doc, value):
         blurb = ""
@@ -207,22 +210,37 @@ class search(Resource):
             blurb += self.createBlurb(doc[key], value)
         return blurb
 
+    def selectBlurb(self, blurbs, value):
+        blurbs_list = blurbs.split("\n")
+        top_blurb = ""
+        for b in blurbs_list:
+            if value in b:
+                if len(b) > len(top_blurb):
+                    top_blurb = b
+        return top_blurb
+
     # Search our database for the specified value
     def searchHelper(self, output, collection, value):
         #cursor = collection.find({"$text": {"$search": value}})
         # Search the indexes for value; sort by relevancy
+        #Cursor contains all search results for value from collection
         cursor = collection.find({"$text": {"$search": '"' + value + '"'}}, {"score": {"$meta": "textScore"}})
         cursor.sort([("score", {"$meta":"textScore"})])
         temp = []
+        #v is the json corresponding to the search
         for v in cursor:
             temp.append(v['page'])
-            print (self.createBlurbFromDict(v, value))
+            blurbs = self.createBlurbFromDict(v, value)
+            top_blurb = self.selectBlurb(blurbs, value)
         output.append(temp)
 
     def get(self, value):
         client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
         db = client.loldb
         output = []
+
+        if value in self.champNames:
+            value = self.champNames[value]
 
         self.searchHelper(output, db.champion, value)
         self.searchHelper(output, db.item, value)
