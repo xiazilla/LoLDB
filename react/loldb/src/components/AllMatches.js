@@ -10,7 +10,8 @@ class AllMatches extends Component {
 			data: [],
 			activePage: 1,
 			matchesPerPage: 8,
-			lane: ''
+			lane: '',
+			sort: ''
 		}
 	}
 
@@ -32,6 +33,11 @@ class AllMatches extends Component {
         this.setState({lane: event.target.value.substr(0,20)});
         this.setState({activePage: 1})
     }
+
+    updateSort(event) {
+        this.setState({sort: event.target.value});
+        this.setState({activePage: 1})
+    } 
 
 	handlePageChange(pageNumber) {
         // console.log(`active page is ${pageNumber}`);
@@ -56,6 +62,22 @@ class AllMatches extends Component {
             	}
             }); 
 
+            if (this.state.sort === 'Descending') {
+        		matches.sort(function(a, b) {
+            		if(a.gameId < b.gameId) return -1;
+            		if(a.gameId > b.gameId) return 1;
+            	return 0;
+        		});
+        	}
+        	else if(this.state.sort === 'Ascending') {
+            	matches.sort(function(a, b) {
+            		if(a.gameId < b.gameId) return 1;
+            		if(a.gameId > b.gameId) return -1;
+            	return 0;
+        		});
+        	} 
+        	console.log(matches)
+
 		  	let lastMatchOnPage = this.state.matchesPerPage * this.state.activePage;
 	        let firstMatchOnPage = this.state.matchesPerPage * (this.state.activePage - 1);
 	        let numPages = Math.ceil(parseInt(matches.length, 10)/parseInt(this.state.matchesPerPage, 10))
@@ -75,7 +97,7 @@ class AllMatches extends Component {
 		                    <div className="col-md-12">
 		                        <div className="block">
 		                            <h2>Matches</h2>
-	                                &nbsp; Filter By Lane:
+	                                &nbsp; Filter By Lane: &nbsp;
 	                                <select onChange={this.updateSelect.bind(this)}> 
 	                                    <option value=''>All</option>
 	                                    <option>TOP</option>
@@ -83,6 +105,9 @@ class AllMatches extends Component {
 	                                    <option>MIDDLE</option>
 	                                    <option>BOTTOM</option>
 	                                </select>
+	                                    &nbsp; Sort By: &nbsp;
+                                        <button value='Ascending' onClick={this.updateSort.bind(this)}>Most Recent</button>
+                                        <button value='Descending' onClick={this.updateSort.bind(this)}>Least Recent</button>   
 		                        </div>
 		                    </div>
 		                </div>
