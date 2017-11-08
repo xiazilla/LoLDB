@@ -10,8 +10,7 @@ class AllMatches extends Component {
 			data: [],
 			activePage: 1,
 			matchesPerPage: 8,
-			category: ''
-
+			lane: ''
 		}
 	}
 
@@ -29,6 +28,11 @@ class AllMatches extends Component {
 
 	}
 
+    updateSelect(event) {
+        this.setState({lane: event.target.value.substr(0,20)});
+        this.setState({activePage: 1})
+    }
+
 	handlePageChange(pageNumber) {
         // console.log(`active page is ${pageNumber}`);
         this.setState({activePage: pageNumber})
@@ -36,20 +40,21 @@ class AllMatches extends Component {
 
     render() {
 	    var matches = [];
-
-
-
-
 	    if(!this.state.dataLoaded) {
 	    	return (<div>Loading...</div>)
 	    } else {
 	  		matches = this.state.data.result
-	  		// console.log(matches)
-
-
 
 	  		console.log(matches)
 
+	  		matches = matches.filter((match) => {
+	  			if(this.state.lane === '') {
+	  				return true;
+	  			}
+	  			else {
+                	return match.participants["0"].timeline.lane === this.state.lane;
+            	}
+            }); 
 
 		  	let lastMatchOnPage = this.state.matchesPerPage * this.state.activePage;
 	        let firstMatchOnPage = this.state.matchesPerPage * (this.state.activePage - 1);
@@ -62,7 +67,6 @@ class AllMatches extends Component {
 	            pages[i] = i + 1
 	        }
 
-
 	        return (
 	        <div>
 		        <section className="global-page-header">
@@ -71,6 +75,14 @@ class AllMatches extends Component {
 		                    <div className="col-md-12">
 		                        <div className="block">
 		                            <h2>Matches</h2>
+	                                &nbsp; Filter By Lane:
+	                                <select onChange={this.updateSelect.bind(this)}> 
+	                                    <option value=''>All</option>
+	                                    <option>TOP</option>
+	                                    <option>JUNGLE</option>
+	                                    <option>MIDDLE</option>
+	                                    <option>BOTTOM</option>
+	                                </select>
 		                        </div>
 		                    </div>
 		                </div>
@@ -80,8 +92,8 @@ class AllMatches extends Component {
 		        	<section className="works service-page">
 			            <div className="container">
 			                <div className="row">
-				                <table bordercolor="white" align="left">
-				                    <h3 class="subtitle wow fadeInUp animated" data-wow-delay=".3s" data-wow-duration="500ms"> <strong> Pro History </strong> </h3>
+				                <table>
+				                    <h3 className="subtitle wow fadeInUp animated" data-wow-delay=".3s" data-wow-duration="500ms"> <strong> Pro History </strong> </h3>
 				                    <tr>
 				                        <th width="50">Champion</th>
 				                        <th width="100">Player</th>

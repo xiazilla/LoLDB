@@ -21,9 +21,6 @@ class AllChampions extends Component {
             this.decreasePage = this.decreasePage.bind(this)
         }
 
-
-
-
     handlePageChange(pageNumber) {
         // console.log(`active page is ${pageNumber}`);
         this.setState({activePage: pageNumber})
@@ -54,15 +51,15 @@ class AllChampions extends Component {
     }
 
 
-        updateSearch(event) {
-            this.setState({search: event.target.value.substr(0,20)});
-            this.setState({activePage: 1})
-        }
+    updateSearch(event) {
+        this.setState({search: event.target.value.substr(0,20)});
+        this.setState({activePage: 1})
+    }
 
-        updateSelect(event) {
-            this.setState({role: event.target.value.substr(0,20)});
-            this.setState({activePage: 1})
-        }
+    updateSelect(event) {
+        this.setState({role: event.target.value.substr(0,20)});
+        this.setState({activePage: 1})
+    }
 
         render() {
     	// console.log(mydata);
