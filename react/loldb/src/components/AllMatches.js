@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MatchObject from './MatchObject.js'
+import './dropdown.css'
  
 class AllMatches extends Component {
 
@@ -106,8 +107,9 @@ class AllMatches extends Component {
 	                                    <option>BOTTOM</option>
 	                                </select>
 	                                    &nbsp; Sort By: &nbsp;
-                                        <button value='Ascending' onClick={this.updateSort.bind(this)}>Most Recent</button>
-                                        <button value='Descending' onClick={this.updateSort.bind(this)}>Least Recent</button>   
+                                        <button className="btn" value='Ascending' onClick={this.updateSort.bind(this)}>Most Recent</button>
+                                        &nbsp;
+                                        <button className= "btn" value='Descending' onClick={this.updateSort.bind(this)}>Least Recent</button>   
 		                        </div>
 		                    </div>
 		                </div>

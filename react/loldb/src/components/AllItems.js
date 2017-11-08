@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ItemObject from './ItemObject'
 import './dropdown.css'
+import './Items.css'
  
 class AllItems extends Component {
 
@@ -182,8 +183,9 @@ class AllItems extends Component {
                                             <option>Consumable</option>
                                         </select>
                                         &nbsp; Sort By: &nbsp;
-                                        <button value='Ascending' onClick={this.updateSort.bind(this)}>Ascending</button>
-                                        <button value='Descending' onClick={this.updateSort.bind(this)}>Descending</button>
+                                        <button className= "btn" value='Ascending' onClick={this.updateSort.bind(this)}>Ascending</button>
+                                        &nbsp;
+                                        <button className= "btn" value='Descending' onClick={this.updateSort.bind(this)}>Descending</button>
                                     </div>
                                 </div>
                             </div>

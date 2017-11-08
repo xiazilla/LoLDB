@@ -140,8 +140,9 @@ class AllChampions extends Component {
                                     <option>Support</option>
                                 </select>
                                 &nbsp; Sort By: &nbsp;
-                                <button value='Ascending' onClick={this.updateSort.bind(this)}>Ascending</button>
-                                <button value='Descending' onClick={this.updateSort.bind(this)}>Descending</button>
+                                <button className="btn" value='Ascending' onClick={this.updateSort.bind(this)}>Ascending</button>
+                                &nbsp;
+                                <button className="btn" value='Descending' onClick={this.updateSort.bind(this)}>Descending</button>
                             </div>
                         </div>
                     </div>
