@@ -64,6 +64,7 @@ class Search extends Component {
 
 	render() {
 		console.log(this.props.match.params.searchFor);
+		console.log(mockData)
 		let champResult = this.state.champResult
 		let itemResult = this.state.itemResult
 		let mapResult = this.state.mapResult
