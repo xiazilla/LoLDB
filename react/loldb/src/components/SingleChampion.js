@@ -8,11 +8,11 @@ import '../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css
 
 class EssentialItems extends Component {
 	render() {
-		let url = "http://ddragon.leagueoflegends.com/cdn/7.10.1/img/item/" + this.props.id + ".png"
-		// console.log(this.props.id)
+		let url = "http://ddragon.leagueoflegends.com/cdn/7.10.1/img/item/" + this.props.item.id + ".png"
+		// console.log(this.props.item)
 		return (
 			<div className="col-sm-4">
-				<a href={`/items/${this.props.id}`}>
+				<a href={`/items/${this.props.item.id}`}>
 					<img src={url} alt="" />
 				</a>	
 			</div>
@@ -24,11 +24,12 @@ class EssentialItems extends Component {
 
 class ItemGroup extends Component {
 	render() {
+		// console.log(this.props.theseItems)
 		return(
 			<div>
-				<h5>{this.props.theseItems.mode} - Essential Items - <a href={`/maps/0/${this.props.theseItems.map}`}>Map</a></h5>
-				<div className = "row">
-					{this.props.theseItems.blocks[1].items.map((item) => <EssentialItems id={item.id}/>)}
+				<h5>{this.props.theseItems.type.toUpperCase()}</h5>
+				<div className="row">
+					{this.props.theseItems.items.map((item) => <EssentialItems item={item}/>)}
 				</div>
 			</div>
 		)
@@ -37,9 +38,12 @@ class ItemGroup extends Component {
 
 class AllItems extends Component {
 	render() {
+		console.log("DLFKJSDLFKJS")
+		console.log(this.props.recommended)
+		let recommended = this.props.recommended.blocks
 		return (
 			<div>
-				{this.props.recommended.map((yahhhh) => <ItemGroup theseItems={yahhhh}/>)}
+				{recommended.map((block) => <ItemGroup theseItems={block}/>)}
 			</div>
 		)
 	}
@@ -112,6 +116,22 @@ class SingleChampion extends Component {
 
 
 
+	    	let ARAMRec = -1;
+	    	let SRRec = -1;
+	    	let TTRec = -1;
+
+	    	for(let i = 0; i < recommendedItems.length; ++i) {
+	    		let mapID = recommendedItems["" + i];
+	    		if(mapID.mode === "ARAM") {
+	    			ARAMRec = i;
+	    		} else if(mapID.map === "TT" && mapID.mode === "CLASSIC") {
+	    			TTRec = i;
+	    		} else if (mapID.map === "SR" && mapID.mode === "CLASSIC") {
+	    			SRRec = i
+				}
+	    	}
+
+	    	console.log(ARAMRec)
 	    	let lore = championData.lore;
 
 	    	let imageURL = "https://ddragon.leagueoflegends.com/cdn/7.20.1/img/spell/";
@@ -119,6 +139,8 @@ class SingleChampion extends Component {
 	    	// let itemURL = ""
 	    	// console.log((imageURL).concat(q.image.full));
 	    	console.log(championData.image)
+	    	console.log("Recommended Items");
+	    	console.log(recommendedItems)
 
 			return (
 				<div>
@@ -129,7 +151,7 @@ class SingleChampion extends Component {
 					<h4>{championData.title}</h4> 
 
 					<div className="text"><h3> Champion Abilities</h3></div>
-					<div className="container">
+					<div className="container1">
 		                <div className="row">
 			                <table bordercolor="black">
 			                    <tr>
@@ -172,9 +194,30 @@ class SingleChampion extends Component {
 
 					<div className="text"><h3>Recommended Items</h3></div>
 
-					<div>
-							<AllItems recommended={recommendedItems}/>
+					<div className="row">
+						<div className="col-md-4">
+							<div className="container">
+								<h4><a href={`/maps/Summoner's%20Rift/`}>Summoner's Rift</a></h4>
+								<div>
+									<AllItems recommended={recommendedItems["" + SRRec]}/>
+								</div>
+							</div>
+						</div>
+						<div className="col-md-4">
+							<h4><a href={`/maps/The%20Howling%20Abyss`}>ARAM</a></h4>
+							<div>
+								<AllItems recommended={recommendedItems["" + ARAMRec]}/>
+							</div>
+						</div>
+						<div className="col-md-4">
+							<h4><a href={`/maps/The%20Twisted%20Treeline`}>Twisted Treeline</a></h4>
+							<div>
+								<AllItems recommended={recommendedItems["" + TTRec]}/>
+							</div>
+						</div>
 					</div>
+
+
 
 					<div className="text"><h3>Champion Lore</h3></div>
 					<div className="row">
