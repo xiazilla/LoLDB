@@ -9,7 +9,8 @@ class AllMaps extends Component {
         super(props);
         this.state = {
             maps: [],
-            dataLoaded: 0
+            dataLoaded: 0,
+            sort: ''
         }
     }
 
@@ -26,6 +27,11 @@ class AllMaps extends Component {
                 // console.log("state", this.state.data)
             })    }
 
+    updateSort(event) {
+        this.setState({sort: event.target.value});
+        this.setState({activePage: 1})
+    }
+
 
     render() {
         if(this.state.dataLoaded === 0) {
@@ -37,9 +43,24 @@ class AllMaps extends Component {
             Object.keys(data).forEach(function(key) {
                 maps.push(data[key]);
             });
+
+        if (this.state.sort === 'Ascending') {
+        maps.sort(function(a, b) {
+            if(a.mapName < b.mapName) return -1;
+            if(a.mapName > b.mapName) return 1;
+            return 0;
+        });
+        }
+        else if(this.state.sort === 'Descending') {
+            maps.sort(function(a, b) {
+            if(a.mapName < b.mapName) return 1;
+            if(a.mapName > b.mapName) return -1;
+            return 0;
+        });
+        }
             
         
-            return (
+        return (
                 <div>
                 <section className="global-page-header">
                 <div className="container">
@@ -47,6 +68,9 @@ class AllMaps extends Component {
                         <div className="col-md-12">
                             <div className="block">
                                 <h2>Maps</h2>
+                                &nbsp; Sort By: &nbsp;
+                                <button value='Ascending' onClick={this.updateSort.bind(this)}>Ascending</button>
+                                <button value='Descending' onClick={this.updateSort.bind(this)}>Descending</button>
                             </div>
                         </div>
                     </div>
