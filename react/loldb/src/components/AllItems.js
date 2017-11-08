@@ -212,7 +212,7 @@ class AllItems extends Component {
                 </div>
             )
         } else {
-            return <h2>loading....</h2>
+            return <h2>Loading...</h2>
         }
     }
 }
