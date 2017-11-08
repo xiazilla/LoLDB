@@ -102,24 +102,24 @@ class AllItems extends Component {
             // console.log(this.state.items)
         	// console.log(items)
             items = items.filter(
-            (item) => {
-                if(item.hasOwnProperty('name')) {
-                    return item.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
-                }
-                return false;
-            });
-            items = items.filter(
-            (item) => {
-                //console.log(this.state.role)
-                if (this.state.category === '') {
-                    return true;
-                }
-                else {
-                    if(item.hasOwnProperty('categories')) {
-                        return item.categories.indexOf(this.state.category) !== -1;
+                (item) => {
+                    if(item.hasOwnProperty('name')) {
+                        return item.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
                     }
-                }
-                return false
+                    return false;
+                });
+            items = items.filter(
+                (item) => {
+                    //console.log(this.state.role)
+                    if (this.state.category === '') {
+                        return true;
+                    }
+                    else {
+                        if(item.hasOwnProperty('categories')) {
+                            return item.categories.indexOf(this.state.category) !== -1;
+                        }
+                    }
+                    return false
             }); 
             let lastItemOnPage = this.state.itemsPerPage * this.state.activePage;
             let firstItemOnPage = this.state.itemsPerPage * (this.state.activePage - 1);
@@ -187,7 +187,7 @@ class AllItems extends Component {
                 </div>
             )
         } else {
-            return <div>loading....</div>
+            return <h2>loading....</h2>
         }
     }
 }

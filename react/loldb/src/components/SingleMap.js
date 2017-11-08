@@ -201,7 +201,7 @@ class SingleMap extends Component{
 				</div>
 			)
 		} else {
-			return <div> Loading... </div>
+			return <h2> Loading... </h2>
 		}
 	}
 

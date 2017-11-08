@@ -179,47 +179,49 @@ class search(Resource):
     def createBlurbFromList(self, doc, value):
         blurb = ""
         for i in doc:
-            blurb += createBlurb(i, value)
+            blurb += self.createBlurb(i, value)
         return blurb
 
    # Create blurb from the search value
     def createBlurb(self, elem, value):
         blurb = ""
-        if type(elem, dict):
+        if type(elem) == dict:
             # nested dictionary, need to recursively parse
-            blurb += createBlurbFromDict(elem, value)
-        elif type(elem, list):
+            blurb += self.createBlurbFromDict(elem, value)
+        elif type(elem) == list:
             # nested list, need to recursively parse
-            blurb += createBlurbFromList(elem, value)
+            blurb += self.createBlurbFromList(elem, value)
         else:
             # all that's left are strings and numerical values
-            if value in str(elem):
-                blurb += str(elem)
+            try:
+                if value.lower() in str(elem).lower():
+                    blurb += str(elem) + "\n"
+            except:
+                pass
         return blurb
 
     # Search through a dictionary for blurbs
     def createBlurbFromDict(self, doc, value):
         blurb = ""
         for key in doc.keys():
-            blurb += createBlurb(doc[key], value)
+            blurb += self.createBlurb(doc[key], value)
         return blurb
 
     # Search our database for the specified value
     def searchHelper(self, output, collection, value):
         #cursor = collection.find({"$text": {"$search": value}})
         # Search the indexes for value; sort by relevancy
-        cursor = collection.find({"$text": {"$search": value}}, {"score": {"$meta": "textScore"}})
+        cursor = collection.find({"$text": {"$search": '"' + value + '"'}}, {"score": {"$meta": "textScore"}})
         cursor.sort([("score", {"$meta":"textScore"})])
         temp = []
         for v in cursor:
             temp.append(v['page'])
-            print (createBlurbFromDict(v, value))
+            print (self.createBlurbFromDict(v, value))
         output.append(temp)
 
     def get(self, value):
         client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
         db = client.loldb
-        value = '"' + value + '"'
         output = []
 
         self.searchHelper(output, db.champion, value)
