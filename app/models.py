@@ -244,7 +244,7 @@ class search(Resource):
 
     # Choose the blurb for items
     def item_blurb(self, topBlurb, doc):
-        # Gets item name
+        # Get item name
         result = doc["name"]
         # Iterate to get part of the sanitized description
         sanitizedDescription = iter(doc["sanitizedDescription"].split())
@@ -261,10 +261,11 @@ class search(Resource):
 
     # Choose the blurb for matches
     def match_blurb(self, topBlurb, doc):
-        # Gets game mode
+        # Get game mode
         result = doc["gameMode"]
-        # Gets the player names
+        # Get the player names
         topBlurbAdded = False
+        # Get all of the players in the match
         for i in doc["participantIdentities"]:
             summonerName = i["player"]["summonerName"]
             result += " " + summonerName + ","
@@ -277,25 +278,28 @@ class search(Resource):
 
     # Choose the blurb for matches
     def map_blurb(self, topBlurb, doc, value):
-        # Gets map name
+        # Get map name
         result = doc["mapName"]
         paragraphIter = iter(doc["article"]["sections"][0]["content"]["text"].split())
         try:
+            # Iterate to get part of the article about the map
             while len(result) < self.UPPER_LIMIT:
                 result += " " + paragraphIter.next()
         except StopIteration:
+            # We should never run out of content, but just in case
             pass
+        # Check if we already added the top blurb
         if value not in result:
             result += "... " + topBlurb
         return result
 
-    #def trim_helper(self, blurbList, index):
-
-
+    # Trims blurbs to fit in the alloted blurb space per search result
     def trim_blurb(self, topBlurb, value):
+        # Split top blurb by periods, question marks, and exclamation points
+        # To get sentences
         blurbList = re.split("\.+|\?+|\!+", topBlurb)
         tempList = []
-
+        # Find which sentence contains the search value
         index = 0
         valueIndex = -1
         for v in blurbList:
@@ -303,7 +307,7 @@ class search(Resource):
             if value in tempList[index] and valueIndex < 0:
                 valueIndex = index
             index += 1
-
+        # Add additional sentences to the blurb if needed
         result = blurbList[valueIndex] + "."
         if len(result) < self.LOWER_LIMIT and valueIndex != 0:
             result = blurbList[valueIndex-1] + "." + result
@@ -340,13 +344,12 @@ class search(Resource):
 
     # Search our database for the specified value
     def search_helper(self, output, collection, value):
-        #cursor = collection.find({"$text": {"$search": value}})
         # Search the indexes for value; sort by relevancy
-        #Cursor contains all search results for value from collection
+        # Cursor contains all search results for value from collection
         cursor = collection.find({"$text": {"$search": '"' + value + '"'}}, {"score": {"$meta": "textScore"}})
         cursor.sort([("score", {"$meta":"textScore"})])
         temp = []
-        #v is the json corresponding to the search
+        # doc is the json corresponding to the search
         for doc in cursor:
             d = {}
             d["page"] = doc['page']
