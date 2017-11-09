@@ -176,8 +176,6 @@ api.add_resource(MapsOne, '/api/maps/<name>')
 
 
 class search(Resource):
-    client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
-    db = client.loldb
 
     champNames = {"velkoz":"vel'koz", "khazix":"kha'zix", "kogmaw":"kog'maw", 
                     "reksai":"rek'sai", "chogath":"cho'gath"}
@@ -317,6 +315,8 @@ class search(Resource):
 
     # Choose the blurbs to be displayed as search results
     def select_blurb(self, blurbs, value, collection, doc):
+        client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
+        db = client.loldb
         blurbsList = blurbs.split("\n")
         topBlurb = ""
         # Find the longest blurb
@@ -327,11 +327,11 @@ class search(Resource):
         blurbLen = len(topBlurb)
         # If longest blurb is still too short, we need to make it longer
         if blurbLen < self.LOWER_LIMIT:
-            if collection == self.db.champion:
+            if collection == db.champion:
                 topBlurb = self.champion_blurb(topBlurb, doc)
-            elif collection == self.db.item:
+            elif collection == db.item:
                 topBlurb = self.item_blurb(topBlurb, doc)
-            elif collection == self.db.match:
+            elif collection == db.match:
                 topBlurb = self.match_blurb(topBlurb, doc)
             else:
                 topBlurb = self.map_blurb(topBlurb, doc, value)
@@ -339,36 +339,51 @@ class search(Resource):
         elif blurbLen > self.UPPER_LIMIT:
             topBlurb = self.trim_blurb(topBlurb, value)
 
-        print (topBlurb)
         return topBlurb
 
     # Search our database for the specified value
-    def search_helper(self, output, collection, value):
+    def search_helper(self, results, collection, value):
         # Search the indexes for value; sort by relevancy
         # Cursor contains all search results for value from collection
-        cursor = collection.find({"$text": {"$search": '"' + value + '"'}}, {"score": {"$meta": "textScore"}})
+        cursor = collection.find({"$text": {"$search":  "'" + value + '"'}}, {"score": {"$meta": "textScore"}})
         cursor.sort([("score", {"$meta":"textScore"})])
-        temp = []
         # doc is the json corresponding to the search
         for doc in cursor:
             d = {}
             d["page"] = doc['page']
             blurbs = self.create_blurb_from_dict(doc, value)
             d["blurb"] = self.select_blurb(blurbs, value, collection, doc)
-            temp.append(d)
-        output.append(temp)
+            results.append(d)
 
     def get(self, value):
+        client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
+        db = client.loldb
+        champResults = []
+        itemResults = []
+        mapResults = []
+        matchResults = []
         output = []
 
-        value = value.lower()
-        if value in self.champNames:
-            value = self.champNames[value]
+        #Get all alphanumeric search terms and store them in a list
+        valueList = re.split(r"\W", value)
 
-        self.search_helper(output, self.db.champion, value)
-        self.search_helper(output, self.db.item, value)
-        self.search_helper(output, self.db.map, value)
-        self.search_helper(output, self.db.match, value)
+        #Search each of the collections with each of the search terms
+        for v in valueList:
+            if len(v) != 0:
+                v = v.lower()
+                if v in self.champNames:
+                    v = self.champNames[v]
+
+                self.search_helper(champResults, db.champion, v)
+                self.search_helper(itemResults, db.item, v)
+                self.search_helper(mapResults, db.map, v)
+                self.search_helper(matchResults, db.match, v)
+
+        #Build the output JSON
+        output.append(champResults)
+        output.append(itemResults)
+        output.append(mapResults)
+        output.append(matchResults)
 
         js = json.dumps({'result' : output})
         resp = Response(js,status=200,mimetype='application/json')
