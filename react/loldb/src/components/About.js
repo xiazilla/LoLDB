@@ -11,7 +11,7 @@ class About extends Component {
         return (
         	
             <div>
-
+            <div className="global-about">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -21,13 +21,15 @@ class About extends Component {
                     </div>
                 </div>
             </div>
+            </div>
 
-	         <h2 align="left">Motivation</h2>
-          			<p>
-            			LoLDB was created for summoners to look up information 
-            			about champions, items, game modes, and recent matches 
-            			of players in the Challenger tier.
-                    </p>
+            <br></br>
+        <h2 align="left">Motivation</h2>
+        <p>
+            LoLDB was created for summoners to look up information 
+            about champions, items, game modes, and recent matches 
+            of players in the Challenger tier.
+        </p>
                 <div className="container">
                 <div className="row">
                     <div className="col-md-12">
@@ -47,6 +49,7 @@ class About extends Component {
                             <h5>Number of Commits: 30</h5>
                             <h5>Number of Issues: 9</h5>
                             <h5>Number of Unit Tests: 3</h5>
+                            <br></br>
                         </div>
                     </div>
                     <div className="col-md-4">
@@ -63,6 +66,7 @@ class About extends Component {
                             <h5>Number of Commits: 39</h5>
                             <h5>Number of Issues: 9</h5>
                             <h5>Number of Unit Tests: 0</h5>
+                            <br></br>
                         </div>
                     </div>
                     <div className="col-md-4">
@@ -72,12 +76,13 @@ class About extends Component {
                             </div>
                             <h3>Hiep Vu</h3>
                             <p> Senior in Computer Science who enjoys playing mobile games and listening to music. 
-                            Doesn't actually play League.</p>
+                            Doesn't actually play League.</p> <br></br>
                             <h4>Responsibilities:</h4>
                                 <p>Backend</p>
                             <h5>Number of Commits: 26</h5>
                             <h5>Number of Issues: 5</h5>
                             <h5>Number of Unit Tests: 8</h5>
+                            <br></br>
                         </div>
                     </div>
                     <div className="col-md-4">
@@ -86,12 +91,13 @@ class About extends Component {
                                 <img src={profile4} alt="" width="325" height="325"/>
                             </div>
                             <h3>Jamie Xia</h3>
-                            <p> Senior in Computer Science. Allergic to weakness. And Bronzies.</p>
+                            <p> Senior in Computer Science. Allergic to weakness. And Bronzies.</p> <br></br>
                             <h4>Responsibilities:</h4>
                                 <p>Frontend</p>
                             <h5>Number of Commits: 51</h5>
                             <h5>Number of Issues: 5</h5>
                             <h5>Number of Unit Tests: 0</h5>
+                            <br></br>
                         </div>
                     </div>
                     <div className="col-md-4">
@@ -107,44 +113,45 @@ class About extends Component {
                             <h5>Number of Commits: 32</h5>
                             <h5>Number of Issues: 5</h5>
                             <h5>Number of Unit Tests: 0</h5>
+                            <br></br>
                         </div>
                     </div>
                 </div>
+
             <div id="call-to-action">
-            <div class="container">
+            <div class="global-about">
                 <div class="row-md-12">
                     <div class="col-md-12">
                         <div class="block">
-                            <h2 class="title wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">TOOLS </h2>
-                            <h5> <b>Apiary:</b> A useful web app that provides framework to easily document your endpoint’s API calls. </h5>
-                            <h5> <b>Bootstrap:</b> A front-end development framework made up of HTML, CSS, and Javascript that allows the build of fully responsive websites. </h5>
-                            <h5> <b>Flask:</b> A Python framework used to create our back-end API </h5>
-                            <h5> <b>Github:</b> Our source control application of choice. </h5>
-                            <h5> <b>Google Cloud Platform:</b> To host our static website on the Google Cloud Storage. </h5>
-                            <h5> <b>MongoDB:</b> A free and open-source cross-platform document-oriented database program. </h5>
-                            <h5> <b>PlanIT Poker:</b> To estimate the time of tasks as a team. </h5>
-                            <h5> <b>React:</b> A Javascript library to build user interfaces for websites. </h5>
-                            <h5> <b>Slack:</b> For team communication. </h5>
-                            <h5> <b>Trello:</b> For issue tracking. </h5>
+                            <h2 class="title"> <b>TOOLS</b> </h2>
+                            <p> <b>Apiary:</b> A useful web app that provides framework to easily document your endpoint’s API calls. </p>
+                            <p> <b>Bootstrap:</b> A front-end development framework made up of HTML, CSS, and Javascript that allows the build of fully responsive websites. </p>
+                            <p> <b>Flask:</b> A Python framework used to create our back-end API </p>
+                            <p> <b>Github:</b> Our source control application of choice. </p>
+                            <p> <b>Google Cloud Platform:</b> To host our static website on the Google Cloud Storage. </p>
+                            <p> <b>MongoDB:</b> A free and open-source cross-platform document-oriented database program. </p>
+                            <p> <b>PlanIT Poker:</b> To estimate the time of tasks as a team. </p>
+                            <p> <b>React:</b> A Javascript library to build user interfaces for websites. </p>
+                            <p> <b>Slack:</b> For team communication. </p>
+                            <p> <b>Trello:</b> For issue tracking. </p>
+                            <br></br>
 
-                            <h2 class="title wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">DATA </h2>
-                            <h5><a href="https://developer.riotgames.com/">Riot Games API:</a> the best place for any GET requests about League of Legends information.</h5>
-                            <h5><a href="http://leagueoflegends.wikia.com/api/v1">League of Legends Fandom Wiki API:</a> the only other place for any GET requests about League of Legends.</h5>
+                            <h2 class="title"> <b>DATA</b> </h2>
+                            <p><a href="https://developer.riotgames.com/">Riot Games API:</a> the best place for any GET requests about League of Legends information.</p>
+                            <p><a href="http://leagueoflegends.wikia.com/api/v1">League of Legends Fandom Wiki API:</a> the only other place for any GET requests about League of Legends.</p>
+                            <br></br>
 
-
-                            <h2 class="title wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">STATS </h2>
-                            <h4> total no. of commits: 176</h4>
-                            <h4>total no. of issues: 33</h4>
-                            <a href="https://github.com/xiazilla/idb" class="btn btn-default btn-contact wow fadeInDown" data-wow-delay=".7s" data-wow-duration="500ms">Github Repo  </a>
-
-                            <a href="http://docs.xiazilla.apiary.io/#" class="btn btn-default btn-contact wow fadeInDown" data-wow-delay=".7s" data-wow-duration="500ms">Apiary API  </a>
-
-                            <a href="https://trello.com/b/XNiqgNfd/static-webpage" class="btn btn-default btn-contact wow fadeInDown" data-wow-delay=".7s" data-wow-duration="500ms">Trello  </a>
-
-                            <a href="https://utexas.box.com/s/tn6eq1ub4py0zc6mfgnezvhw7u1mgse8" class="btn btn-default btn-contact wow fadeInDown" data-wow-delay=".7s" data-wow-duration="500ms">Technical Report  </a>
-
-                            <a href="https://utexas.box.com/s/7fje911p5y2l2nkof5zdmpqaa0t5r061" class="btn btn-default btn-contact wow fadeInDown" data-wow-delay=".7s" data-wow-duration="500ms">UML</a>
-                        </div>
+                            <h2 class="title"> <b>STATS</b> </h2>
+                            <h5>total no. of commits: 176</h5>
+                            <h5>total no. of issues: 33</h5>
+                            <h5>total no. of unit tests: </h5>
+                            <br></br>
+                            <a href="https://github.com/xiazilla/idb"><button className="btn">Github Repo</button></a> &nbsp;
+                            <a href="http://docs.xiazilla.apiary.io/#"><button className="btn">Apiary API</button></a> &nbsp;
+                            <a href="https://trello.com/b/XNiqgNfd/static-webpage"><button className="btn">Trello</button></a> &nbsp;
+                            <a href="https://utexas.box.com/s/tn6eq1ub4py0zc6mfgnezvhw7u1mgse8"><button className="btn">Tech Report</button></a> &nbsp;
+                            <a href="https://utexas.box.com/s/7fje911p5y2l2nkof5zdmpqaa0t5r061"><button className="btn">UML</button></a>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -152,7 +159,7 @@ class About extends Component {
     
             </div>
             </div>
-	        
+       
         )
     }
 }

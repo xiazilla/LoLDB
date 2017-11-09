@@ -1,4 +1,9 @@
-.sliderContainer{
+.sliderContainer2{
     position: relative;
-    height: 78vh;
+    height: 70vh;
+    z-index: 500;
+}
+
+.timeline {
+	z-index: 900;
 }

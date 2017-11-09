@@ -25,7 +25,7 @@ class MatchObject extends Component {
     }
 
     render () {
-
+        console.log(this.props.thisMatch.gameMode)
 
         // let champImage = champData.data.filter(function(i) {
         //   return i.id === this.props.thisChampId;

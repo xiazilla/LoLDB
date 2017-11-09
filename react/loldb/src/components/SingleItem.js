@@ -91,6 +91,8 @@ class SingleItem extends Component{
 					return (<a href={`/maps/Summoner's%20Rift`}>Summoner's Rift</a>)
 				case 12:
 					return (<a href={`/maps/Howling%20Abyss`}>Howling Abyss</a>)
+				default:
+					return false
 			}
 		}
 	}
@@ -103,7 +105,7 @@ class SingleItem extends Component{
 		return (
 			<div>
 				<h4>Most Frequently Built On</h4>
-				<div className = "row-md-10"> {item.builtOn.map(champion => 
+				<div className = "row-md-10"> {item.builtOn.slice(0,6).map(champion => 
     				<a href={`/Champions/${champion}`} >  <img src={(imagechampionUrl).concat(champion + ".png") } alt="" />   </a>)}
     			</div>
 			</div>)
@@ -145,7 +147,7 @@ class SingleItem extends Component{
 					<h4>Recipe</h4>
 					<div className="tree">
 						<ul>
-							<ItemTreeObj id={this.props.match.params.id} item={data}/>
+							<ItemTreeObj id={id} item={data}/>
 						</ul>
 		            </div>
 		            {item.hasOwnProperty("builtOn") ? this.renderFreqBuiltOn(item) : false}
@@ -157,7 +159,7 @@ class SingleItem extends Component{
 				</div>)
 
 		} else {
-			return <div>loading...</div>
+			return <h2>Loading...</h2>
 		}
 	}
 

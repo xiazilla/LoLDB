@@ -572,6 +572,14 @@ ul.social-icons li {
 #copyright a:hover {
   text-decoration: none;
 }
+.global-about {
+  background-attachment: fixed;
+  background-size: 120x;
+  padding: 25px 0 25px 0;
+  position: relative;
+  background: #02bdd5;
+  color: #fff;
+}
 .global-page-header {
   background-attachment: fixed;
   background-size: 120x;
@@ -1213,3 +1221,7 @@ th {
 tr {
     border: 1 px solid #000000;
 };
+
+.pull-right {
+  float: right;
+}

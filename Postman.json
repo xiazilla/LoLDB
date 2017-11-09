@@ -1,0 +1,446 @@
+{
+	"info": {
+		"name": "LoLDB API Tests",
+		"_postman_id": "912519c0-b908-852f-3b93-ecc74f2ec4d8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "All Champions Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"All Champions Test\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.result.length).to.eql(138);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://loldbapi.appspot.com/api/champs",
+					"protocol": "https",
+					"host": [
+						"loldbapi",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"api",
+						"champs"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Specific Champion Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Specific Champion Test\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.result.length).to.eql(1);",
+							"    pm.expect(jsonData.result[0].name).to.eql(\"Wukong\");",
+							"    pm.expect(jsonData.result[0].riotName).to.eql(\"MonkeyKing\");",
+							"    pm.expect(jsonData.result[0].title).to.eql(\"the Monkey King\");",
+							"    pm.expect(jsonData.result[0].id).to.eql(62);",
+							"    pm.expect(jsonData.result[0].stats.armorperlevel).to.eql(3.5);",
+							"    pm.expect(jsonData.result[0].roles[0]).to.eql(\"Fighter\");",
+							"    pm.expect(jsonData.result[0].spells.length).to.eql(4);",
+							"    pm.expect(jsonData.result[0].skins.length).to.eql(6);",
+							"    pm.expect(Object.keys(jsonData.result[0].stats).length).to.eql(20);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://loldbapi.appspot.com/api/champs/Wukong",
+					"protocol": "https",
+					"host": [
+						"loldbapi",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"api",
+						"champs",
+						"Wukong"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Bad Champion Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Bad Champion Test\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.result).to.eql(\"no champion with that name\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://loldbapi.appspot.com/api/champs/Monkey%20King",
+					"protocol": "https",
+					"host": [
+						"loldbapi",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"api",
+						"champs",
+						"Monkey%20King"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "All Items Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"All Items Test\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.result.length).to.eql(263);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://loldbapi.appspot.com/api/items",
+					"protocol": "https",
+					"host": [
+						"loldbapi",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"api",
+						"items"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Specific Item Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Specific Item Test\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.result.length).to.eql(1);",
+							"    pm.expect(jsonData.result[0].name).to.eql(\"Dagger\");",
+							"    pm.expect(jsonData.result[0].gold.total).to.eql(300);",
+							"    pm.expect(jsonData.result[0].id).to.eql(1042);",
+							"    pm.expect(jsonData.result[0].sanitizedDescription).to.eql(\"+12% Attack Speed\");",
+							"    pm.expect(jsonData.result[0].categories[0]).to.eql(\"AttackSpeed\");",
+							"    pm.expect(jsonData.result[0].builtOn.length).to.eql(22);",
+							"    pm.expect(jsonData.result[0].into.length).to.eql(8);",
+							"    pm.expect(Object.keys(jsonData.result[0].maps).length).to.eql(7);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://loldbapi.appspot.com/api/items/Dagger",
+					"protocol": "https",
+					"host": [
+						"loldbapi",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"api",
+						"items",
+						"Dagger"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Bad Item Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Bad Item Test\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.result).to.eql(\"no item with that name\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://loldbapi.appspot.com/api/items/Dagga",
+					"protocol": "https",
+					"host": [
+						"loldbapi",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"api",
+						"items",
+						"Dagga"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "All Matches Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"All Matches Request\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.result.length).to.eql(20);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://loldbapi.appspot.com/api/matches",
+					"protocol": "https",
+					"host": [
+						"loldbapi",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"api",
+						"matches"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Bad Match Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Bad Match Test\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.result).to.eql(\"no matching match for match ID\")",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://loldbapi.appspot.com/api/matches/2626065324",
+					"protocol": "https",
+					"host": [
+						"loldbapi",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"api",
+						"matches",
+						"2626065324"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "All Maps Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"All Maps Test\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.result.length).to.eql(4);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://loldbapi.appspot.com/api/maps",
+					"protocol": "https",
+					"host": [
+						"loldbapi",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"api",
+						"maps"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Specific Map Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Specific Map Test\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.result.length).to.eql(1);",
+							"    pm.expect(jsonData.result[0].mapName).to.eql(\"The Crystal Scar\");",
+							"    pm.expect(jsonData.result[0].mapId).to.eql(8);",
+							"    pm.expect(jsonData.result[0].champs.length).to.eql(4);",
+							"    pm.expect(jsonData.result[0].items.length).to.eql(3);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://loldbapi.appspot.com/api/maps/The%20Crystal%20Scar",
+					"protocol": "https",
+					"host": [
+						"loldbapi",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"api",
+						"maps",
+						"The%20Crystal%20Scar"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Bad Map Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Bad Map Test\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.result).to.eql(\"no map with that name\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://loldbapi.appspot.com/api/maps/cat",
+					"protocol": "https",
+					"host": [
+						"loldbapi",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"api",
+						"maps",
+						"cat"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
