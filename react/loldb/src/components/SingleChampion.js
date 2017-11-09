@@ -202,7 +202,7 @@ class SingleChampion extends Component {
 					<div className="text"><h3>Champion Lore</h3></div>
 					<div className="row">
 						<div className="text2">
-							<p>{this.GetHtml(lore)}</p>
+							<p><div dangerouslySetInnerHTML={{__html: lore}}></div></p>
 						</div>
 					</div>
 				</div>

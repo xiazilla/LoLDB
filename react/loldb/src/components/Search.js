@@ -62,9 +62,21 @@ class Search extends Component {
         this.setState({activePage: pageNumber})
     }
 
+    stripHtml( input ) {
+		var html = input;
+    	var div = document.createElement("div");
+		div.innerHTML = html;
+		var text = div.textContent || div.innerText || "";
+		return text;
+	}
+
+	boldKeyword(input, keywords) {
+		input = this.stripHtml(input);
+		return input.replace(new RegExp('(^.*)(' + keywords + ')(.*$)','ig'), '$1<b>$2</b>$3');
+	}
+
 	render() {
-		console.log(this.props.match.params.searchFor);
-		console.log(mockData)
+		let searchTerm = this.props.match.params.searchFor
 		let champResult = this.state.champResult
 		let itemResult = this.state.itemResult
 		let mapResult = this.state.mapResult
@@ -120,8 +132,6 @@ class Search extends Component {
 	            pages[i] = i + 1
 	        }
 
-
-
 		return(
 			<div >
 				<div className="row">
@@ -147,7 +157,8 @@ class Search extends Component {
 				<div className="row">
 					<div className="col-md-1"> </div>
 					<div>
-						{results.map(r => <p className="text"><a href={r}>{r}</a></p>)}
+						{results.map(r => <p className="text"><a href={r.page}>{r.page}</a><br></br>
+							<div dangerouslySetInnerHTML={{__html: this.boldKeyword(r.blurb, searchTerm)}}></div></p>)}
 					</div>
 				</div>
 		        {numPages === 0 ? <div> No Matches Match Your Search </div> :
@@ -162,7 +173,7 @@ class Search extends Component {
                                             {this.state.activePage === numPages ? false: <button onClick={this.increasePage}>&raquo;</button>}
                                         </div>
                                 </div>
-                            </div>
+                      	      </div>
                         </div>
                     </div>   
                 </section>}
