@@ -176,8 +176,6 @@ api.add_resource(MapsOne, '/api/maps/<name>')
 
 
 class search(Resource):
-    client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
-    db = client.loldb
 
     champNames = {"velkoz":"vel'koz", "khazix":"kha'zix", "kogmaw":"kog'maw", 
                     "reksai":"rek'sai", "chogath":"cho'gath"}
@@ -317,6 +315,8 @@ class search(Resource):
 
     # Choose the blurbs to be displayed as search results
     def select_blurb(self, blurbs, value, collection, doc):
+        client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
+        db = client.loldb
         blurbsList = blurbs.split("\n")
         topBlurb = ""
         # Find the longest blurb
@@ -327,11 +327,11 @@ class search(Resource):
         blurbLen = len(topBlurb)
         # If longest blurb is still too short, we need to make it longer
         if blurbLen < self.LOWER_LIMIT:
-            if collection == self.db.champion:
+            if collection == db.champion:
                 topBlurb = self.champion_blurb(topBlurb, doc)
-            elif collection == self.db.item:
+            elif collection == db.item:
                 topBlurb = self.item_blurb(topBlurb, doc)
-            elif collection == self.db.match:
+            elif collection == db.match:
                 topBlurb = self.match_blurb(topBlurb, doc)
             else:
                 topBlurb = self.map_blurb(topBlurb, doc, value)
@@ -359,16 +359,18 @@ class search(Resource):
         output.append(temp)
 
     def get(self, value):
+        client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
+        db = client.loldb
         output = []
 
         value = value.lower()
         if value in self.champNames:
             value = self.champNames[value]
 
-        self.search_helper(output, self.db.champion, value)
-        self.search_helper(output, self.db.item, value)
-        self.search_helper(output, self.db.map, value)
-        self.search_helper(output, self.db.match, value)
+        self.search_helper(output, db.champion, value)
+        self.search_helper(output, db.item, value)
+        self.search_helper(output, db.map, value)
+        self.search_helper(output, db.match, value)
 
         js = json.dumps({'result' : output})
         resp = Response(js,status=200,mimetype='application/json')
@@ -381,3 +383,4 @@ if __name__ == '__main__' :
     app.run(host='0.0.0.0',debug=True,port=5000)
 
 # [END app]
+
