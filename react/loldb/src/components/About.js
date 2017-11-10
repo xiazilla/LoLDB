@@ -146,7 +146,7 @@ class About extends Component {
                             <h5>total no. of issues: 49</h5>
                             <h5>total no. of unit tests: 21</h5>
                             <br></br>
-                            <a href="https://github.com/xiazilla/idb/tree/Phase3Dev"><button className="btn">Github Repo</button></a> &nbsp;
+                            <a href="https://github.com/xiazilla/idb/tree/master"><button className="btn">Github Repo</button></a> &nbsp;
                             <a href="http://docs.xiazilla.apiary.io/#"><button className="btn">Apiary API</button></a> &nbsp;
                             <a href="https://trello.com/b/XNiqgNfd/static-webpage"><button className="btn">Trello</button></a> &nbsp;
                             <a href="https://utexas.box.com/s/tn6eq1ub4py0zc6mfgnezvhw7u1mgse8"><button className="btn">Tech Report</button></a> &nbsp;
