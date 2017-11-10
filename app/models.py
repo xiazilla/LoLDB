@@ -328,7 +328,7 @@ class search(Resource):
                     topBlurb = b
         blurbLen = len(topBlurb)
         # If longest blurb is still too short, we need to make it longer
-        if blurbLen < self.LOWER_LIMIT:
+        if 0 < blurbLen < self.LOWER_LIMIT:
             if collection == db.champion:
                 topBlurb = self.champion_blurb(topBlurb, doc)
             elif collection == db.item:
@@ -337,7 +337,6 @@ class search(Resource):
                 topBlurb = self.match_blurb(topBlurb, doc)
             else:
                 topBlurb = self.map_blurb(topBlurb, doc, value)
-
         elif blurbLen > self.UPPER_LIMIT:
             topBlurb = self.trim_blurb(topBlurb, value)
 
@@ -355,7 +354,8 @@ class search(Resource):
             d["page"] = doc['page']
             blurbs = self.create_blurb_from_dict(doc, value)
             d["blurb"] = self.select_blurb(blurbs, value, collection, doc)
-            results.append(d)
+            if d["blurb"] != "":
+                results.append(d)
 
     def get(self, value):
         client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
