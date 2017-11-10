@@ -280,7 +280,7 @@ class search(Resource):
     def map_blurb(self, topBlurb, doc, value):
         # Get map name
         result = doc["mapName"]
-        paragraphIter = iter(doc["article"]["sections"][0]["content"]["text"].split())
+        paragraphIter = iter(doc["article"]["sections"][0]["content"][0]["text"].split())
         try:
             # Iterate to get part of the article about the map
             while len(result) < self.UPPER_LIMIT:
@@ -343,7 +343,7 @@ class search(Resource):
         return topBlurb
 
     # Search our database for the specified value
-    def search_helper(self, results, collection, value):
+    def search_helper(self, results, collection, value, usedPages):
         # Search the indexes for value; sort by relevancy
         # Cursor contains all search results for value from collection
         cursor = collection.find({"$text": {"$search":  "'" + value + '"'}}, {"score": {"$meta": "textScore"}})
@@ -351,7 +351,11 @@ class search(Resource):
         # doc is the json corresponding to the search
         for doc in cursor:
             d = {}
-            d["page"] = doc['page']
+            if doc["page"] in usedPages:
+                continue
+            else:
+                usedPages |= {doc["page"]}
+            d["page"] = doc["page"]
             blurbs = self.create_blurb_from_dict(doc, value)
             d["blurb"] = self.select_blurb(blurbs, value, collection, doc)
             if d["blurb"] != "":
@@ -365,9 +369,10 @@ class search(Resource):
         mapResults = []
         matchResults = []
         output = []
+        usedPages = set()
 
-        #Get all alphanumeric search terms and store them in a list
-        valueList = re.split(r"\W", value)
+        #Get words separated by spaces and store them in a list
+        valueList = re.split(" ", value)
 
         #Search each of the collections with each of the search terms
         for v in valueList:
@@ -376,10 +381,10 @@ class search(Resource):
                 if v in self.champNames:
                     v = self.champNames[v]
 
-                self.search_helper(champResults, db.champion, v)
-                self.search_helper(itemResults, db.item, v)
-                self.search_helper(mapResults, db.map, v)
-                self.search_helper(matchResults, db.match, v)
+                self.search_helper(champResults, db.champion, v, usedPages)
+                self.search_helper(itemResults, db.item, v, usedPages)
+                self.search_helper(mapResults, db.map, v, usedPages)
+                self.search_helper(matchResults, db.match, v, usedPages)
 
         #Build the output JSON
         output.append(champResults)
