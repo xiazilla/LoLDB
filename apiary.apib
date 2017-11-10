@@ -479,30 +479,3 @@ LoLDBAPI is a simple and friendly-to-use API allowing the League of Legends deve
         { 
             "result": "no matching match for match ID"
         }
-        
-        
-        
-### Get Search Results [GET /search/{searchValue}]
-*Description: Fetches a JSON with all instances of searchValue in our database (dict)*
-
-*page (string) : URL to page which the search term appears on*
-
-*blurb (string) : Short text passage displaying the instance of the searchValue on that page*
-
-+ Parameter
-    + searchValue (string, required) - search term which the user has searched for
-    
-+ Response 200 (application/json)
-
-    {
-        "result": [
-            [
-                {
-                    "page": "https://loldb.me/champions/Twisted%20Fate",
-                    "blurb": "Twisted Fate is an infamous card sharp and swindler who has gambled and charmed his way across much of the known world, earning the enmity and admiration of the rich and foolish alike."
-                },
-                ...
-            ]
-            
-        ]
-    }
