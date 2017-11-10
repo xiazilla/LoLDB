@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import mockData from './twistedSearch.json'
 import "./map.css"
 import TextHighlight from 'react-text-highlight';
 
@@ -55,7 +54,6 @@ class Search extends Component {
 
 	componentWillMount(){
 		let url = `https://loldbapi.appspot.com/search/${this.props.match.params.searchFor}`
-		console.log(url)
 		fetch(url).then(results => {
 			if(!results.ok) {
 				throw new Error('Something went wrong!')
@@ -87,7 +85,12 @@ class Search extends Component {
 
 	boldKeyword(input, keywords) {
 		input = this.stripHtml(input);
-		return input.replace(new RegExp('(^.*)(' + keywords + ')(.*$)','ig'), '$1<b>$2</b>$3');
+		var terms = keywords.split(' ');
+		var i;
+		for (i in terms) {
+			input = input.replace(new RegExp('(^.*)(' + terms[i] + ')(.*$)','ig'), '$1<b>$2</b>$3');
+		}
+		return input;
 	}
 
 	render() {
