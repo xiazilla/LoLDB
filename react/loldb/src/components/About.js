@@ -23,7 +23,7 @@ class About extends Component {
             </div>
             </div>
 
-            <br></br>
+        <br></br>
         <h2 align="left">Motivation</h2>
         <p>
             LoLDB was created for summoners to look up information 

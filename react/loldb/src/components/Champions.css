@@ -23,7 +23,8 @@ Image{
 }
 
 .table {
-  margin: 0 0 40px 0;
+  margin: 0 0px 40px 0;
+  margin-left:40px;
   width: 100%;
   box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   display: table;
@@ -171,6 +172,10 @@ figure figcaption p {
 .text{
   text-align: left;
   margin-left: 30px;
+}
+
+.move{
+  margin-left: 160px;
 }
 
 .text2{
