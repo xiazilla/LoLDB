@@ -1,33 +1,33 @@
-sep=,,,,,,
-Story Title,Estimate,Vote Started,Voting Duration,Avg Voting Time,Fastest,Slowest
-"As a user, I would want to be able to filter champions by their class to help me quickly find the role I need.",,,,,,
-"As a user, I would want to be able to filter items by their stat bonuses to help me quickly find the items I would want to purchase.",,,,,,
-"As a user, I would want to be able to search throughout the site for all the pages relevant to the content I am looking for, saving me time from searching pages individually.",,,,,,
-"As a back-end developer, I would want to separate unit tests for my Python code from unit tests for my API as a means of preserving separation of concerns.",,,,,,
-"As a user, I would want the results of my search to be sorted in order of relevance in their respective categories as I would want my desired search as close to the top as possible.",,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
-"As a back-end developer, I would want to trim unnecessary elements from the champion JSON in order to reduce round-trip time of GET requests.",5,27/10/2017 00:46:14,00:03:08,00:02:17,Hiep Vu,Anjiya Nayani
-"As a front-end developer, I would want to parse large JSON elements in the back-end to reduce additional delays in rendering pages.",8,27/10/2017 00:41:22,00:04:23,00:02:42,Hiep Vu,Anjiya Nayani
-"As a developer, I would want good documentation for the API so that it would be easy to use by other developers.",3,27/10/2017 00:37:44,00:02:56,00:01:49,Hiep Vu,Anjiya Nayani
-"As a user, I would want a quick and responsive website that does not take a noticeable amount of time to load.",13,27/10/2017 00:34:14,00:01:47,00:00:53,Hiep Vu,Anjiya Nayani
-"As a front-end developer, I would want to make requests to my own API in order to make the website dynamic and reduce redundancy of parsing with the back-end.",8,27/10/2017 00:32:03,00:02:01,00:01:07,Hiep Vu,Anjiya Nayani
-"As a back-end developer, I would want to write unit tests for my API to ensure that the appropriate JSONs are returned for each GET request.",2,27/10/2017 00:28:56,00:01:18,00:00:49,Hiep Vu,Anjiya Nayani
-"As an administrator, I would want to create a database from the various APIs that were scraped to reduce the number of API calls necessary for running my website.",5,27/10/2017 00:24:12,00:03:15,00:02:43,Hiep Vu,Anjiya Nayani
-"As an administrator, I would want to separate the hosting of the database from the hosting of the website by creating a separate project for each to comply to separation of concerns.",5,27/10/2017 00:21:00,00:02:01,00:02:03,Hiep Vu,Anjiya Nayani
-"As a front-end developer, I would want to migrate to React from static HTML pages in order to build a more easily scalable application.",20,27/10/2017 00:17:40,00:02:27,00:01:22,Hiep Vu,Anjiya Nayani
-"As an administrator, I would want to maintain tables of JSONs we scrape from APIs in a way that minimizes parsing.",5,27/10/2017 00:14:44,00:01:48,00:01:48,Hiep Vu,Anjiya Nayani
-"As a user, I would want a nice theme that has good synergy with a gaming database or LoL so that it would be aesthetically pleasing.",1,25/09/2017 00:09:30,00:00:41,00:00:12,Hiep Vu,Anjiya Nayani
-"As a user, I would want to see a nice home page with interesting eyecatches when I visit the site.",3,25/09/2017 00:08:09,00:01:20,00:00:09,Hiep Vu,Anjiya Nayani
-"As a user, I would want to see basic information about a map to decide if I want to play on that map.",5,25/09/2017 00:07:38,00:00:27,00:00:07,Hiep Vu,Anjiya Nayani
-"As a user, I would want to see basic information about a champion to get a good grasp of that champion and determine if I want to play that champion.",5,25/09/2017 00:07:07,00:00:30,00:00:13,Hiep Vu,Anjiya Nayani
-"As a user, I would want to see basic information about an item to determine if it is a good buy at a glance.",5,25/09/2017 00:05:49,00:01:15,00:00:28,Hiep Vu,Anjiya Nayani
-"As a project manager, I would want to know who are the developers of the site and what they did to give credit where it is due.",3,25/09/2017 00:00:31,00:02:57,00:00:32,Hiep Vu,Anjiya Nayani
-"As a project manager, I would want to know the process involved in creating this project to critique and look back to learn from.",20,24/09/2017 23:56:58,00:02:15,00:00:52,Hiep Vu,Anjiya Nayani
-"As a user, I would want to know what the LoLDB API is capable of and what I can get from using this API.",3,24/09/2017 23:46:55,00:00:57,00:00:20,Hiep Vu,Anjiya Nayani
-"As a developer, I would want to host my website using a cloud computing instance such as GCP.",8,24/09/2017 23:45:28,00:00:57,00:00:22,Hiep Vu,Anjiya Nayani
-"As a user, I would want to know that my data is coming directly from Riot's API and is trustworthy.",3,24/09/2017 23:43:53,00:00:29,00:00:12,Hiep Vu,Anjiya Nayani
-"As a user, I would want to see details about a match sufficient to determine the performance of participants and the result.",13,24/09/2017 23:13:11,00:18:01,00:09:35,Hiep Vu,Anjiya Nayani
+sep=,,,,,,,
+Story Title,Estimate,Actual,Vote Started,Voting Duration,Avg Voting Time,Fastest,Slowest
+"As a user, I would want to be able to filter champions by their class to help me quickly find the role I need.",2,2,04/11/2017 19:46:15,00:02:13,00:01:07,Hiep Vu,Anjiya Nayani
+"As a user, I would want to be able to filter items by their stat bonuses to help me quickly find the items I would want to purchase.",3,2,04/11/2017 19:41:01,00:01:02,00:00:58,Hiep Vu,Anjiya Nayani
+"As a user, I would want to be able to search throughout the site for all the pages relevant to the content I am looking for, saving me time from searching pages individually.",13,10,04/11/2017 19:39:39,00:01:34,00:01:16,Hiep Vu,Anjiya Nayani
+"As a back-end developer, I would want to separate unit tests for my Python code from unit tests for my API as a means of preserving separation of concerns.",3,2,04/11/2017 19:36:26,00:01:40,00:01:38,Hiep Vu,Anjiya Nayani
+"As a user, I would want the results of my search to be sorted in order of relevance in their respective categories as I would want my desired search as close to the top as possible.",5,3,04/11/2017 19:33:57,00:01:47,00:01:20,Hiep Vu,Anjiya Nayani
+"As a user, I would want to see a blurb for each search result so that I can determine if I want to visit that page.",5,5,04/11/2017 19:32:04,00:00:31,00:00:27,Hiep Vu,Anjiya Nayani
+"As a developer, I would want to retrieve the blurbs in the back-end in order to minimize delay in rendering the search results page.",3,5,04/11/2017 19:30:33,00:01:10,00:01:09,Hiep Vu,Anjiya Nayani
+"As a developer, I would want a search API call that the front-end can use to communicate with the back-end in order to retrieve search results.",5,8,04/11/2017 19:26:24,00:02:56,00:02:23,Hiep Vu,Anjiya Nayani
+"As a user, I would want to be able to sort the items on a page in order to make finding what I want easier.",2,3,04/11/2017 19:23:54,00:02:21,00:02:01,Hiep Vu,Anjiya Nayani
+"As a user, I would want to have the items on a page be split into multiple pages so that I’m not overwhelmed by so many things on the page at the same time.",2,5,04/11/2017 19:21:24,00:01:37,00:00:57,Hiep Vu,Anjiya Nayani
+"As a back-end developer, I would want to trim unnecessary elements from the champion JSON in order to reduce round-trip time of GET requests.",5,2,27/10/2017 00:46:14,00:03:08,00:02:17,Hiep Vu,Anjiya Nayani
+"As a front-end developer, I would want to parse large JSON elements in the back-end to reduce additional delays in rendering pages.",8,3,27/10/2017 00:41:22,00:04:23,00:02:42,Hiep Vu,Anjiya Nayani
+"As a developer, I would want good documentation for the API so that it would be easy to use by other developers.",3,2,27/10/2017 00:37:44,00:02:56,00:01:49,Hiep Vu,Anjiya Nayani
+"As a user, I would want a quick and responsive website that does not take a noticeable amount of time to load.",13,15,27/10/2017 00:34:14,00:01:47,00:00:53,Hiep Vu,Anjiya Nayani
+"As a front-end developer, I would want to make requests to my own API in order to make the website dynamic and reduce redundancy of parsing with the back-end.",8,2,27/10/2017 00:32:03,00:02:01,00:01:07,Hiep Vu,Anjiya Nayani
+"As a back-end developer, I would want to write unit tests for my API to ensure that the appropriate JSONs are returned for each GET request.",2,2,27/10/2017 00:28:56,00:01:18,00:00:49,Hiep Vu,Anjiya Nayani
+"As an administrator, I would want to create a database from the various APIs that were scraped to reduce the number of API calls necessary for running my website.",5,15,27/10/2017 00:24:12,00:03:15,00:02:43,Hiep Vu,Anjiya Nayani
+"As an administrator, I would want to separate the hosting of the database from the hosting of the website by creating a separate project for each to comply to separation of concerns.",5,12,27/10/2017 00:21:00,00:02:01,00:02:03,Hiep Vu,Anjiya Nayani
+"As a front-end developer, I would want to migrate to React from static HTML pages in order to build a more easily scalable application.",20,20,27/10/2017 00:17:40,00:02:27,00:01:22,Hiep Vu,Anjiya Nayani
+"As an administrator, I would want to maintain tables of JSONs we scrape from APIs in a way that minimizes parsing.",5,3,27/10/2017 00:14:44,00:01:48,00:01:48,Hiep Vu,Anjiya Nayani
+"As a user, I would want a nice theme that has good synergy with a gaming database or LoL so that it would be aesthetically pleasing.",1,1,25/09/2017 00:09:30,00:00:41,00:00:12,Hiep Vu,Anjiya Nayani
+"As a user, I would want to see a nice home page with interesting eyecatches when I visit the site.",3,2,25/09/2017 00:08:09,00:01:20,00:00:09,Hiep Vu,Anjiya Nayani
+"As a user, I would want to see basic information about a map to decide if I want to play on that map.",5,5,25/09/2017 00:07:38,00:00:27,00:00:07,Hiep Vu,Anjiya Nayani
+"As a user, I would want to see basic information about a champion to get a good grasp of that champion and determine if I want to play that champion.",5,5,25/09/2017 00:07:07,00:00:30,00:00:13,Hiep Vu,Anjiya Nayani
+"As a user, I would want to see basic information about an item to determine if it is a good buy at a glance.",5,6,25/09/2017 00:05:49,00:01:15,00:00:28,Hiep Vu,Anjiya Nayani
+"As a project manager, I would want to know who are the developers of the site and what they did to give credit where it is due.",3,2,25/09/2017 00:00:31,00:02:57,00:00:32,Hiep Vu,Anjiya Nayani
+"As a project manager, I would want to know the process involved in creating this project to critique and look back to learn from.",20,5,24/09/2017 23:56:58,00:02:15,00:00:52,Hiep Vu,Anjiya Nayani
+"As a user, I would want to know what the LoLDB API is capable of and what I can get from using this API.",3,3,24/09/2017 23:46:55,00:00:57,00:00:20,Hiep Vu,Anjiya Nayani
+"As a developer, I would want to host my website using a cloud computing instance such as GCP.",8,20,24/09/2017 23:45:28,00:00:57,00:00:22,Hiep Vu,Anjiya Nayani
+"As a user, I would want to know that my data is coming directly from Riot's API and is trustworthy.",3,1,24/09/2017 23:43:53,00:00:29,00:00:12,Hiep Vu,Anjiya Nayani
+"As a user, I would want to see details about a match sufficient to determine the performance of participants and the result.",13,8,24/09/2017 23:13:11,00:18:01,00:09:35,Hiep Vu,Anjiya Nayani
