@@ -46,9 +46,9 @@ class About extends Component {
                             <h4>Responsibilities:</h4>
                                 <p>Backend</p>
                                 
-                            <h5>Number of Commits: 30</h5>
-                            <h5>Number of Issues: 9</h5>
-                            <h5>Number of Unit Tests: 3</h5>
+                            <h5>Number of Commits: 48</h5>
+                            <h5>Number of Issues: 13</h5>
+                            <h5>Number of Unit Tests: 7</h5>
                             <br></br>
                         </div>
                     </div>
@@ -63,8 +63,8 @@ class About extends Component {
                             <h4>Responsibilities:</h4>
                                 <p>Frontend and Backend</p>
 
-                            <h5>Number of Commits: 39</h5>
-                            <h5>Number of Issues: 9</h5>
+                            <h5>Number of Commits: 58</h5>
+                            <h5>Number of Issues: 13</h5>
                             <h5>Number of Unit Tests: 0</h5>
                             <br></br>
                         </div>
@@ -79,9 +79,9 @@ class About extends Component {
                             Doesn't actually play League.</p> <br></br>
                             <h4>Responsibilities:</h4>
                                 <p>Backend</p>
-                            <h5>Number of Commits: 26</h5>
-                            <h5>Number of Issues: 5</h5>
-                            <h5>Number of Unit Tests: 8</h5>
+                            <h5>Number of Commits: 42</h5>
+                            <h5>Number of Issues: 9</h5>
+                            <h5>Number of Unit Tests: 14</h5>
                             <br></br>
                         </div>
                     </div>
@@ -94,8 +94,8 @@ class About extends Component {
                             <p> Senior in Computer Science. Allergic to weakness. And Bronzies.</p> <br></br>
                             <h4>Responsibilities:</h4>
                                 <p>Frontend</p>
-                            <h5>Number of Commits: 51</h5>
-                            <h5>Number of Issues: 5</h5>
+                            <h5>Number of Commits: 77</h5>
+                            <h5>Number of Issues: 8</h5>
                             <h5>Number of Unit Tests: 0</h5>
                             <br></br>
                         </div>
@@ -110,8 +110,8 @@ class About extends Component {
                             League of Legends because of this project.</p>
                             <h4>Responsibilities:</h4>
                                 <p>Frontend</p>
-                            <h5>Number of Commits: 32</h5>
-                            <h5>Number of Issues: 5</h5>
+                            <h5>Number of Commits: 43</h5>
+                            <h5>Number of Issues: 6</h5>
                             <h5>Number of Unit Tests: 0</h5>
                             <br></br>
                         </div>
@@ -142,11 +142,11 @@ class About extends Component {
                             <br></br>
 
                             <h2 class="title"> <b>STATS</b> </h2>
-                            <h5>total no. of commits: 176</h5>
-                            <h5>total no. of issues: 33</h5>
-                            <h5>total no. of unit tests: </h5>
+                            <h5>total no. of commits: 268</h5>
+                            <h5>total no. of issues: 49</h5>
+                            <h5>total no. of unit tests: 21</h5>
                             <br></br>
-                            <a href="https://github.com/xiazilla/idb"><button className="btn">Github Repo</button></a> &nbsp;
+                            <a href="https://github.com/xiazilla/idb/tree/Phase3Dev"><button className="btn">Github Repo</button></a> &nbsp;
                             <a href="http://docs.xiazilla.apiary.io/#"><button className="btn">Apiary API</button></a> &nbsp;
                             <a href="https://trello.com/b/XNiqgNfd/static-webpage"><button className="btn">Trello</button></a> &nbsp;
                             <a href="https://utexas.box.com/s/tn6eq1ub4py0zc6mfgnezvhw7u1mgse8"><button className="btn">Tech Report</button></a> &nbsp;
