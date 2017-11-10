@@ -149,7 +149,7 @@ class AllChampions extends Component {
                 </div>
             </section>
             {numPages === 0 ? false : 
-                <div className = "row">
+                <div className = "row"> 
                     {currentChampsOnPage.map(champion => <ChampionObject key={champions.id} thisChampion={champion} />)}
                 </div> }
             {numPages === 0 ? <div> No Champions Match Your Search </div> :

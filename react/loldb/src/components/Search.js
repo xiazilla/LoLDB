@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import "./map.css"
+import TextHighlight from 'react-text-highlight';
+
 
 class Search extends Component {
 
@@ -168,7 +170,7 @@ class Search extends Component {
 				            </select>
 				        </div>			        
 			        </div>
-					<h3> {this.state.filter} Results </h3>
+					<h3> {this.state.filter} Results For {this.props.match.params.searchFor}'</h3>
 
 					<div className="row">
 						<div className="col-md-1"> </div>

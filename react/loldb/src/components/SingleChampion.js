@@ -132,7 +132,7 @@ class SingleChampion extends Component {
 
 					<div className="text"><h3> Champion Abilities</h3></div>
 	                <div className="row">
-		                <table bordercolor="black">
+		                <table className="move" bordercolor="black">
 		                    <tr>
 		                        <th width="50">Ability</th>
 		                        <th width="100">Description</th>
@@ -160,7 +160,7 @@ class SingleChampion extends Component {
 		                    </tr>			                    
 		                </table>
 		            </div>				
-
+		            <br></br>
 					<div className="text"><h3> Skins </h3></div>
 					<div className="sliderContainer">
 			            <Carousel showThumbs={false}>
