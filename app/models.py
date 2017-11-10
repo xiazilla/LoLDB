@@ -24,10 +24,12 @@ from flask_restful import Resource, Api
 from bson.json_util import dumps
 from flask import Response
 import re
+from flask_cors import CORS
 # [END imports]
 
 # [START create_app]
 app = Flask(__name__)
+CORS(app)
 api = Api(app)
 # [END create_app]
 
@@ -396,3 +398,4 @@ if __name__ == '__main__' :
     app.run(host='0.0.0.0',debug=True,port=5000)
 
 # [END app]
+
