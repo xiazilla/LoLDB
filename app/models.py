@@ -23,10 +23,13 @@ import json
 from flask_restful import Resource, Api
 from bson.json_util import dumps
 from flask import Response
+import re
+from flask_cors import CORS
 # [END imports]
 
 # [START create_app]
 app = Flask(__name__)
+CORS(app)
 api = Api(app)
 # [END create_app]
 
@@ -44,8 +47,8 @@ def index():
 
 class ChampsAll(Resource):
     def get(self):
-	client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
-	db = client.loldb
+        client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
+        db = client.loldb
         output = []
         for c in db.champion.find():
             d = json.loads(dumps(c))
@@ -55,6 +58,7 @@ class ChampsAll(Resource):
         resp.headers['Access-Control-Allow-Origin'] = '*'
         return resp
 api.add_resource(ChampsAll, '/api/champs')
+
 
 class ChampsOne(Resource):
     def get(self, name):
@@ -67,11 +71,12 @@ class ChampsOne(Resource):
             output.append(d)
         else:
             output = "no champion with that name"
-	js = json.dumps({'result' : output})
+        js = json.dumps({'result' : output})
         resp = Response(js,status=200,mimetype='application/json')
         resp.headers['Access-Control-Allow-Origin'] = '*'
         return resp
 api.add_resource(ChampsOne, '/api/champs/<name>')
+
 
 class ItemsAll(Resource):
     def get(self):
@@ -86,6 +91,7 @@ class ItemsAll(Resource):
         resp.headers['Access-Control-Allow-Origin'] = '*'
         return resp
 api.add_resource(ItemsAll, '/api/items')
+
 
 class ItemsOne(Resource):
     def get(self, name):
@@ -104,6 +110,7 @@ class ItemsOne(Resource):
         return resp
 api.add_resource(ItemsOne, '/api/items/<name>')
 
+
 class MatchesAll(Resource):
     def get(self):
         client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
@@ -117,6 +124,7 @@ class MatchesAll(Resource):
         resp.headers['Access-Control-Allow-Origin'] = '*'
         return resp
 api.add_resource(MatchesAll, '/api/matches') 
+
 
 class MatchesOne(Resource):
     def get(self, id):
@@ -135,6 +143,7 @@ class MatchesOne(Resource):
         return resp
 api.add_resource(MatchesOne, '/api/matches/<id>')
 
+
 class MapsAll(Resource):
     def get(self):
         client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
@@ -148,6 +157,7 @@ class MapsAll(Resource):
         resp.headers['Access-Control-Allow-Origin'] = '*'
         return resp
 api.add_resource(MapsAll, '/api/maps')
+
 
 class MapsOne(Resource):
     def get(self, name):
@@ -166,7 +176,231 @@ class MapsOne(Resource):
         return resp
 api.add_resource(MapsOne, '/api/maps/<name>')
 
+
+class search(Resource):
+
+    champNames = {"velkoz":"vel'koz", "khazix":"kha'zix", "kogmaw":"kog'maw", 
+                    "reksai":"rek'sai", "chogath":"cho'gath"}
+
+    #Lower and upper limits for the number of characters in a blurb
+    LOWER_LIMIT = 100
+    UPPER_LIMIT = 150
+
+    # Search through a list for blurbs
+    def create_blurb_from_list(self, doc, value):
+        blurb = ""
+        for i in doc:
+            blurb += self.create_blurb(i, value)
+        return blurb
+
+   # Create blurb from the search value
+    def create_blurb(self, elem, value):
+        blurb = ""
+        if type(elem) == dict:
+            # nested dictionary, need to recursively parse
+            blurb += self.create_blurb_from_dict(elem, value)
+        elif type(elem) == list:
+            # nested list, need to recursively parse
+            blurb += self.create_blurb_from_list(elem, value)
+        else:
+            # all that's left are strings and numerical values
+            try:
+                if value in str(elem).lower():
+                    blurb += str(elem) + "\n"
+            except:
+                # In case we get some words with strange characters
+                pass
+        return blurb
+
+    # Search through a dictionary for blurbs
+    def create_blurb_from_dict(self, doc, value):
+        blurb = ""
+        for key in doc.keys():
+            blurb += self.create_blurb(doc[key], value)
+        return blurb
+
+
+    # Choose the blurb for champions
+    def champion_blurb(self, topBlurb, doc):
+        # Gets champion name
+        result = doc["name"]
+        # Gets champion title
+        result += ", " + doc["title"] + "."
+        # Check if we still need to append more
+        if len(result) < self.LOWER_LIMIT:
+            # Iterate to get part of the lore
+            lore = iter(doc["lore"].split(" "))
+            try:
+                while len(result) < self.LOWER_LIMIT:
+                    result += " " + lore.next()
+            except StopIteration:
+                # We should never run out of lore, but just in case
+                pass
+        # Check if we already added the top blurb
+        if (topBlurb != doc["name"] and (topBlurb != doc["title"])
+            and (topBlurb != doc["lore"])):
+            result += "... " + topBlurb
+        return result
+
+    # Choose the blurb for items
+    def item_blurb(self, topBlurb, doc):
+        # Get item name
+        result = doc["name"]
+        # Iterate to get part of the sanitized description
+        sanitizedDescription = iter(doc["sanitizedDescription"].split())
+        try:
+            while len(result) < self.UPPER_LIMIT:
+                result += " " + sanitizedDescription.next()
+        except StopIteration:
+            # In case the description is too short
+            pass
+        # Check if we already added the top blurb
+        if (topBlurb != doc["name"] and (topBlurb != doc["sanitizedDescription"])):
+            result += "... " + topBlurb
+        return result
+
+    # Choose the blurb for matches
+    def match_blurb(self, topBlurb, doc):
+        # Get game mode
+        result = doc["gameMode"]
+        # Get the player names
+        topBlurbAdded = False
+        # Get all of the players in the match
+        for i in doc["participantIdentities"]:
+            summonerName = i["player"]["summonerName"]
+            result += " " + summonerName + ","
+            if topBlurb in summonerName.lower():
+                topBlurbAdded = True
+        # Check if we already added the top blurb
+        if (topBlurb != doc["gameMode"] and not topBlurbAdded):
+            result += "... " + topBlurb
+        return result
+
+    # Choose the blurb for matches
+    def map_blurb(self, topBlurb, doc, value):
+        # Get map name
+        result = doc["mapName"]
+        paragraphIter = iter(doc["article"]["sections"][0]["content"][0]["text"].split())
+        try:
+            # Iterate to get part of the article about the map
+            while len(result) < self.UPPER_LIMIT:
+                result += " " + paragraphIter.next()
+        except StopIteration:
+            # We should never run out of content, but just in case
+            pass
+        # Check if we already added the top blurb
+        if value not in result:
+            result += "... " + topBlurb
+        return result
+
+    # Trims blurbs to fit in the alloted blurb space per search result
+    def trim_blurb(self, topBlurb, value):
+        # Split top blurb by periods, question marks, and exclamation points
+        # To get sentences
+        blurbList = re.split("\.+|\?+|\!+", topBlurb)
+        tempList = []
+        # Find which sentence contains the search value
+        index = 0
+        valueIndex = -1
+        for v in blurbList:
+            tempList.append(v.lower())
+            if value in tempList[index] and valueIndex < 0:
+                valueIndex = index
+            index += 1
+        # Add additional sentences to the blurb if needed
+        result = blurbList[valueIndex] + "."
+        if len(result) < self.LOWER_LIMIT and valueIndex != 0:
+            result = blurbList[valueIndex-1] + "." + result
+        if len(result) < self.LOWER_LIMIT and valueIndex < len(blurbList)-1:
+            result += blurbList[valueIndex+1] + "."
+        return result
+
+    # Choose the blurbs to be displayed as search results
+    def select_blurb(self, blurbs, value, collection, doc):
+        client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
+        db = client.loldb
+        blurbsList = blurbs.split("\n")
+        topBlurb = ""
+        # Find the longest blurb
+        for b in blurbsList:
+            if value in b.lower():
+                if len(b) > len(topBlurb):
+                    topBlurb = b
+        blurbLen = len(topBlurb)
+        # If longest blurb is still too short, we need to make it longer
+        if 0 < blurbLen < self.LOWER_LIMIT:
+            if collection == db.champion:
+                topBlurb = self.champion_blurb(topBlurb, doc)
+            elif collection == db.item:
+                topBlurb = self.item_blurb(topBlurb, doc)
+            elif collection == db.match:
+                topBlurb = self.match_blurb(topBlurb, doc)
+            else:
+                topBlurb = self.map_blurb(topBlurb, doc, value)
+        elif blurbLen > self.UPPER_LIMIT:
+            topBlurb = self.trim_blurb(topBlurb, value)
+
+        return topBlurb
+
+    # Search our database for the specified value
+    def search_helper(self, results, collection, value, usedPages):
+        # Search the indexes for value; sort by relevancy
+        # Cursor contains all search results for value from collection
+        cursor = collection.find({"$text": {"$search":  "'" + value + '"'}}, {"score": {"$meta": "textScore"}})
+        cursor.sort([("score", {"$meta":"textScore"})])
+        # doc is the json corresponding to the search
+        for doc in cursor:
+            d = {}
+            if doc["page"] in usedPages:
+                continue
+            else:
+                usedPages |= {doc["page"]}
+            d["page"] = doc["page"]
+            blurbs = self.create_blurb_from_dict(doc, value)
+            d["blurb"] = self.select_blurb(blurbs, value, collection, doc)
+            if d["blurb"] != "":
+                results.append(d)
+
+    def get(self, value):
+        client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
+        db = client.loldb
+        champResults = []
+        itemResults = []
+        mapResults = []
+        matchResults = []
+        output = []
+        usedPages = set()
+
+        #Get words separated by spaces and store them in a list
+        valueList = re.split(" ", value)
+
+        #Search each of the collections with each of the search terms
+        for v in valueList:
+            if len(v) != 0:
+                v = v.lower()
+                if v in self.champNames:
+                    v = self.champNames[v]
+
+                self.search_helper(champResults, db.champion, v, usedPages)
+                self.search_helper(itemResults, db.item, v, usedPages)
+                self.search_helper(mapResults, db.map, v, usedPages)
+                self.search_helper(matchResults, db.match, v, usedPages)
+
+        #Build the output JSON
+        output.append(champResults)
+        output.append(itemResults)
+        output.append(mapResults)
+        output.append(matchResults)
+
+        js = json.dumps({'result' : output})
+        resp = Response(js,status=200,mimetype='application/json')
+        resp.headers['Access-Control-Allow-Origin'] = '*'
+        return resp
+api.add_resource(search, '/search/<value>')
+
+
 if __name__ == '__main__' :
     app.run(host='0.0.0.0',debug=True,port=5000)
 
 # [END app]
+

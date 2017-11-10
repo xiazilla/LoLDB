@@ -4,14 +4,19 @@ from pymongo import *
 
 # IMPORTANT: Remember to check to this key or update before turnin
 API_KEY = "RGAPI-392de077-2157-49e7-8e3b-b764ac34dcc7"
-#API_KEY = "RGAPI-5083696d-fbb6-4fa0-a228-99f9b3283b9b";
+#API_KEY = "RGAPI-cefa420b-8a4f-4ee2-8cea-a8a0823e0956"
 
 # Set up mongo connection
 client = MongoClient("mongodb://root:root@localhost:27017")
 db = client.loldb
 
+# Site base URL
+site_base_URL = "https://loldb.me"
+
 # Dictionary of champion names and IDs
 champion_names = {}
+# Dictionary of riot names and IDs
+riot_names = {}
 # Dictionary of item names and IDs
 item_names = {}
 # Dictionary of recommended items
@@ -64,8 +69,10 @@ def create_champ_json(json_path, KEY) :
 
         min_champ_data["id"] = champ_data["id"]
         min_champ_data["name"] = champ_data["name"]
+        min_champ_data["riotName"] = champ
         # Add the champion mapping to the dictionary
         champion_names[champ_data["name"]] = champ_data["id"]
+        riot_names[champ_data["id"]] = champ
         min_champ_data["title"] = champ_data["title"]
         min_champ_data["skins"] = champ_data["skins"]
         # Get the champion URL
@@ -88,10 +95,14 @@ def create_champ_json(json_path, KEY) :
             min_champ_data["spells"].append(spell) 
         min_champ_data["stats"] = champ_data["stats"]
         min_champ_data["roles"] = champ_data["tags"]
-    	# Add the champion to mongo
+        # Add page link
+        page_URL = site_base_URL + "/champions/" + champ_data["name"]
+        min_champ_data["page"] = page_URL.replace(" ", "%20")
+        # Add the champion to mongo
         minimized["data"][champ] = min_champ_data
         db.champion.insert_one(min_champ_data)
-    
+
+    db.champion.create_index([("$**", TEXT)], weights={"name":100, "title":50, "skins":10, "recommended":2, "passive":5, "spells":5})
     #with open(json_path, "w") as json_file :
     #   json.dump(minimized, json_file)
     #print ("Wrote json to: " + json_path)
@@ -145,10 +156,13 @@ def create_item_json(json_path, KEY) :
             min_item_data["builtOn"] = list(rec_items[item])
         except KeyError:
             pass
+        # Add page link
+        min_item_data["page"] = site_base_URL + "/items/" + str(item_data["id"])
         # Add the item to mongo
         minimized["data"][item] = min_item_data
         db.item.insert_one(min_item_data)
 
+    db.item.create_index([("$**", TEXT)], weights={"name":100, "id":50, "into":5, "categories":5})
     #with open(json_path, "w") as json_file :
     #   json.dump(minimized, json_file)
     #print ("Wrote json to: " + json_path)
@@ -194,11 +208,18 @@ def create_match_json(json_path, KEY) :
     for acc_id in accountID_list:
         request_mhistory_url = mhistory_url + str(acc_id) + "/recent?api_key=" + KEY 
         # Get this player's most recent match
-        gameID_list.append(requests.get(request_mhistory_url).json()["matches"][0]["gameId"])
+        mhistory_matches = requests.get(request_mhistory_url).json()["matches"]
+        gameID = 0
+        i = 0
+        while gameID == 0:
+            if mhistory_matches[i]["queue"] != 950:
+                gameID = mhistory_matches[i]["gameId"]
+            i += 1
+        gameID_list.append(gameID)
     
     # Get info about summoner spells
     sum_spells = {}
-    request_sum_url = "https://na1.api.riotgames.com/lol/static-data/v3/summoner-spells?locale=en_US&dataById=true&api_key=" + KEY
+    request_sum_url = "https://na1.api.riotgames.com/lol/static-data/v3/summoner-spells?locale=en_US&dataById=true&tags=all&api_key=" + KEY
     sum_spell_data = requests.get(request_sum_url).json()["data"]
     for i in sum_spell_data:
         sum_spells[i] = sum_spell_data[i]["key"]
@@ -209,18 +230,19 @@ def create_match_json(json_path, KEY) :
     for game_id in gameID_list:
         request_match_url = match_url + str(game_id) + "?api_key=" + KEY
         match_data = requests.get(request_match_url).json()
-        # Invert champion dictionary to map IDs to names
-        champion_ids = dict([v,k] for k,v in champion_names.items())
-        # Replace champion IDs with names and summoner spell IDs with keys for easier parsing
+        # Replace champion IDs with riot names and summoner spell IDs with keys for easier parsing
         participants = match_data["participants"]
         for p in participants:
-            p["championName"] = champion_ids[p["championId"]]
+            p["championName"] = riot_names[p["championId"]]
             p["spell1Id"] = sum_spells[str(p["spell1Id"])]
             p["spell2Id"] = sum_spells[str(p["spell2Id"])]
         # Add the match to mongo
         minimized[game_id] = match_data
+        # Add page link
+        match_data["page"] = site_base_URL + "/matches/" + str(game_id)
         db.match.insert_one(match_data)
-    
+
+    db.match.create_index([("$**", TEXT)], weights={"gameId":100, "participantId":5})
     #with open(json_path, "w") as json_file :
     #   json.dump(minimized, json_file)
     #print ("Wrote json to: " + json_path)
@@ -335,26 +357,55 @@ def create_map_json(json_path, KEY) :
         map_data["mapName"] = map_name
         map_data["image"] = map_image_url
         map_data["article"] = article
+        # Add page link
+        page_URL = site_base_URL + "/maps/" + map_name
+        map_data["page"] = page_URL.replace(" ", "%20")
         # Champs is by names; items is by IDs
         map_data["champs"], map_data["items"] = parse_article(article)
         minimized[map_name] = map_data
         db.map.insert_one(map_data)
         count += 1
-    
+
+    db.map.create_index([("$**", TEXT)], weights={"mapName":100, "mapId":20}) 
     #with open(json_path, "w") as json_file :
     #   json.dump(minimized, json_file)
     #print ("Wrote json to: " + json_path)
 
 
-if __name__ == "__main__" :
-    # Drop tables before insert
+###########################################
+# drop_tables
+#
+# Drop all tables currently in the database
+#
+###########################################
+def drop_tables() :
+    # drop rows in tables
     db.champion.delete_many({})
     db.item.delete_many({})
     db.match.delete_many({})
     db.map.delete_many({})
 
-    # Create JSON and insert    
+    # drop indices
+    db.champion.drop_indexes()
+    db.item.drop_indexes()
+    db.match.drop_indexes()
+    db.map.drop_indexes()
+
+###############################################################
+# create_json
+#
+# Creates JSON for all models and insert them into the database
+#
+###############################################################
+def create_json() :   
     create_champ_json("champions.json", API_KEY)
     create_item_json("items.json", API_KEY)
     create_match_json("matches.json", API_KEY)
     create_map_json("maps.json", API_KEY)
+
+
+if __name__ == "__main__" :
+    # Drop tables before insert
+    drop_tables()
+    # Create JSON and insert
+    create_json()

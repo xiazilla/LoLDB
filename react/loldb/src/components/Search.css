@@ -1,0 +1,15 @@
+.wrapper {
+    border:1px solid #000;
+    display:inline-block;
+    position:relative;
+}
+
+.btn1 {
+    position:absolute;
+    right:0;
+    top:0;
+}
+
+.input1 {
+	padding-right: 30px;
+}
