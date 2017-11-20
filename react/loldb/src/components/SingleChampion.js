@@ -115,58 +115,65 @@ class SingleChampion extends Component {
       let passiveURL = 'https://ddragon.leagueoflegends.com/cdn/7.20.1/img/passive/';
 
       return (
-        <div>
-          <div className='img-wrapper2'>
-            <img src={championData.image} className='img-responsive' alt='portfolio items' />
+        <div className='test'>
+          <section className='global-page-header'>
+            <div className="container">
+              <div className="col-md-12">
+                <h2>{this.state.champName.toUpperCase()}</h2>
+                <p>{championData.title}</p>
+              </div>
+            </div>
+          </section>
+          
+
+            <div className='sliderContainer'>
+              <Carousel showThumbs={false}>
+                {skins.map((skin) =>
+                  <SkinObject key={skin.title} thisSkin={skin} name={itemsChampName} index={skin.id % 10} />)}
+              </Carousel>
+            </div>
+
+
+          <div className='champion_abilities'>
+            <h3> Champion Abilities</h3>
+            <div className='row'>
+              <table className='champion_abilities'>
+                <tr>
+                  <th width='50'>Ability</th>
+                  <th width='100'>Description</th>
+                </tr>
+                <tr>
+                  <td><img src={(passiveURL).concat(p.image.full)} className='img-responsive' alt='' title={this.GetHtml(p.sanitizedDescription)} /> <p>{p.name}</p></td>
+                  <td>{this.GetHtml(p.sanitizedDescription)}</td>
+                </tr>
+                <tr>
+                  <td><img src={(imageURL).concat(q.image)} className='img-responsive' alt='' title={this.GetHtml(q.sanitizedDescription)} /> <p>{q.name}</p></td>
+                  <td>{this.GetHtml(q.sanitizedDescription)}</td>
+                </tr>
+                <tr>
+                  <td><img src={(imageURL).concat(w.image)} className='img-responsive' alt='' title={this.GetHtml(w.sanitizedDescription)} /> <p>{w.name}</p></td>
+                  <td>{this.GetHtml(w.sanitizedDescription)}</td>
+                </tr>
+                <tr>
+                  <td><img src={(imageURL).concat(e.image)} className='img-responsive' alt='' title={this.GetHtml(e.sanitizedDescription)} /> <p>{e.name}</p></td>
+                  <td>{this.GetHtml(e.sanitizedDescription)}</td>
+                </tr>
+                <tr>
+                  <td><img src={(imageURL).concat(r.image)} className='img-responsive' alt='' title={this.GetHtml(r.sanitizedDescription)} /> <p>{r.name}</p></td>
+                  <td>{this.GetHtml(r.sanitizedDescription)}</td>
+                </tr>
+              </table>
+            </div>
           </div>
-          <h3><strong>{this.state.champName}</strong></h3>
-          <h4>{championData.title}</h4>
 
-          <div className='text'><h3> Champion Abilities</h3></div>
-          <div className='row'>
-            <table className='move' bordercolor='black'>
-              <tr>
-                <th width='50'>Ability</th>
-                <th width='100'>Description</th>
 
-              </tr>
-              <tr>
-                <td><img src={(passiveURL).concat(p.image.full)} className='img-responsive' alt='' title={this.GetHtml(p.sanitizedDescription)} /> <p>{p.name}</p></td>
-                <td>{this.GetHtml(p.sanitizedDescription)}</td>
-              </tr>
-              <tr>
-                <td><img src={(imageURL).concat(q.image)} className='img-responsive' alt='' title={this.GetHtml(q.sanitizedDescription)} /> <p>{q.name}</p></td>
-                <td>{this.GetHtml(q.sanitizedDescription)}</td>
-              </tr>
-              <tr>
-                <td><img src={(imageURL).concat(w.image)} className='img-responsive' alt='' title={this.GetHtml(w.sanitizedDescription)} /> <p>{w.name}</p></td>
-                <td>{this.GetHtml(w.sanitizedDescription)}</td>
-              </tr>
-              <tr>
-                <td><img src={(imageURL).concat(e.image)} className='img-responsive' alt='' title={this.GetHtml(e.sanitizedDescription)} /> <p>{e.name}</p></td>
-                <td>{this.GetHtml(e.sanitizedDescription)}</td>
-              </tr>
-              <tr>
-                <td><img src={(imageURL).concat(r.image)} className='img-responsive' alt='' title={this.GetHtml(r.sanitizedDescription)} /> <p>{r.name}</p></td>
-                <td>{this.GetHtml(r.sanitizedDescription)}</td>
-              </tr>
-            </table>
-          </div>
-          <br />
-          <div className='text'><h3> Skins </h3></div>
-          <div className='sliderContainer'>
-            <Carousel showThumbs={false}>
-              {skins.map((skin) =>
-                <SkinObject key={skin.title} thisSkin={skin} name={itemsChampName} index={skin.id % 10} />)}
-
-            </Carousel>
-          </div>
-
-          <div className='text'><h3>Recommended Items</h3></div>
+          <div className='recommended_items'>
+          <h3>Recommended Items</h3>
 
           <div className='row'>
             <div className='col-md-4'>
-              <div className='container1'>
+              <div className='sr_container'>
+              	<div className='sr_bg'></div>
                 <h4><a href={`/maps/Summoner's%20Rift/`}>Summoner's Rift</a></h4>
                 <div>
                   <AllItems recommended={recommendedItems['' + SRRec]} />
@@ -174,7 +181,8 @@ class SingleChampion extends Component {
               </div>
             </div>
             <div className='col-md-4'>
-              <div className='container1'>
+              <div className='aram_container'>
+              	<div className='aram_bg'></div>
                 <h4><a href={`/maps/The%20Howling%20Abyss`}>ARAM</a></h4>
                 <div>
                   <AllItems recommended={recommendedItems['' + ARAMRec]} />
@@ -182,7 +190,8 @@ class SingleChampion extends Component {
               </div>
             </div>
             <div className='col-md-4'>
-              <div className='container1'>
+              <div className='tt_container'>
+              	<div className='tt_bg'></div>
                 <h4><a href={`/maps/The%20Twisted%20Treeline`}>Twisted Treeline</a></h4>
                 <div>
                   <AllItems recommended={recommendedItems['' + TTRec]} />
@@ -190,13 +199,14 @@ class SingleChampion extends Component {
               </div>
             </div>
           </div>
-
-          <div className='text'><h3>Champion Lore</h3></div>
-          <div className='row'>
-            <div className='text2'>
-              <p><div dangerouslySetInnerHTML={{__html: lore}} /></p>
-            </div>
           </div>
+
+            <div className='text'><h3>Champion Lore</h3></div>
+            <div className='row'>
+              <div className='text2'>
+                <p><div dangerouslySetInnerHTML={{__html: lore}} /></p>
+              </div>
+            </div>
         </div>
       );
     }

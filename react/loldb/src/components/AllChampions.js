@@ -106,7 +106,7 @@ class AllChampions extends Component {
     console.log(currentChampsOnPage);
 
     return (
-      <div>
+      <div className='test'>
         <section className='global-page-header'>
           <div className='container'>
             <div className='row'>
