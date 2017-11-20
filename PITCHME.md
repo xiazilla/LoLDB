@@ -1,4 +1,4 @@
-# LoLDB 
+# LoLDB.me 
 
 A League of Legends Database 
 
@@ -8,15 +8,61 @@ LoLDB was created for summoners to look up information about champions, items, g
 
 # SWE of Legends
 
-Presented by: 
-![Logo](idb/react/loldb/src/images/hiep_headshot.jpg)
-![Logo](idb/react/loldb/src/images/viet_headshot.jpg)
-![Logo](idb/react/loldb/src/images/welsey_headshot.jpg)
-![Logo](idb/react/loldb/src/images/jamie_headshot.jpg)
-![Logo](idb/react/loldb/src/images/anjiya_headshot.png)
+Meet the Team
+
++++
+
+## Hiep Vu
+![Image-Absolute](react/loldb/src/images/hiep_headshot.jpg)
+- Responsibility 1
+- Responsibility 2
+
++++
+
+## Viet Tran
+![Image-Absolute](react/loldb/src/images/viet_headshot.jpg)
+- Responsibility 1
+- Responsibility 2
+
++++
+
+## Wesley Chung
+![Image-Absolute](react/loldb/src/images/wesley_headshot.jpg)
+- Responsibility 1
+- Responsibility 2
+
++++
+
+## Jamie Xia
+![Image-Absolute](react/loldb/src/images/jamie_headshot.jpg)
+- Responsibility 1
+- Responsibility 2
+
++++
+
+## Anjiya Nayani
+![Image-Absolute](react/loldb/src/images/anjiya_headshot.png)
+- Responsibility 1
+- Responsibility 2
 
 ---
 
-# Thanks for Listening!
+# Demonstration 
 
-Last slide I hope?
+https://loldb.me
+
+---
+
+# What did we do well?
+
+---
+
+# What can we improve?
+
+---
+
+# Critique of SWE Travels 
+
+---
+
+# Thanks for listening!
