@@ -7,6 +7,40 @@ import profile5 from "../images/anjiya_headshot.png"
 
  
 class About extends Component {
+    constructor() {
+        super();
+
+        this.state = {
+            commits: {
+                "xiazilla": 0,
+                "hdv242": 0,
+                "anjiyanayani": 0,
+                "Frostyturtle": 0,
+                "shrimptoast12": 0,
+                "total": 0 
+            },
+        };
+
+        let url = 'https://api.github.com/repos/xiazilla/idb/stats/contributors';
+        fetch(url, {
+            method: 'GET',
+            dataType: 'json'
+        })
+        .then(response => response.json())
+        .then(results => {
+            console.log(results)
+            var sum = 0;
+            var recentCommits = {}
+            for(var count = 0; count < results.length; count++) {
+                sum += results[count].total;
+                recentCommits[results[count].author.login] = results[count].total;
+            }
+
+            recentCommits['total'] = sum;
+            this.setState({commits: recentCommits});
+        });
+
+    }
     render() {
         return (
         	
@@ -46,7 +80,7 @@ class About extends Component {
                             <h4>Responsibilities:</h4>
                                 <p>Backend</p>
                                 
-                            <h5>Number of Commits: 48</h5>
+                            <h5>Number of Commits: 48 and {this.state.commits['Frostyturtle']}</h5>
                             <h5>Number of Issues: 13</h5>
                             <h5>Number of Unit Tests: 7</h5>
                             <br></br>
@@ -63,7 +97,7 @@ class About extends Component {
                             <h4>Responsibilities:</h4>
                                 <p>Frontend and Backend</p>
 
-                            <h5>Number of Commits: 58</h5>
+                            <h5>Number of Commits: 58 and {this.state.commits['shrimptoast12']}</h5>
                             <h5>Number of Issues: 13</h5>
                             <h5>Number of Unit Tests: 0</h5>
                             <br></br>
@@ -79,7 +113,7 @@ class About extends Component {
                             Doesn't actually play League.</p> <br></br>
                             <h4>Responsibilities:</h4>
                                 <p>Backend</p>
-                            <h5>Number of Commits: 42</h5>
+                            <h5>Number of Commits: 42 and {this.state.commits['hdv242']}</h5>
                             <h5>Number of Issues: 9</h5>
                             <h5>Number of Unit Tests: 14</h5>
                             <br></br>
@@ -94,7 +128,7 @@ class About extends Component {
                             <p> Senior in Computer Science. Allergic to weakness. And Bronzies.</p> <br></br>
                             <h4>Responsibilities:</h4>
                                 <p>Frontend</p>
-                            <h5>Number of Commits: 77</h5>
+                            <h5>Number of Commits: 77 and {this.state.commits['xiazilla']}</h5>
                             <h5>Number of Issues: 8</h5>
                             <h5>Number of Unit Tests: 0</h5>
                             <br></br>
@@ -110,7 +144,7 @@ class About extends Component {
                             League of Legends because of this project.</p>
                             <h4>Responsibilities:</h4>
                                 <p>Frontend</p>
-                            <h5>Number of Commits: 43</h5>
+                            <h5>Number of Commits: 43 and {this.state.commits['anjiyanayani']}</h5>
                             <h5>Number of Issues: 6</h5>
                             <h5>Number of Unit Tests: 0</h5>
                             <br></br>
@@ -142,7 +176,7 @@ class About extends Component {
                             <br></br>
 
                             <h2 class="title"> <b>STATS</b> </h2>
-                            <h5>total no. of commits: 268</h5>
+                            <h5>total no. of commits: 268 and {this.state.commits['total']}</h5>
                             <h5>total no. of issues: 49</h5>
                             <h5>total no. of unit tests: 21</h5>
                             <br></br>
