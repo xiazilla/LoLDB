@@ -35,7 +35,7 @@ api = Api(app)
 
 
 app.config['MONGO_DBNAME'] = 'loldb'
-app.config['MONGO_URI'] = 'mongodb://root:root@104.197.227.107:27017/'
+app.config['MONGO_URI'] = 'mongodb://root:root@146.148.60.220:27017/'
 
 @app.route('/')
 
@@ -47,7 +47,7 @@ def index():
 
 class ChampsAll(Resource):
     def get(self):
-        client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
+        client = MongoClient('mongodb://root:root@146.148.60.220:27017/')
         db = client.loldb
         output = []
         for c in db.champion.find():
@@ -62,7 +62,7 @@ api.add_resource(ChampsAll, '/api/champs')
 
 class ChampsOne(Resource):
     def get(self, name):
-        client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
+        client = MongoClient('mongodb://root:root@146.148.60.220:27017/')
         db = client.loldb
         c = db.champion.find_one({'name' : name})
         output = []
@@ -80,7 +80,7 @@ api.add_resource(ChampsOne, '/api/champs/<name>')
 
 class ItemsAll(Resource):
     def get(self):
-        client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
+        client = MongoClient('mongodb://root:root@146.148.60.220:27017/')
         db = client.loldb
         output = []
         for i in db.item.find():
@@ -95,7 +95,7 @@ api.add_resource(ItemsAll, '/api/items')
 
 class ItemsOne(Resource):
     def get(self, name):
-        client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
+        client = MongoClient('mongodb://root:root@146.148.60.220:27017/')
         db = client.loldb
         i = db.item.find_one({'name' : name})
         output = []
@@ -113,7 +113,7 @@ api.add_resource(ItemsOne, '/api/items/<name>')
 
 class MatchesAll(Resource):
     def get(self):
-        client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
+        client = MongoClient('mongodb://root:root@146.148.60.220:27017/')
         db = client.loldb
         output = []
         for m in db.match.find():
@@ -128,7 +128,7 @@ api.add_resource(MatchesAll, '/api/matches')
 
 class MatchesOne(Resource):
     def get(self, id):
-        client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
+        client = MongoClient('mongodb://root:root@146.148.60.220:27017/')
         db = client.loldb
         m = db.match.find_one({'gameId' : int(id)})
         output = []
@@ -146,7 +146,7 @@ api.add_resource(MatchesOne, '/api/matches/<id>')
 
 class MapsAll(Resource):
     def get(self):
-        client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
+        client = MongoClient('mongodb://root:root@146.148.60.220:27017/')
         db = client.loldb
         output = []
         for m in db.map.find():
@@ -161,7 +161,7 @@ api.add_resource(MapsAll, '/api/maps')
 
 class MapsOne(Resource):
     def get(self, name):
-        client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
+        client = MongoClient('mongodb://root:root@146.148.60.220:27017/')
         db = client.loldb
         m = db.map.find_one({'mapName' : name})
         output = []
@@ -317,7 +317,7 @@ class search(Resource):
 
     # Choose the blurbs to be displayed as search results
     def select_blurb(self, blurbs, value, collection, doc):
-        client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
+        client = MongoClient('mongodb://root:root@146.148.60.220:27017/')
         db = client.loldb
         blurbsList = blurbs.split("\n")
         topBlurb = ""
@@ -362,7 +362,7 @@ class search(Resource):
                 results.append(d)
 
     def get(self, value):
-        client = MongoClient('mongodb://root:root@104.197.227.107:27017/')
+        client = MongoClient('mongodb://root:root@146.148.60.220:27017/')
         db = client.loldb
         champResults = []
         itemResults = []
