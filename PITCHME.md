@@ -21,8 +21,9 @@ Meet the Team
 
 ## Viet Tran
 ![Image-Absolute](react/loldb/src/images/viet_headshot.jpg)
-- Responsibility 1
-- Responsibility 2
+- Database Setup
+- Front-end Search Implementation
+- Page Designs
 
 +++
 
@@ -51,17 +52,41 @@ Meet the Team
 
 https://loldb.me
 
----
++++
 
 # What did we do well?
 
----
++++
 
-# What can we improve?
+# What did we learn?
+
++++
+
+# What can we do better?
+
++++
+
+# What puzzles us?
 
 ---
 
 # Critique of SWE Travels 
+
++++
+
+# What did they do well?
+
++++ 
+
+# What did we learn from their website?
+
++++
+
+# What can they do better?
+
++++
+
+# What puzzles us about their website?
 
 ---
 
