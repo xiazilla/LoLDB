@@ -8,6 +8,7 @@ import Items from './components/Items';
 import Matches from './components/Matches';
 import Maps from './components/Maps.js';
 import Search from './components/Search.js';
+import SweTravelsVis from './components/SweTravelsVis.js'
 
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
@@ -23,6 +24,7 @@ const Main = () => (
       <Route path='/matches' component={Matches} />
       <Route path='/maps' component={Maps} />
       <Route path='/searchResult=:searchFor' component={Search} />
+      <Route path='/SweTravelsVis' component={SweTravelsVis} />
     </Switch>
   </main>
 );

@@ -150,7 +150,8 @@ class About extends Component {
                             <a href="http://docs.xiazilla.apiary.io/#"><button className="btn">Apiary API</button></a> &nbsp;
                             <a href="https://trello.com/b/XNiqgNfd/static-webpage"><button className="btn">Trello</button></a> &nbsp;
                             <a href="https://utexas.box.com/s/fuwcfvl5aryiac0w3dda98idzzds9fis"><button className="btn">Tech Report</button></a> &nbsp;
-                            <a href="https://utexas.box.com/s/7fje911p5y2l2nkof5zdmpqaa0t5r061"><button className="btn">UML</button></a>
+                            <a href="https://utexas.box.com/s/7fje911p5y2l2nkof5zdmpqaa0t5r061"><button className="btn">UML</button></a> &nbsp;
+                            <a href={`/SweTravelsVis`}><button className="btn">SWEet Travels Visualization</button></a>
                             </div>
                     </div>
                 </div>
