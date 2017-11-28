@@ -15,10 +15,10 @@ class SweVisualization extends Component {
 	}
 
 	componentWillMount () {
-		let parksUrl = `http://sweet-travels.appspot.com/api/parks`;
-		let campgroundUrl = `http://sweet-travels.appspot.com/api/campgrounds`;
-		let visCenUrl = `http://sweet-travels.appspot.com/api/visitorcenters`;
-		let statesUrl = `http://sweet-travels.appspot.com/api/states`;
+		let parksUrl = `https://sweet-travels.appspot.com/api/parks`;
+		let campgroundUrl = `https://sweet-travels.appspot.com/api/campgrounds`;
+		let visCenUrl = `https://sweet-travels.appspot.com/api/visitorcenters`;
+		let statesUrl = `https://sweet-travels.appspot.com/api/states`;
 
 		fetch(parksUrl)
 		.then(response => {
@@ -55,16 +55,6 @@ class SweVisualization extends Component {
 		});
 	}
 
-	cgToStates(campground) {
-		console.log(campground);
-		if(campground.abbreviations === "CA,NV") {
-			return (<div></div>)
-		}
-		else {
-			return <ForceGraphLink link={{ source: campground.name, target: campground.abbreviations }} />
-		}
-	}
-
 
 
 
@@ -73,7 +63,7 @@ class SweVisualization extends Component {
 			return (<div>Loading...</div>)
 		} else {
 			// console.log(this.state.parks)
-			console.log(this.state.parks[0])
+			// console.log(this.state.parks[0])
 	        return (
 			    <div>
 			        <div className="global-about">
@@ -91,7 +81,7 @@ class SweVisualization extends Component {
 			        <br></br>
 
 					<InteractiveForceGraph
-					  simulationOptions={{ height: 600, width: 800, animate: true}}
+					  simulationOptions={{ height: 600, width: 1000, animate: true}}
 					  labelAttr="label"
 					  onSelectNode={(node) => console.log(node)}
 					  highlightDependencies
@@ -132,12 +122,16 @@ class SweVisualization extends Component {
 								if(park.states.length !== 2 ) {
 
 									var array = park.states.split(',');
-									array.map(function(state) {
-										if (state !== 'DC' && state !== 'AS' && state !== 'GU' && state !== 'VI') {
-											return <ForceGraphLink link={{ source: park.parkCode, target: park.state}} />
-										}
-									})
-									return <div></div>
+									return array.map(
+										function(state) {
+											if (state !== 'DC' && state !== 'AS' && state !== 'GU' && state !== 'VI') {
+												console.log(state)
+												console.log(park.parkCode)
+												return <ForceGraphLink link={{ source: park.parkCode, target: state}} />
+											} else {
+												return <div></div>
+											}
+										})
 								}
 								if(park.states !== 'DC' && park.states !== 'AS' && park.states !== 'GU' && park.states !== 'VI') {
 									return <ForceGraphLink link={{source: park.parkCode, target: park.states}} />
@@ -145,13 +139,11 @@ class SweVisualization extends Component {
 								return <div></div>
 							}
 						)}
-
-
-
-
-
-
 					</InteractiveForceGraph>
+
+					<h5 align="left">Description</h5>
+					<p>The graph above displays an interactive mapping of the SWEet Travel database. You can see blue dots which represent campgrounds, red dots which represent parks, orange dots which represent states and finally green dots which represent visitor centers. The lines between dots represent a link between two instances. Feel free to hover on dots to receive more information.</p>
+
 
 			    </div>
 		    )
