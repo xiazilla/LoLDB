@@ -46,9 +46,9 @@ Meet the Team
 
 ## Anjiya Nayani
 ![Image-Absolute](react/loldb/src/images/anjiya_headshot.png)
-- Front-end Development
+- Front-end Development and Page Design
 - Front-end Sorting Implementation 
-- Page Designs 
+- Github Commit Count Automation
 
 ---
 
