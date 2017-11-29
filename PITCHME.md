@@ -15,10 +15,8 @@ Meet the Team
 ## Hiep Vu
 ![Image-Absolute](react/loldb/src/images/hiep_headshot.jpg)
 - Database Setup and Maintenance 
-- Scraping 
+- Scraping and Unit Testing
 - Back-end Search Functionality
-- Unit Testing
-- Apiary
 
 +++
 
@@ -116,9 +114,9 @@ https://loldb.me
 +++
 
 # What puzzles us about their website?
-* "Menu" button on top left of navigation bar does nothing despite being hoverable and implying clickability 
+* "Menu" button on navigation bar does nothing despite being hoverable and implying clickability 
 * At the time of evaluation, the Campgrounds page was labeled "States"
-* When there are no filter/search results, the "Prev" and "Next" buttons remain on page
+* There are "Prev" and "Next" buttons when there are no filter/search results.
 ---
 
 # Thanks for listening!
