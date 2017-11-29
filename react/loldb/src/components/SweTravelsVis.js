@@ -88,7 +88,7 @@ class SweVisualization extends Component {
 			        <br></br>
 
 					<InteractiveForceGraph
-					  simulationOptions={{ height: 600, width: 1000, animate: true}}
+					  simulationOptions={{ height: 700, width: 1000, animate: true}}
 					  labelAttr="label"
 					  onSelectNode={(node) => console.log(node)}
 					  highlightDependencies
@@ -121,16 +121,16 @@ class SweVisualization extends Component {
 								} 
 								return <div></div>
 							} else {
-									var array = campground.states.split(',');
-									return array.map(
-										function(state) {
-											console.log(state)
-											if (state !== 'DC' && state !== 'AS' && state !== 'GU' && state !== 'VI'  && state.length === 2) {
-												return <ForceGraphLink link={{ source: campground.name, target: state}} />
-											} else {
-												return <div></div>
-											}
-										})
+								var array = campground.states.split(',');
+								return array.map(
+									function(state) {
+										console.log(state)
+										if (state !== 'DC' && state !== 'AS' && state !== 'GU' && state !== 'VI'  && state.length === 2) {
+											return <ForceGraphLink link={{ source: campground.name, target: state}} />
+										} else {
+											return <div></div>
+										}
+									})
 							}
 
 						})}

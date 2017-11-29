@@ -177,14 +177,14 @@ class About extends Component {
 
                             <h2 class="title"> <b>STATS</b> </h2>
                             <h5>total no. of commits: {this.state.commits['total']}</h5>
-                            <h5>total no. of issues: 49</h5>
+                            <h5>total no. of issues: 63</h5>
                             <h5>total no. of unit tests: 21</h5>
                             <br></br>
                             <a href="https://github.com/xiazilla/idb/tree/master"><button className="btn">Github Repo</button></a> &nbsp;
                             <a href="http://docs.xiazilla.apiary.io/#"><button className="btn">Apiary API</button></a> &nbsp;
                             <a href="https://trello.com/b/XNiqgNfd/static-webpage"><button className="btn">Trello</button></a> &nbsp;
                             <a href="https://www.gitbook.com/book/hdv242/swe-technical-report/details"><button className="btn">Tech Report</button></a> &nbsp;
-                            <a href="https://utexas.box.com/s/7fje911p5y2l2nkof5zdmpqaa0t5r061"><button className="btn">UML</button></a> &nbsp;
+                            <a href="https://www.gitbook.com/book/hdv242/uml/details"><button className="btn">UML</button></a> &nbsp;
                             <a href={`/SweTravelsVis`}><button className="btn">SWEet Travels Visualization</button></a> &nbsp;
                             <a href="https://gitpitch.com/xiazilla/idb/"><button className="btn">GitPitch</button></a> &nbsp;
                             </div>
