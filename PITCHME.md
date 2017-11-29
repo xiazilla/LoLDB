@@ -24,10 +24,8 @@ Meet the Team
 
 ## Viet Tran
 ![Image-Absolute](react/loldb/src/images/viet_headshot.jpg)
-- Database Setup
-- GCP Setup 
-- Front-end Search Implementation
-- Front-end Filtering Implementation 
+- Database and GCP Setup
+- Front-end Search and Filtering Implementation
 - Page Designs
 
 +++
@@ -35,17 +33,16 @@ Meet the Team
 ## Wesley Chung
 ![Image-Absolute](react/loldb/src/images/wesley_headshot.jpg)
 - Back-end Search Functionality
-- API Hosting 
+- API Hosting and Apiary
 - Database Setup and Maintenance 
 
 +++
 
 ## Jamie Xia
 ![Image-Absolute](react/loldb/src/images/jamie_headshot.jpg)
-- Visualization with D3
-- Setting up React 
 - Apiary
-- Front-end Development
+- Front-end Development and React Setup
+- Visualization with D3
 
 +++
 
@@ -113,12 +110,13 @@ https://loldb.me
 # What can they do better?
 * Each state should show the names of the parks located in the state rather than the park code
 * Possibly add an indicator to identify that there are no results for a specific filter
-- 
+
+
 
 +++
 
 # What puzzles us about their website?
-* "Menu" button on top left of navigation bar does nothing on any despite showing it is hoverable and implying clickability 
+* "Menu" button on top left of navigation bar does nothing despite being hoverable and implying clickability 
 * At the time of evaluation, the Campgrounds page was labeled "States"
 * When there are no filter/search results, the "Prev" and "Next" buttons remain on page
 ---
