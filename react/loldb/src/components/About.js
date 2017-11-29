@@ -80,7 +80,7 @@ class About extends Component {
                             <h4>Responsibilities:</h4>
                                 <p>Backend</p>
                                 
-                            <h5>Number of Commits: {this.state.commits['Frostyturtle']}</h5>
+                            <h5>Number of Commits: {this.state.commits['Frostyturtle']  + 13}</h5>
                             <h5>Number of Issues: 13</h5>
                             <h5>Number of Unit Tests: 7</h5>
                             <br></br>
@@ -97,7 +97,7 @@ class About extends Component {
                             <h4>Responsibilities:</h4>
                                 <p>Frontend and Backend</p>
 
-                            <h5>Number of Commits: {this.state.commits['shrimptoast12']}</h5>
+                            <h5>Number of Commits: {this.state.commits['shrimptoast12']  + 23}</h5>
                             <h5>Number of Issues: 13</h5>
                             <h5>Number of Unit Tests: 0</h5>
                             <br></br>
@@ -113,7 +113,7 @@ class About extends Component {
                             Doesn't actually play League.</p> <br></br>
                             <h4>Responsibilities:</h4>
                                 <p>Backend</p>
-                            <h5>Number of Commits: {this.state.commits['hdv242']}</h5>
+                            <h5>Number of Commits: {this.state.commits['hdv242'] + 7}</h5>
                             <h5>Number of Issues: 9</h5>
                             <h5>Number of Unit Tests: 14</h5>
                             <br></br>
@@ -128,7 +128,7 @@ class About extends Component {
                             <p> Senior in Computer Science. Allergic to weakness. And Bronzies.</p> <br></br>
                             <h4>Responsibilities:</h4>
                                 <p>Frontend</p>
-                            <h5>Number of Commits: {this.state.commits['xiazilla']}</h5>
+                            <h5>Number of Commits: {this.state.commits['xiazilla'] + 54}</h5>
                             <h5>Number of Issues: 8</h5>
                             <h5>Number of Unit Tests: 0</h5>
                             <br></br>
@@ -144,7 +144,7 @@ class About extends Component {
                             League of Legends because of this project.</p>
                             <h4>Responsibilities:</h4>
                                 <p>Frontend</p>
-                            <h5>Number of Commits: {this.state.commits['anjiyanayani']}</h5>
+                            <h5>Number of Commits: {this.state.commits['anjiyanayani'] + 13}</h5>
                             <h5>Number of Issues: 6</h5>
                             <h5>Number of Unit Tests: 0</h5>
                             <br></br>
@@ -176,7 +176,7 @@ class About extends Component {
                             <br></br>
 
                             <h2 class="title"> <b>STATS</b> </h2>
-                            <h5>total no. of commits: {this.state.commits['total']}</h5>
+                            <h5>total no. of commits: {this.state.commits['total'] + 139}</h5>
                             <h5>total no. of issues: 63</h5>
                             <h5>total no. of unit tests: 21</h5>
                             <br></br>
