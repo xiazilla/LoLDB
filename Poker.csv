@@ -1,5 +1,15 @@
 sep=,,,,,,,
 Story Title,Estimate,Actual,Vote Started,Voting Duration,Avg Voting Time,Fastest,Slowest
+"As a developer, I would want to write tests for my GUI using Selenium to make sure everything is fully functional on the front-end.",2,2,23/11/2017 15:20:09,00:01:42,00:01:12,Hiep Vu,Anjiya Nayani
+"As a developer, I would want to create a presentation of my website to convince the audience to use it.",3,2,23/11/2017 15:16:15,00:02:26,00:01:38,Hiep Vu,Anjiya Nayani
+"As a developer, I would want to critique my peer’s website in order to find out what my team could do better for our own.",1,2,23/11/2017 15:13:35,00:01:35,00:01:24,Hiep Vu,Anjiya Nayani
+"As a developer, I would want to create a visualization of my peer’s API in a neat way to convey model relationships of the API to my peers.",5,4,23/11/2017 15:12:02,00:00:30,00:00:27,Hiep Vu,Anjiya Nayani
+"As a developer, I would want to help the group who is critiquing us exercise and visualize our API.",3,1,23/11/2017 15:10:48,00:00:36,00:00:30,Hiep Vu,Anjiya Nayani
+"As a developer, I would want to take into consideration the critiques of others to improve our website/API.",3,1,23/11/2017 15:09:25,00:01:00,00:00:58,Hiep Vu,Anjiya Nayani
+"As a developer, I would want to make the routing of our website more reliable to maximize uptime and availability.",10,8,23/11/2017 15:07:11,00:01:05,00:01:00,Hiep Vu,Anjiya Nayani
+"As a developer, I would want to reanalyze our resource allocation to reduce the amount of resources used by our website because our app is consuming GCP credits too quickly.",2,2,23/11/2017 15:05:49,00:01:17,00:01:02,Hiep Vu,Anjiya Nayani
+"As a developer, I would want to further improve the aesthetics of our website to make it look more appealing to visitors.",8,7,23/11/2017 15:03:18,00:02:01,00:01:40,Hiep Vu,Anjiya Nayani
+"As a developer, I would want to practice showcasing our final product so that our presentation can go smoothly.",2,1,23/11/2017 15:01:37,00:01:08,00:01:03,Hiep Vu,Anjiya Nayani
 "As a user, I would want to be able to filter champions by their class to help me quickly find the role I need.",2,2,04/11/2017 19:46:15,00:02:13,00:01:07,Hiep Vu,Anjiya Nayani
 "As a user, I would want to be able to filter items by their stat bonuses to help me quickly find the items I would want to purchase.",3,2,04/11/2017 19:41:01,00:01:02,00:00:58,Hiep Vu,Anjiya Nayani
 "As a user, I would want to be able to search throughout the site for all the pages relevant to the content I am looking for, saving me time from searching pages individually.",13,10,04/11/2017 19:39:39,00:01:34,00:01:16,Hiep Vu,Anjiya Nayani

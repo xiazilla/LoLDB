@@ -109,8 +109,6 @@ https://loldb.me
 * Each state should show the names of the parks located in the state rather than the park code
 * Possibly add an indicator to identify that there are no results for a specific filter
 
-
-
 +++
 
 # What puzzles us?
