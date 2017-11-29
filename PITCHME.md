@@ -113,7 +113,7 @@ https://loldb.me
 
 +++
 
-# What puzzles?
+# What puzzles us?
 * "Menu" button on navigation bar does nothing despite being hoverable and implying clickability 
 * At the time of evaluation, the Campgrounds page was labeled "States"
 * There are "Prev" and "Next" buttons when there are no filter/search results.
