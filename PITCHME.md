@@ -54,7 +54,7 @@ Meet the Team
 
 # Demonstration 
 
-https://loldb.me
+http://loldb.me
 
 +++
 
