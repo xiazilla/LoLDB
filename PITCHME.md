@@ -59,8 +59,8 @@ http://loldb.me
 +++
 
 # What did we do well?
-* Real- time filtering by name while searching individual page
-* Search functionality
+* We implemented all of the requirements needed
+* We collaborated effectively
 * Organization and aesthetic of model pages 
 
 +++
@@ -68,24 +68,23 @@ http://loldb.me
 # What did we learn?
 * Back-end: 
 	* Database maintenance through MongoDB
-	* RESTful APIs 
-	* Flask
+	* RESTful APIs
 	* Postman
 * Front-end: 
-	* Created website from scratch with React 			
+	* Created website from scratch with React
+	* CORS
 +++
 
 # What can we do better?
 * Add more customization and features throughout our site
 * Implement regular expressions in Search
-* Reduce page load time with API calls
-* Additional sorting options 
+* Reduce page load time with API calls 
 
 +++
 
 # What puzzles us?
 * Inconsistency with website's routing 
-
+* GCP in general
 ---
 
 # Critique of SWEet Travels 
@@ -112,10 +111,12 @@ http://loldb.me
 +++
 
 # What puzzles us?
-* "Menu" button on navigation bar does nothing despite being hoverable and implying clickability 
-* At the time of evaluation, the Campgrounds page was labeled "States"
 * There are "Prev" and "Next" buttons when there are no filter/search results.
+
+---
+
+# Visualization
+
 ---
 
 # Thanks for listening!
-
