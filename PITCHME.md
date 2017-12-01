@@ -12,19 +12,19 @@ Meet the Team
 
 +++
 
-## Hiep Vu
-![Image-Absolute](react/loldb/src/images/hiep_headshot.jpg)
-- Database Setup and Maintenance 
-- Scraping and Unit Testing
-- Back-end Search Functionality
-
-+++
-
 ## Viet Tran
 ![Image-Absolute](react/loldb/src/images/viet_headshot.jpg)
 - Database and GCP Setup
 - Front-end Search and Filtering Implementation
 - Page Designs
+
++++
+
+## Hiep Vu
+![Image-Absolute](react/loldb/src/images/hiep_headshot.jpg)
+- Database Setup and Maintenance 
+- Scraping and Unit Testing
+- Back-end Search Functionality
 
 +++
 
